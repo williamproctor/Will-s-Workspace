@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Positioning Assessment | Fletch PMM x AI-Led Growth x April Dunford</title>
+  <meta name="description" content="A 12-question diagnostic to find the positioning approach that fits your reality — not your aspirations. Based on 400+ positioning projects and April Dunford's framework.">
+  <meta property="og:title" content="The Positioning Assessment">
+  <meta property="og:description" content="Find the positioning approach that fits your B2B reality in 3 minutes. Based on 400+ positioning projects.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========== INTRO SCREEN ========== -->
+  <section id="intro" class="screen active">
+    <div class="container">
+      <div class="intro-badge">12 Questions &middot; ~3 Minutes</div>
+      <h1 class="intro-title">The Positioning<br>Assessment</h1>
+      <p class="intro-subtitle">Fletch PMM &times; AI-Led Growth &times; April Dunford</p>
+      <p class="intro-description">
+        This decision tree turns patterns from 400+ positioning projects into a practical diagnostic, grounded in April Dunford's framework from <em>Obviously Awesome</em>.
+      </p>
+      <p class="intro-description">
+        Find out which positioning approach fits your <strong>reality</strong> — not your aspirations — based on downstream go-to-market constraints.
+      </p>
+      <div class="intro-instructions">
+        <div class="instruction-item">
+          <span class="instruction-icon">1</span>
+          <span>Answer 12 yes/no questions based on what's true <em>today</em></span>
+        </div>
+        <div class="instruction-item">
+          <span class="instruction-icon">2</span>
+          <span>Watch for hedged positioning signals</span>
+        </div>
+        <div class="instruction-item">
+          <span class="instruction-icon">3</span>
+          <span>Get your positioning profile mapped to 1 of 4 outcomes</span>
+        </div>
+      </div>
+      <button id="start-btn" class="btn btn-primary btn-large">Start the Assessment</button>
+    </div>
+  </section>
+
+  <!-- ========== QUIZ WIZARD ========== -->
+  <section id="quiz" class="screen">
+    <div class="progress-bar-track">
+      <div id="progress-bar" class="progress-bar-fill"></div>
+    </div>
+    <div class="container">
+      <div class="quiz-header">
+        <button id="back-btn" class="btn-back" aria-label="Go back">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back
+        </button>
+        <span id="question-counter" class="question-counter">Question 1 of 12</span>
+      </div>
+      <div id="question-card" class="question-card">
+        <h2 id="question-text" class="question-text"></h2>
+        <div class="answer-buttons">
+          <button id="btn-yes" class="btn btn-answer btn-yes">Yes</button>
+          <button id="btn-no" class="btn btn-answer btn-no">No</button>
+        </div>
+      </div>
+      <div id="question-context" class="question-context">
+        <button id="toggle-context" class="btn-toggle-context">
+          <span class="toggle-text">Why this matters</span>
+          <svg class="toggle-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="context-body" class="context-body">
+          <div id="context-yes" class="context-section">
+            <div class="context-label context-label-yes">If YES</div>
+            <p id="context-yes-text"></p>
+          </div>
+          <div id="context-no" class="context-section">
+            <div class="context-label context-label-no">If NO</div>
+            <p id="context-no-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EMAIL GATE ========== -->
+  <section id="email-gate" class="screen">
+    <div class="container">
+      <div class="email-icon">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="4" y="10" width="40" height="28" rx="4" stroke="currentColor" stroke-width="2.5"/><path d="M4 14L24 28L44 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2 class="email-title">Your positioning profile is ready.</h2>
+      <p class="email-subtitle">Enter your details below to see your full results — including your recommended positioning approach, what it means for your GTM, and red flags to watch for.</p>
+      <form id="email-form" class="email-form">
+        <div class="form-group">
+          <label for="input-name" class="form-label">First name</label>
+          <input type="text" id="input-name" class="form-input" placeholder="Your first name" required>
+        </div>
+        <div class="form-group">
+          <label for="input-email" class="form-label">Work email</label>
+          <input type="email" id="input-email" class="form-input" placeholder="you@company.com" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-large">See My Results</button>
+        <p class="email-disclaimer">No spam. We respect your inbox.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== RESULTS SCREEN ========== -->
+  <section id="results" class="screen">
+    <div class="container results-container">
+      <div class="results-header">
+        <div class="results-badge" id="results-badge">Your Positioning Profile</div>
+        <h1 id="result-title" class="result-title"></h1>
+        <p id="result-subtitle" class="result-subtitle"></p>
+      </div>
+
+      <div id="result-primary" class="result-section-group"></div>
+
+      <!-- Hedged positioning warning (conditionally shown) -->
+      <div id="hedged-warning" class="hedged-warning" style="display:none;">
+        <div class="warning-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 9V13M12 17H12.01M10.29 3.86L1.82 18A2 2 0 003.54 21H20.46A2 2 0 0022.18 18L13.71 3.86A2 2 0 0010.29 3.86Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="warning-content">
+          <strong>Hedged Positioning Risk Detected</strong>
+          <p id="hedged-warning-text"></p>
+        </div>
+      </div>
+
+      <!-- Secondary recommendation (conditionally shown) -->
+      <div id="secondary-result" class="secondary-result" style="display:none;">
+        <h3 class="secondary-title">Also Worth Considering</h3>
+        <div id="secondary-content"></div>
+      </div>
+
+      <!-- Answer summary -->
+      <div class="answer-summary">
+        <h3 class="summary-title">Your Answers</h3>
+        <div id="answer-list" class="answer-list"></div>
+      </div>
+
+      <!-- CTA Footer -->
+      <div class="cta-footer">
+        <h3 class="cta-title">Want to workshop your positioning?</h3>
+        <p class="cta-text">This assessment is a starting point. The real work happens when you pressure-test these trade-offs with your team.</p>
+        <!-- PLACEHOLDER: Replace href with your booking/contact link -->
+        <a href="#" class="btn btn-primary btn-large" id="cta-link">Book a Session</a>
+      </div>
+
+      <div class="retake-section">
+        <button id="retake-btn" class="btn btn-secondary">Retake Assessment</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
