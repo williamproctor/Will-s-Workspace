@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AV AI Dispatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #0a0c10;
+      --bg-card: #12151a;
+      --bg-card-hover: #181c23;
+      --bg-surface: #0e1117;
+      --accent-signal: #00d4aa;
+      --accent-signal-soft: rgba(0, 212, 170, 0.10);
+      --accent-signal-glow: rgba(0, 212, 170, 0.04);
+      --accent-warm: #ff6b35;
+      --accent-warm-soft: rgba(255, 107, 53, 0.10);
+      --accent-blue: #4a9eff;
+      --accent-blue-soft: rgba(74, 158, 255, 0.08);
+      --text-primary: #e8eaed;
+      --text-secondary: #9aa0a6;
+      --text-muted: #5f6368;
+      --border: rgba(255, 255, 255, 0.06);
+      --border-hover: rgba(255, 255, 255, 0.12);
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+      --font-mono: 'DM Mono', 'SF Mono', monospace;
+      --max-width: 1080px;
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 32px;
+      transition: background 0.4s, backdrop-filter 0.4s;
+    }
+    .site-header.scrolled {
+      background: rgba(10, 12, 16, 0.85);
+      backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text-primary);
+    }
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--accent-signal), var(--accent-blue));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: var(--bg-deep);
+      font-family: var(--font-mono);
+    }
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: -0.5px;
+    }
+    .logo-text em {
+      color: var(--accent-signal);
+      font-style: italic;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 28px;
+    }
+    .nav-links a {
+      font-size: 13px; font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links .btn-subscribe {
+      background: var(--accent-signal);
+      color: var(--bg-deep);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 13px;
+      transition: opacity 0.2s;
+    }
+    .nav-links .btn-subscribe:hover { opacity: 0.88; }
+
+    .hero {
+      padding: 160px 32px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, var(--accent-signal-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent-signal);
+      margin-bottom: 24px;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .hero-label::before {
+      content: ''; width: 24px; height: 1px;
+      background: var(--accent-signal);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      max-width: 720px;
+      margin: 0 auto 28px;
+    }
+    .hero h1 em {
+      color: var(--accent-signal);
+      font-style: italic;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+    }
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none; cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent-signal);
+      color: var(--bg-deep);
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1.5px solid var(--border);
+    }
+    .btn-ghost:hover {
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+    }
+
+    .section { padding: 96px 32px; }
+    .section-inner { max-width: var(--max-width); margin: 0 auto; }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent-signal);
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-label::before {
+      content: '──'; color: var(--text-muted);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 400;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .section-title em { color: var(--accent-signal); font-style: italic; }
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.65;
+      margin-bottom: 56px;
+    }
+
+    .latest-edition {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .edition-header {
+      padding: 32px 40px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .edition-meta {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .edition-badge {
+      font-family: var(--font-mono);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--bg-deep);
+      background: var(--accent-signal);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .edition-date {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .edition-body {
+      padding: 40px;
+    }
+    .edition-body h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      margin-top: 40px;
+    }
+    .edition-body h2:first-child { margin-top: 0; }
+    .edition-body h3 {
+      font-size: 18px; font-weight: 600;
+      margin-bottom: 8px; margin-top: 28px;
+    }
+    .edition-body p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .edition-body a {
+      color: var(--accent-signal);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-signal-soft);
+      transition: border-color 0.2s;
+    }
+    .edition-body a:hover { border-color: var(--accent-signal); }
+    .edition-body blockquote {
+      border-left: 3px solid var(--accent-signal);
+      padding: 16px 24px;
+      margin: 24px 0;
+      background: var(--accent-signal-soft);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+    .edition-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 14px;
+    }
+    .edition-body th {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .edition-body td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .edition-body tr:hover td { background: var(--accent-signal-glow); }
+    .edition-body ul {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+    .edition-body li {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+    .edition-body li strong { color: var(--text-primary); }
+
+    .source-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .source-tag a {
+      color: var(--accent-signal) !important;
+      border: none !important;
+    }
+
+    .archive-section { background: var(--bg-surface); }
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .archive-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: all 0.25s;
+      text-decoration: none; color: inherit;
+      display: block;
+    }
+    .archive-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .archive-card-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent-signal);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .archive-card-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .archive-card-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .archive-card-stats {
+      display: flex; gap: 16px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .archive-stat {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex; align-items: center; gap: 4px;
+    }
+    .archive-stat strong {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .subscribe-section {
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .subscribe-section::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%; transform: translateX(-50%);
+      width: 1000px; height: 600px;
+      background: radial-gradient(ellipse, var(--accent-signal-glow) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .subscribe-form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .subscribe-input {
+      flex: 1;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-size: 15px;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .subscribe-input::placeholder { color: var(--text-muted); }
+    .subscribe-input:focus { border-color: var(--accent-signal); }
+
+    .footer {
+      padding: 48px 32px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex; gap: 20px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text-secondary); }
+
+    .empty-state {
+      text-align: center;
+      padding: 80px 32px;
+    }
+    .empty-state-icon {
+      width: 64px; height: 64px;
+      background: var(--accent-signal-soft);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 28px;
+    }
+    .empty-state h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .empty-state p {
+      color: var(--text-secondary);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 120px 20px 64px; }
+      .section { padding: 64px 20px; }
+      .edition-header { padding: 20px 24px; }
+      .edition-body { padding: 24px; }
+      .edition-body h2 { font-size: 22px; }
+      .nav-links a:not(.btn-subscribe) { display: none; }
+      .archive-grid { grid-template-columns: 1fr; }
+      .subscribe-form { flex-direction: column; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <div class="logo-icon">AV</div>
+        <span class="logo-text">The AV <em>AI</em> Dispatch</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#latest">Latest</a>
+        <a href="#archive">Archive</a>
+        <a href="#subscribe" class="btn-subscribe">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="reveal">
+      <div class="hero-label">Weekly AI Intelligence</div>
+      <h1>AI moves fast.<br>We keep your team <em>current.</em></h1>
+      <p class="hero-sub">A weekly digest of trending AI developments, top podcast insights, and tools that matter — curated for Audio/Video Services.</p>
+      <div class="hero-cta">
+        <a href="#latest" class="btn btn-primary">Read Latest Edition</a>
+        <a href="#subscribe" class="btn btn-ghost">Get It Weekly</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="latest">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Latest Edition</div>
+        <div class="section-title">This Week's <em>Dispatch</em></div>
+        <p class="section-desc">The freshest AI intel, sourced from X, top podcasts, and the tools shaping audio/video production.</p>
+      </div>
+
+      <div class="latest-edition reveal reveal-d1" id="latestEdition">
+        <div class="empty-state">
+          <div class="empty-state-icon">&#x1f4e1;</div>
+          <h3>First edition coming soon</h3>
+          <p>The inaugural AV AI Dispatch is being researched and written. Subscribe below to get notified when it drops.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section archive-section" id="archive">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Archive</div>
+        <div class="section-title">Past <em>Editions</em></div>
+        <p class="section-desc">Every weekly dispatch, searchable and always available.</p>
+      </div>
+
+      <div class="archive-grid reveal reveal-d1" id="archiveGrid">
+        <div class="empty-state" style="grid-column: 1 / -1;">
+          <div class="empty-state-icon">&#x1f4da;</div>
+          <h3>Archive building</h3>
+          <p>Past editions will appear here as the newsletter grows week by week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section subscribe-section" id="subscribe">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Stay Current</div>
+        <div class="section-title">Get the <em>Dispatch</em><br>every week</div>
+        <p class="section-desc" style="margin-left:auto; margin-right:auto;">Join the Audio/Video Services team members who start their week with the latest AI intelligence. No spam, just signal.</p>
+        <form class="subscribe-form" id="subscribeForm">
+          <input type="email" class="subscribe-input" placeholder="your.email@company.com" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <p style="font-size: 12px; color: var(--text-muted); margin-top: 16px;">Internal distribution only. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-text">
+        &copy; 2026 Audio/Video Services — The AV AI Dispatch
+      </div>
+      <div class="footer-links">
+        <a href="#latest">Latest</a>
+        <a href="#archive">Archive</a>
+        <a href="#subscribe">Subscribe</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.getElementById('subscribeForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      const btn = e.target.querySelector('button');
+      const email = input.value;
+
+      btn.textContent = 'Subscribed!';
+      btn.style.background = 'var(--accent-signal)';
+      input.value = '';
+      input.disabled = true;
+      btn.disabled = true;
+
+      console.log('Subscriber:', email);
+
+      setTimeout(() => {
+        btn.textContent = 'Subscribe';
+        input.disabled = false;
+        btn.disabled = false;
+      }, 3000);
+    });
+
+    /**
+     * Newsletter loader — reads markdown editions from the editions/ directory.
+     *
+     * In production, this would be backed by a simple JSON manifest or static site
+     * generator. For now, editions are loaded manually by updating the EDITIONS
+     * array below after each weekly run.
+     */
+    const EDITIONS = [
+      {
+            "date": "2026-03-10",
+            "title": "The AV AI Dispatch \u2014 Week of March 10, 2026",
+            "hook": "ElevenLabs just launched a node-based production canvas that combines 35+ visual AI models with voice, music, and sound effects \u2014 and it might be the first tool that actually deserves the label \"AI production platform.\"",
+            "file": "editions/2026-03-10.md"
+      }
+];
+
+    function renderArchive() {
+      const grid = document.getElementById('archiveGrid');
+      if (EDITIONS.length === 0) return;
+
+      grid.innerHTML = EDITIONS.map(ed => `
+        <a class="archive-card" href="#" onclick="loadEdition('${ed.file}'); return false;">
+          <div class="archive-card-date">${ed.date}</div>
+          <div class="archive-card-title">${ed.title}</div>
+          <div class="archive-card-desc">${ed.hook}</div>
+        </a>
+      `).join('');
+    }
+
+    async function loadEdition(filePath) {
+      try {
+        const res = await fetch(filePath);
+        if (!res.ok) throw new Error('Edition not found');
+        const md = await res.text();
+        const container = document.getElementById('latestEdition');
+        container.innerHTML = `
+          <div class="edition-header">
+            <div class="edition-meta">
+              <span class="edition-badge">Latest</span>
+              <span class="edition-date">Loading...</span>
+            </div>
+          </div>
+          <div class="edition-body">${markdownToHtml(md)}</div>
+        `;
+        document.getElementById('latest').scrollIntoView({ behavior: 'smooth' });
+      } catch (err) {
+        console.error('Failed to load edition:', err);
+      }
+    }
+
+    function markdownToHtml(md) {
+      md = convertTables(md);
+      md = convertLists(md);
+      return md
+        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+        .replace(/^# (.+)$/gm, '')
+        .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+        .replace(/^---$/gm, '<hr style="border:none;border-top:1px solid var(--border);margin:32px 0;">')
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/^(?!<)(.+)$/gm, '<p>$1</p>')
+        .replace(/<p><\/p>/g, '')
+        .replace(/<p>(<h[23]>)/g, '$1')
+        .replace(/(<\/h[23]>)<\/p>/g, '$1')
+        .replace(/<p>(<hr[^>]*>)<\/p>/g, '$1')
+        .replace(/<p>(<blockquote>)/g, '$1')
+        .replace(/(<\/blockquote>)<\/p>/g, '$1')
+        .replace(/<p>(<table)/g, '$1')
+        .replace(/(<\/table>)<\/p>/g, '$1')
+        .replace(/<p>(<ul)/g, '$1')
+        .replace(/(<\/ul>)<\/p>/g, '$1');
+    }
+
+    function convertTables(md) {
+      const lines = md.split('\n');
+      let out = [], inTable = false, isHeader = true;
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line.startsWith('|') && line.endsWith('|')) {
+          const cells = line.split('|').slice(1, -1).map(c => c.trim());
+          if (cells.every(c => /^[-:]+$/.test(c))) continue;
+          if (!inTable) { out.push('<table>'); inTable = true; isHeader = true; }
+          const tag = isHeader ? 'th' : 'td';
+          out.push('<tr>' + cells.map(c => `<${tag}>${c}</${tag}>`).join('') + '</tr>');
+          if (isHeader) isHeader = false;
+        } else {
+          if (inTable) { out.push('</table>'); inTable = false; }
+          out.push(lines[i]);
+        }
+      }
+      if (inTable) out.push('</table>');
+      return out.join('\n');
+    }
+
+    function convertLists(md) {
+      const lines = md.split('\n');
+      let out = [], inList = false;
+      for (let i = 0; i < lines.length; i++) {
+        const match = lines[i].match(/^- (.+)$/);
+        if (match) {
+          if (!inList) { out.push('<ul>'); inList = true; }
+          out.push(`<li>${match[1]}</li>`);
+        } else {
+          if (inList) { out.push('</ul>'); inList = false; }
+          out.push(lines[i]);
+        }
+      }
+      if (inList) out.push('</ul>');
+      return out.join('\n');
+    }
+
+    renderArchive();
+
+    if (EDITIONS.length > 0) {
+      loadEdition(EDITIONS[0].file);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AV AI Dispatch — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-dark: #3a5a8f;
+  --dispatch-blue-light: #6b8ec4;
+  --dispatch-blue-pale: #e8eef6;
+  --dispatch-blue-ghost: #f4f7fb;
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --parchment: #f5f0e8;
+  --parchment-warm: #ede6d8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #6b6b80;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --success: #3a9e6e;
+  --warning: #d4953a;
+  --error: #c74b4b;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-display);
+  background: var(--parchment-light);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ── NAV ── */
+.brand-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250, 248, 243, 0.88);
+  backdrop-filter: blur(20px) saturate(1.3);
+  border-bottom: 1px solid var(--parchment-dark);
+  padding: 0 32px;
+}
+.brand-nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 56px;
+}
+.brand-nav-logo {
+  font-weight: 800; font-size: 14px; letter-spacing: -0.3px;
+  color: var(--dispatch-blue);
+}
+.brand-nav-logo span { color: var(--ink-muted); font-weight: 400; }
+.brand-nav-links { display: flex; gap: 24px; }
+.brand-nav-links a {
+  font-size: 12px; font-weight: 500; color: var(--ink-muted);
+  text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.brand-nav-links a:hover { color: var(--dispatch-blue); }
+
+/* ── HERO ── */
+.brand-hero {
+  padding: 140px 32px 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--dispatch-blue);
+  color: var(--white);
+}
+.brand-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 20% 80%, rgba(245,240,232,0.08), transparent),
+    radial-gradient(ellipse 500px 300px at 80% 20%, rgba(255,255,255,0.05), transparent);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 400;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.6); margin-bottom: 24px;
+  position: relative;
+}
+.hero-badge::before { content: ''; width: 20px; height: 1px; background: rgba(255,255,255,0.3); }
+.brand-hero h1 {
+  font-size: clamp(36px, 5vw, 64px); font-weight: 800;
+  letter-spacing: -2px; line-height: 1.05;
+  max-width: 700px; margin: 0 auto 20px;
+  position: relative;
+}
+.brand-hero h1 em { font-style: italic; font-weight: 300; opacity: 0.85; }
+.hero-sub {
+  font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.65);
+  max-width: 500px; margin: 0 auto;
+  line-height: 1.6; position: relative;
+}
+
+/* ── FLOATING DOODLES ── */
+.doodle-float {
+  position: absolute; pointer-events: none; opacity: 0.12;
+}
+.doodle-float svg {
+  stroke: currentColor; fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ── SECTIONS ── */
+.section { padding: 96px 32px; max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--dispatch-blue); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-label::before {
+  content: ''; width: 16px; height: 2px;
+  background: var(--dispatch-blue); border-radius: 1px;
+}
+.section-title {
+  font-size: clamp(28px, 3.5vw, 42px); font-weight: 800;
+  letter-spacing: -1.5px; line-height: 1.1;
+  margin-bottom: 12px;
+}
+.section-title em { color: var(--dispatch-blue); font-style: normal; }
+.section-desc {
+  font-size: 15px; color: var(--ink-muted); max-width: 560px;
+  line-height: 1.65; margin-bottom: 48px;
+}
+
+/* ── REVEAL ANIMATION ── */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+
+/* ── COLOR SYSTEM ── */
+.color-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px; margin-bottom: 40px;
+}
+.color-card {
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+  background: var(--white);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
+  cursor: pointer;
+}
+.color-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(74, 109, 167, 0.12);
+}
+.color-swatch {
+  height: 120px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.color-swatch .copied {
+  position: absolute; font-family: var(--font-mono); font-size: 12px;
+  color: var(--white); background: rgba(0,0,0,0.5); padding: 4px 12px;
+  border-radius: 999px; opacity: 0; transform: scale(0.8);
+  transition: all 0.25s;
+}
+.color-swatch .copied.show { opacity: 1; transform: scale(1); }
+.color-info { padding: 14px 16px; }
+.color-name { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+.color-hex { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); }
+.color-usage { font-size: 11px; color: var(--ink-faint); margin-top: 4px; line-height: 1.4; }
+
+/* ── PALETTE COMBOS ── */
+.combo-row {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px; margin-top: 32px;
+}
+.combo-card {
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.combo-preview {
+  padding: 32px 24px; display: flex; flex-direction: column; gap: 8px;
+}
+.combo-preview h4 { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+.combo-preview p { font-size: 13px; line-height: 1.5; opacity: 0.7; }
+.combo-label {
+  padding: 12px 16px; background: var(--white);
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--ink-muted); letter-spacing: 0.5px;
+}
+
+/* ── TYPOGRAPHY ── */
+.type-specimen {
+  background: var(--white); border: 1px solid var(--parchment-dark);
+  border-radius: 16px; padding: 40px; margin-bottom: 24px;
+}
+.type-preview {
+  margin-bottom: 24px; padding-bottom: 24px;
+  border-bottom: 1px solid var(--parchment-dark);
+}
+.type-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+.type-meta-item {
+  font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted);
+}
+.type-meta-item strong { color: var(--ink-soft); font-weight: 600; }
+.type-scale { display: flex; flex-direction: column; gap: 20px; margin-top: 32px; }
+.type-scale-item {
+  display: flex; align-items: baseline; gap: 24px;
+  padding: 16px 0; border-bottom: 1px solid var(--parchment);
+}
+.type-scale-label {
+  font-family: var(--font-mono); font-size: 10px; color: var(--ink-faint);
+  min-width: 80px; text-transform: uppercase; letter-spacing: 1px;
+}
+.type-scale-sample { flex: 1; }
+
+/* ── ANIMATION DEMOS ── */
+.anim-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.anim-card {
+  background: var(--white); border: 1px solid var(--parchment-dark);
+  border-radius: 16px; padding: 32px; text-align: center;
+  cursor: pointer; position: relative; overflow: hidden;
+}
+.anim-name {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  color: var(--dispatch-blue); letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.anim-demo {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: var(--dispatch-blue); margin: 0 auto 16px;
+}
+.anim-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.5; }
+.anim-code {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--ink-faint); margin-top: 12px;
+  background: var(--parchment-light); padding: 8px 12px;
+  border-radius: 8px; text-align: left; white-space: pre;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+@keyframes drawLine {
+  from { stroke-dashoffset: 200; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.demo-fade-up {
+  animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate;
+  animation-play-state: paused;
+}
+.demo-pulse {
+  animation: gentlePulse 2s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.demo-float {
+  animation: floatBob 3s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.demo-shimmer {
+  background: linear-gradient(90deg, var(--dispatch-blue) 0%, var(--dispatch-blue-light) 50%, var(--dispatch-blue) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+  animation-play-state: paused;
+}
+
+/* ── ILLUSTRATION GUIDE ── */
+.illus-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.illus-card {
+  background: var(--white); border: 1px solid var(--parchment-dark);
+  border-radius: 16px; overflow: hidden;
+}
+.illus-preview {
+  height: 180px; display: flex; align-items: center; justify-content: center;
+  background: var(--parchment); position: relative;
+}
+.illus-preview svg {
+  width: 100px; height: 100px;
+  stroke: var(--dispatch-blue); fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.illus-info { padding: 16px; }
+.illus-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.illus-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.5; }
+.illus-prompt {
+  margin-top: 8px; padding: 8px 10px;
+  background: var(--parchment-light); border-radius: 8px;
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--ink-faint); line-height: 1.5;
+}
+
+/* ── CHART STYLES ── */
+.chart-demo-container {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px;
+}
+.chart-card {
+  background: var(--white); border: 1px solid var(--parchment-dark);
+  border-radius: 16px; padding: 24px;
+}
+.chart-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.chart-subtitle { font-size: 11px; color: var(--ink-faint); margin-bottom: 20px; }
+.bar-chart {
+  display: flex; align-items: flex-end; gap: 12px; height: 140px;
+}
+.bar-group {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  gap: 6px; height: 100%; justify-content: flex-end;
+}
+.bar {
+  width: 100%; border-radius: 6px 6px 2px 2px;
+  background: var(--dispatch-blue);
+  transition: height 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.bar.accent { background: var(--dispatch-blue-light); }
+.bar-label { font-family: var(--font-mono); font-size: 10px; color: var(--ink-faint); }
+
+.donut-container { display: flex; align-items: center; gap: 24px; }
+.donut-svg { width: 120px; height: 120px; }
+.donut-legend { display: flex; flex-direction: column; gap: 8px; }
+.legend-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--ink-soft);
+}
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+/* ── COMPONENTS ── */
+.component-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.component-card {
+  background: var(--white); border: 1px solid var(--parchment-dark);
+  border-radius: 16px; padding: 24px;
+}
+.component-label {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--ink-faint); letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.btn-demo { display: flex; flex-wrap: wrap; gap: 8px; }
+.demo-btn {
+  padding: 10px 22px; border-radius: 999px; font-size: 13px;
+  font-weight: 600; font-family: var(--font-display);
+  border: none; cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.demo-btn-primary { background: var(--dispatch-blue); color: var(--white); }
+.demo-btn-primary:hover {
+  background: var(--dispatch-blue-dark); transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74,109,167,0.25);
+}
+.demo-btn-secondary { background: var(--parchment); color: var(--ink-soft); }
+.demo-btn-secondary:hover { background: var(--parchment-warm); }
+.demo-btn-ghost {
+  background: transparent; color: var(--dispatch-blue);
+  border: 1.5px solid var(--dispatch-blue-10);
+}
+.demo-btn-ghost:hover { border-color: var(--dispatch-blue); }
+
+.demo-card {
+  background: var(--parchment-light);
+  border: 1px solid var(--parchment-dark);
+  border-radius: 12px; padding: 20px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.demo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(74,109,167,0.08);
+  border-color: var(--dispatch-blue-light);
+}
+.demo-card-tag {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--dispatch-blue); letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.demo-card h4 {
+  font-size: 16px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 6px;
+}
+.demo-card p { font-size: 12px; color: var(--ink-muted); line-height: 1.5; }
+
+.demo-input {
+  width: 100%; padding: 12px 16px; border-radius: 10px;
+  border: 1.5px solid var(--parchment-dark);
+  font-size: 14px; font-family: var(--font-display);
+  color: var(--ink); background: var(--parchment-light);
+  outline: none; transition: all 0.2s;
+}
+.demo-input:focus {
+  border-color: var(--dispatch-blue);
+  box-shadow: 0 0 0 3px var(--dispatch-blue-10);
+}
+.demo-input::placeholder { color: var(--ink-faint); }
+
+.badge-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.demo-badge {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 999px;
+}
+.demo-badge-blue { background: var(--dispatch-blue-10); color: var(--dispatch-blue); }
+.demo-badge-parchment { background: var(--parchment); color: var(--ink-muted); }
+.demo-badge-success { background: rgba(58,158,110,0.1); color: var(--success); }
+.demo-badge-warning { background: rgba(212,149,58,0.1); color: var(--warning); }
+
+/* ── SPACING ── */
+.spacing-demo { display: flex; align-items: flex-end; gap: 16px; margin-top: 24px; }
+.spacing-block {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.spacing-visual {
+  background: var(--dispatch-blue-10);
+  border: 1px dashed var(--dispatch-blue-light);
+  border-radius: 4px;
+}
+.spacing-value { font-family: var(--font-mono); font-size: 10px; color: var(--ink-faint); }
+
+/* ── PRINCIPLES ── */
+.principles-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.principle-card {
+  background: var(--white); border: 1px solid var(--parchment-dark);
+  border-radius: 16px; padding: 28px;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.principle-card:hover { transform: translateY(-2px); }
+.principle-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.principle-card h4 {
+  font-size: 16px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 8px;
+}
+.principle-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+
+/* ── DO/DON'T ── */
+.dos-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px;
+}
+.do-card, .dont-card {
+  border-radius: 16px; padding: 24px; border: 1px solid;
+}
+.do-card { background: rgba(58,158,110,0.04); border-color: rgba(58,158,110,0.2); }
+.dont-card { background: rgba(199,75,75,0.04); border-color: rgba(199,75,75,0.2); }
+.do-card h4, .dont-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 12px; }
+.do-card h4 { color: var(--success); }
+.dont-card h4 { color: var(--error); }
+.do-card li, .dont-card li {
+  font-size: 12px; color: var(--ink-muted); line-height: 1.6;
+  margin-bottom: 4px; list-style: none; padding-left: 16px; position: relative;
+}
+.do-card li::before { content: '+'; position: absolute; left: 0; color: var(--success); font-weight: 700; }
+.dont-card li::before { content: '\2013'; position: absolute; left: 0; color: var(--error); font-weight: 700; }
+
+/* ── PROMPT BOX ── */
+.prompt-box {
+  margin-top: 40px; background: var(--white);
+  border: 1px solid var(--parchment-dark);
+  border-radius: 16px; padding: 28px;
+}
+.prompt-box h3 { font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+.prompt-code {
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--ink-muted); line-height: 2;
+  background: var(--parchment-light); padding: 20px; border-radius: 10px;
+}
+.prompt-code .hl { color: var(--dispatch-blue); }
+.prompt-code strong { color: var(--dispatch-blue); font-weight: 600; }
+
+/* ── MOTION PRINCIPLES BOX ── */
+.motion-principles {
+  margin-top: 40px; background: var(--white);
+  border: 1px solid var(--parchment-dark);
+  border-radius: 16px; padding: 28px;
+}
+.motion-principles h3 { font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+.motion-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px;
+}
+.motion-item {
+  padding: 16px; background: var(--parchment-light); border-radius: 10px;
+}
+.motion-item strong { display: block; font-size: 13px; margin-bottom: 4px; }
+.motion-item span { font-size: 12px; color: var(--ink-muted); line-height: 1.5; display: block; }
+
+/* ── CHART RULES BOX ── */
+.chart-rules {
+  margin-top: 32px; background: var(--white);
+  border: 1px solid var(--parchment-dark);
+  border-radius: 16px; padding: 28px;
+}
+.chart-rules h3 { font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+.chart-rules-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px;
+}
+.chart-rule {
+  font-size: 12px; color: var(--ink-muted); line-height: 1.6;
+  padding: 12px; background: var(--parchment-light); border-radius: 8px;
+}
+.chart-rule strong { color: var(--ink-soft); }
+
+/* ── FOOTER ── */
+.brand-footer {
+  padding: 48px 32px;
+  border-top: 1px solid var(--parchment-dark);
+  text-align: center;
+}
+.brand-footer p { font-size: 12px; color: var(--ink-faint); }
+
+/* ── DIVIDERS ── */
+.section-divider { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.section-divider hr { border: none; border-top: 1px solid var(--parchment-dark); }
+
+/* ── SVG DRAW ANIMATION ── */
+.draw-in { stroke-dasharray: 200; stroke-dashoffset: 200; }
+.draw-in.animate { animation: drawLine 1.5s ease forwards; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .section { padding: 64px 20px; }
+  .brand-hero { padding: 120px 20px 72px; }
+  .color-grid { grid-template-columns: repeat(2, 1fr); }
+  .chart-demo-container { grid-template-columns: 1fr; }
+  .dos-grid { grid-template-columns: 1fr; }
+  .brand-nav-links { gap: 16px; }
+  .brand-nav-links a { font-size: 10px; }
+  .type-scale-item { flex-direction: column; gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="brand-nav">
+  <div class="brand-nav-inner">
+    <div class="brand-nav-logo">AV AI Dispatch <span>/ Brand Guidelines</span></div>
+    <div class="brand-nav-links">
+      <a href="#colors">Colors</a>
+      <a href="#typography">Type</a>
+      <a href="#illustrations">Art</a>
+      <a href="#animations">Motion</a>
+      <a href="#charts">Charts</a>
+      <a href="#components">UI</a>
+      <a href="#principles">Principles</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="brand-hero">
+  <div class="doodle-float" style="top:20%; left:8%; color:white;">
+    <svg width="60" height="60" viewBox="0 0 60 60"><path class="draw-in" d="M10 50 Q15 10 30 30 Q45 50 50 10"/></svg>
+  </div>
+  <div class="doodle-float" style="top:30%; right:10%; color:white;">
+    <svg width="50" height="50" viewBox="0 0 50 50"><circle class="draw-in" cx="25" cy="25" r="18"/><path class="draw-in" d="M25 7 L25 43 M7 25 L43 25"/></svg>
+  </div>
+  <div class="doodle-float" style="bottom:20%; left:15%; color:white;">
+    <svg width="40" height="40" viewBox="0 0 40 40"><path class="draw-in" d="M5 35 L20 5 L35 35 Z"/></svg>
+  </div>
+  <div class="doodle-float" style="bottom:25%; right:15%; color:white;">
+    <svg width="45" height="45" viewBox="0 0 45 45"><rect class="draw-in" x="8" y="8" width="29" height="29" rx="4"/></svg>
+  </div>
+
+  <div class="hero-badge reveal">v1.0 — March 2026</div>
+  <h1 class="reveal reveal-d1">Brand <em>Guidelines</em></h1>
+  <p class="hero-sub reveal reveal-d2">The visual identity system for The AV AI Dispatch newsletter and website. Clean, modern, delightfully minimal.</p>
+</section>
+
+<!-- ─── 01. COLOR SYSTEM ─── -->
+<section class="section" id="colors">
+  <div class="reveal">
+    <div class="section-label">01 Color System</div>
+    <div class="section-title">Dispatch Blue & <em>Parchment</em></div>
+    <p class="section-desc">Two anchor colors — JW.org Blue for trust and authority, Parchment for warmth and readability. Everything else is derived from these two. Click any swatch to copy its hex value.</p>
+  </div>
+
+  <h3 class="reveal reveal-d1" style="font-size:14px; font-weight:700; margin-bottom:16px; color:var(--ink-soft);">Primary Palette</h3>
+  <div class="color-grid reveal reveal-d2" id="primaryColors"></div>
+
+  <h3 class="reveal" style="font-size:14px; font-weight:700; margin-bottom:16px; margin-top:32px; color:var(--ink-soft);">Extended Palette</h3>
+  <div class="color-grid reveal reveal-d1" id="extendedColors"></div>
+
+  <h3 class="reveal" style="font-size:14px; font-weight:700; margin-bottom:16px; margin-top:40px; color:var(--ink-soft);">Palette Combinations</h3>
+  <div class="combo-row reveal reveal-d1">
+    <div class="combo-card">
+      <div class="combo-preview" style="background:var(--dispatch-blue); color:var(--white);">
+        <h4>Hero Sections</h4>
+        <p>White text on Dispatch Blue. Use for high-impact hero banners and CTAs.</p>
+      </div>
+      <div class="combo-label">Blue bg + White fg — WCAG AAA</div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-preview" style="background:var(--parchment-light); color:var(--ink);">
+        <h4>Content Sections</h4>
+        <p>Dark ink on Parchment Light. The default reading experience — warm and easy on the eyes.</p>
+      </div>
+      <div class="combo-label">Parchment Light bg + Ink fg — WCAG AAA</div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-preview" style="background:var(--white); color:var(--ink); border-bottom:1px solid var(--parchment-dark);">
+        <h4>Card Surfaces</h4>
+        <p>White cards with parchment borders. Clean, elevated, scannable.</p>
+      </div>
+      <div class="combo-label">White bg + Parchment border — Cards & panels</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ─── 02. TYPOGRAPHY ─── -->
+<section class="section" id="typography">
+  <div class="reveal">
+    <div class="section-label">02 Typography</div>
+    <div class="section-title">Plus Jakarta Sans & <em>JetBrains Mono</em></div>
+    <p class="section-desc">A geometric sans-serif with character for display and body text — it feels custom without being eccentric. JetBrains Mono for data, code, labels, and technical details.</p>
+  </div>
+
+  <div class="type-specimen reveal reveal-d1">
+    <div class="type-preview">
+      <p style="font-size:48px; font-weight:800; letter-spacing:-2px; line-height:1.05; margin-bottom:12px;">AI moves fast.<br>We keep your team current.</p>
+      <p style="font-size:16px; color:var(--ink-muted); font-weight:400;">Plus Jakarta Sans — 800 weight, -2px tracking</p>
+    </div>
+    <div class="type-meta">
+      <div class="type-meta-item"><strong>Family:</strong> Plus Jakarta Sans</div>
+      <div class="type-meta-item"><strong>Weights:</strong> 300, 400, 500, 600, 700, 800</div>
+      <div class="type-meta-item"><strong>Style:</strong> Normal + Italic</div>
+      <div class="type-meta-item"><strong>Fallback:</strong> system sans-serif</div>
+    </div>
+  </div>
+
+  <div class="type-specimen reveal reveal-d2" style="margin-top:24px;">
+    <div class="type-preview">
+      <p style="font-family:var(--font-mono); font-size:24px; font-weight:400; letter-spacing:-0.5px; line-height:1.2; margin-bottom:12px;">LATEST EDITION · 22 SOURCES</p>
+      <p style="font-size:16px; color:var(--ink-muted); font-weight:400;">JetBrains Mono — 400 weight, for labels, badges, and data</p>
+    </div>
+    <div class="type-meta">
+      <div class="type-meta-item"><strong>Family:</strong> JetBrains Mono</div>
+      <div class="type-meta-item"><strong>Weights:</strong> 300, 400, 500</div>
+      <div class="type-meta-item"><strong>Use:</strong> Section labels, badges, chart axes, code</div>
+      <div class="type-meta-item"><strong>Fallback:</strong> SF Mono, monospace</div>
+    </div>
+  </div>
+
+  <div class="type-scale reveal">
+    <div class="type-scale-item">
+      <div class="type-scale-label">Hero H1</div>
+      <div class="type-scale-sample" style="font-size:42px; font-weight:800; letter-spacing:-2px; line-height:1.05;">The AV AI Dispatch</div>
+    </div>
+    <div class="type-scale-item">
+      <div class="type-scale-label">Section H2</div>
+      <div class="type-scale-sample" style="font-size:32px; font-weight:800; letter-spacing:-1.5px; line-height:1.1;">This Week in AI</div>
+    </div>
+    <div class="type-scale-item">
+      <div class="type-scale-label">Card H3</div>
+      <div class="type-scale-sample" style="font-size:20px; font-weight:700; letter-spacing:-0.5px;">ElevenLabs Flows: The First Real AI Production Canvas</div>
+    </div>
+    <div class="type-scale-item">
+      <div class="type-scale-label">Body</div>
+      <div class="type-scale-sample" style="font-size:15px; font-weight:400; color:var(--ink-muted); line-height:1.7;">If you only pay attention to one thing this week, make it this. ElevenLabs launched Flows, a node-based creative canvas that connects over 35 visual AI models.</div>
+    </div>
+    <div class="type-scale-item">
+      <div class="type-scale-label">Caption</div>
+      <div class="type-scale-sample" style="font-size:12px; font-weight:400; color:var(--ink-faint);">Source: @ElevenLabsio on X · March 11, 2026</div>
+    </div>
+    <div class="type-scale-item">
+      <div class="type-scale-label">Mono Label</div>
+      <div class="type-scale-sample" style="font-family:var(--font-mono); font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--dispatch-blue);">Latest Edition</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ─── 03. ILLUSTRATIONS ─── -->
+<section class="section" id="illustrations">
+  <div class="reveal">
+    <div class="section-label">03 Illustrations</div>
+    <div class="section-title">Hand-Drawn & <em>Minimal</em></div>
+    <p class="section-desc">Generated with Nano Banana 2 using a consistent hand-drawn, single-stroke style. Thin lines, no fills, Dispatch Blue ink on Parchment. Think: friendly doodles from a thoughtful colleague.</p>
+  </div>
+
+  <div class="illus-grid">
+    <div class="illus-card reveal">
+      <div class="illus-preview">
+        <svg viewBox="0 0 100 100">
+          <path d="M20 80 Q25 20 50 50 Q75 80 80 20" />
+          <circle cx="50" cy="50" r="3" fill="var(--dispatch-blue)" stroke="none"/>
+          <circle cx="80" cy="20" r="3" fill="var(--dispatch-blue)" stroke="none"/>
+          <circle cx="20" cy="80" r="3" fill="var(--dispatch-blue)" stroke="none"/>
+        </svg>
+      </div>
+      <div class="illus-info">
+        <div class="illus-title">Signal Wave</div>
+        <div class="illus-desc">Used for AI trend sections and data-driven stories. Represents signal through noise.</div>
+        <div class="illus-prompt">Prompt: "minimal hand-drawn line art, single continuous stroke, a flowing wave signal line with three dots at peaks and valleys, thin ink stroke on cream paper background, no fill, no shading, doodle style"</div>
+      </div>
+    </div>
+    <div class="illus-card reveal reveal-d1">
+      <div class="illus-preview">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="40" r="20"/>
+          <path d="M30 40 L50 20 L70 40"/>
+          <line x1="50" y1="60" x2="50" y2="85"/>
+          <line x1="35" y1="85" x2="65" y2="85"/>
+        </svg>
+      </div>
+      <div class="illus-info">
+        <div class="illus-title">Podcast Mic</div>
+        <div class="illus-desc">Used for the Top 10 Podcasts section. Simple, recognizable, friendly.</div>
+        <div class="illus-prompt">Prompt: "minimal hand-drawn line art, simple podcast microphone icon, single weight thin ink stroke, cream paper background, no fill, childlike doodle quality, clean and charming"</div>
+      </div>
+    </div>
+    <div class="illus-card reveal reveal-d2">
+      <div class="illus-preview">
+        <svg viewBox="0 0 100 100">
+          <rect x="15" y="25" width="70" height="50" rx="6"/>
+          <circle cx="50" cy="50" r="12"/>
+          <path d="M44 44 L44 56 L58 50 Z"/>
+        </svg>
+      </div>
+      <div class="illus-info">
+        <div class="illus-title">Video Player</div>
+        <div class="illus-desc">For video AI tool reviews and the Tool of the Week section.</div>
+        <div class="illus-prompt">Prompt: "minimal hand-drawn line art, simple video player window with play button, single thin ink stroke on cream paper, no fill except tiny play triangle, doodle sketch style"</div>
+      </div>
+    </div>
+    <div class="illus-card reveal">
+      <div class="illus-preview">
+        <svg viewBox="0 0 100 100">
+          <path d="M30 70 L30 40 M45 70 L45 30 M60 70 L60 50 M75 70 L75 25"/>
+          <path d="M25 75 L80 75"/>
+          <path d="M30 40 Q37 20 45 30 Q52 38 60 50 Q67 58 75 25" stroke-dasharray="3,3"/>
+        </svg>
+      </div>
+      <div class="illus-info">
+        <div class="illus-title">Trend Chart</div>
+        <div class="illus-desc">For data visualizations and the Common Threads section.</div>
+        <div class="illus-prompt">Prompt: "minimal hand-drawn line art, simple bar chart with dashed trend line overlay, four bars of different heights, thin ink stroke on cream paper, no fills, loose sketch quality"</div>
+      </div>
+    </div>
+    <div class="illus-card reveal reveal-d1">
+      <div class="illus-preview">
+        <svg viewBox="0 0 100 100">
+          <circle cx="30" cy="50" r="12"/>
+          <circle cx="70" cy="35" r="12"/>
+          <circle cx="65" cy="70" r="10"/>
+          <path d="M42 48 L58 38"/>
+          <path d="M68 47 L66 60"/>
+          <path d="M38 58 L56 66"/>
+        </svg>
+      </div>
+      <div class="illus-info">
+        <div class="illus-title">Connected Nodes</div>
+        <div class="illus-desc">For AI agent topics, Common Threads, and cross-source analysis.</div>
+        <div class="illus-prompt">Prompt: "minimal hand-drawn line art, three circles connected by thin lines forming a simple network graph, single weight ink stroke on cream background, no fill, friendly doodle style"</div>
+      </div>
+    </div>
+    <div class="illus-card reveal reveal-d2">
+      <div class="illus-preview">
+        <svg viewBox="0 0 100 100">
+          <path d="M25 75 L25 30 Q25 20 35 20 L75 20 Q85 20 85 30 L85 55 Q85 65 75 65 L40 65 L25 75"/>
+          <line x1="35" y1="35" x2="65" y2="35"/>
+          <line x1="35" y1="45" x2="55" y2="45"/>
+        </svg>
+      </div>
+      <div class="illus-info">
+        <div class="illus-title">Chat Bubble</div>
+        <div class="illus-desc">For AI conversation topics, Novel Ideas, and subscriber CTAs.</div>
+        <div class="illus-prompt">Prompt: "minimal hand-drawn line art, simple speech bubble with two horizontal text lines inside, thin ink stroke on cream paper, no fill, loose casual doodle quality"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prompt-box reveal">
+    <h3>Nano Banana 2 Prompt Framework</h3>
+    <div class="prompt-code">
+<strong>Base Prompt Template:</strong>
+"minimal hand-drawn line art, <span class="hl">[subject description]</span>,
+single weight thin ink stroke on cream paper background,
+no fill, no shading, no gradients,
+<span class="hl">[mood: friendly / casual / charming / clean]</span> doodle style,
+monochrome blue ink (#4a6da7)"
+
+<strong>Negative Prompt:</strong>
+"realistic, photographic, 3D render, heavy shading, gradients,
+multiple colors, thick strokes, complex, cluttered, corporate"
+
+<strong>Settings:</strong>
+Aspect: 1:1 for icons, 16:9 for section headers
+Style: Illustration mode, minimal detail
+Characters: 0 (abstract/iconic only)
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ─── 04. MOTION ─── -->
+<section class="section" id="animations">
+  <div class="reveal">
+    <div class="section-label">04 Motion</div>
+    <div class="section-title">Subtle & <em>Intentional</em></div>
+    <p class="section-desc">Animations add delight without distraction. Every motion serves a purpose: reveal content, confirm interaction, or guide attention. Hover over each card to preview.</p>
+  </div>
+
+  <div class="anim-grid">
+    <div class="anim-card reveal">
+      <div class="anim-name">Fade Slide Up</div>
+      <div class="anim-demo demo-fade-up"></div>
+      <div class="anim-desc">Content reveal on scroll. Elements enter from 20px below with opacity fade.</div>
+      <div class="anim-code">duration: 700ms
+easing:   cubic-bezier(0.22, 1, 0.36, 1)
+trigger:  scroll into view
+delay:    stagger 100ms per item</div>
+    </div>
+    <div class="anim-card reveal reveal-d1">
+      <div class="anim-name">Gentle Pulse</div>
+      <div class="anim-demo demo-pulse"></div>
+      <div class="anim-desc">Draws attention to live/new badges and active states. Scale 1.0 to 1.08.</div>
+      <div class="anim-code">duration: 2000ms
+easing:   ease-in-out
+trigger:  continuous (badges)
+scale:    1.0 → 1.08</div>
+    </div>
+    <div class="anim-card reveal reveal-d2">
+      <div class="anim-name">Float Bob</div>
+      <div class="anim-demo demo-float"></div>
+      <div class="anim-desc">Floating illustrations and decorative elements. Gentle vertical movement.</div>
+      <div class="anim-code">duration: 3000ms
+easing:   ease-in-out
+trigger:  continuous (decor)
+translateY: 0 → -6px</div>
+    </div>
+    <div class="anim-card reveal">
+      <div class="anim-name">Shimmer</div>
+      <div class="anim-demo demo-shimmer" style="border-radius:12px;"></div>
+      <div class="anim-desc">Loading state for content being fetched. Gradient sweep left to right.</div>
+      <div class="anim-code">duration: 2000ms
+easing:   linear
+trigger:  loading state
+type:     gradient position</div>
+    </div>
+    <div class="anim-card reveal reveal-d1">
+      <div class="anim-name">Line Draw</div>
+      <div style="margin:0 auto 16px; width:80px; height:48px;">
+        <svg width="80" height="48" viewBox="0 0 80 48">
+          <path class="draw-in hero-draw" d="M5 40 Q20 5 40 25 Q60 45 75 8" stroke="var(--dispatch-blue)" fill="none" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="anim-desc">SVG path drawing for illustrations entering the viewport. Stroke-dashoffset animation.</div>
+      <div class="anim-code">duration: 1500ms
+easing:   ease
+trigger:  scroll into view
+type:     stroke-dashoffset</div>
+    </div>
+    <div class="anim-card reveal reveal-d2">
+      <div class="anim-name">Card Lift</div>
+      <div class="anim-demo" id="cardLiftDemo" style="transition:all 0.3s cubic-bezier(0.22,1,0.36,1); border-radius:12px;"></div>
+      <div class="anim-desc">Interactive hover lift on cards. Subtle Y translation with box-shadow expansion.</div>
+      <div class="anim-code">duration: 300ms
+easing:   cubic-bezier(0.22, 1, 0.36, 1)
+trigger:  hover
+translateY: 0 → -4px</div>
+    </div>
+  </div>
+
+  <div class="motion-principles reveal">
+    <h3>Motion Principles</h3>
+    <div class="motion-grid">
+      <div class="motion-item">
+        <strong>Purpose-driven</strong>
+        <span>Never animate for decoration alone. Every motion reveals, confirms, or guides.</span>
+      </div>
+      <div class="motion-item">
+        <strong>Respect preferences</strong>
+        <span>Honor prefers-reduced-motion. All animations must have a static fallback.</span>
+      </div>
+      <div class="motion-item">
+        <strong>Quick, not slow</strong>
+        <span>Keep transitions under 700ms. Users should never wait for an animation to finish.</span>
+      </div>
+      <div class="motion-item">
+        <strong>Stagger, don't blast</strong>
+        <span>When multiple items animate in, stagger by 100ms. Groups feel intentional, not simultaneous.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ─── 05. CHARTS ─── -->
+<section class="section" id="charts">
+  <div class="reveal">
+    <div class="section-label">05 Data Visualization</div>
+    <div class="section-title">Charts that feel <em>hand-crafted</em></div>
+    <p class="section-desc">Data should be easy to scan and feel at home with the brand. Dispatch Blue as primary data color, Parchment backgrounds. Minimal chrome, generous spacing.</p>
+  </div>
+
+  <div class="chart-demo-container">
+    <div class="chart-card reveal">
+      <div class="chart-title">AI Video Model Scores</div>
+      <div class="chart-subtitle">Benchmark comparison — higher is better</div>
+      <div class="bar-chart" id="barChart">
+        <div class="bar-group">
+          <div class="bar" style="height:0%" data-height="75%"></div>
+          <div class="bar-label">Kling</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:0%" data-height="88%"></div>
+          <div class="bar-label">Sora 2</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar accent" style="height:0%" data-height="92%"></div>
+          <div class="bar-label">Veo 3</div>
+        </div>
+        <div class="bar-group">
+          <div class="bar" style="height:0%" data-height="70%"></div>
+          <div class="bar-label">Runway</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card reveal reveal-d1">
+      <div class="chart-title">Source Distribution</div>
+      <div class="chart-subtitle">Where this edition's intel comes from</div>
+      <div class="donut-container">
+        <svg class="donut-svg" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="45" fill="none" stroke="var(--parchment)" stroke-width="14"/>
+          <circle cx="60" cy="60" r="45" fill="none" stroke="var(--dispatch-blue)" stroke-width="14"
+                  stroke-dasharray="113 170" stroke-dashoffset="-42.5" stroke-linecap="round"/>
+          <circle cx="60" cy="60" r="45" fill="none" stroke="var(--dispatch-blue-light)" stroke-width="14"
+                  stroke-dasharray="85 198" stroke-dashoffset="-155" stroke-linecap="round"/>
+          <circle cx="60" cy="60" r="45" fill="none" stroke="var(--parchment-warm)" stroke-width="14"
+                  stroke-dasharray="56.5 226.5" stroke-dashoffset="-240" stroke-linecap="round"/>
+          <text x="60" y="56" text-anchor="middle" fill="var(--ink)" font-family="Plus Jakarta Sans" font-size="18" font-weight="800">22</text>
+          <text x="60" y="72" text-anchor="middle" fill="var(--ink-muted)" font-family="Plus Jakarta Sans" font-size="10">sources</text>
+        </svg>
+        <div class="donut-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:var(--dispatch-blue)"></div>X / Twitter (40%)</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--dispatch-blue-light)"></div>Podcasts (30%)</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--parchment-warm)"></div>Direct sources (20%)</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--parchment)"></div>Community (10%)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-rules reveal">
+    <h3>Chart Rules</h3>
+    <div class="chart-rules-grid">
+      <div class="chart-rule"><strong>Color:</strong> Dispatch Blue for primary data, Blue Light for secondary. Parchment Warm for tertiary only.</div>
+      <div class="chart-rule"><strong>Labels:</strong> JetBrains Mono at 10–11px, uppercase, muted color. Below bars, beside legends.</div>
+      <div class="chart-rule"><strong>Borders:</strong> Rounded corners on bars (6px top). No hard grid lines — use soft parchment guidelines only.</div>
+      <div class="chart-rule"><strong>Animation:</strong> Bars grow from 0 to full height on scroll. Donut segments draw clockwise. Duration: 800ms staggered.</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ─── 06. COMPONENTS ─── -->
+<section class="section" id="components">
+  <div class="reveal">
+    <div class="section-label">06 Components</div>
+    <div class="section-title">UI <em>Building Blocks</em></div>
+    <p class="section-desc">Reusable components for the newsletter website. Every element should feel cohesive, interactive, and effortless.</p>
+  </div>
+
+  <div class="component-grid">
+    <div class="component-card reveal">
+      <div class="component-label">Buttons</div>
+      <div class="btn-demo">
+        <button class="demo-btn demo-btn-primary">Subscribe</button>
+        <button class="demo-btn demo-btn-secondary">Archive</button>
+        <button class="demo-btn demo-btn-ghost">Read More</button>
+      </div>
+    </div>
+    <div class="component-card reveal reveal-d1">
+      <div class="component-label">Badges</div>
+      <div class="badge-row">
+        <span class="demo-badge demo-badge-blue">Latest</span>
+        <span class="demo-badge demo-badge-parchment">Mar 10, 2026</span>
+        <span class="demo-badge demo-badge-success">New</span>
+        <span class="demo-badge demo-badge-warning">Updated</span>
+      </div>
+    </div>
+    <div class="component-card reveal reveal-d2">
+      <div class="component-label">Text Input</div>
+      <input class="demo-input" type="email" placeholder="your.email@company.com">
+    </div>
+    <div class="component-card reveal reveal-d3">
+      <div class="component-label">Content Card</div>
+      <div class="demo-card">
+        <div class="demo-card-tag">This Week in AI</div>
+        <h4>ElevenLabs Flows</h4>
+        <p>A node-based creative canvas connecting 35+ visual AI models with voice, music, and sound effects.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="reveal" style="font-size:14px; font-weight:700; margin-top:40px; margin-bottom:16px; color:var(--ink-soft);">Spacing Scale</h3>
+  <div class="spacing-demo reveal reveal-d1">
+    <div class="spacing-block">
+      <div class="spacing-visual" style="width:24px; height:4px;"></div>
+      <div class="spacing-value">4px</div>
+    </div>
+    <div class="spacing-block">
+      <div class="spacing-visual" style="width:24px; height:8px;"></div>
+      <div class="spacing-value">8px</div>
+    </div>
+    <div class="spacing-block">
+      <div class="spacing-visual" style="width:24px; height:12px;"></div>
+      <div class="spacing-value">12px</div>
+    </div>
+    <div class="spacing-block">
+      <div class="spacing-visual" style="width:24px; height:16px;"></div>
+      <div class="spacing-value">16px</div>
+    </div>
+    <div class="spacing-block">
+      <div class="spacing-visual" style="width:24px; height:24px;"></div>
+      <div class="spacing-value">24px</div>
+    </div>
+    <div class="spacing-block">
+      <div class="spacing-visual" style="width:24px; height:32px;"></div>
+      <div class="spacing-value">32px</div>
+    </div>
+    <div class="spacing-block">
+      <div class="spacing-visual" style="width:24px; height:48px;"></div>
+      <div class="spacing-value">48px</div>
+    </div>
+    <div class="spacing-block">
+      <div class="spacing-visual" style="width:24px; height:64px;"></div>
+      <div class="spacing-value">64px</div>
+    </div>
+    <div class="spacing-block">
+      <div class="spacing-visual" style="width:24px; height:96px;"></div>
+      <div class="spacing-value">96px</div>
+    </div>
+  </div>
+
+  <h3 class="reveal" style="font-size:14px; font-weight:700; margin-top:40px; margin-bottom:16px; color:var(--ink-soft);">Border Radius</h3>
+  <div class="reveal reveal-d1" style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-end;">
+    <div style="text-align:center;">
+      <div style="width:60px; height:60px; background:var(--dispatch-blue-10); border:1px dashed var(--dispatch-blue-light); border-radius:8px;"></div>
+      <div style="font-family:var(--font-mono); font-size:10px; color:var(--ink-faint); margin-top:6px;">8px — sm</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:60px; height:60px; background:var(--dispatch-blue-10); border:1px dashed var(--dispatch-blue-light); border-radius:12px;"></div>
+      <div style="font-family:var(--font-mono); font-size:10px; color:var(--ink-faint); margin-top:6px;">12px — md</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:60px; height:60px; background:var(--dispatch-blue-10); border:1px dashed var(--dispatch-blue-light); border-radius:16px;"></div>
+      <div style="font-family:var(--font-mono); font-size:10px; color:var(--ink-faint); margin-top:6px;">16px — lg</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:60px; height:60px; background:var(--dispatch-blue-10); border:1px dashed var(--dispatch-blue-light); border-radius:999px;"></div>
+      <div style="font-family:var(--font-mono); font-size:10px; color:var(--ink-faint); margin-top:6px;">999px — pill</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ─── 07. DESIGN PRINCIPLES ─── -->
+<section class="section" id="principles">
+  <div class="reveal">
+    <div class="section-label">07 Design Principles</div>
+    <div class="section-title">What the Dispatch <em>feels</em> like</div>
+    <p class="section-desc">Four guiding principles for every design decision on the newsletter website.</p>
+  </div>
+
+  <div class="principles-grid">
+    <div class="principle-card reveal">
+      <div class="principle-icon" style="background:var(--dispatch-blue-10);">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--dispatch-blue)" stroke-width="1.5" stroke-linecap="round">
+          <circle cx="11" cy="11" r="9"/><path d="M11 6v6l4 2"/>
+        </svg>
+      </div>
+      <h4>Signal, not noise</h4>
+      <p>Every element earns its place. If it doesn't help the reader understand AI faster, it goes. White space is a feature, not a gap to fill.</p>
+    </div>
+    <div class="principle-card reveal reveal-d1">
+      <div class="principle-icon" style="background:rgba(58,158,110,0.08);">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--success)" stroke-width="1.5" stroke-linecap="round">
+          <path d="M4 11c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7"/><path d="M8 11l2 2 4-4"/>
+        </svg>
+      </div>
+      <h4>Effortless to scan</h4>
+      <p>A reader should get the gist of the entire newsletter in 30 seconds by scanning headlines, badges, and bolded insights.</p>
+    </div>
+    <div class="principle-card reveal reveal-d2">
+      <div class="principle-icon" style="background:rgba(212,149,58,0.08);">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--warning)" stroke-width="1.5" stroke-linecap="round">
+          <path d="M3 18h16M5 14h12M7 10h8M9 6h4"/>
+        </svg>
+      </div>
+      <h4>Warm, not corporate</h4>
+      <p>Parchment tones, hand-drawn illustrations, and a conversational voice. This is a colleague sharing discoveries, not a memo from leadership.</p>
+    </div>
+    <div class="principle-card reveal reveal-d3">
+      <div class="principle-icon" style="background:var(--dispatch-blue-05);">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--dispatch-blue)" stroke-width="1.5" stroke-linecap="round">
+          <path d="M11 2v4M11 16v4M2 11h4M16 11h4"/><circle cx="11" cy="11" r="3"/>
+        </svg>
+      </div>
+      <h4>Delightfully animated</h4>
+      <p>Small moments of motion that reward attention. Content that draws itself in. Charts that build as you scroll. Nothing that gets in the way.</p>
+    </div>
+  </div>
+
+  <div class="dos-grid reveal">
+    <div class="do-card">
+      <h4>Do</h4>
+      <ul>
+        <li>Use generous white space between sections</li>
+        <li>Let illustrations animate in with the line-draw effect</li>
+        <li>Keep body text at 15px with 1.7 line-height</li>
+        <li>Use Dispatch Blue sparingly — for emphasis only</li>
+        <li>Stagger scroll reveal animations by 100ms</li>
+        <li>Include hover states on every interactive element</li>
+        <li>Use the Nano Banana 2 prompt template for all new illustrations</li>
+      </ul>
+    </div>
+    <div class="dont-card">
+      <h4>Don't</h4>
+      <ul>
+        <li>Use more than 2 accent colors on a single view</li>
+        <li>Create illustrations with heavy fills or shading</li>
+        <li>Use animations longer than 700ms for interactions</li>
+        <li>Set body text below 13px (accessibility)</li>
+        <li>Add decorative elements that don't serve the content</li>
+        <li>Use stock photos or generic AI-generated imagery</li>
+        <li>Break the Dispatch Blue + Parchment color pair</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="brand-footer">
+  <p>The AV AI Dispatch — Brand Guidelines v1.0 — March 2026</p>
+  <p style="margin-top:4px; font-family:var(--font-mono); font-size:11px;">Plus Jakarta Sans · JetBrains Mono · Nano Banana 2 · JW.org Blue #4a6da7 · Parchment #f5f0e8</p>
+</footer>
+
+<script>
+const primaryColors = [
+  { name: 'Dispatch Blue', hex: '#4a6da7', usage: 'Primary brand. CTAs, links, section labels, hero backgrounds.', text: 'white' },
+  { name: 'Dispatch Blue Dark', hex: '#3a5a8f', usage: 'Hover states, pressed buttons, emphasis on dark contexts.', text: 'white' },
+  { name: 'Parchment', hex: '#f5f0e8', usage: 'Page backgrounds, card fills, warm neutral base.', text: '#1a1a2e' },
+  { name: 'Ink', hex: '#1a1a2e', usage: 'Headlines, primary body text, maximum contrast.', text: 'white' },
+];
+const extendedColors = [
+  { name: 'Blue Light', hex: '#6b8ec4', usage: 'Secondary data, chart accents, softer emphasis.', text: 'white' },
+  { name: 'Blue Pale', hex: '#e8eef6', usage: 'Badge backgrounds, light tint areas.', text: '#4a6da7' },
+  { name: 'Blue Ghost', hex: '#f4f7fb', usage: 'Subtle blue-tinted surface. Active nav states.', text: '#4a6da7' },
+  { name: 'Parchment Warm', hex: '#ede6d8', usage: 'Secondary backgrounds, table alternating rows.', text: '#1a1a2e' },
+  { name: 'Parchment Light', hex: '#faf8f3', usage: 'Main content background. Slightly lighter than Parchment.', text: '#1a1a2e' },
+  { name: 'Parchment Dark', hex: '#ddd5c4', usage: 'Borders, dividers, separator lines.', text: '#1a1a2e' },
+  { name: 'Ink Muted', hex: '#6b6b80', usage: 'Body text, secondary content.', text: 'white' },
+  { name: 'Ink Faint', hex: '#9e9eb0', usage: 'Captions, placeholders, disabled states.', text: '#1a1a2e' },
+  { name: 'Success', hex: '#3a9e6e', usage: 'Positive states, "New" badges, confirmations.', text: 'white' },
+  { name: 'Warning', hex: '#d4953a', usage: '"Updated" badges, attention callouts.', text: 'white' },
+];
+
+function renderColors(colors, containerId) {
+  const grid = document.getElementById(containerId);
+  grid.innerHTML = colors.map(c => `
+    <div class="color-card" onclick="copyColor('${c.hex}', this)">
+      <div class="color-swatch" style="background:${c.hex}; color:${c.text};">
+        <span class="copied">Copied!</span>
+      </div>
+      <div class="color-info">
+        <div class="color-name">${c.name}</div>
+        <div class="color-hex">${c.hex}</div>
+        <div class="color-usage">${c.usage}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function copyColor(hex, el) {
+  navigator.clipboard.writeText(hex).catch(() => {});
+  const badge = el.querySelector('.copied');
+  badge.classList.add('show');
+  setTimeout(() => badge.classList.remove('show'), 1200);
+}
+
+renderColors(primaryColors, 'primaryColors');
+renderColors(extendedColors, 'extendedColors');
+
+// scroll reveal
+const revealObserver = new IntersectionObserver(
+  (entries) => entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  }),
+  { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+);
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// hero doodle draw-in
+const drawObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.draw-in').forEach((el, i) => {
+        setTimeout(() => el.classList.add('animate'), i * 200);
+      });
+      drawObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.brand-hero').forEach(el => drawObserver.observe(el));
+
+// bar chart animation
+const chartObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar').forEach((bar, i) => {
+        setTimeout(() => { bar.style.height = bar.dataset.height; }, i * 150);
+      });
+      chartObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('#barChart').forEach(el => chartObserver.observe(el));
+
+// animation card hover demos
+document.querySelectorAll('.anim-card').forEach(card => {
+  const demo = card.querySelector('.anim-demo');
+  if (!demo) return;
+  card.addEventListener('mouseenter', () => { demo.style.animationPlayState = 'running'; });
+  card.addEventListener('mouseleave', () => { demo.style.animationPlayState = 'paused'; });
+});
+
+// line draw demo in animation section
+const lineDrawObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.hero-draw').forEach(el => el.classList.add('animate'));
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.anim-card').forEach(el => {
+  if (el.querySelector('.hero-draw')) lineDrawObserver.observe(el);
+});
+
+// card lift demo
+const cardLift = document.getElementById('cardLiftDemo');
+if (cardLift) {
+  cardLift.parentElement.addEventListener('mouseenter', () => {
+    cardLift.style.transform = 'translateY(-4px)';
+    cardLift.style.boxShadow = '0 12px 40px rgba(74,109,167,0.18)';
+  });
+  cardLift.parentElement.addEventListener('mouseleave', () => {
+    cardLift.style.transform = '';
+    cardLift.style.boxShadow = '';
+  });
+}
+</script>
+
+</body>
+</html>
