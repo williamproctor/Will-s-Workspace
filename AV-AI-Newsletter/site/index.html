@@ -318,6 +318,141 @@
     }
     .edition-body strong { color: var(--ink-soft); }
 
+    /* ── PODCAST PLAYER ── */
+    .podcast-player {
+      display: flex; align-items: center; gap: 20px;
+      background: linear-gradient(135deg, var(--dispatch-blue) 0%, var(--dispatch-blue-dark) 100%);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin: 0 0 8px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .podcast-player::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 300px 200px at 10% 100%, rgba(255,255,255,0.06), transparent),
+        radial-gradient(ellipse 200px 150px at 90% 0%, rgba(255,255,255,0.04), transparent);
+      pointer-events: none;
+    }
+    .podcast-play-btn {
+      width: 52px; height: 52px; min-width: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative; z-index: 1;
+    }
+    .podcast-play-btn:hover {
+      background: rgba(255,255,255,0.25);
+      border-color: rgba(255,255,255,0.5);
+      transform: scale(1.06);
+    }
+    .podcast-play-btn svg {
+      width: 22px; height: 22px;
+      fill: var(--white); stroke: none;
+    }
+    .podcast-info {
+      flex: 1; min-width: 0;
+      position: relative; z-index: 1;
+    }
+    .podcast-label {
+      font-family: var(--font-mono);
+      font-size: 9px; font-weight: 500;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 4px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .podcast-label::before {
+      content: ''; width: 4px; height: 4px;
+      background: rgba(255,255,255,0.4); border-radius: 50%;
+    }
+    .podcast-title {
+      font-size: 15px; font-weight: 700;
+      letter-spacing: -0.3px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin-bottom: 10px;
+    }
+    .podcast-progress-wrap {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .podcast-time {
+      font-family: var(--font-mono);
+      font-size: 11px; color: rgba(255,255,255,0.5);
+      min-width: 38px;
+    }
+    .podcast-progress {
+      flex: 1; height: 4px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 2px;
+      cursor: pointer;
+      position: relative;
+    }
+    .podcast-progress-bar {
+      height: 100%; width: 0%;
+      background: rgba(255,255,255,0.7);
+      border-radius: 2px;
+      transition: width 0.1s linear;
+    }
+    .podcast-progress:hover .podcast-progress-bar {
+      background: var(--white);
+    }
+    .podcast-volume-btn {
+      background: none; border: none; cursor: pointer;
+      padding: 4px;
+      position: relative; z-index: 1;
+    }
+    .podcast-volume-btn svg {
+      width: 18px; height: 18px;
+      stroke: rgba(255,255,255,0.5); fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+      transition: stroke 0.2s;
+    }
+    .podcast-volume-btn:hover svg { stroke: var(--white); }
+    .podcast-speed-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-family: var(--font-mono);
+      font-size: 10px; font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative; z-index: 1;
+    }
+    .podcast-speed-btn:hover {
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+    }
+    .podcast-player-missing {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--dispatch-blue-05);
+      border: 1px dashed var(--dispatch-blue-light);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 0 0 8px;
+    }
+    .podcast-player-missing svg {
+      width: 20px; height: 20px; min-width: 20px;
+      stroke: var(--dispatch-blue); fill: none;
+      stroke-width: 1.5; stroke-linecap: round;
+    }
+    .podcast-player-missing p {
+      font-size: 13px; color: var(--ink-muted); margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .podcast-player { flex-wrap: wrap; padding: 20px; gap: 14px; }
+      .podcast-info { width: 100%; }
+      .podcast-title { white-space: normal; }
+    }
+
     /* ── ARCHIVE ── */
     .archive-section { background: var(--parchment); }
     .archive-grid {
@@ -613,12 +748,20 @@
 
     const EDITIONS = [
       {
-        "date": "2026-03-10",
-        "title": "The AV AI Dispatch \u2014 Week of March 10, 2026",
-        "hook": "ElevenLabs just launched a node-based production canvas that combines 35+ visual AI models with voice, music, and sound effects \u2014 and it might be the first tool that actually deserves the label \"AI production platform.\"",
-        "file": "editions/2026-03-10.md"
+            "date": "2026-03-12",
+            "title": "The AV AI Dispatch \u2014 Week of March 12, 2026",
+            "hook": "A $15 million ad campaign recreated in 40 hours for under $20K, ByteDance's video model shelved by Disney's lawyers, and a new open-source voice model that lets you direct emotional delivery word by word.",
+            "file": "/editions/2026-03-12.md",
+            "audio": "/audio/2026-03-12.m4a",
+            "audioTitle": "AV AI Dispatch Podcast \u2014 Week of 2026-03-12"
+      },
+      {
+            "date": "2026-03-10",
+            "title": "The AV AI Dispatch \u2014 Week of March 10, 2026",
+            "hook": "ElevenLabs just launched a node-based production canvas that combines 35+ visual AI models with voice, music, and sound effects \u2014 and it might be the first tool that actually deserves the label \"AI production platform.\"",
+            "file": "/editions/2026-03-10.md"
       }
-    ];
+];
 
     function renderArchive() {
       const grid = document.getElementById('archiveGrid');
@@ -639,6 +782,7 @@
         const md = await res.text();
         const ed = EDITIONS.find(e => e.file === filePath) || EDITIONS[0];
         const container = document.getElementById('latestEdition');
+        const audioHtml = ed.audio ? buildPodcastPlayer(ed) : buildPodcastMissing();
         container.innerHTML = `
           <div class="edition-header">
             <div class="edition-meta">
@@ -646,12 +790,111 @@
               <span class="edition-date">${ed.date}</span>
             </div>
           </div>
-          <div class="edition-body">${markdownToHtml(md)}</div>
+          <div class="edition-body">
+            ${audioHtml}
+            ${markdownToHtml(md)}
+          </div>
         `;
+        if (ed.audio) initPodcastPlayer();
         document.getElementById('latest').scrollIntoView({ behavior: 'smooth' });
       } catch (err) {
         console.error('Failed to load edition:', err);
       }
+    }
+
+    function buildPodcastPlayer(ed) {
+      const title = ed.audioTitle || `AV AI Dispatch — ${ed.date}`;
+      return `
+        <div class="podcast-player" id="podcastPlayer">
+          <button class="podcast-play-btn" id="podcastPlayBtn" aria-label="Play podcast">
+            <svg viewBox="0 0 24 24" id="podcastPlayIcon"><polygon points="6,3 20,12 6,21"/></svg>
+          </button>
+          <div class="podcast-info">
+            <div class="podcast-label">NotebookLM Podcast · ~15 min</div>
+            <div class="podcast-title">${title}</div>
+            <div class="podcast-progress-wrap">
+              <span class="podcast-time" id="podcastCurrent">0:00</span>
+              <div class="podcast-progress" id="podcastProgress">
+                <div class="podcast-progress-bar" id="podcastBar"></div>
+              </div>
+              <span class="podcast-time" id="podcastDuration">--:--</span>
+            </div>
+          </div>
+          <button class="podcast-speed-btn" id="podcastSpeedBtn">1x</button>
+          <button class="podcast-volume-btn" id="podcastVolumeBtn" aria-label="Mute">
+            <svg viewBox="0 0 24 24"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          </button>
+          <audio id="podcastAudio" preload="metadata" src="${ed.audio}"></audio>
+        </div>`;
+    }
+
+    function buildPodcastMissing() {
+      return `
+        <div class="podcast-player-missing">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 1.5"/></svg>
+          <p>The audio podcast for this edition is being generated and will appear here soon.</p>
+        </div>`;
+    }
+
+    function initPodcastPlayer() {
+      const audio = document.getElementById('podcastAudio');
+      if (!audio) return;
+      const playBtn = document.getElementById('podcastPlayBtn');
+      const playIcon = document.getElementById('podcastPlayIcon');
+      const bar = document.getElementById('podcastBar');
+      const progress = document.getElementById('podcastProgress');
+      const curTime = document.getElementById('podcastCurrent');
+      const durTime = document.getElementById('podcastDuration');
+      const speedBtn = document.getElementById('podcastSpeedBtn');
+      const volBtn = document.getElementById('podcastVolumeBtn');
+      const speeds = [1, 1.25, 1.5, 1.75, 2];
+      let speedIdx = 0;
+
+      function fmt(s) {
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+
+      audio.addEventListener('loadedmetadata', () => { durTime.textContent = fmt(audio.duration); });
+      audio.addEventListener('timeupdate', () => {
+        if (!audio.duration) return;
+        bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+        curTime.textContent = fmt(audio.currentTime);
+      });
+      audio.addEventListener('ended', () => {
+        playIcon.innerHTML = '<polygon points="6,3 20,12 6,21"/>';
+      });
+
+      playBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+        } else {
+          audio.pause();
+          playIcon.innerHTML = '<polygon points="6,3 20,12 6,21"/>';
+        }
+      });
+
+      progress.addEventListener('click', (e) => {
+        const rect = progress.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+      });
+
+      speedBtn.addEventListener('click', () => {
+        speedIdx = (speedIdx + 1) % speeds.length;
+        audio.playbackRate = speeds[speedIdx];
+        speedBtn.textContent = speeds[speedIdx] + 'x';
+      });
+
+      let muted = false;
+      volBtn.addEventListener('click', () => {
+        muted = !muted;
+        audio.muted = muted;
+        volBtn.querySelector('svg').innerHTML = muted
+          ? '<line x1="23" y1="1" x2="1" y2="23"/><polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/>'
+          : '<polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
+      });
     }
 
     function markdownToHtml(md) {
