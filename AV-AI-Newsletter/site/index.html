@@ -28,7 +28,6 @@
       <nav class="nav-links">
         <a href="#latest">Latest</a>
         <a href="#archive">Archive</a>
-        <a href="#subscribe" class="btn-subscribe">Subscribe</a>
       </nav>
     </div>
   </header>
@@ -56,7 +55,6 @@
       <p class="hero-sub">A weekly digest of trending AI developments, top podcast insights, and tools that matter — curated for Audio/Video Services.</p>
       <div class="hero-cta" id="heroCta">
         <a href="#latest" class="btn btn-primary">Read Latest Edition</a>
-        <a href="#subscribe" class="btn btn-ghost">Get It Weekly</a>
       </div>
     </div>
   </section>
@@ -101,21 +99,6 @@
     </div>
   </section>
 
-  <section class="section subscribe-section" id="subscribe">
-    <div class="section-inner">
-      <div class="reveal">
-        <div class="section-label">Stay Current</div>
-        <div class="section-title">Get the <em>Dispatch</em><br>every week</div>
-        <p class="section-desc" style="margin-left:auto; margin-right:auto;">Join the Audio/Video Services team members who start their week with the latest AI intelligence. No spam, just signal.</p>
-        <form class="subscribe-form" id="subscribeForm">
-          <input type="email" class="subscribe-input" placeholder="your.email@company.com" required>
-          <button type="submit" class="btn" style="background:var(--dispatch-blue); color:var(--white);">Subscribe</button>
-        </form>
-        <p style="font-size: 11px; color: var(--ink-faint); margin-top: 14px; font-family: var(--font-mono); letter-spacing: 0.5px;">Internal distribution only. Unsubscribe anytime.</p>
-      </div>
-    </div>
-  </section>
-
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-text">&copy; 2026 Audio/Video Services — The AV AI Dispatch</div>
@@ -123,7 +106,6 @@
         <a href="#latest">Latest</a>
         <a href="#archive">Archive</a>
         <a href="/brand-guidelines.html">Brand</a>
-        <a href="#subscribe">Subscribe</a>
       </div>
     </div>
   </footer>
@@ -150,23 +132,6 @@
     } else {
       revealEls.forEach(el => el.classList.add('visible'));
     }
-
-    document.getElementById('subscribeForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = e.target.querySelector('input');
-      const btn = e.target.querySelector('button');
-      btn.textContent = 'Subscribed!';
-      btn.style.background = 'var(--success)';
-      input.value = '';
-      input.disabled = true;
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = 'Subscribe';
-        btn.style.background = 'var(--dispatch-blue)';
-        input.disabled = false;
-        btn.disabled = false;
-      }, 3000);
-    });
 
     const EDITIONS = [
       {
