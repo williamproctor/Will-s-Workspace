@@ -62,8 +62,10 @@ body {
 }
 .logo {
   display: flex; align-items: center; gap: 10px;
-  text-decoration: none; color: var(--ink);
+  text-decoration: none; color: var(--white);
+  transition: color 0.4s;
 }
+.site-header.scrolled .logo { color: var(--ink); }
 .logo-icon {
   width: 32px; height: 32px;
   background: var(--dispatch-blue);
@@ -76,16 +78,20 @@ body {
   font-size: 16px; font-weight: 800; letter-spacing: -0.5px;
 }
 .logo-text em {
-  color: var(--dispatch-blue); font-style: normal;
+  color: rgba(255, 255, 255, 0.7); font-style: normal;
+  transition: color 0.4s;
 }
+.site-header.scrolled .logo-text em { color: var(--dispatch-blue); }
 .nav-links { display: flex; align-items: center; gap: 24px; }
 .nav-links a {
   font-size: 12px; font-weight: 500; letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: var(--ink-muted); text-decoration: none;
-  transition: color 0.2s;
+  color: rgba(255, 255, 255, 0.8); text-decoration: none;
+  transition: color 0.4s;
 }
-.nav-links a:hover { color: var(--dispatch-blue); }
+.nav-links a:hover { color: var(--white); }
+.site-header.scrolled .nav-links a { color: var(--ink-muted); }
+.site-header.scrolled .nav-links a:hover { color: var(--dispatch-blue); }
 
 /* ── HERO ── */
 .hero {
