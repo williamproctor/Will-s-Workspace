@@ -3,598 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The AV AI Dispatch</title>
+  <title>The AV AI Dispatch — Weekly AI Intelligence for Audio/Video Services</title>
+  <meta name="description" content="A weekly digest of trending AI developments, top podcast insights, and tools that matter — curated for Audio/Video Services.">
+  <meta property="og:title" content="The AV AI Dispatch">
+  <meta property="og:description" content="Weekly AI intelligence for Audio/Video Services. Trending developments, top podcast insights, and tools that matter.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avaidispatch.com">
+  <meta property="og:site_name" content="The AV AI Dispatch">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://avaidispatch.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --dispatch-blue: #4a6da7;
-      --dispatch-blue-dark: #3a5a8f;
-      --dispatch-blue-light: #6b8ec4;
-      --dispatch-blue-pale: #e8eef6;
-      --dispatch-blue-ghost: #f4f7fb;
-      --dispatch-blue-10: rgba(74, 109, 167, 0.10);
-      --dispatch-blue-05: rgba(74, 109, 167, 0.05);
-      --parchment: #f5f0e8;
-      --parchment-warm: #ede6d8;
-      --parchment-light: #faf8f3;
-      --parchment-dark: #ddd5c4;
-      --ink: #1a1a2e;
-      --ink-soft: #2d2d42;
-      --ink-muted: #6b6b80;
-      --ink-faint: #9e9eb0;
-      --white: #ffffff;
-      --success: #3a9e6e;
-      --warning: #d4953a;
-      --font-display: 'Plus Jakarta Sans', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --max-width: 1080px;
-      --radius: 12px;
-      --radius-lg: 16px;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-display);
-      background: var(--parchment-light);
-      color: var(--ink);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    /* ── NAV ── */
-    .site-header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 0 32px;
-      transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
-      border-bottom: 1px solid transparent;
-    }
-    .site-header.scrolled {
-      background: rgba(250, 248, 243, 0.88);
-      backdrop-filter: blur(20px) saturate(1.3);
-      border-bottom-color: var(--parchment-dark);
-    }
-    .header-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 60px;
-    }
-    .logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none; color: var(--ink);
-    }
-    .logo-icon {
-      width: 32px; height: 32px;
-      background: var(--dispatch-blue);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700; color: var(--white);
-      font-family: var(--font-mono); letter-spacing: -0.5px;
-    }
-    .logo-text {
-      font-size: 16px; font-weight: 800; letter-spacing: -0.5px;
-    }
-    .logo-text em {
-      color: var(--dispatch-blue); font-style: normal;
-    }
-    .nav-links { display: flex; align-items: center; gap: 24px; }
-    .nav-links a {
-      font-size: 12px; font-weight: 500; letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: var(--ink-muted); text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--dispatch-blue); }
-    .nav-links .btn-subscribe {
-      background: var(--dispatch-blue); color: var(--white);
-      padding: 8px 20px; border-radius: 999px;
-      font-weight: 600; font-size: 12px;
-      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .nav-links .btn-subscribe:hover {
-      background: var(--dispatch-blue-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(74, 109, 167, 0.25);
-    }
-
-    /* ── HERO ── */
-    .hero {
-      padding: 150px 32px 100px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      background: var(--dispatch-blue);
-      color: var(--white);
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 600px 400px at 20% 80%, rgba(245,240,232,0.06), transparent),
-        radial-gradient(ellipse 500px 300px at 80% 20%, rgba(255,255,255,0.04), transparent);
-      pointer-events: none;
-    }
-
-    /* floating hand-drawn doodles */
-    .doodle-float {
-      position: absolute; pointer-events: none; opacity: 0.10;
-    }
-    .doodle-float svg {
-      stroke: currentColor; fill: none;
-      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
-    }
-    @keyframes floatBob {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    .doodle-float { animation: floatBob 4s ease-in-out infinite; }
-    .doodle-float:nth-child(2) { animation-delay: -1s; animation-duration: 5s; }
-    .doodle-float:nth-child(3) { animation-delay: -2s; animation-duration: 3.5s; }
-    .doodle-float:nth-child(4) { animation-delay: -0.5s; animation-duration: 4.5s; }
-    .doodle-float:nth-child(5) { animation-delay: -1.5s; animation-duration: 3.8s; }
-
-    @keyframes drawLine {
-      from { stroke-dashoffset: 200; }
-      to { stroke-dashoffset: 0; }
-    }
-    .draw-in {
-      stroke-dasharray: 200; stroke-dashoffset: 200;
-      animation: drawLine 2s ease forwards;
-    }
-
-    .hero-label {
-      font-family: var(--font-mono);
-      font-size: 11px; font-weight: 400;
-      letter-spacing: 2.5px; text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 24px;
-      display: inline-flex; align-items: center; gap: 8px;
-    }
-    .hero-label::before {
-      content: ''; width: 20px; height: 1px;
-      background: rgba(255,255,255,0.3);
-    }
-    .hero h1 {
-      font-size: clamp(36px, 5.5vw, 64px);
-      font-weight: 800;
-      line-height: 1.05; letter-spacing: -2px;
-      max-width: 680px; margin: 0 auto 24px;
-    }
-    .hero h1 em {
-      font-weight: 300; font-style: italic;
-      opacity: 0.85;
-    }
-    .hero-sub {
-      font-size: 17px; font-weight: 400;
-      color: rgba(255,255,255,0.6);
-      max-width: 500px; margin: 0 auto 44px;
-      line-height: 1.6;
-    }
-    .hero-cta {
-      display: flex; justify-content: center;
-      gap: 12px; flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 28px; border-radius: 999px;
-      font-size: 14px; font-weight: 600;
-      font-family: var(--font-display);
-      text-decoration: none; border: none; cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .btn-primary {
-      background: var(--white); color: var(--dispatch-blue);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    }
-    .btn-ghost {
-      background: transparent; color: rgba(255,255,255,0.7);
-      border: 1.5px solid rgba(255,255,255,0.2);
-    }
-    .btn-ghost:hover {
-      border-color: rgba(255,255,255,0.4);
-      color: var(--white);
-    }
-
-    /* ── SECTIONS ── */
-    .section { padding: 96px 32px; }
-    .section-inner { max-width: var(--max-width); margin: 0 auto; }
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--dispatch-blue); margin-bottom: 12px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .section-label::before {
-      content: ''; width: 16px; height: 2px;
-      background: var(--dispatch-blue); border-radius: 1px;
-    }
-    .section-title {
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 800;
-      letter-spacing: -1.5px; line-height: 1.1;
-      margin-bottom: 16px;
-    }
-    .section-title em { color: var(--dispatch-blue); font-style: normal; }
-    .section-desc {
-      font-size: 15px; color: var(--ink-muted);
-      max-width: 540px; line-height: 1.65;
-      margin-bottom: 48px;
-    }
-
-    /* ── LATEST EDITION ── */
-    .latest-edition {
-      background: var(--white);
-      border: 1px solid var(--parchment-dark);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .edition-header {
-      padding: 24px 32px;
-      border-bottom: 1px solid var(--parchment-dark);
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px;
-      background: var(--parchment-light);
-    }
-    .edition-meta { display: flex; align-items: center; gap: 12px; }
-    .edition-badge {
-      font-family: var(--font-mono);
-      font-size: 10px; font-weight: 500;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--white); background: var(--dispatch-blue);
-      padding: 4px 12px; border-radius: 999px;
-    }
-    .edition-date { font-size: 13px; color: var(--ink-muted); }
-    .edition-body { padding: 36px 32px; }
-    .edition-body h2 {
-      font-size: 24px; font-weight: 800;
-      letter-spacing: -0.5px; margin-bottom: 12px; margin-top: 36px;
-    }
-    .edition-body h2:first-child { margin-top: 0; }
-    .edition-body h3 {
-      font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
-      margin-bottom: 8px; margin-top: 28px;
-      color: var(--ink-soft);
-    }
-    .edition-body p {
-      color: var(--ink-muted); margin-bottom: 14px;
-      font-size: 15px; line-height: 1.7;
-    }
-    .edition-body a {
-      color: var(--dispatch-blue); text-decoration: none;
-      border-bottom: 1px solid var(--dispatch-blue-10);
-      transition: border-color 0.2s;
-    }
-    .edition-body a:hover { border-color: var(--dispatch-blue); }
-    .edition-body blockquote {
-      border-left: 3px solid var(--dispatch-blue);
-      padding: 14px 20px; margin: 20px 0;
-      background: var(--dispatch-blue-05);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      font-style: italic; color: var(--ink-muted);
-    }
-    .edition-body table {
-      width: 100%; border-collapse: collapse;
-      margin: 20px 0; font-size: 13px;
-    }
-    .edition-body th {
-      font-family: var(--font-mono);
-      font-size: 10px; font-weight: 500;
-      letter-spacing: 1px; text-transform: uppercase;
-      color: var(--ink-faint); text-align: left;
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--parchment-dark);
-      background: var(--parchment-light);
-    }
-    .edition-body td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--parchment);
-      color: var(--ink-muted);
-    }
-    .edition-body tr:hover td { background: var(--dispatch-blue-05); }
-    .edition-body ul { margin: 14px 0; padding-left: 20px; }
-    .edition-body li {
-      color: var(--ink-muted); font-size: 15px;
-      line-height: 1.7; margin-bottom: 6px;
-    }
-    .edition-body li strong { color: var(--ink-soft); }
-    .edition-body hr {
-      border: none; border-top: 1px solid var(--parchment-dark);
-      margin: 32px 0;
-    }
-    .edition-body strong { color: var(--ink-soft); }
-
-    /* ── PODCAST PLAYER ── */
-    .podcast-player {
-      display: flex; align-items: center; gap: 20px;
-      background: linear-gradient(135deg, var(--dispatch-blue) 0%, var(--dispatch-blue-dark) 100%);
-      border-radius: var(--radius-lg);
-      padding: 24px 28px;
-      margin: 0 0 8px;
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-    .podcast-player::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 300px 200px at 10% 100%, rgba(255,255,255,0.06), transparent),
-        radial-gradient(ellipse 200px 150px at 90% 0%, rgba(255,255,255,0.04), transparent);
-      pointer-events: none;
-    }
-    .podcast-play-btn {
-      width: 52px; height: 52px; min-width: 52px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.15);
-      border: 2px solid rgba(255,255,255,0.3);
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-      position: relative; z-index: 1;
-    }
-    .podcast-play-btn:hover {
-      background: rgba(255,255,255,0.25);
-      border-color: rgba(255,255,255,0.5);
-      transform: scale(1.06);
-    }
-    .podcast-play-btn svg {
-      width: 22px; height: 22px;
-      fill: var(--white); stroke: none;
-    }
-    .podcast-info {
-      flex: 1; min-width: 0;
-      position: relative; z-index: 1;
-    }
-    .podcast-label {
-      font-family: var(--font-mono);
-      font-size: 9px; font-weight: 500;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 4px;
-      display: flex; align-items: center; gap: 6px;
-    }
-    .podcast-label::before {
-      content: ''; width: 4px; height: 4px;
-      background: rgba(255,255,255,0.4); border-radius: 50%;
-    }
-    .podcast-title {
-      font-size: 15px; font-weight: 700;
-      letter-spacing: -0.3px;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      margin-bottom: 10px;
-    }
-    .podcast-progress-wrap {
-      display: flex; align-items: center; gap: 10px;
-    }
-    .podcast-time {
-      font-family: var(--font-mono);
-      font-size: 11px; color: rgba(255,255,255,0.5);
-      min-width: 38px;
-    }
-    .podcast-progress {
-      flex: 1; height: 4px;
-      background: rgba(255,255,255,0.15);
-      border-radius: 2px;
-      cursor: pointer;
-      position: relative;
-    }
-    .podcast-progress-bar {
-      height: 100%; width: 0%;
-      background: rgba(255,255,255,0.7);
-      border-radius: 2px;
-      transition: width 0.1s linear;
-    }
-    .podcast-progress:hover .podcast-progress-bar {
-      background: var(--white);
-    }
-    .podcast-volume-btn {
-      background: none; border: none; cursor: pointer;
-      padding: 4px;
-      position: relative; z-index: 1;
-    }
-    .podcast-volume-btn svg {
-      width: 18px; height: 18px;
-      stroke: rgba(255,255,255,0.5); fill: none;
-      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
-      transition: stroke 0.2s;
-    }
-    .podcast-volume-btn:hover svg { stroke: var(--white); }
-    .podcast-speed-btn {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 6px;
-      padding: 3px 8px;
-      font-family: var(--font-mono);
-      font-size: 10px; font-weight: 500;
-      color: rgba(255,255,255,0.6);
-      cursor: pointer;
-      transition: all 0.2s;
-      position: relative; z-index: 1;
-    }
-    .podcast-speed-btn:hover {
-      background: rgba(255,255,255,0.2);
-      color: var(--white);
-    }
-    .podcast-player-missing {
-      display: flex; align-items: center; gap: 14px;
-      background: var(--dispatch-blue-05);
-      border: 1px dashed var(--dispatch-blue-light);
-      border-radius: var(--radius);
-      padding: 16px 20px;
-      margin: 0 0 8px;
-    }
-    .podcast-player-missing svg {
-      width: 20px; height: 20px; min-width: 20px;
-      stroke: var(--dispatch-blue); fill: none;
-      stroke-width: 1.5; stroke-linecap: round;
-    }
-    .podcast-player-missing p {
-      font-size: 13px; color: var(--ink-muted); margin: 0;
-    }
-
-    @media (max-width: 768px) {
-      .podcast-player { flex-wrap: wrap; padding: 20px; gap: 14px; }
-      .podcast-info { width: 100%; }
-      .podcast-title { white-space: normal; }
-    }
-
-    /* ── ARCHIVE ── */
-    .archive-section { background: var(--parchment); }
-    .archive-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 16px;
-    }
-    .archive-card {
-      background: var(--white);
-      border: 1px solid var(--parchment-dark);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-      text-decoration: none; color: inherit; display: block;
-    }
-    .archive-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(74, 109, 167, 0.10);
-      border-color: var(--dispatch-blue-light);
-    }
-    .archive-card-date {
-      font-family: var(--font-mono);
-      font-size: 10px; letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--dispatch-blue); margin-bottom: 10px;
-    }
-    .archive-card-title {
-      font-size: 18px; font-weight: 700;
-      letter-spacing: -0.5px; margin-bottom: 10px;
-      line-height: 1.2;
-    }
-    .archive-card-desc {
-      font-size: 13px; color: var(--ink-muted); line-height: 1.6;
-    }
-
-    /* ── SUBSCRIBE ── */
-    .subscribe-section {
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .subscribe-section::before {
-      content: '';
-      position: absolute;
-      top: -200px; left: 50%; transform: translateX(-50%);
-      width: 900px; height: 500px;
-      background: radial-gradient(ellipse, var(--dispatch-blue-05) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .subscribe-form {
-      display: flex; gap: 10px;
-      max-width: 460px; margin: 0 auto;
-      position: relative; z-index: 1;
-    }
-    .subscribe-input {
-      flex: 1; background: var(--white);
-      border: 1.5px solid var(--parchment-dark);
-      border-radius: 999px; padding: 13px 22px;
-      font-size: 14px; color: var(--ink);
-      font-family: var(--font-display);
-      outline: none; transition: all 0.2s;
-    }
-    .subscribe-input::placeholder { color: var(--ink-faint); }
-    .subscribe-input:focus {
-      border-color: var(--dispatch-blue);
-      box-shadow: 0 0 0 3px var(--dispatch-blue-10);
-    }
-
-    /* ── DOODLE SECTION ILLUS ── */
-    .section-doodle {
-      position: absolute; pointer-events: none; opacity: 0.06;
-    }
-    .section-doodle svg {
-      stroke: var(--dispatch-blue); fill: none;
-      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
-    }
-
-    /* ── FOOTER ── */
-    .footer {
-      padding: 40px 32px;
-      border-top: 1px solid var(--parchment-dark);
-    }
-    .footer-inner {
-      max-width: var(--max-width); margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px;
-    }
-    .footer-text { font-size: 12px; color: var(--ink-faint); }
-    .footer-links { display: flex; gap: 20px; }
-    .footer-links a {
-      font-size: 12px; color: var(--ink-faint);
-      text-decoration: none; transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--dispatch-blue); }
-
-    /* ── EMPTY STATE ── */
-    .empty-state { text-align: center; padding: 72px 32px; }
-    .empty-state-icon {
-      width: 56px; height: 56px;
-      background: var(--dispatch-blue-10);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-    }
-    .empty-state-icon svg {
-      width: 24px; height: 24px;
-      stroke: var(--dispatch-blue); fill: none;
-      stroke-width: 1.5; stroke-linecap: round;
-    }
-    .empty-state h3 {
-      font-size: 20px; font-weight: 700;
-      letter-spacing: -0.5px; margin-bottom: 8px;
-    }
-    .empty-state p {
-      color: var(--ink-muted); max-width: 380px; margin: 0 auto;
-      font-size: 14px;
-    }
-
-    /* ── REVEAL ── */
-    .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-d1 { transition-delay: 0.1s; }
-    .reveal-d2 { transition-delay: 0.2s; }
-    .reveal-d3 { transition-delay: 0.3s; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .hero { padding: 120px 20px 72px; }
-      .section { padding: 64px 20px; }
-      .edition-header { padding: 16px 20px; }
-      .edition-body { padding: 24px 20px; }
-      .edition-body h2 { font-size: 20px; }
-      .nav-links a:not(.btn-subscribe) { display: none; }
-      .archive-grid { grid-template-columns: 1fr; }
-      .subscribe-form { flex-direction: column; }
-      .footer-inner { flex-direction: column; text-align: center; }
-      .doodle-float { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="/shared.css">
 </head>
 <body>
 
@@ -613,7 +34,6 @@
   </header>
 
   <section class="hero">
-    <!-- floating hand-drawn doodles -->
     <div class="doodle-float" style="top:18%; left:6%; color:white;">
       <svg width="60" height="60" viewBox="0 0 60 60"><path class="draw-in" d="M10 50 Q15 10 30 30 Q45 50 50 10"/></svg>
     </div>
@@ -633,8 +53,8 @@
     <div class="reveal">
       <div class="hero-label">Weekly AI Intelligence</div>
       <h1>AI moves fast.<br>We keep you <em>current.</em></h1>
-      <p class="hero-sub">A weekly digest of trending AI developments, top podcast insights, and tools that matter — curated for Audio/Video Services.<br><span style="font-size:12px; opacity:0.5; font-family:var(--font-mono); letter-spacing:1px; text-transform:uppercase;">Internal use only</span></p>
-      <div class="hero-cta">
+      <p class="hero-sub">A weekly digest of trending AI developments, top podcast insights, and tools that matter — curated for Audio/Video Services.</p>
+      <div class="hero-cta" id="heroCta">
         <a href="#latest" class="btn btn-primary">Read Latest Edition</a>
         <a href="#subscribe" class="btn btn-ghost">Get It Weekly</a>
       </div>
@@ -654,7 +74,7 @@
           <div class="empty-state-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 1.5"/></svg>
           </div>
-          <h3>Loading edition...</h3>
+          <h3>Loading...</h3>
           <p>The latest AV AI Dispatch is on its way.</p>
         </div>
       </div>
@@ -698,13 +118,11 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-text">
-        &copy; 2026 Audio/Video Services — The AV AI Dispatch
-      </div>
+      <div class="footer-text">&copy; 2026 Audio/Video Services — The AV AI Dispatch</div>
       <div class="footer-links">
         <a href="#latest">Latest</a>
         <a href="#archive">Archive</a>
-        <a href="brand-guidelines.html">Brand</a>
+        <a href="/brand-guidelines.html">Brand</a>
         <a href="#subscribe">Subscribe</a>
       </div>
     </div>
@@ -716,28 +134,32 @@
       header.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      }),
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        }),
+        { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
+      );
+      revealEls.forEach(el => observer.observe(el));
+      setTimeout(() => revealEls.forEach(el => el.classList.add('visible')), 1500);
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
 
     document.getElementById('subscribeForm').addEventListener('submit', (e) => {
       e.preventDefault();
       const input = e.target.querySelector('input');
       const btn = e.target.querySelector('button');
-      const email = input.value;
       btn.textContent = 'Subscribed!';
       btn.style.background = 'var(--success)';
       input.value = '';
       input.disabled = true;
       btn.disabled = true;
-      console.log('Subscriber:', email);
       setTimeout(() => {
         btn.textContent = 'Subscribe';
         btn.style.background = 'var(--dispatch-blue)';
@@ -751,23 +173,45 @@
             "date": "2026-03-12",
             "title": "The AV AI Dispatch \u2014 Week of March 12, 2026",
             "hook": "A $15 million ad campaign recreated in 40 hours for under $20K, ByteDance's video model shelved by Disney's lawyers, and a new open-source voice model that lets you direct emotional delivery word by word.",
-            "file": "/editions/2026-03-12.md",
-            "audio": "/audio/2026-03-12.m4a",
-            "audioTitle": "AV AI Dispatch Podcast \u2014 Week of 2026-03-12"
+            "file": "/editions/2026-03-12"
       },
       {
             "date": "2026-03-10",
             "title": "The AV AI Dispatch \u2014 Week of March 10, 2026",
             "hook": "ElevenLabs just launched a node-based production canvas that combines 35+ visual AI models with voice, music, and sound effects \u2014 and it might be the first tool that actually deserves the label \"AI production platform.\"",
-            "file": "/editions/2026-03-10.md"
+            "file": "/editions/2026-03-10"
       }
 ];
+
+    function renderLatestPreview() {
+      if (EDITIONS.length === 0) return;
+      const ed = EDITIONS[0];
+      const container = document.getElementById('latestEdition');
+      container.innerHTML = `
+        <a href="${ed.file}" style="text-decoration:none; color:inherit; display:block;">
+          <div class="edition-header">
+            <div class="edition-meta">
+              <span class="edition-badge">Latest</span>
+              <span class="edition-date">${ed.date}</span>
+            </div>
+          </div>
+          <div style="padding: 36px 32px;">
+            <h2 style="font-size:24px; font-weight:800; letter-spacing:-0.5px; margin-bottom:12px; color:var(--ink);">${ed.title}</h2>
+            <p style="color:var(--ink-muted); font-size:15px; line-height:1.7; margin-bottom:20px;">${ed.hook}</p>
+            <span style="color:var(--dispatch-blue); font-weight:600; font-size:14px;">Read full edition &rarr;</span>
+          </div>
+        </a>
+      `;
+
+      const heroBtn = document.querySelector('#heroCta .btn-primary');
+      if (heroBtn) heroBtn.href = ed.file;
+    }
 
     function renderArchive() {
       const grid = document.getElementById('archiveGrid');
       if (EDITIONS.length === 0) return;
       grid.innerHTML = EDITIONS.map(ed => `
-        <a class="archive-card" href="#" onclick="loadEdition('${ed.file}'); return false;">
+        <a class="archive-card" href="${ed.file}">
           <div class="archive-card-date">${ed.date}</div>
           <div class="archive-card-title">${ed.title}</div>
           <div class="archive-card-desc">${ed.hook}</div>
@@ -775,196 +219,8 @@
       `).join('');
     }
 
-    async function loadEdition(filePath) {
-      try {
-        const res = await fetch(filePath);
-        if (!res.ok) throw new Error('Edition not found');
-        const md = await res.text();
-        const ed = EDITIONS.find(e => e.file === filePath) || EDITIONS[0];
-        const container = document.getElementById('latestEdition');
-        const audioHtml = ed.audio ? buildPodcastPlayer(ed) : buildPodcastMissing();
-        container.innerHTML = `
-          <div class="edition-header">
-            <div class="edition-meta">
-              <span class="edition-badge">Latest</span>
-              <span class="edition-date">${ed.date}</span>
-            </div>
-          </div>
-          <div class="edition-body">
-            ${audioHtml}
-            ${markdownToHtml(md)}
-          </div>
-        `;
-        if (ed.audio) initPodcastPlayer();
-        document.getElementById('latest').scrollIntoView({ behavior: 'smooth' });
-      } catch (err) {
-        console.error('Failed to load edition:', err);
-      }
-    }
-
-    function buildPodcastPlayer(ed) {
-      const title = ed.audioTitle || `AV AI Dispatch — ${ed.date}`;
-      return `
-        <div class="podcast-player" id="podcastPlayer">
-          <button class="podcast-play-btn" id="podcastPlayBtn" aria-label="Play podcast">
-            <svg viewBox="0 0 24 24" id="podcastPlayIcon"><polygon points="6,3 20,12 6,21"/></svg>
-          </button>
-          <div class="podcast-info">
-            <div class="podcast-label">NotebookLM Podcast · ~15 min</div>
-            <div class="podcast-title">${title}</div>
-            <div class="podcast-progress-wrap">
-              <span class="podcast-time" id="podcastCurrent">0:00</span>
-              <div class="podcast-progress" id="podcastProgress">
-                <div class="podcast-progress-bar" id="podcastBar"></div>
-              </div>
-              <span class="podcast-time" id="podcastDuration">--:--</span>
-            </div>
-          </div>
-          <button class="podcast-speed-btn" id="podcastSpeedBtn">1x</button>
-          <button class="podcast-volume-btn" id="podcastVolumeBtn" aria-label="Mute">
-            <svg viewBox="0 0 24 24"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-          </button>
-          <audio id="podcastAudio" preload="metadata" src="${ed.audio}"></audio>
-        </div>`;
-    }
-
-    function buildPodcastMissing() {
-      return `
-        <div class="podcast-player-missing">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 1.5"/></svg>
-          <p>The audio podcast for this edition is being generated and will appear here soon.</p>
-        </div>`;
-    }
-
-    function initPodcastPlayer() {
-      const audio = document.getElementById('podcastAudio');
-      if (!audio) return;
-      const playBtn = document.getElementById('podcastPlayBtn');
-      const playIcon = document.getElementById('podcastPlayIcon');
-      const bar = document.getElementById('podcastBar');
-      const progress = document.getElementById('podcastProgress');
-      const curTime = document.getElementById('podcastCurrent');
-      const durTime = document.getElementById('podcastDuration');
-      const speedBtn = document.getElementById('podcastSpeedBtn');
-      const volBtn = document.getElementById('podcastVolumeBtn');
-      const speeds = [1, 1.25, 1.5, 1.75, 2];
-      let speedIdx = 0;
-
-      function fmt(s) {
-        const m = Math.floor(s / 60);
-        const sec = Math.floor(s % 60);
-        return m + ':' + (sec < 10 ? '0' : '') + sec;
-      }
-
-      audio.addEventListener('loadedmetadata', () => { durTime.textContent = fmt(audio.duration); });
-      audio.addEventListener('timeupdate', () => {
-        if (!audio.duration) return;
-        bar.style.width = (audio.currentTime / audio.duration * 100) + '%';
-        curTime.textContent = fmt(audio.currentTime);
-      });
-      audio.addEventListener('ended', () => {
-        playIcon.innerHTML = '<polygon points="6,3 20,12 6,21"/>';
-      });
-
-      playBtn.addEventListener('click', () => {
-        if (audio.paused) {
-          audio.play();
-          playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
-        } else {
-          audio.pause();
-          playIcon.innerHTML = '<polygon points="6,3 20,12 6,21"/>';
-        }
-      });
-
-      progress.addEventListener('click', (e) => {
-        const rect = progress.getBoundingClientRect();
-        audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
-      });
-
-      speedBtn.addEventListener('click', () => {
-        speedIdx = (speedIdx + 1) % speeds.length;
-        audio.playbackRate = speeds[speedIdx];
-        speedBtn.textContent = speeds[speedIdx] + 'x';
-      });
-
-      let muted = false;
-      volBtn.addEventListener('click', () => {
-        muted = !muted;
-        audio.muted = muted;
-        volBtn.querySelector('svg').innerHTML = muted
-          ? '<line x1="23" y1="1" x2="1" y2="23"/><polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/>'
-          : '<polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
-      });
-    }
-
-    function markdownToHtml(md) {
-      md = convertTables(md);
-      md = convertLists(md);
-      return md
-        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-        .replace(/^# (.+)$/gm, '')
-        .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.+?)\*/g, '<em>$1</em>')
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
-        .replace(/^---$/gm, '<hr>')
-        .replace(/\n\n/g, '</p><p>')
-        .replace(/^(?!<)(.+)$/gm, '<p>$1</p>')
-        .replace(/<p><\/p>/g, '')
-        .replace(/<p>(<h[23]>)/g, '$1')
-        .replace(/(<\/h[23]>)<\/p>/g, '$1')
-        .replace(/<p>(<hr[^>]*>)<\/p>/g, '$1')
-        .replace(/<p>(<blockquote>)/g, '$1')
-        .replace(/(<\/blockquote>)<\/p>/g, '$1')
-        .replace(/<p>(<table)/g, '$1')
-        .replace(/(<\/table>)<\/p>/g, '$1')
-        .replace(/<p>(<ul)/g, '$1')
-        .replace(/(<\/ul>)<\/p>/g, '$1');
-    }
-
-    function convertTables(md) {
-      const lines = md.split('\n');
-      let out = [], inTable = false, isHeader = true;
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i].trim();
-        if (line.startsWith('|') && line.endsWith('|')) {
-          const cells = line.split('|').slice(1, -1).map(c => c.trim());
-          if (cells.every(c => /^[-:]+$/.test(c))) continue;
-          if (!inTable) { out.push('<table>'); inTable = true; isHeader = true; }
-          const tag = isHeader ? 'th' : 'td';
-          out.push('<tr>' + cells.map(c => `<${tag}>${c}</${tag}>`).join('') + '</tr>');
-          if (isHeader) isHeader = false;
-        } else {
-          if (inTable) { out.push('</table>'); inTable = false; }
-          out.push(lines[i]);
-        }
-      }
-      if (inTable) out.push('</table>');
-      return out.join('\n');
-    }
-
-    function convertLists(md) {
-      const lines = md.split('\n');
-      let out = [], inList = false;
-      for (let i = 0; i < lines.length; i++) {
-        const match = lines[i].match(/^- (.+)$/);
-        if (match) {
-          if (!inList) { out.push('<ul>'); inList = true; }
-          out.push(`<li>${match[1]}</li>`);
-        } else {
-          if (inList) { out.push('</ul>'); inList = false; }
-          out.push(lines[i]);
-        }
-      }
-      if (inList) out.push('</ul>');
-      return out.join('\n');
-    }
-
+    renderLatestPreview();
     renderArchive();
-    if (EDITIONS.length > 0) {
-      loadEdition(EDITIONS[0].file);
-    }
   </script>
 
 </body>
