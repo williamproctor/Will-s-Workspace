@@ -421,18 +421,118 @@
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 4: VIDEO GEN — SECTION TITLE ═══════════ -->
+<!-- ═══════════ SLIDE 4: CHATBOTS VS AGENTS ═══════════ -->
 <section class="slide slide--section">
-  <div class="section-num">01</div>
-  <h2>Video Generation</h2>
-  <p class="section-hook">The most visible category — and the one with the widest gap between demos and production reality.</p>
+  <div class="section-num">00</div>
+  <h2>The Basics:<br>LLMs & Agents</h2>
+  <p class="section-hook">Every AI tool in this report is powered by a large language model. Understanding the foundation helps you evaluate everything built on top of it.</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
     <span>4</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 5: VIDEO GEN — THE FIELD ═══════════ -->
+<!-- ═══════════ SLIDE 5: CHATBOT VS AGENT DISTINCTION ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">The Basics</div>
+  <h3>Chatbots vs. <em>Agents</em></h3>
+  <div class="cols">
+    <div class="col">
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">Chatbot</p>
+      <p style="font-size: 14px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 16px;">You ask a question, it gives an answer. Reactive — waits for you, responds, stops. A very knowledgeable colleague who only speaks when spoken to.</p>
+      <p style="font-size: 13px; color: var(--ink-faint); font-style: italic;">"How do I fix this audio sync issue?"</p>
+    </div>
+    <div class="col">
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">Agent</p>
+      <p style="font-size: 14px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 16px;">A chatbot that can <strong style="color: var(--ink);">do things</strong>. Reasons about a goal, breaks it into steps, uses tools, checks its work, and iterates until the task is done. Same brain, different autonomy.</p>
+      <p style="font-size: 13px; color: var(--ink-faint); font-style: italic;">"Fix the audio sync bug, run the tests, open a PR."</p>
+    </div>
+  </div>
+  <div class="stat-row" style="margin-top: auto;">
+    <div class="stat-card">
+      <div class="stat-num" style="font-size: 24px;">Chatbot</div>
+      <div class="stat-label">Responds to messages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="font-size: 24px;">Agent</div>
+      <div class="stat-label">Reasons + takes actions</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="font-size: 24px;">Same LLM</div>
+      <div class="stat-label">Different level of autonomy</div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>5</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 6: FRONTIER MODEL LINEUP ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">The Basics</div>
+  <h3>Frontier Model Lineup — <em>March 2026</em></h3>
+  <table class="deck-table">
+    <thead><tr><th>Provider</th><th>Chatbot</th><th>Flagship Model</th><th>Reasoning Model</th><th>Context</th><th>Access</th></tr></thead>
+    <tbody>
+      <tr><td>OpenAI</td><td>ChatGPT</td><td>GPT-5.4</td><td>o3 / o4-mini</td><td>1M tokens</td><td>Free; Plus $20/mo</td></tr>
+      <tr><td>Anthropic</td><td>Claude</td><td>Opus 4.6</td><td>Opus 4.6 (ext. thinking)</td><td>1M tokens</td><td>Free; Pro $20/mo</td></tr>
+      <tr><td>Google</td><td>Gemini</td><td>Gemini 3.1 Pro</td><td>2.5 Pro (thinking)</td><td>1M tokens</td><td>Free; AI Plus $20/mo</td></tr>
+      <tr><td>xAI</td><td>Grok</td><td>Grok 4.20</td><td>Grok 3 (Think Mode)</td><td>256K tokens</td><td>SuperGrok sub</td></tr>
+      <tr><td>Meta</td><td>—</td><td>Llama 4 Maverick</td><td>Behemoth (unreleased)</td><td>10M tokens</td><td>Open-weight; free</td></tr>
+      <tr><td>DeepSeek</td><td>DeepSeek Chat</td><td>V3.2</td><td>R1</td><td>128K tokens</td><td>Free; API ~$0.28/M</td></tr>
+      <tr><td>Mistral</td><td>Le Chat</td><td>Large 3</td><td>Small 4 (reasoning)</td><td>256K tokens</td><td>Free; API + on-prem</td></tr>
+    </tbody>
+  </table>
+  <div class="takeaway-box" style="margin-top: auto;">
+    <strong>Open-weight models</strong> (Meta, DeepSeek, Mistral) can run on your infrastructure — no data leaves your network. <strong>Closed models</strong> (OpenAI, Anthropic, Google, xAI) are easier to start with but require trust in the provider's data policies.
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>6</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 7: WHY IT MATTERS ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">The Basics</div>
+  <h3>Why This Matters for <em>AV Production</em></h3>
+  <p style="font-size: 15px; color: var(--ink-muted); margin-bottom: 24px; line-height: 1.6;">Every specialized AI tool in this report connects back to a frontier LLM in one of three ways:</p>
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-num" style="font-size: 20px;">Built on</div>
+      <div class="stat-label" style="font-size: 12px; margin-top: 6px;">Descript uses Whisper for transcription. ElevenLabs uses custom models for voice.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="font-size: 20px;">Orchestrated by</div>
+      <div class="stat-label" style="font-size: 12px; margin-top: 6px;">AI agents use Claude or GPT to plan and execute multi-step production workflows.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" style="font-size: 20px;">Enhanced by</div>
+      <div class="stat-label" style="font-size: 12px; margin-top: 6px;">Cursor uses Claude/GPT to understand your codebase and write internal tools.</div>
+    </div>
+  </div>
+  <div class="takeaway-box" style="margin-top: auto;">
+    <strong>Takeaway:</strong> When a new frontier model drops, every tool built on it gets better. Understanding the model layer helps you evaluate vendor claims and anticipate capability jumps.
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>7</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 8: VIDEO GEN — SECTION TITLE ═══════════ -->
+<section class="slide slide--section">
+  <div class="section-num">01</div>
+  <h2>Video Generation</h2>
+  <p class="section-hook">The most visible category — and the one with the widest gap between demos and production reality.</p>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>8</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 9: VIDEO GEN — THE FIELD ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">Video Generation</div>
   <h3>The Field Right Now</h3>
@@ -450,11 +550,11 @@
   </table>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>5</span>
+    <span>9</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 6: VIDEO GEN — READINESS ═══════════ -->
+<!-- ═══════════ SLIDE 10: VIDEO GEN — READINESS ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">Video Generation</div>
   <h3>Readiness Breakdown</h3>
@@ -489,22 +589,22 @@
   </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>6</span>
+    <span>10</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 7: POST-PRODUCTION — SECTION ═══════════ -->
+<!-- ═══════════ SLIDE 11: POST-PRODUCTION — SECTION ═══════════ -->
 <section class="slide slide--section">
   <div class="section-num">02</div>
   <h2>Editing &<br>Post-Production</h2>
   <p class="section-hook">Where AI delivers the most immediate, measurable time savings today.</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>7</span>
+    <span>11</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 8: POST-PRODUCTION — CONTENT ═══════════ -->
+<!-- ═══════════ SLIDE 12: POST-PRODUCTION — CONTENT ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">Editing & Post-Production</div>
   <h3>Readiness Breakdown</h3>
@@ -537,22 +637,22 @@
   </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>8</span>
+    <span>12</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 9: VFX SECTION ═══════════ -->
+<!-- ═══════════ SLIDE 13: VFX SECTION ═══════════ -->
 <section class="slide slide--section">
   <div class="section-num">03</div>
   <h2>VFX &<br>Compositing</h2>
   <p class="section-hook">AI rotoscoping is the single most production-ready AI capability in all of VFX.</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>9</span>
+    <span>13</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 10: VFX + ANIMATION ═══════════ -->
+<!-- ═══════════ SLIDE 14: VFX + ANIMATION ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">VFX · Animation</div>
   <h3>Visual Effects & Animation</h3>
@@ -591,22 +691,22 @@
   </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>10</span>
+    <span>14</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 11: AUDIO SECTION TITLE ═══════════ -->
+<!-- ═══════════ SLIDE 15: AUDIO SECTION TITLE ═══════════ -->
 <section class="slide slide--section">
   <div class="section-num">04</div>
   <h2>Audio: Voice,<br>Music & Post</h2>
   <p class="section-hook">The category where AI most consistently passes for human output.</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>11</span>
+    <span>15</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 12: VOICE + TTS ═══════════ -->
+<!-- ═══════════ SLIDE 16: VOICE + TTS ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">Audio</div>
   <h3>Voice Synthesis & <em>Text-to-Speech</em></h3>
@@ -641,11 +741,11 @@
   </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>12</span>
+    <span>16</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 13: MUSIC + SFX + AUDIO POST ═══════════ -->
+<!-- ═══════════ SLIDE 17: MUSIC + SFX + AUDIO POST ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">Audio</div>
   <h3>Music, SFX & <em>Audio Post</em></h3>
@@ -679,22 +779,22 @@
   </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>13</span>
+    <span>17</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 14: DUBBING, PLATFORMS, AGENTS ═══════════ -->
+<!-- ═══════════ SLIDE 18: DUBBING, PLATFORMS, AGENTS ═══════════ -->
 <section class="slide slide--section">
   <div class="section-num">05</div>
   <h2>Dubbing, Platforms<br>& Agents</h2>
   <p class="section-hook">The pipeline is 4–5 tools stitched together. True end-to-end doesn't exist yet.</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>14</span>
+    <span>18</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 15: DUBBING + PLATFORMS CONTENT ═══════════ -->
+<!-- ═══════════ SLIDE 19: DUBBING + PLATFORMS CONTENT ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">Dubbing · Platforms · Agents</div>
   <h3>The Pipeline Today</h3>
@@ -728,22 +828,22 @@
   </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>15</span>
+    <span>19</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 16: CODING AGENTS — SECTION TITLE ═══════════ -->
+<!-- ═══════════ SLIDE 20: CODING AGENTS — SECTION TITLE ═══════════ -->
 <section class="slide slide--section">
   <div class="section-num">06</div>
   <h2>AI Coding Agents<br>& Dev Harnesses</h2>
   <p class="section-hook">Two layers: IDE harnesses where a developer steers, and autonomous agents that work independently and return finished code.</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>16</span>
+    <span>20</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 17: CODING AGENTS — IDE HARNESSES ═══════════ -->
+<!-- ═══════════ SLIDE 21: CODING AGENTS — IDE HARNESSES ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">Coding Agents</div>
   <h3>IDE Harnesses — <em>Developer in the Loop</em></h3>
@@ -768,11 +868,11 @@
   </table>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>17</span>
+    <span>21</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 18: CODING AGENTS — USE CASES ═══════════ -->
+<!-- ═══════════ SLIDE 22: CODING AGENTS — USE CASES ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">Coding Agents</div>
   <h3>Use Cases for <em>AV Teams</em></h3>
@@ -800,11 +900,11 @@
   </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>18</span>
+    <span>22</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 19: TRANSCRIPTION ═══════════ -->
+<!-- ═══════════ SLIDE 23: TRANSCRIPTION ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">Transcription</div>
   <h3>Transcription & <em>Captioning</em></h3>
@@ -823,22 +923,22 @@
   </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>19</span>
+    <span>23</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 20: CHEAT SHEET ═══════════ -->
+<!-- ═══════════ SLIDE 24: CHEAT SHEET ═══════════ -->
 <section class="slide slide--section">
   <div class="section-num">→</div>
   <h2>The<br>Cheat Sheet</h2>
   <p class="section-hook">What to adopt, what to watch, and what to skip.</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>20</span>
+    <span>24</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 21: CHEAT SHEET — USE NOW ═══════════ -->
+<!-- ═══════════ SLIDE 25: CHEAT SHEET — USE NOW ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">Cheat Sheet</div>
   <h3><span class="badge badge--green" style="font-size: 10px; vertical-align: 2px; margin-right: 6px;">Adopt Now</span> Clear ROI</h3>
@@ -873,11 +973,11 @@
   </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>21</span>
+    <span>25</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 22: DON'T COUNT ON ═══════════ -->
+<!-- ═══════════ SLIDE 26: DON'T COUNT ON ═══════════ -->
 <section class="slide slide--content">
   <div class="slide-label">Cheat Sheet</div>
   <h3><span class="badge badge--red" style="font-size: 10px; vertical-align: 2px; margin-right: 6px;">Not Yet</span> Don't Count On</h3>
@@ -905,11 +1005,11 @@
   </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
-    <span>22</span>
+    <span>26</span>
   </div>
 </section>
 
-<!-- ═══════════ SLIDE 23: CLOSING ═══════════ -->
+<!-- ═══════════ SLIDE 27: CLOSING ═══════════ -->
 <section class="slide slide--cover">
   <div class="cover-badge">AV AI Dispatch · Research Report</div>
   <h1>The AV AI<br>Production <em>Index</em></h1>
@@ -917,7 +1017,7 @@
   <div class="cover-meta">Audio/Video Services — AI Research & Development 2026</div>
   <div class="slide-footer">
     <span>avaidispatch.com</span>
-    <span>23</span>
+    <span>27</span>
   </div>
 </section>
 

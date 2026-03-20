@@ -25,6 +25,56 @@ Every section below follows the same structure: **what's ready, what's close, wh
 
 ---
 
+## The Basics: Frontier LLMs and Why They Matter
+
+Before we get into cameras, microphones, and timelines, it helps to understand the foundation everything else is built on. Every AI tool in this report — from video generators to voice cloners to coding agents — is powered by a **large language model** (LLM). The companies building these models are in an intense race, and the landscape changes quarterly.
+
+### Chatbots vs. Agents — one distinction that matters
+
+A **chatbot** is a conversation interface. You type a question, it gives an answer. It's reactive — it waits for you, responds, and stops. Think of it as a very knowledgeable colleague who only speaks when spoken to. ChatGPT, Claude, Gemini, and Grok are all chatbots at their core.
+
+An **agent** is a chatbot that can *do things*. It doesn't just answer — it reasons about a goal, breaks it into steps, uses tools (web search, file editing, code execution, API calls), checks its own work, and iterates until the task is done. The same underlying model powers both; the difference is whether it's given autonomy and tools.
+
+In practice: when you ask ChatGPT "how do I fix this audio sync issue?" — that's a chatbot. When you tell Codex "fix the audio sync bug in this repo, run the tests, and open a PR" — that's an agent. Same brain, different level of autonomy.
+
+Most AV teams will interact with these models as chatbots first (research, brainstorming, drafting) and as agents later (automating workflows, building tools). Understanding which model sits behind which product helps you make informed choices about cost, capability, and data privacy.
+
+### The frontier model lineup — March 2026
+
+| Provider | Chatbot | Flagship Model | Best Reasoning Model | Context Window | Access |
+|----------|---------|----------------|---------------------|----------------|--------|
+| OpenAI³⁵ | ChatGPT | GPT-5.4 | o3 / o4-mini | Up to 1M tokens | Free tier; Plus $20/mo; Pro $200/mo |
+| Anthropic³⁶ | Claude | Claude Opus 4.6 | Claude Opus 4.6 (extended thinking) | 1M tokens (beta) | Free tier; Pro $20/mo; Max $100–$200/mo |
+| Google³⁷ | Gemini | Gemini 3.1 Pro | Gemini 2.5 Pro (thinking mode) | 1M tokens | Free tier; AI Plus $19.99/mo; Pro/Ultra tiers |
+| xAI³⁸ | Grok | Grok 4.20 | Grok 3 (Think Mode) | 256K tokens | SuperGrok subscription |
+| Meta³⁹ | — (no chatbot) | Llama 4 Maverick | Llama 4 Behemoth (unreleased) | 10M tokens (Scout) | Open-weight; free to download and self-host |
+| DeepSeek⁴⁰ | DeepSeek Chat | DeepSeek V3.2 | DeepSeek R1 | 128K tokens | Free tier; API pricing (~$0.28/M tokens) |
+| Mistral⁴¹ | Le Chat | Mistral Large 3 | Mistral Small 4 (reasoning mode) | 256K tokens | Free tier; API and on-prem available |
+
+### What each column means
+
+- **Chatbot** is the consumer-facing product — the thing you open in a browser or app to have a conversation.
+- **Flagship Model** is the provider's most capable general-purpose model as of this writing.
+- **Best Reasoning Model** is the model optimized for step-by-step logic, math, and complex problem-solving. Some providers separate this into a distinct model (OpenAI's o-series); others build reasoning into their flagship with a toggle (Claude's extended thinking, Gemini's thinking mode).
+- **Context Window** is how much text the model can process in a single conversation. 1 million tokens is roughly 750,000 words — enough to analyze an entire book or a full production bible.
+
+### Open-weight vs. closed
+
+Meta's Llama 4, DeepSeek, and Mistral release model weights publicly — meaning your organization can download, host, and run them on your own infrastructure. No data leaves your network. OpenAI, Anthropic, Google, and xAI keep their weights proprietary — you access them through APIs or their chatbot interfaces, and your data passes through their servers.
+
+For AV teams handling sensitive production material, this distinction matters. Open-weight models give you full data control at the cost of managing your own infrastructure. Closed models are easier to start with but require trust in the provider's data handling policies.
+
+### Why this matters for AV production
+
+Every specialized AI tool in the sections below is either:
+1. **Built on top of** a frontier LLM (e.g., Descript uses Whisper for transcription, ElevenLabs uses custom models for voice)
+2. **Orchestrated by** a frontier LLM (e.g., AI agents use Claude or GPT to plan and execute multi-step workflows)
+3. **Enhanced by** a frontier LLM (e.g., Cursor uses Claude/GPT to understand your codebase and write code)
+
+Understanding the model layer helps you evaluate vendor claims, anticipate capability jumps (when a new model drops, every tool built on it gets better), and make strategic build-vs-buy decisions.
+
+---
+
 ## Video Generation
 
 The most visible category — and the one with the widest gap between demos and production reality.
@@ -437,6 +487,13 @@ This assessment draws from manufacturer documentation, third-party benchmarks (A
 32. Google Antigravity agent-first development platform. [antigravity.codes/tutorial](https://antigravity.codes/tutorial); "Cursor vs Antigravity 2026." [antigravity.codes](https://antigravity.codes/blog/cursor-vs-antigravity)
 33. OpenAI Codex and GPT-5.3-Codex. "OpenAI Launches GPT-5.3-Codex." [awesomeagents.ai](https://awesomeagents.ai/news/gpt-5-3-codex-openai-agentic-coding/); Codex developer documentation. [developers.openai.com](https://developers.openai.com/codex/)
 34. Google Jules 3.0 coding agent. "Jules, Google's asynchronous AI coding agent, is out of public beta." [blog.google](https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/); Jules documentation. [jules.google/docs](https://jules.google/docs/)
+35. OpenAI model release notes and GPT-5.4 announcement. "Introducing GPT-5.4." [openai.com](https://openai.com/index/introducing-gpt-5-4/); "Introducing o3 and o4-mini." [openai.com](https://openai.com/index/introducing-o3-and-o4-mini/)
+36. Anthropic Claude models overview. "Claude Opus 4.6." [anthropic.com](https://www.anthropic.com/claude/opus); "Introducing Sonnet 4.6." [anthropic.com](https://www.anthropic.com/news/claude-sonnet-4-6); Models documentation. [docs.anthropic.com](https://docs.anthropic.com/en/docs/models-overview)
+37. Google Gemini models. "Gemini 3.1 Pro." [blog.google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro); "Gemini 2.5 updates." [deepmind.google](https://deepmind.google/blog/gemini-25-updates-to-our-family-of-thinking-models/)
+38. xAI Grok models. "Grok 3 Beta — The Age of Reasoning Agents." [x.ai](https://x.ai/news/grok-3); Release notes. [docs.x.ai](https://docs.x.ai/docs/release-notes)
+39. Meta Llama 4. "The Llama 4 herd: The beginning of a new era of natively multimodal AI innovation." [ai.meta.com](https://ai.meta.com/blog/llama-4-multimodal-intelligence); Model cards. [llama.meta.com](https://llama.meta.com/docs/model-cards-and-prompt-formats/llama4/)
+40. DeepSeek V3.2 and R1. "DeepSeek V3.2: Frontier Reasoning at 6x Lower Cost." [largo.dev](https://largo.dev/tutorials/transformers/deepseek-v3-architecture/); DeepSeek R1 documentation. [deepseeksr1.com](https://deepseeksr1.com/r1-model/)
+41. Mistral Small 4 and model lineup. "Mistral Small 4." [docs.mistral.ai](https://docs.mistral.ai/models/mistral-small-4-0-26-03); Models overview. [docs.mistral.ai](https://docs.mistral.ai/models/)
 ---
 
 *Published by The AV AI Dispatch · Q1 2026*
