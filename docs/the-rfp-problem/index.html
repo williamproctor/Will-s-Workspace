@@ -82,6 +82,95 @@
 
   nav .nav-links a:hover { color: var(--text-primary); }
 
+  /* --- AMBIENT PLAYER BAR --- */
+  .ambient-player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.55rem 2rem;
+    background: rgba(196, 168, 130, 0.08);
+    border-bottom: 1px solid rgba(196, 168, 130, 0.15);
+    backdrop-filter: blur(20px);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    user-select: none;
+  }
+
+  .ambient-player:hover {
+    background: rgba(196, 168, 130, 0.12);
+  }
+
+  .ambient-player.is-playing {
+    background: rgba(196, 168, 130, 0.05);
+    border-bottom-color: rgba(196, 168, 130, 0.08);
+  }
+
+  .ambient-player .play-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+
+  .ambient-player .play-icon svg {
+    width: 8px;
+    height: 8px;
+    fill: var(--accent);
+  }
+
+  .ambient-player .play-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    transition: opacity 0.3s;
+  }
+
+  .ambient-player .eq-bars {
+    display: none;
+    gap: 2px;
+    align-items: flex-end;
+    height: 12px;
+  }
+
+  .ambient-player.is-playing .eq-bars { display: flex; }
+  .ambient-player.is-playing .play-icon { display: none; }
+  .ambient-player.is-playing .play-label { opacity: 0.5; }
+
+  .eq-bar {
+    width: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+    animation: eq-bounce 0.8s ease-in-out infinite alternate;
+  }
+
+  .eq-bar:nth-child(1) { height: 4px; animation-delay: 0s; }
+  .eq-bar:nth-child(2) { height: 8px; animation-delay: 0.15s; }
+  .eq-bar:nth-child(3) { height: 5px; animation-delay: 0.3s; }
+  .eq-bar:nth-child(4) { height: 10px; animation-delay: 0.1s; }
+  .eq-bar:nth-child(5) { height: 3px; animation-delay: 0.25s; }
+
+  @keyframes eq-bounce {
+    0% { transform: scaleY(0.3); }
+    100% { transform: scaleY(1); }
+  }
+
+  .ambient-player + nav { top: 33px; }
+  .ambient-player.dismissed { display: none; }
+  .ambient-player.dismissed + nav { top: 0; }
+
   /* --- HERO --- */
   .hero {
     min-height: 100vh;
@@ -760,6 +849,21 @@
 </head>
 <body>
 
+<div class="ambient-player" id="ambientPlayer" onclick="toggleAmbient()">
+  <div class="play-icon">
+    <svg viewBox="0 0 10 12"><polygon points="2,0 10,6 2,12"/></svg>
+  </div>
+  <div class="eq-bars">
+    <div class="eq-bar"></div>
+    <div class="eq-bar"></div>
+    <div class="eq-bar"></div>
+    <div class="eq-bar"></div>
+    <div class="eq-bar"></div>
+  </div>
+  <span class="play-label">Play the score while reading</span>
+  <audio id="ambientAudio" preload="metadata" src="score.mp3"></audio>
+</div>
+
 <nav>
   <div class="brand">The RFP Problem</div>
   <ul class="nav-links">
@@ -1264,6 +1368,26 @@ function copyPrompt() {
 }
 
 renderShots();
+
+function toggleAmbient() {
+  const player = document.getElementById('ambientPlayer');
+  const audio = document.getElementById('ambientAudio');
+  if (audio.paused) {
+    audio.play();
+    player.classList.add('is-playing');
+    player.querySelector('.play-label').textContent = 'Score playing';
+  } else {
+    audio.pause();
+    player.classList.remove('is-playing');
+    player.querySelector('.play-label').textContent = 'Play the score while reading';
+  }
+}
+
+document.getElementById('ambientAudio').addEventListener('ended', function() {
+  const player = document.getElementById('ambientPlayer');
+  player.classList.remove('is-playing');
+  player.querySelector('.play-label').textContent = 'Play the score while reading';
+});
 </script>
 
 </body>
