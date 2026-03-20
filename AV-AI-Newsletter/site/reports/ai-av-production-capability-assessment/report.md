@@ -289,6 +289,53 @@ AI agents work for structured, repeatable tasks (ingest → transcribe → tag �
 
 ---
 
+## AI Coding Agents & Development Harnesses
+
+A separate category that matters for any AV team building internal tools, web platforms, or automation infrastructure. Two layers have emerged: **IDE harnesses** (where a developer steers the agent in real time) and **autonomous agents** (where the AI works independently and returns finished code).
+
+### IDE harnesses — developer-in-the-loop
+
+| Harness | Model | Key Capability | Price |
+|---------|-------|----------------|-------|
+| Cursor³⁰ | Multi-model (Claude, GPT-5, Gemini) | Agent mode with multi-file editing, cloud agents, up to 8 parallel agents on isolated branches | $20–$200/mo individual; $40/user/mo teams |
+| Windsurf³¹ | Multi-model (via Cascade) | Cascade agent writes ~90% of code; persistent "Memories" learn project conventions; Turbo Mode for autonomous execution | $15–$200/mo; enterprise on-prem available |
+| Google Antigravity³² | Gemini 3.1 Pro | Agent-first platform: plan → execute → test → verify across editor, terminal, and browser. Google Stitch integration for design-to-code | Free preview; paid tiers emerging |
+
+These are not autocomplete tools — they are agentic environments where you describe intent in natural language and the AI plans, writes, tests, and debugs multi-file changes. Over half the Fortune 500 now use Cursor alone.³⁰
+
+### Autonomous agents — asynchronous, no IDE required
+
+| Agent | Provider | How It Works | Access |
+|-------|----------|-------------|--------|
+| OpenAI Codex³³ | OpenAI | Cloud-based agent that clones your repo, writes code, runs tests, and returns a pull request. Powered by GPT-5.3-Codex — 25% faster than predecessor, highest SWE-Bench Pro scores | Included with ChatGPT Plus ($20/mo) through Pro ($200/mo) |
+| Claude Code | Anthropic | Terminal-based agent that reads your codebase, plans multi-step implementations, and executes them. Ships as CLI | Claude Max ($100–$200/mo) |
+| Jules 3.0³⁴ | Google | Asynchronous agent powered by Gemini 2.5 Pro. Assign tasks from browser/Slack, returns completed PRs. API access for CI/CD integration | Free preview; Google AI Pro/Ultra tiers |
+| Claude Cowork | Anthropic | Extends Claude's agentic capability to knowledge work — file management, spreadsheet creation, report synthesis. Not code-specific but relevant for production ops | Claude Max ($100–$200/mo), macOS/Windows |
+
+### Use cases for AV teams
+
+**Internal software development.** Build and maintain asset management systems, review/approval workflows, project dashboards, and metadata tagging tools. A developer paired with Cursor or Windsurf can build internal web apps at 2–4x the speed of traditional development — what once took a team of three might take one developer and an agent.
+
+**Web development & publishing.** Build and iterate on websites, content management interfaces, and distribution platforms. Agents handle the scaffolding, responsive layouts, API integrations, and deployment pipelines while the developer focuses on design intent and business logic.
+
+**Automation infrastructure.** Connect production tools via APIs — ingest pipelines, transcription routing, automated QC checks, and notification systems. Codex and Jules can work asynchronously on GitHub issues, returning working PRs while your team focuses on creative work.
+
+**Production operations.** Claude Cowork handles the non-code side: organizing project files, compiling reports from scattered notes, generating formatted spreadsheets from raw data, and managing documentation — tasks that consume hours of an operations team's week.
+
+### Ready to use
+
+- **IDE harnesses for web/tool development.** Cursor and Windsurf deliver genuine productivity multipliers for any team building internal software. The learning curve is low for any developer already in VS Code.
+- **Autonomous agents for well-scoped tasks.** Bug fixes, documentation, unit tests, and small features with clear specifications.
+
+### Not there yet
+
+- **Autonomous agents for complex, ambiguous work.** Architectural decisions, creative problem-solving, and anything requiring deep domain knowledge still needs a human driving.
+- **Production-critical code without review.** No agent output should ship to production without human code review — the error rate on complex tasks is still too high.
+
+**The takeaway:** IDE harnesses like Cursor and Windsurf are the fastest path to building internal tools and web platforms. Autonomous agents (Codex, Jules, Claude Code) handle well-defined tasks asynchronously. Neither replaces a developer — they replace the repetitive 70% of development work so your team can focus on the hard 30%.
+
+---
+
 ## Transcription & Captioning
 
 The most mature AI category in production.
@@ -318,6 +365,8 @@ The most mature AI category in production.
 | Instructional talking-head video | Synthesia or HeyGen |
 | Animation blocking + mocap cleanup | Cascadeur + Rokoko |
 | CG character compositing | Wonder Studio |
+| Internal tool / web development | Cursor or Windsurf (IDE harness) |
+| Async bug fixes & small features | OpenAI Codex or Jules 3.0 |
 
 ### Watch closely — promising but unproven
 
@@ -327,6 +376,8 @@ The most mature AI category in production.
 | Multi-shot narrative generation | Kling 3.0 multi-shot, Seedance 2.0 |
 | AI dubbing at scale | Deepdub, Papercup, ElevenLabs |
 | End-to-end video from brief | CapCut AI Suite |
+| Autonomous agents for complex dev work | Codex, Claude Code, Jules |
+| AI-assisted production ops | Claude Cowork |
 
 ### Don't count on — not yet
 
@@ -335,9 +386,10 @@ The most mature AI category in production.
 - AI text rendering within generated video
 - Unsupervised VFX compositing
 - AI-only character animation for broadcast
-- Fully autonomous production agents
+- Fully autonomous production agents for creative work
 - AI music as hero content
 - AI sound effects for final delivery
+- Autonomous coding agents for complex architecture decisions
 
 ---
 
@@ -380,6 +432,11 @@ This assessment draws from manufacturer documentation, third-party benchmarks (A
 27. Make.com and n8n workflow automation platforms.
 28. AssemblyAI Universal-3 Pro benchmarks and pricing. [assemblyai.com](https://www.assemblyai.com/universal-3-pro); [assemblyai.com/benchmarks](https://www.assemblyai.com/benchmarks)
 29. Deepgram Nova-3 pricing and latency. [deepgram.com](https://deepgram.com/pricing-test-page)
+30. Cursor AI IDE features, pricing, and enterprise adoption. [cursor.com/pricing](https://cursor.com/pricing); "Cursor AI IDE Complete Guide 2026." [crazyrouter.com](https://crazyrouter.com/en/blog/cursor-ai-ide-complete-guide-2026)
+31. Windsurf AI IDE features, Cascade agent, and enterprise metrics. [windsurf.ai/enterprise](https://windsurf.ai/enterprise); "Windsurf Review: Is the AI-First IDE Worth $15/Month?" [agentrank.tech](https://www.agentrank.tech/blog/windsurf-review-ai-ide-2026)
+32. Google Antigravity agent-first development platform. [antigravity.codes/tutorial](https://antigravity.codes/tutorial); "Cursor vs Antigravity 2026." [antigravity.codes](https://antigravity.codes/blog/cursor-vs-antigravity)
+33. OpenAI Codex and GPT-5.3-Codex. "OpenAI Launches GPT-5.3-Codex." [awesomeagents.ai](https://awesomeagents.ai/news/gpt-5-3-codex-openai-agentic-coding/); Codex developer documentation. [developers.openai.com](https://developers.openai.com/codex/)
+34. Google Jules 3.0 coding agent. "Jules, Google's asynchronous AI coding agent, is out of public beta." [blog.google](https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/); Jules documentation. [jules.google/docs](https://jules.google/docs/)
 ---
 
 *Published by The AV AI Dispatch · Q1 2026*

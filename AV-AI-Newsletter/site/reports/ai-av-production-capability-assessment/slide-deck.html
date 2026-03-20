@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AV AI Production Index — Q1 2026 | Slide Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #4a6da7;
+      --blue-dark: #3a5a8f;
+      --blue-light: #6b8ec4;
+      --blue-pale: #e8eef6;
+      --ink: #1a1a2e;
+      --ink-soft: #2d2d42;
+      --ink-muted: #6b6b80;
+      --ink-faint: #9e9eb0;
+      --parchment: #faf8f3;
+      --white: #ffffff;
+      --green: #3a9e6e;
+      --amber: #d4953a;
+      --red: #c0392b;
+      --font: 'Plus Jakarta Sans', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    @page {
+      size: 1280px 720px;
+      margin: 0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      background: #e0ddd6;
+    }
+
+    body { padding: 24px 0; }
+
+    .slide {
+      width: 1280px;
+      height: 720px;
+      margin: 0 auto 24px;
+      padding: 56px 72px;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      page-break-inside: avoid;
+      background: var(--white);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    }
+
+    @media print {
+      body { padding: 0; background: white; }
+      .slide { margin: 0; box-shadow: none; }
+      .print-hint { display: none; }
+    }
+
+    .slide-footer {
+      position: absolute;
+      bottom: 28px;
+      left: 72px;
+      right: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    /* ── COVER SLIDE ── */
+    .slide--cover {
+      background: var(--ink);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide--cover .cover-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .slide--cover .cover-badge::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--blue-light);
+    }
+    .slide--cover h1 {
+      font-size: 54px;
+      font-weight: 800;
+      letter-spacing: -2.5px;
+      line-height: 1.05;
+      max-width: 900px;
+      margin-bottom: 24px;
+    }
+    .slide--cover h1 em {
+      font-style: normal;
+      color: var(--blue-light);
+    }
+    .slide--cover .cover-sub {
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      max-width: 700px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    .slide--cover .cover-meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .slide--cover .slide-footer { color: rgba(255,255,255,0.2); }
+
+    /* ── SECTION TITLE SLIDE ── */
+    .slide--section {
+      background: var(--blue);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide--section .section-num {
+      font-family: var(--mono);
+      font-size: 80px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.08);
+      position: absolute;
+      top: 40px;
+      right: 72px;
+      line-height: 1;
+    }
+    .slide--section h2 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      max-width: 700px;
+      margin-bottom: 16px;
+    }
+    .slide--section .section-hook {
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    .slide--section .slide-footer { color: rgba(255,255,255,0.2); }
+
+    /* ── CONTENT SLIDES ── */
+    .slide--content { display: flex; flex-direction: column; }
+    .slide--content .slide-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .slide--content .slide-label::before {
+      content: '';
+      width: 14px;
+      height: 2px;
+      background: var(--blue);
+    }
+    .slide--content h3 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+    .slide--content h3 em {
+      font-style: normal;
+      color: var(--blue);
+    }
+
+    /* ── COMMON ELEMENTS ── */
+    .cols { display: flex; gap: 48px; flex: 1; }
+    .col { flex: 1; }
+    .col--wide { flex: 1.4; }
+
+    ul.deck-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    ul.deck-list li {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      padding-left: 18px;
+      position: relative;
+    }
+    ul.deck-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue-light);
+    }
+    ul.deck-list li strong { color: var(--ink); font-weight: 700; }
+
+    ul.deck-list--green li::before { background: var(--green); }
+    ul.deck-list--amber li::before { background: var(--amber); }
+    ul.deck-list--red li::before { background: var(--red); }
+
+    .deck-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .deck-table th {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 2px solid var(--blue-pale);
+    }
+    .deck-table td {
+      padding: 9px 12px;
+      color: var(--ink-soft);
+      border-bottom: 1px solid #f0ece4;
+      vertical-align: top;
+    }
+    .deck-table td:first-child { font-weight: 600; color: var(--ink); }
+
+    .takeaway-box {
+      margin-top: auto;
+      padding: 16px 20px;
+      background: var(--blue-pale);
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--blue-dark);
+      line-height: 1.55;
+    }
+    .takeaway-box strong { font-weight: 700; }
+
+    .stat-row {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      flex: 1;
+      background: #f8f6f1;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-card .stat-num {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-card .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink-muted);
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .badge--green { background: #e6f5ed; color: #2d7d56; }
+    .badge--amber { background: #fef3e2; color: #a06d1f; }
+    .badge--red { background: #fce8e6; color: #a0302a; }
+
+    .blurb {
+      font-size: 15px;
+      font-style: italic;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      border-left: 3px solid var(--blue-light);
+      padding-left: 16px;
+      margin-bottom: 24px;
+    }
+
+    .cheat-row {
+      display: flex;
+      align-items: center;
+      padding: 7px 0;
+      border-bottom: 1px solid #f0ece4;
+      gap: 12px;
+    }
+    .cheat-row:last-child { border-bottom: none; }
+    .cheat-use {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .cheat-tool {
+      font-size: 12px;
+      color: var(--ink-muted);
+      text-align: right;
+    }
+
+    .print-hint {
+      text-align: center;
+      font-size: 12px;
+      color: var(--ink-faint);
+      padding: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<p class="print-hint">Print this page (Ctrl/Cmd + P) → Save as PDF → Landscape is auto-detected via @page</p>
+
+<!-- ═══════════ SLIDE 1: COVER ═══════════ -->
+<section class="slide slide--cover">
+  <div class="cover-badge">AV AI Dispatch · Research Report</div>
+  <h1>The AV AI<br>Production <em>Index</em></h1>
+  <p class="cover-sub">A quarterly assessment of what AI can and can't do in audio/video production. No hype. Just what works, what's close, and what's still a demo.</p>
+  <div class="cover-meta">Q1 2026 · Inaugural Edition · Audio/Video Services</div>
+  <div class="slide-footer">
+    <span>avaidispatch.com</span>
+    <span>1</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 2: THE PUNCHLINE ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">The Punchline</div>
+  <h3>40 Years Later, the Same Lesson</h3>
+  <div class="blurb">In 1986, a headquarters staff member told a writer, "It's sure great that you have MEPS. Now writing must be easy for you." The writer had to explain that people, not machines, do the writing. Forty years later, the technology is different, but the punchline is the same.</div>
+
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-num">70–90%</div>
+      <div class="stat-label">AI handles this much</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">10–30%</div>
+      <div class="stat-label">Still needs a human</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Needs QA before shipping</div>
+    </div>
+  </div>
+
+  <div class="takeaway-box">
+    That last 10–30% is where quality lives. Every category in this report follows the same pattern.
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>2</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 3: WHAT YOU CAN / CAN'T ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Executive Summary</div>
+  <h3>Where Things Stand <em>Right Now</em></h3>
+  <div class="cols">
+    <div class="col">
+      <p style="font-family: var(--mono); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 12px; font-weight: 500;">✓ What you can do</p>
+      <ul class="deck-list deck-list--green">
+        <li>Generate <strong>5–15 seconds</strong> of usable video footage for B-roll and concept work</li>
+        <li>Produce <strong>broadcast-quality background music</strong> indistinguishable from stock libraries</li>
+        <li><strong>Clone voices</strong> with near-human fidelity from as little as 15 seconds of audio</li>
+        <li>Cut <strong>post-production time in half</strong> with AI cleanup, captioning, and masking</li>
+      </ul>
+    </div>
+    <div class="col">
+      <p style="font-family: var(--mono); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; font-weight: 500;">✗ What you can't do</p>
+      <ul class="deck-list deck-list--red">
+        <li>Produce a coherent <strong>60-second narrative</strong> scene</li>
+        <li>Replace a <strong>composer</strong> for distinctive, memorable music</li>
+        <li>Ship <strong>any AI output</strong> without a human quality pass</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>3</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 4: VIDEO GEN — SECTION TITLE ═══════════ -->
+<section class="slide slide--section">
+  <div class="section-num">01</div>
+  <h2>Video Generation</h2>
+  <p class="section-hook">The most visible category — and the one with the widest gap between demos and production reality.</p>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>4</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 5: VIDEO GEN — THE FIELD ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Video Generation</div>
+  <h3>The Field Right Now</h3>
+  <table class="deck-table">
+    <thead><tr><th>Tool</th><th>Resolution</th><th>Duration</th><th>Consistency</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr><td>Runway Gen-4.5</td><td>4K</td><td>Up to 60s</td><td>Good</td><td>$12–$76/mo</td></tr>
+      <tr><td>Kling 3.0</td><td>4K at 60fps</td><td>15s</td><td>Good (multi-shot)</td><td>$6–$48/mo</td></tr>
+      <tr><td>Seedance 2.0</td><td>2K</td><td>15s</td><td>Good (multi-ref)</td><td>TBD</td></tr>
+      <tr><td>Google Veo 3.1</td><td>Up to 4K</td><td>4–8s</td><td>Moderate</td><td>Vertex pricing</td></tr>
+      <tr><td>Sora 2</td><td>1080p</td><td>20s</td><td>Weak</td><td>$20–$200/mo</td></tr>
+      <tr><td>Pika 2.5</td><td>1080p</td><td>10s (25s Pikaframes)</td><td>Weak</td><td>$8–$76/mo</td></tr>
+      <tr><td>Luma Ray 3.14</td><td>1080p native</td><td>5–10s (ext. 30s)</td><td>Moderate</td><td>Enterprise</td></tr>
+    </tbody>
+  </table>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>5</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 6: VIDEO GEN — READINESS ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Video Generation</div>
+  <h3>Readiness Breakdown</h3>
+  <div class="cols">
+    <div class="col">
+      <p style="margin-bottom: 10px;"><span class="badge badge--green">Ready</span></p>
+      <ul class="deck-list deck-list--green">
+        <li><strong>Short clips (5–15s)</strong> for B-roll and supplemental content</li>
+        <li><strong>Image-to-video</strong> — consistently beats text-to-video</li>
+        <li><strong>Cinematic style & camera movement</strong></li>
+        <li><strong>Pre-vis & storyboarding</strong> — ~40% time savings</li>
+        <li><strong>Lip-sync</strong> in controlled settings</li>
+      </ul>
+    </div>
+    <div class="col">
+      <p style="margin-bottom: 10px;"><span class="badge badge--amber">Close</span></p>
+      <ul class="deck-list deck-list--amber">
+        <li><strong>Character consistency</strong> — drifts past 3–4 shots</li>
+        <li><strong>Extended duration</strong> — coherence fails past ~20s</li>
+        <li><strong>Physics</strong> — rigid OK, fluid/cloth fail</li>
+      </ul>
+      <p style="margin-bottom: 10px; margin-top: 20px;"><span class="badge badge--red">Not Yet</span></p>
+      <ul class="deck-list deck-list--red">
+        <li><strong>Text in video</strong> — all tools fail</li>
+        <li><strong>Hands/fingers</strong> — persists across all models</li>
+        <li><strong>30s+ narrative coherence</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="takeaway-box">
+    <strong>Takeaway:</strong> Use now for pre-vis and B-roll. Don't ship AI-only video for precise human representation.
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>6</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 7: POST-PRODUCTION — SECTION ═══════════ -->
+<section class="slide slide--section">
+  <div class="section-num">02</div>
+  <h2>Editing &<br>Post-Production</h2>
+  <p class="section-hook">Where AI delivers the most immediate, measurable time savings today.</p>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>7</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 8: POST-PRODUCTION — CONTENT ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Editing & Post-Production</div>
+  <h3>Readiness Breakdown</h3>
+  <div class="cols">
+    <div class="col col--wide">
+      <p style="margin-bottom: 10px;"><span class="badge badge--green">Ready</span></p>
+      <ul class="deck-list deck-list--green">
+        <li><strong>Transcript-based editing (Descript)</strong> — 60–70% time savings for spoken-word</li>
+        <li><strong>Object masking (Premiere Pro)</strong> — hover, click, tracked mask in seconds</li>
+        <li><strong>AI audio cleanup (Descript)</strong> — lifts bad audio to usable</li>
+        <li><strong>Auto-captioning</strong> — 92–95% accuracy</li>
+      </ul>
+      <p style="margin-bottom: 10px; margin-top: 20px;"><span class="badge badge--amber">Close</span></p>
+      <ul class="deck-list deck-list--amber">
+        <li><strong>Generative Extend</strong> — subtle extensions only</li>
+        <li><strong>AI dubbing</strong> — strong for European languages, weak for tonal</li>
+      </ul>
+    </div>
+    <div class="col">
+      <p style="margin-bottom: 10px;"><span class="badge badge--red">Not Yet</span></p>
+      <ul class="deck-list deck-list--red">
+        <li><strong>Creative editorial judgment</strong> — pacing, arc, timing</li>
+        <li><strong>Brand-consistent editing at scale</strong></li>
+        <li><strong>Complex narrative editing</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="takeaway-box">
+    <strong>Takeaway:</strong> The strongest ROI in this entire report. Transcript-based editing alone justifies the tool cost.
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>8</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 9: VFX SECTION ═══════════ -->
+<section class="slide slide--section">
+  <div class="section-num">03</div>
+  <h2>VFX &<br>Compositing</h2>
+  <p class="section-hook">AI rotoscoping is the single most production-ready AI capability in all of VFX.</p>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>9</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 10: VFX + ANIMATION ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">VFX · Animation</div>
+  <h3>Visual Effects & Animation</h3>
+  <div class="cols">
+    <div class="col">
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 12px;">VFX & Compositing</p>
+      <p style="margin-bottom: 8px;"><span class="badge badge--green">Ready</span></p>
+      <ul class="deck-list deck-list--green" style="margin-bottom: 16px;">
+        <li><strong>AI rotoscoping</strong> — Premiere Object Mask, Slapshot (8K, 400 shots/day)</li>
+        <li><strong>CG compositing (Wonder Studio)</strong> — 80–90% automated, from $19.99/mo</li>
+        <li><strong>Simple object removal</strong> — wires, boom mics</li>
+      </ul>
+      <p style="margin-bottom: 8px;"><span class="badge badge--red">Not Yet</span></p>
+      <ul class="deck-list deck-list--red">
+        <li>Fully automated VFX shots</li>
+        <li>Real-time AI compositing</li>
+      </ul>
+    </div>
+    <div class="col">
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 12px;">Animation</p>
+      <p style="margin-bottom: 8px;"><span class="badge badge--green">Ready</span></p>
+      <ul class="deck-list deck-list--green" style="margin-bottom: 16px;">
+        <li><strong>Cascadeur</strong> — AutoPosing + AutoPhysics, 2–3x faster blocking</li>
+        <li><strong>Mocap cleanup</strong> — Rokoko + Cascadeur, minutes not days</li>
+        <li><strong>Single-camera mocap</strong> — webcam previz</li>
+      </ul>
+      <p style="margin-bottom: 8px;"><span class="badge badge--red">Not Yet</span></p>
+      <ul class="deck-list deck-list--red">
+        <li>Fully automated character animation</li>
+        <li>AI lip-sync for 3D characters</li>
+      </ul>
+    </div>
+  </div>
+  <div class="takeaway-box">
+    <strong>Takeaway:</strong> Rotoscoping and mocap cleanup are deploy-today tools. Final artistry still needs humans.
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>10</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 11: AUDIO SECTION TITLE ═══════════ -->
+<section class="slide slide--section">
+  <div class="section-num">04</div>
+  <h2>Audio: Voice,<br>Music & Post</h2>
+  <p class="section-hook">The category where AI most consistently passes for human output.</p>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>11</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 12: VOICE + TTS ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Audio</div>
+  <h3>Voice Synthesis & <em>Text-to-Speech</em></h3>
+  <div class="cols">
+    <div class="col col--wide">
+      <p style="margin-bottom: 10px;"><span class="badge badge--green">Ready</span></p>
+      <ul class="deck-list deck-list--green">
+        <li><strong>Short-to-medium narration (&lt;10 min)</strong> — indistinguishable from human for explainer content</li>
+        <li><strong>Voice cloning</strong> — ElevenLabs (~30 min audio), Fish Audio S2 (15 seconds)</li>
+        <li><strong>Word-level emotion control (Fish Audio S2)</strong> — tag words with <code style="font-family: var(--mono); font-size: 12px; background: #f0ece4; padding: 1px 5px; border-radius: 3px;">[whispered]</code>, <code style="font-family: var(--mono); font-size: 12px; background: #f0ece4; padding: 1px 5px; border-radius: 3px;">[voice breaking]</code></li>
+      </ul>
+      <p style="margin-bottom: 10px; margin-top: 16px;"><span class="badge badge--amber">Close</span></p>
+      <ul class="deck-list deck-list--amber">
+        <li>Long-form narration (30+ min) — prosody drift accumulates</li>
+        <li>Complex emotional arcs — irony, sarcasm, building tension</li>
+      </ul>
+    </div>
+    <div class="col">
+      <p style="font-weight: 700; font-size: 13px; color: var(--ink); margin-bottom: 12px;">Pricing Snapshot</p>
+      <table class="deck-table">
+        <thead><tr><th>Tier</th><th>Cost</th></tr></thead>
+        <tbody>
+          <tr><td>ElevenLabs</td><td>From ~$0.12/1K chars</td></tr>
+          <tr><td>Fish Audio S2</td><td>Free (self-host) or API</td></tr>
+          <tr><td>Azure / Google</td><td>~$0.016/1K chars</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="takeaway-box">
+    <strong>Takeaway:</strong> AI TTS is production-ready for narration under 10 minutes. Premium dramatic performance still needs a human.
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>12</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 13: MUSIC + SFX + AUDIO POST ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Audio</div>
+  <h3>Music, SFX & <em>Audio Post</em></h3>
+  <div class="cols">
+    <div class="col">
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">Music Generation</p>
+      <ul class="deck-list" style="margin-bottom: 16px;">
+        <li><span class="badge badge--green">Ready</span> <strong>Background music & underscore</strong> — Suno V5, 48kHz, 7M tracks/day</li>
+        <li><span class="badge badge--amber">Close</span> Full songs — vocals drift, structures collapse</li>
+        <li><span class="badge badge--red">Not Yet</span> Distinctive compositional voice</li>
+      </ul>
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">Sound Design & SFX</p>
+      <ul class="deck-list">
+        <li><span class="badge badge--green">Ready</span> Simple ambience, UI sounds, atmospheres</li>
+        <li><span class="badge badge--red">Not Yet</span> Foley, cinematic sound design, anything that ships</li>
+      </ul>
+    </div>
+    <div class="col">
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">Audio Post-Production</p>
+      <p style="font-size: 13px; color: var(--ink-muted); margin-bottom: 10px;">The most production-ready AI audio category.</p>
+      <ul class="deck-list deck-list--green">
+        <li><strong>Noise removal (iZotope RX 11)</strong> — industry gold standard</li>
+        <li><strong>Speech enhancement (Adobe Podcast)</strong> — free (1hr/day)</li>
+        <li><strong>10-stem separation (LALAL.AI)</strong> — 14.8M hours processed</li>
+        <li><strong>Transcript editing (Descript)</strong> — one-click cleanup</li>
+      </ul>
+    </div>
+  </div>
+  <div class="takeaway-box">
+    <strong>Takeaway:</strong> Audio post saves the most hours per dollar. iZotope RX 11 and Descript belong in every toolkit.
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>13</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 14: DUBBING, PLATFORMS, AGENTS ═══════════ -->
+<section class="slide slide--section">
+  <div class="section-num">05</div>
+  <h2>Dubbing, Platforms<br>& Agents</h2>
+  <p class="section-hook">The pipeline is 4–5 tools stitched together. True end-to-end doesn't exist yet.</p>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>14</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 15: DUBBING + PLATFORMS CONTENT ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Dubbing · Platforms · Agents</div>
+  <h3>The Pipeline Today</h3>
+  <div class="cols">
+    <div class="col">
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">Dubbing & Localization</p>
+      <ul class="deck-list" style="margin-bottom: 20px;">
+        <li><span class="badge badge--green">Ready</span> <strong>AI dubbing + human QA</strong> for informational content (Deepdub, Papercup, ElevenLabs)</li>
+        <li><span class="badge badge--amber">Close</span> Entertainment dubbing — sounds noticeably AI</li>
+        <li><span class="badge badge--red">Not Yet</span> Fully automated dubbing, singing, premium entertainment</li>
+      </ul>
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">AI Agents</p>
+      <ul class="deck-list">
+        <li><strong>Make.com / n8n</strong> — ~50% time reduction for trigger-based workflows</li>
+        <li>No agent is ready for <strong>autonomous production</strong></li>
+      </ul>
+    </div>
+    <div class="col">
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">End-to-End Platforms</p>
+      <table class="deck-table">
+        <thead><tr><th>Platform</th><th>Ready?</th></tr></thead>
+        <tbody>
+          <tr><td>ElevenLabs Flows</td><td>Alpha</td></tr>
+          <tr><td>Luma Agents</td><td>Just launched</td></tr>
+          <tr><td>Synthesia</td><td>Yes — talking-head</td></tr>
+          <tr><td>HeyGen</td><td>Yes — talking-head</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size: 13px; color: var(--ink-muted); margin-top: 16px; line-height: 1.55;"><strong style="color: var(--ink);">Realistic pipeline:</strong> Script (LLM) → Video (Synthesia/Runway) → Audio (ElevenLabs) → Edit (NLE/Descript) → Deliver</p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>15</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 16: CODING AGENTS — SECTION TITLE ═══════════ -->
+<section class="slide slide--section">
+  <div class="section-num">06</div>
+  <h2>AI Coding Agents<br>& Dev Harnesses</h2>
+  <p class="section-hook">Two layers: IDE harnesses where a developer steers, and autonomous agents that work independently and return finished code.</p>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>16</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 17: CODING AGENTS — IDE HARNESSES ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Coding Agents</div>
+  <h3>IDE Harnesses — <em>Developer in the Loop</em></h3>
+  <table class="deck-table" style="margin-bottom: 20px;">
+    <thead><tr><th>Harness</th><th>Key Capability</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr><td>Cursor</td><td>Agent mode, 8 parallel agents, cloud agents from browser/phone/Slack</td><td>$20–$200/mo</td></tr>
+      <tr><td>Windsurf</td><td>Cascade writes ~90% of code; "Memories" learn project conventions; Turbo Mode</td><td>$15–$200/mo</td></tr>
+      <tr><td>Google Antigravity</td><td>Agent-first: plan → execute → test → verify across editor, terminal, browser</td><td>Free preview</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size: 13px; color: var(--ink-muted); margin-bottom: 16px;">These are not autocomplete tools — they are agentic environments where you describe intent and the AI plans, writes, tests, and debugs. Over half the Fortune 500 use Cursor alone.</p>
+  <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">Autonomous Agents — No IDE Required</p>
+  <table class="deck-table">
+    <thead><tr><th>Agent</th><th>How It Works</th><th>Access</th></tr></thead>
+    <tbody>
+      <tr><td>OpenAI Codex</td><td>Clones repo, writes code, runs tests, returns PR. GPT-5.3-Codex</td><td>ChatGPT Plus ($20/mo+)</td></tr>
+      <tr><td>Claude Code</td><td>Terminal agent: reads codebase, plans, executes multi-step implementations</td><td>Claude Max ($100–$200/mo)</td></tr>
+      <tr><td>Jules 3.0</td><td>Async agent: assign from browser/Slack, returns PRs. API for CI/CD</td><td>Free preview</td></tr>
+      <tr><td>Claude Cowork</td><td>Knowledge work: file management, spreadsheets, reports — not code-specific</td><td>Claude Max ($100–$200/mo)</td></tr>
+    </tbody>
+  </table>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>17</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 18: CODING AGENTS — USE CASES ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Coding Agents</div>
+  <h3>Use Cases for <em>AV Teams</em></h3>
+  <div class="cols">
+    <div class="col">
+      <ul class="deck-list deck-list--green" style="margin-bottom: 20px;">
+        <li><strong>Internal tool development</strong> — Asset management, review workflows, dashboards, metadata tagging. One developer + agent ≈ a team of three</li>
+        <li><strong>Web development & publishing</strong> — Sites, CMS interfaces, distribution platforms. Agent handles scaffolding, responsive layouts, API integrations, deploys</li>
+        <li><strong>Automation infrastructure</strong> — Ingest pipelines, transcription routing, QC checks. Codex/Jules work async on GitHub issues, return working PRs</li>
+      </ul>
+    </div>
+    <div class="col">
+      <ul class="deck-list deck-list--green" style="margin-bottom: 20px;">
+        <li><strong>Production operations (Cowork)</strong> — Organize project files, compile reports, generate formatted spreadsheets, manage docs</li>
+      </ul>
+      <p style="margin-bottom: 8px;"><span class="badge badge--red">Not Yet</span></p>
+      <ul class="deck-list deck-list--red">
+        <li><strong>Complex architecture decisions</strong> — Deep domain knowledge, creative problem-solving</li>
+        <li><strong>Production-critical code without review</strong> — Error rate on complex tasks still too high</li>
+      </ul>
+    </div>
+  </div>
+  <div class="takeaway-box">
+    <strong>Takeaway:</strong> IDE harnesses (Cursor, Windsurf) are the fastest path to internal tools. Autonomous agents (Codex, Jules) handle well-scoped tasks async. Neither replaces a developer — they replace the repetitive 70%.
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>18</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 19: TRANSCRIPTION ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Transcription</div>
+  <h3>Transcription & <em>Captioning</em></h3>
+  <p style="font-size: 15px; color: var(--ink-muted); margin-bottom: 24px;">The most mature AI category in production.</p>
+  <table class="deck-table" style="max-width: 800px;">
+    <thead><tr><th>Provider</th><th>English Accuracy</th><th>Price/Min</th><th>Best For</th></tr></thead>
+    <tbody>
+      <tr><td>AssemblyAI Universal-3 Pro</td><td>94.1%</td><td>$0.0035</td><td>Audio intelligence, PII redaction</td></tr>
+      <tr><td>OpenAI Whisper</td><td>~92%</td><td>$0.006</td><td>Budget batch, 100+ languages</td></tr>
+      <tr><td>Deepgram Nova-3</td><td>~92%</td><td>$0.0043</td><td>Real-time (&lt;300ms latency)</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size: 14px; color: var(--ink-muted); margin-top: 20px;"><strong style="color: var(--ink);">Weak point:</strong> Speaker diarization — 85–90% in good conditions, 75–80% with noise or 5+ speakers.</p>
+  <div class="takeaway-box" style="margin-top: auto;">
+    <strong>Takeaway:</strong> Transcription is solved for most use cases. Budget under $1/hour for enterprise-grade accuracy.
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>19</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 20: CHEAT SHEET ═══════════ -->
+<section class="slide slide--section">
+  <div class="section-num">→</div>
+  <h2>The<br>Cheat Sheet</h2>
+  <p class="section-hook">What to adopt, what to watch, and what to skip.</p>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>20</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 21: CHEAT SHEET — USE NOW ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Cheat Sheet</div>
+  <h3><span class="badge badge--green" style="font-size: 10px; vertical-align: 2px; margin-right: 6px;">Adopt Now</span> Clear ROI</h3>
+  <div class="cols" style="margin-top: 8px;">
+    <div class="col">
+      <div class="cheat-row"><span class="cheat-use">Concept / pre-vis</span><span class="cheat-tool">Runway Gen-4.5 · Kling 3.0</span></div>
+      <div class="cheat-row"><span class="cheat-use">Rotoscoping & masking</span><span class="cheat-tool">Premiere Object Mask · Slapshot</span></div>
+      <div class="cheat-row"><span class="cheat-use">Audio cleanup</span><span class="cheat-tool">iZotope RX 11 · Adobe Podcast (free)</span></div>
+      <div class="cheat-row"><span class="cheat-use">Transcript-based editing</span><span class="cheat-tool">Descript</span></div>
+      <div class="cheat-row"><span class="cheat-use">Background music</span><span class="cheat-tool">Suno V5</span></div>
+    </div>
+    <div class="col">
+      <div class="cheat-row"><span class="cheat-use">Voice synthesis (short-form)</span><span class="cheat-tool">ElevenLabs · Fish Audio S2</span></div>
+      <div class="cheat-row"><span class="cheat-use">Talking-head video</span><span class="cheat-tool">Synthesia · HeyGen</span></div>
+      <div class="cheat-row"><span class="cheat-use">Animation blocking + mocap</span><span class="cheat-tool">Cascadeur · Rokoko</span></div>
+      <div class="cheat-row"><span class="cheat-use">CG character compositing</span><span class="cheat-tool">Wonder Studio</span></div>
+      <div class="cheat-row"><span class="cheat-use">Internal tool / web dev</span><span class="cheat-tool">Cursor · Windsurf</span></div>
+      <div class="cheat-row"><span class="cheat-use">Async bug fixes & features</span><span class="cheat-tool">Codex · Jules 3.0</span></div>
+    </div>
+  </div>
+  <div style="margin-top: auto;">
+    <p style="margin-bottom: 10px;"><span class="badge badge--amber" style="font-size: 10px;">Watch Closely</span></p>
+    <div style="display: flex; gap: 24px; font-size: 13px; color: var(--ink-muted); flex-wrap: wrap;">
+      <span>Agent-based workflows (Luma, ElevenLabs Flows)</span>
+      <span>·</span>
+      <span>Multi-shot narrative (Kling, Seedance)</span>
+      <span>·</span>
+      <span>AI dubbing at scale</span>
+      <span>·</span>
+      <span>Autonomous agents for complex dev</span>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>21</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 22: DON'T COUNT ON ═══════════ -->
+<section class="slide slide--content">
+  <div class="slide-label">Cheat Sheet</div>
+  <h3><span class="badge badge--red" style="font-size: 10px; vertical-align: 2px; margin-right: 6px;">Not Yet</span> Don't Count On</h3>
+  <div class="cols" style="margin-top: 8px;">
+    <div class="col">
+      <ul class="deck-list deck-list--red">
+        <li>AI-only long-form video generation (&gt;30s coherent narrative)</li>
+        <li>Automated editorial decision-making</li>
+        <li>AI text rendering within generated video</li>
+        <li>Unsupervised VFX compositing</li>
+      </ul>
+    </div>
+    <div class="col">
+      <ul class="deck-list deck-list--red">
+        <li>AI-only character animation for broadcast</li>
+        <li>Fully autonomous production agents for creative work</li>
+        <li>AI music as hero content</li>
+        <li>AI sound effects for final delivery</li>
+        <li>Autonomous coding agents for complex architecture</li>
+      </ul>
+    </div>
+  </div>
+  <div class="takeaway-box" style="margin-top: auto;">
+    <strong>Shelf life:</strong> This assessment is useful for roughly 3–6 months. The Q2 2026 edition will follow.
+  </div>
+  <div class="slide-footer">
+    <span>The AV AI Production Index — Q1 2026</span>
+    <span>22</span>
+  </div>
+</section>
+
+<!-- ═══════════ SLIDE 23: CLOSING ═══════════ -->
+<section class="slide slide--cover">
+  <div class="cover-badge">AV AI Dispatch · Research Report</div>
+  <h1>The AV AI<br>Production <em>Index</em></h1>
+  <p class="cover-sub">Q1 2026 · Inaugural Edition<br>Full report available at avaidispatch.com</p>
+  <div class="cover-meta">Audio/Video Services — AI Research & Development 2026</div>
+  <div class="slide-footer">
+    <span>avaidispatch.com</span>
+    <span>23</span>
+  </div>
+</section>
+
+</body>
+</html>
