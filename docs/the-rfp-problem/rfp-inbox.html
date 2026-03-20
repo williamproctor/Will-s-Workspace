@@ -15,18 +15,39 @@
     justify-content: center;
     min-height: 100vh;
     overflow: hidden;
+    cursor: none;
   }
 
   .gmail-window {
-    width: min(960px, 95vw);
-    height: min(580px, 88vh);
+    width: 100%;
+    height: 100vh;
     background: #fff;
-    border-radius: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 25px 80px rgba(0,0,0,0.5);
     position: relative;
+  }
+
+  /* Animated cursor */
+  .fake-cursor {
+    position: absolute;
+    z-index: 600;
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+    transition: top 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.3));
+  }
+
+  .fake-cursor.dragging {
+    transition: top 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+                left 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fake-cursor.fast {
+    transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Toolbar */
@@ -263,7 +284,6 @@
     font-size: 13px;
   }
 
-  /* SVG icons */
   .icon { display: inline-flex; align-items: center; }
 
   /* Replay button */
@@ -302,6 +322,11 @@
 <div class="gmail-window">
   <button class="replay-btn" id="replayBtn" onclick="replayAnimation()">Replay</button>
 
+  <!-- Fake cursor -->
+  <svg class="fake-cursor" id="fakeCursor" viewBox="0 0 24 24" style="top: -40px; left: -40px;">
+    <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 01.35-.15h6.87a.5.5 0 00.35-.85L6.35 2.85a.5.5 0 00-.85.36z" fill="#fff" stroke="#000" stroke-width="1.5"/>
+  </svg>
+
   <div class="toolbar">
     <button class="compose-btn">+ Compose</button>
     <div class="toolbar-icons">
@@ -316,7 +341,11 @@
       <div class="sidebar-item active">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/></svg>
         <span>Inbox</span>
-        <span class="count">18</span>
+        <span class="count">14</span>
+      </div>
+      <div class="sidebar-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        <span>Starred</span>
       </div>
       <div class="sidebar-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -325,19 +354,20 @@
       <div class="sidebar-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         <span>Drafts</span>
-        <span class="count">22</span>
-      </div>
-      <div class="sidebar-item">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        <span>Sent</span>
-      </div>
-      <div class="sidebar-item">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        <span>Drafts</span>
+        <span class="count">3</span>
       </div>
       <div class="sidebar-divider">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#444746" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        <span>Folders</span>
+        <span>More</span>
+      </div>
+      <div class="sidebar-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><polyline points="16 21 12 17 8 21"/></svg>
+        <span>All Mail</span>
+      </div>
+      <div class="sidebar-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>Spam</span>
+        <span class="count">47</span>
       </div>
       <div class="trash-item" id="trashItem">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9aa0a6" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
@@ -348,8 +378,8 @@
 
     <div class="email-list">
       <div class="email-list-header">
-        <span>Inbox</span>
-        <span><span>Inboxry</span><span>Foldest</span></span>
+        <span>Primary</span>
+        <span><span>Promotions</span><span>Updates</span></span>
       </div>
       <div id="emailContainer"></div>
     </div>
@@ -363,17 +393,17 @@
 
 <script>
 const EMAILS = [
-  { id:1, starred:false, from:"Nolan Greene", org:"Acme Corp", subject:"Lessons on how to time a strategy for...", bold:true },
-  { id:2, starred:false, from:"Nolan Greene", org:"Acme Corp", subject:"Travelors a top focusing RFP best...", bold:false },
-  { id:3, starred:false, from:"Nolan Greene", org:"Acme Corp", subject:"Sortspoof of the Formatters article...", bold:false },
-  { id:4, starred:true, from:"RFP Invitation", org:"", subject:"", bold:true, isRFP:true, rfpSubject:"Nolan Greene | Acme Corp · RFP Invitation" },
-  { id:5, starred:false, from:"Countlate", org:"", subject:"Wanting up to overall fathomous and the summer of unfurl tire...", bold:false },
-  { id:6, starred:true, from:"RFP Invitation", org:"", subject:"Tond Wreaptina Commatry for a Transmenting for IteraBot...", bold:false },
-  { id:7, starred:true, from:"RFP Invitation", org:"", subject:"", bold:false },
-  { id:8, starred:false, from:"Nolan Greene", org:"Acme Corp", subject:"Take for streamclata to partner groups verne for post lite is...", bold:false },
-  { id:9, starred:true, from:"RFP Invitation", org:"", subject:"", bold:false },
-  { id:10, starred:false, from:"Nolan Greene", org:"Acme Corp", subject:"Unscent hollan like brignat roses...", bold:false },
-  { id:11, starred:false, from:"Forton Cavil Fortum", org:"", subject:"Put a comverts to your meeting site...", bold:false },
+  { id:1, starred:false, from:"Procurement Team", org:"County of Fairfax", subject:"RE: Vendor Pre-Qualification — 147 pages attached, deadline Friday", bold:true },
+  { id:2, starred:false, from:"Linda from Compliance", org:"", subject:"Quick Q — does \"innovative approach\" mean the same thing in every RFP or just ours?", bold:false },
+  { id:3, starred:true, from:"Your Proposal Lead", org:"", subject:"I've been adjusting table borders in Word for 3 hours. Is this what you meant by strategy?", bold:false },
+  { id:4, starred:true, from:"RFP Invitation", org:"", subject:"", bold:true, isRFP:true, rfpSubject:"Nolan Greene | Acme Corp · You're invited to respond to RFP #2024-0892" },
+  { id:5, starred:false, from:"Conference Room B", org:"Calendar", subject:"RFP War Room — 11 PM to ???. Pizza ordered. Bring highlighters.", bold:false },
+  { id:6, starred:false, from:"Mark Daniels", org:"SBS Comms", subject:"Serious question: has anyone ever actually won one of these?", bold:true },
+  { id:7, starred:true, from:"Awards Committee", org:"", subject:"Congratulations! You've been nominated for Best RFP Response 2024", bold:false },
+  { id:8, starred:false, from:"Recycling Services", org:"Building Ops", subject:"Overflow alert — the bin by the printer is full again. Proposals?", bold:false },
+  { id:9, starred:false, from:"JOB", org:"SBS Comms", subject:"I've been in this industry for 20 years. There's something we need to talk about.", bold:true },
+  { id:10, starred:false, from:"Google Docs", org:"", subject:"\"Final_RFP_Response_v14_FINAL_actuallyFINAL(2).docx\" has been shared with you", bold:false },
+  { id:11, starred:true, from:"The Printer", org:"3rd Floor", subject:"I have been printing continuously for 6 hours. No one has come to collect me.", bold:false },
 ];
 
 function checkboxSVG() {
@@ -404,10 +434,23 @@ function renderEmails() {
   }).join('');
 }
 
+function moveCursor(x, y, extraClass) {
+  const cursor = document.getElementById('fakeCursor');
+  if (extraClass) {
+    cursor.className = 'fake-cursor ' + extraClass;
+  } else {
+    cursor.className = 'fake-cursor';
+  }
+  cursor.style.left = x + 'px';
+  cursor.style.top = y + 'px';
+}
+
 function replayAnimation() {
   document.getElementById('replayBtn').classList.remove('visible');
   const existing = document.querySelector('.drag-clone');
   if (existing) existing.remove();
+  document.getElementById('fakeCursor').style.top = '-40px';
+  document.getElementById('fakeCursor').style.left = '-40px';
   renderEmails();
   setTimeout(runAnimation, 1500);
 }
@@ -422,18 +465,32 @@ function runAnimation() {
 
   if (!rfpRow || !trashItem || !gmailWindow) return;
 
-  // Phase 1: highlight the row
-  rfpRow.classList.add('rfp-highlight');
+  const winRect = gmailWindow.getBoundingClientRect();
+  const rfpRect = rfpRow.getBoundingClientRect();
+
+  const rfpCenterX = rfpRect.left - winRect.left + rfpRect.width * 0.35;
+  const rfpCenterY = rfpRect.top - winRect.top + rfpRect.height / 2;
+
+  // Phase 0: cursor glides in from off-screen toward the RFP row
+  moveCursor(rfpCenterX + 200, rfpCenterY + 120, '');
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      moveCursor(rfpCenterX, rfpCenterY, '');
+    });
+  });
+
+  // Phase 1: cursor arrives, highlight the row
+  setTimeout(() => {
+    rfpRow.classList.add('rfp-highlight');
+  }, 900);
 
   setTimeout(() => {
-    // Measure positions relative to .gmail-window
-    const winRect = gmailWindow.getBoundingClientRect();
-    const rfpRect = rfpRow.getBoundingClientRect();
+    const rfpRectNow = rfpRow.getBoundingClientRect();
     const trashRect = trashItem.getBoundingClientRect();
 
-    const startTop = rfpRect.top - winRect.top;
-    const startLeft = rfpRect.left - winRect.left;
-    const startWidth = rfpRect.width;
+    const startTop = rfpRectNow.top - winRect.top;
+    const startLeft = rfpRectNow.left - winRect.left;
+    const startWidth = rfpRectNow.width;
 
     const trashCenterX = trashRect.left - winRect.left + trashRect.width / 2;
     const trashCenterY = trashRect.top - winRect.top + trashRect.height / 2;
@@ -451,7 +508,7 @@ function runAnimation() {
     rfpRow.classList.remove('rfp-highlight');
     rfpRow.classList.add('rfp-ghost');
 
-    // Phase 3: animate the clone toward trash (after a frame so transition kicks in)
+    // Phase 3: animate clone + cursor toward trash
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         const endWidth = 180;
@@ -460,6 +517,8 @@ function runAnimation() {
         clone.style.width = endWidth + 'px';
         clone.style.opacity = '0.5';
         clone.style.transform = 'scale(0.6)';
+
+        moveCursor(trashCenterX + 5, trashCenterY + 5, 'dragging');
       });
     });
 
@@ -468,13 +527,16 @@ function runAnimation() {
       trashItem.classList.add('highlight');
     }, 800);
 
-    // Phase 5: clone arrives — remove clone, slide rows up to fill the gap, show toast
+    // Phase 5: clone arrives — remove clone, slide rows up, show toast
     setTimeout(() => {
       clone.style.opacity = '0';
       clone.style.transform = 'scale(0.2)';
 
       setTimeout(() => {
         clone.remove();
+
+        // Move cursor away gently
+        moveCursor(trashCenterX + 60, trashCenterY - 30, 'fast');
 
         const rowHeight = rfpRow.offsetHeight + 1;
         const allRows = Array.from(document.querySelectorAll('.email-row'));
@@ -510,6 +572,11 @@ function runAnimation() {
           trashBadge.classList.add('visible');
           toast.classList.add('visible');
 
+          // Hide cursor
+          setTimeout(() => {
+            moveCursor(-40, -40, 'fast');
+          }, 800);
+
           setTimeout(() => {
             toast.classList.remove('visible');
             replayBtn.classList.add('visible');
@@ -517,7 +584,7 @@ function runAnimation() {
         }, 550);
       }, 300);
     }, 1300);
-  }, 800);
+  }, 1600);
 }
 
 renderEmails();
