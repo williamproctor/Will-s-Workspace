@@ -43,6 +43,7 @@
           <a href="/" class="btn-back">&larr; All editions</a>
         </div>
         <div class="edition-body">
+          <div id="videoMount"></div>
           <div id="podcastMount"></div>
           <div id="editionContent"></div>
         </div>
@@ -67,6 +68,22 @@
     const HAS_AUDIO = true;
     const AUDIO_SRC = "/audio/2026-03-12.m4a";
     const AUDIO_TITLE = "AV AI Dispatch Podcast \u2014 Week of 2026-03-12";
+
+    const VIDEO_SRC = "/video/2026-03-12.mp4";
+    const VIDEO_TITLE = "The End-to-End AI Agency";
+    const HAS_VIDEO = true;
+
+    const videoMount = document.getElementById('videoMount');
+    if (HAS_VIDEO) {
+      videoMount.innerHTML = `
+        <div class="video-player-label"><span>Video Edition</span></div>
+        <div class="video-player">
+          <video controls preload="metadata" playsinline>
+            <source src="${VIDEO_SRC}" type="video/mp4">
+          </video>
+        </div>
+      `;
+    }
 
     const mount = document.getElementById('podcastMount');
     if (HAS_AUDIO) {
