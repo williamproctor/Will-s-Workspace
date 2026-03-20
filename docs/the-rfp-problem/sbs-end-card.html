@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBS Comms — End Card</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .end-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .bg-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 128px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .bg-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,160,100,0.08) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+    animation: breathe 6s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+  }
+
+  .logo-row {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .logo-letter {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(48px, 8vw, 96px);
+    color: #f0ece4;
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    letter-spacing: -0.02em;
+  }
+
+  .logo-letter.cycling {
+    min-width: 0.65em;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .logo-space {
+    width: 0.3em;
+    display: inline-block;
+  }
+
+  .logo-comms {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: clamp(48px, 8vw, 96px);
+    color: rgba(240, 236, 228, 0.45);
+    display: inline-block;
+    line-height: 1;
+    letter-spacing: 0.08em;
+  }
+
+  .tagline {
+    position: relative;
+    z-index: 10;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(14px, 2.2vw, 22px);
+    color: rgba(240, 236, 228, 0.5);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-top: clamp(16px, 3vh, 32px);
+    opacity: 0;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards;
+  }
+
+  .email-line {
+    position: relative;
+    z-index: 10;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(11px, 1.6vw, 16px);
+    color: rgba(240, 236, 228, 0.3);
+    letter-spacing: 0.15em;
+    margin-top: clamp(10px, 2vh, 20px);
+    opacity: 0;
+    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 2.0s forwards;
+  }
+
+  .divider {
+    position: relative;
+    z-index: 10;
+    width: clamp(40px, 6vw, 80px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(240,236,228,0.25), transparent);
+    margin-top: clamp(12px, 2.5vh, 24px);
+    opacity: 0;
+    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
+  }
+
+  .corner-mark {
+    position: absolute;
+    z-index: 10;
+    width: 24px;
+    height: 24px;
+    border-color: rgba(240,236,228,0.08);
+    border-style: solid;
+    opacity: 0;
+    animation: fadeIn 1s ease 2.5s forwards;
+  }
+
+  .corner-mark.tl { top: 24px; left: 24px; border-width: 1px 0 0 1px; }
+  .corner-mark.tr { top: 24px; right: 24px; border-width: 1px 1px 0 0; }
+  .corner-mark.bl { bottom: 24px; left: 24px; border-width: 0 0 1px 1px; }
+  .corner-mark.br { bottom: 24px; right: 24px; border-width: 0 1px 1px 0; }
+
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  @media (max-width: 480px) {
+    .corner-mark { width: 16px; height: 16px; }
+    .corner-mark.tl { top: 12px; left: 12px; }
+    .corner-mark.tr { top: 12px; right: 12px; }
+    .corner-mark.bl { bottom: 12px; left: 12px; }
+    .corner-mark.br { bottom: 12px; right: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="end-card">
+  <div class="bg-grain"></div>
+  <div class="bg-glow"></div>
+
+  <div class="corner-mark tl"></div>
+  <div class="corner-mark tr"></div>
+  <div class="corner-mark bl"></div>
+  <div class="corner-mark br"></div>
+
+  <div class="logo-row" id="logoRow">
+    <span class="logo-letter cycling" id="s1">S</span>
+    <span class="logo-letter cycling" id="b1">B</span>
+    <span class="logo-letter cycling" id="s2">S</span>
+    <span class="logo-space"></span>
+    <span class="logo-comms">COMMS</span>
+  </div>
+
+  <div class="tagline">Let's Talk.</div>
+  <div class="divider"></div>
+  <div class="email-line">hello@sbscomms.com</div>
+</div>
+
+<script>
+const GLYPH_SETS = {
+  S: ['$','5','§','&','S','Σ','Ş','Š','ꟗ','S'],
+  B: ['8','ß','β','B','Ɓ','฿','B','Ƀ','B','B']
+};
+
+const CYCLE_DURATION = 1800;
+const STEP_MS = 55;
+const SETTLE_PAUSE = 400;
+
+function cycleElement(el, letter) {
+  const glyphs = GLYPH_SETS[letter];
+  const totalSteps = Math.floor(CYCLE_DURATION / STEP_MS);
+  let step = 0;
+
+  const interval = setInterval(() => {
+    const progress = step / totalSteps;
+    const slowdown = Math.pow(progress, 2.2);
+    const delay = STEP_MS + slowdown * 180;
+
+    el.textContent = glyphs[step % glyphs.length];
+
+    const jitter = (1 - progress) * 2;
+    el.style.transform = `translateX(${(Math.random() - 0.5) * jitter}px)`;
+
+    step++;
+    if (step >= totalSteps) {
+      clearInterval(interval);
+      el.textContent = letter;
+      el.style.transform = 'translateX(0)';
+    }
+  }, STEP_MS);
+}
+
+function runCycleSequence() {
+  const s1 = document.getElementById('s1');
+  const b1 = document.getElementById('b1');
+  const s2 = document.getElementById('s2');
+
+  setTimeout(() => cycleElement(s1, 'S'), 0);
+  setTimeout(() => cycleElement(b1, 'B'), 200);
+  setTimeout(() => cycleElement(s2, 'S'), 400);
+}
+
+setTimeout(runCycleSequence, 1200);
+
+let settled = false;
+setTimeout(() => { settled = true; }, 1200 + 400 + CYCLE_DURATION + SETTLE_PAUSE);
+
+setInterval(() => {
+  if (!settled) return;
+  const targets = [
+    { el: document.getElementById('s1'), letter: 'S' },
+    { el: document.getElementById('b1'), letter: 'B' },
+    { el: document.getElementById('s2'), letter: 'S' }
+  ];
+  const pick = targets[Math.floor(Math.random() * targets.length)];
+  const glyphs = GLYPH_SETS[pick.letter];
+  const randomGlyph = glyphs[Math.floor(Math.random() * (glyphs.length - 1))];
+
+  pick.el.textContent = randomGlyph;
+  pick.el.style.transform = `translateX(${(Math.random() - 0.5) * 1.5}px)`;
+
+  setTimeout(() => {
+    pick.el.textContent = pick.letter;
+    pick.el.style.transform = 'translateX(0)';
+  }, 120 + Math.random() * 200);
+}, 2800);
+</script>
+</body>
+</html>
