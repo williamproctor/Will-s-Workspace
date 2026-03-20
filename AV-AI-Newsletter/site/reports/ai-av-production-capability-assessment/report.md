@@ -2,6 +2,8 @@
 
 > An honest look at every major AI capability in audio/video production — what's ready for enterprise use, what's close, and what's still hype. Updated March 2026.
 
+In 1986, a headquarters staff member told a writer, "It's sure great that you have MEPS. Now writing must be easy for you." The writer had to explain that [people, not machines, do the writing](https://wol.jw.org/en/wol/d/r1/lp-e/101986170). Forty years later, the technology is different, but the punchline is the same.
+
 ---
 
 ## The Short Version
