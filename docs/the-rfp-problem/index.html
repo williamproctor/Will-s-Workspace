@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The RFP Problem — Pre-Production Package</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --surface-raised: #1a1a1a;
+    --border: #222;
+    --border-accent: #333;
+    --text-primary: #e8e4df;
+    --text-secondary: #8a8580;
+    --text-muted: #5a5550;
+    --accent: #c4a882;
+    --accent-dim: #8a7560;
+    --accent-glow: rgba(196, 168, 130, 0.08);
+    --red: #bf6356;
+    --green: #7a9e7e;
+    --blue: #6b8fad;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-accent) var(--bg);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- NAVIGATION --- */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav .brand {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.1rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+
+  nav .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  nav .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  nav .nav-links a:hover { color: var(--text-primary); }
+
+  /* --- HERO --- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero .overline {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    max-width: 800px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 550px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .hero .meta-row {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .meta-item .label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .meta-item .value {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  /* --- SECTIONS --- */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 4rem;
+  }
+
+  section + section {
+    border-top: 1px solid var(--border);
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-header .overline {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text-primary);
+    max-width: 600px;
+  }
+
+  .section-header p {
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    max-width: 550px;
+    font-size: 0.95rem;
+  }
+
+  /* --- TALENT --- */
+  .talent-card {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .talent-card .photo {
+    width: 100%;
+    height: 100%;
+    min-height: 340px;
+    object-fit: cover;
+  }
+
+  .talent-info {
+    padding: 2.5rem 2.5rem 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .talent-info h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .talent-info .role {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 1.5rem;
+  }
+
+  .talent-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  /* --- SCRIPT BREAKDOWN --- */
+  .script-structure {
+    display: grid;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .script-block {
+    display: grid;
+    grid-template-columns: 200px 1fr 100px;
+    background: var(--surface);
+    padding: 1.5rem 2rem;
+    align-items: start;
+    gap: 2rem;
+    transition: background 0.2s;
+  }
+
+  .script-block:hover {
+    background: var(--surface-raised);
+  }
+
+  .script-block .block-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--accent);
+    padding-top: 0.15rem;
+  }
+
+  .script-block .block-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .script-block .block-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: right;
+    padding-top: 0.15rem;
+  }
+
+  /* --- SHOT LIST --- */
+  .shot-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .shot-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .shot-card:hover {
+    border-color: var(--border-accent);
+  }
+
+  .shot-card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 220px;
+  }
+
+  .shot-visual {
+    background: var(--surface-raised);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shot-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    margin: 12px;
+    opacity: 0.5;
+  }
+
+  .shot-visual .frame-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    position: absolute;
+    top: 1.2rem;
+    left: 1.5rem;
+  }
+
+  .shot-visual .shot-number {
+    font-family: 'Instrument Serif', serif;
+    font-size: 3rem;
+    color: var(--border-accent);
+  }
+
+  .shot-visual .aspect-badge {
+    position: absolute;
+    bottom: 1.2rem;
+    right: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  .shot-details {
+    padding: 1.8rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .shot-details .shot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .shot-details h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .shot-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .tag-interview { background: rgba(107, 143, 173, 0.15); color: var(--blue); }
+  .tag-broll { background: rgba(122, 158, 126, 0.15); color: var(--green); }
+  .tag-title { background: rgba(196, 168, 130, 0.15); color: var(--accent); }
+
+  .shot-details .description {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.7;
+    flex-grow: 1;
+  }
+
+  .shot-details .camera-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .shot-prompt-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    width: fit-content;
+  }
+
+  .shot-prompt-toggle:hover {
+    border-color: var(--accent-dim);
+    color: var(--accent);
+  }
+
+  .shot-prompt {
+    display: none;
+    background: rgba(196, 168, 130, 0.04);
+    border: 1px solid rgba(196, 168, 130, 0.1);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .shot-prompt.visible { display: block; }
+
+  .shot-duration {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+  }
+
+  /* --- MUSIC DIRECTION --- */
+  .music-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .music-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2.5rem;
+  }
+
+  .music-card h4 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  .music-card p, .music-card li {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.8;
+  }
+
+  .music-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .music-card ul li {
+    padding: 0.4rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .music-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-dim);
+  }
+
+  .suno-prompt-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+    position: relative;
+  }
+
+  .suno-prompt-box .char-count {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--green);
+  }
+
+  .suno-prompt-box h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .suno-prompt-box .prompt-text {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.9;
+    font-style: italic;
+  }
+
+  .suno-prompt-box .copy-btn {
+    margin-top: 1.5rem;
+    background: none;
+    border: 1px solid var(--accent-dim);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .suno-prompt-box .copy-btn:hover {
+    background: rgba(196, 168, 130, 0.1);
+  }
+
+  .style-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .style-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+  }
+
+  /* --- DIRECTOR'S NOTES --- */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .note-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2.5rem;
+  }
+
+  .note-card h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .note-card p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.8;
+  }
+
+  .note-card .highlight {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  /* --- PACING TABLE --- */
+  .pacing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+  }
+
+  .pacing-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: left;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pacing-table td {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pacing-table tr:last-child td {
+    border-bottom: none;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .pacing-table .shots-col {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  /* --- TIMELINE --- */
+  .timeline-bar {
+    display: flex;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 32px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+  }
+
+  .timeline-segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    transition: opacity 0.2s;
+    cursor: default;
+    position: relative;
+  }
+
+  .timeline-segment:hover { opacity: 0.8; }
+
+  .seg-cold-open { background: #2a3040; flex: 17; }
+  .seg-confession { background: #30353f; flex: 18; }
+  .seg-building { background: #353a30; flex: 22; }
+  .seg-human { background: #403530; flex: 5; }
+  .seg-turning { background: #3a3035; flex: 7; }
+  .seg-declaration { background: #303540; flex: 11; }
+  .seg-cta { background: #2a3530; flex: 13; }
+
+  .timeline-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+  }
+
+  /* --- FOOTER --- */
+  footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer .footer-brand {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+  }
+
+  footer .footer-meta {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 768px) {
+    .hero { padding: 6rem 2rem 3rem; }
+    section { padding: 4rem 2rem; }
+    .talent-card { grid-template-columns: 1fr; }
+    .talent-info { padding: 2rem; }
+    .shot-card-inner { grid-template-columns: 1fr; }
+    .shot-visual { min-height: 120px; }
+    .music-section { grid-template-columns: 1fr; }
+    .notes-grid { grid-template-columns: 1fr; }
+    .script-block { grid-template-columns: 1fr; gap: 0.5rem; }
+    .script-block .block-time { text-align: left; }
+    nav .nav-links { display: none; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">The RFP Problem</div>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#talent">Talent</a></li>
+    <li><a href="#structure">Structure</a></li>
+    <li><a href="#shots">Shot List</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#notes">Director's Notes</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="overline">Pre-Production Package</div>
+  <h1>The <em>RFP</em> Problem</h1>
+  <p class="subtitle">A ~2 minute documentary-style short film for SBS Comms. One firm's declaration that the RFP process is broken — played with the gravity of a prestige-TV exposé about something that actually matters.</p>
+  <div class="meta-row">
+    <div class="meta-item">
+      <span class="label">Client</span>
+      <span class="value">SBS Comms</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Runtime</span>
+      <span class="value">~2 minutes</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Style</span>
+      <span class="value">Documentary Interview</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Total Shots</span>
+      <span class="value">21</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Version</span>
+      <span class="value">v0.1</span>
+    </div>
+  </div>
+</div>
+
+<!-- TALENT -->
+<section id="talent">
+  <div class="section-header">
+    <div class="overline">01 — Talent</div>
+    <h2>Meet JOB</h2>
+    <p>The on-camera presence anchoring the entire piece. His performance walks the line between measured sincerity and quiet absurdity.</p>
+  </div>
+
+  <div class="talent-card">
+    <img class="photo" src="headshot.png" alt="JOB — On-camera talent" onerror="this.style.display='none'">
+    <div class="talent-info">
+      <h3>JOB</h3>
+      <div class="role">On-Camera Talent / Narrator</div>
+      <p>Male, early-to-mid 30s. Dark brown hair, full well-groomed beard. Approachable but authoritative. For the shoot, wardrobe shifts from the casual headshot look to a professional button-down (navy or charcoal) — still approachable, but the framing says "this person runs a serious firm."</p>
+      <p style="margin-top: 1rem;">Expression range: measured sincerity in the opening, quiet frustration in the middle, resolute confidence in the declaration, warm humor in the close. The gravity should feel slightly disproportionate to the subject — that's where the comedy lives.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPT STRUCTURE -->
+<section id="structure">
+  <div class="section-header">
+    <div class="overline">02 — Script Structure</div>
+    <h2>The Arc</h2>
+    <p>Seven acts in two minutes. The emotional shape moves from somber confession through absurdist exposé to warm, human resolution.</p>
+  </div>
+
+  <!-- Timeline bar -->
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-cold-open">Cold Open</div>
+    <div class="timeline-segment seg-confession">Confession</div>
+    <div class="timeline-segment seg-building">Building the Case</div>
+    <div class="timeline-segment seg-human">Cost</div>
+    <div class="timeline-segment seg-turning">Turn</div>
+    <div class="timeline-segment seg-declaration">Declaration</div>
+    <div class="timeline-segment seg-cta">CTA</div>
+  </div>
+
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#2a3040"></div> Cold Open</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#30353f"></div> Confession</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#353a30"></div> Building the Case</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#403530"></div> Human Cost</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3a3035"></div> Turning Point</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#303540"></div> Declaration</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2a3530"></div> Call to Action</div>
+  </div>
+
+  <div class="script-structure" style="margin-top: 3rem;">
+    <div class="script-block">
+      <div class="block-name">COLD OPEN</div>
+      <div class="block-desc">Black screen title card, followed by B-roll of late-night RFP misery — the infinite scroll, the war room, the endless printer. Each shot held a beat longer than comfortable. Mundanity becomes oppressive.</div>
+      <div class="block-time">15–20s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">THE CONFESSION</div>
+      <div class="block-desc">JOB on camera for the first time. Tight framing, shallow depth of field. He speaks like someone about to reveal something he's sat with for decades. Then he says the word "RFPs" — and dead silence. Two full seconds. The comedic hinge.</div>
+      <div class="block-time">16–20s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">BUILDING THE CASE</div>
+      <div class="block-desc">Exposé mode. Ken Burns zoom on an RFP cover page. Someone lost in Word formatting. The absurdist "Best RFP Response 2024" trophy. A stack of identical proposals. A rubber stamp. A person nodding seriously at nothing. Played completely straight.</div>
+      <div class="block-time">20–25s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">HUMAN COST</div>
+      <div class="block-desc">The emotional center. A recycling bin overflowing with discarded proposals. Somber piano reaches its peak. Let it breathe.</div>
+      <div class="block-time">4–5s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">TURNING POINT</div>
+      <div class="block-desc">JOB stares into the middle distance. Very prestige TV. The camera does not flinch. Four seconds minimum. "Who is this actually serving?" He almost smiles, but doesn't.</div>
+      <div class="block-time">6–8s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">THE DECLARATION</div>
+      <div class="block-desc">Direct to camera for the first time. Energy shifts. "So SBS is done with RFPs." Laptop closes firmly. RFP email dragged to trash. Catharsis.</div>
+      <div class="block-time">10–12s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">CALL TO ACTION</div>
+      <div class="block-desc">The tension breaks. Two people having a real conversation over coffee — warm, human, lived-in. JOB picks up a phone. Intentionally corny. Absolutely perfect. End card: "Let's Talk."</div>
+      <div class="block-time">12–15s</div>
+    </div>
+  </div>
+
+  <!-- Pacing table -->
+  <table class="pacing-table" style="margin-top: 3rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Shots</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Cold Open</td><td class="shots-col">01–05</td><td>15–20 sec</td></tr>
+      <tr><td>The Confession</td><td class="shots-col">06–07</td><td>16–20 sec</td></tr>
+      <tr><td>Building the Case</td><td class="shots-col">08–13</td><td>20–25 sec</td></tr>
+      <tr><td>Human Cost</td><td class="shots-col">14</td><td>4–5 sec</td></tr>
+      <tr><td>Turning Point</td><td class="shots-col">15</td><td>6–8 sec</td></tr>
+      <tr><td>The Declaration</td><td class="shots-col">16–18</td><td>10–12 sec</td></tr>
+      <tr><td>Call to Action</td><td class="shots-col">19–21</td><td>12–15 sec</td></tr>
+      <tr><td><strong>Total</strong></td><td class="shots-col"><strong>21 shots</strong></td><td><strong>~2 min</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SHOT LIST -->
+<section id="shots">
+  <div class="section-header">
+    <div class="overline">03 — Shot List & Storyboard</div>
+    <h2>21 Shots</h2>
+    <p>Each shot includes a description, camera direction, and an AI image generation prompt for storyboard animatic frames. Click "Show Prompt" to reveal the generation text.</p>
+  </div>
+
+  <div class="shot-grid" id="shotGrid">
+    <!-- Shots injected by JS -->
+  </div>
+</section>
+
+<!-- MUSIC DIRECTION -->
+<section id="music">
+  <div class="section-header">
+    <div class="overline">04 — Music Direction</div>
+    <h2>The Score</h2>
+    <p>Single piano throughout. Minimal and deliberate. The score should feel like it wandered in from a documentary about something that actually matters.</p>
+  </div>
+
+  <div class="music-section">
+    <div class="music-card">
+      <h4>Musical Arc</h4>
+      <ul>
+        <li>Opens with a single sustained piano note — sparse, somber, minor key</li>
+        <li>Felt-piano texture, intimate and close-mic'd, like Nils Frahm</li>
+        <li>Gently builds at the midpoint — a second voice, slight movement</li>
+        <li>Brief emotional swell at the "human cost" section (~1:15)</li>
+        <li>Recedes, then shifts to major key for the final 30 seconds</li>
+        <li>Ends warmly — quiet resolution, like a breath finally released</li>
+      </ul>
+    </div>
+    <div class="music-card">
+      <h4>Reference & Constraints</h4>
+      <ul>
+        <li><strong>Think:</strong> Nils Frahm, not Hans Zimmer</li>
+        <li><strong>Also:</strong> Ólafur Arnalds, Dustin O'Halloran</li>
+        <li>Piano only — no percussion, strings, or synths</li>
+        <li>Should never tip into overt comedy</li>
+        <li>Let the audience find the humor on their own</li>
+        <li>The key comedic beat: dead silence after "RFPs" (~0:35)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="suno-prompt-box">
+    <span class="char-count">986 / 1000 chars</span>
+    <h4>Suno Generation Prompt</h4>
+    <p class="prompt-text" id="sunoPromptText">Solo piano. Minimal, contemplative, Nils Frahm-inspired. Begins with a single sustained note, sparse and somber in a minor key. Slow, deliberate pacing--each note placed with intention and space between. The tone feels like the opening of a serious documentary, as if something important is about to be revealed. Gentle felt-piano texture, intimate and close-mic'd. Around the halfway point, the melody begins building slowly--adding a second voice, slightly more movement, still restrained. A brief emotional swell at 1:15--the fullest the piece gets, with overlapping sustained chords that feel heavy and resigned. Then it recedes. In the final 30 seconds, the key shifts to major. The notes become warmer, more open, with quiet resolution. The piece ends gently, like a held breath finally released. No percussion, no strings, no synths. Piano only. 2 minutes total. The mood walks the line between genuine emotion and the subtle absurdity of taking something mundane very seriously.</p>
+    <div class="style-tags">
+      <span class="style-tag">ambient piano</span>
+      <span class="style-tag">minimal</span>
+      <span class="style-tag">documentary score</span>
+      <span class="style-tag">contemplative</span>
+      <span class="style-tag">Nils Frahm</span>
+      <span class="style-tag">felt piano</span>
+      <span class="style-tag">cinematic</span>
+      <span class="style-tag">solo piano</span>
+      <span class="style-tag">somber</span>
+      <span class="style-tag">intimate</span>
+    </div>
+    <button class="copy-btn" onclick="copyPrompt()">Copy Prompt</button>
+  </div>
+</section>
+
+<!-- DIRECTOR'S NOTES -->
+<section id="notes">
+  <div class="section-header">
+    <div class="overline">05 — Director's Notes</div>
+    <h2>Tone & Execution</h2>
+  </div>
+
+  <div class="notes-grid">
+    <div class="note-card">
+      <h4>Tone & Performance</h4>
+      <p>JOB plays the opening <span class="highlight">almost too sincerely</span>. The gravity should feel slightly disproportionate to the subject — like he's about to reveal a massive corporate scandal, and it turns out he's talking about procurement documents. By the end, the argument should feel <span class="highlight">genuinely honest</span>. The joke is in the framing. The substance should land.</p>
+    </div>
+    <div class="note-card">
+      <h4>Visual Grammar</h4>
+      <p>The more you treat mundane office behavior with the visual grammar of a <span class="highlight">serious documentary, the funnier it gets</span>. Ken Burns effect on a PDF. Somber piano over a mail merge. Slow dolly shots of someone adjusting table borders in Word. Every B-roll moment should be lit and composed like it belongs in a prestige crime series.</p>
+    </div>
+    <div class="note-card">
+      <h4>Pacing</h4>
+      <p>Run tight at around two minutes. <span class="highlight">Resist the urge to rush.</span> The pauses between JOB's statements are doing real work. The silence after "RFPs" is the comedic hinge of the whole piece. If that beat doesn't land, nothing after it will either.</p>
+    </div>
+    <div class="note-card">
+      <h4>The Key Comedic Beat</h4>
+      <p>After JOB says "RFPs" — <span class="highlight">two full seconds of dead silence</span>. No music, no movement. The word should hang in the air like a confession. This is the moment the audience either buys the premise or doesn't. Every frame before it is setup. Everything after depends on it.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">SBS Comms — Pre-Production v0.1</div>
+  <div class="footer-meta">The RFP Problem — 21 shots — ~2:00 runtime</div>
+</footer>
+
+<script>
+const shots = [
+  {
+    num: "01",
+    name: "Title Card: The Setup",
+    type: "title",
+    duration: "3–4 sec",
+    description: "Black screen. White serif text fades in: \"Every year, thousands of agencies spend hundreds of hours responding to RFPs.\" Somber single-note piano begins.",
+    camera: "Static frame. Text fade-in animation.",
+    prompt: "Minimalist black background, elegant white serif typography centered on screen reading \"Every year, thousands of agencies spend hundreds of hours responding to RFPs.\" — clean, cinematic title card, 16:9 aspect ratio, documentary film style, subtle film grain"
+  },
+  {
+    num: "02",
+    name: "The Infinite Scroll",
+    type: "broll",
+    duration: "4–5 sec",
+    description: "A lone office worker staring at an impossibly long RFP document on their monitor. They scroll endlessly. The document never ends. The glow of the monitor illuminates their face.",
+    camera: "Medium shot, slightly over-shoulder. Monitor glow as key light.",
+    prompt: "Cinematic medium shot of a lone office worker sitting at a desk in a dim corporate office, face illuminated by the blue glow of a computer monitor showing a very long document, scrolling endlessly, shallow depth of field, moody documentary lighting, 16:9, prestige television cinematography, muted color palette, slight film grain"
+  },
+  {
+    num: "03",
+    name: "The War Room",
+    type: "broll",
+    duration: "3–4 sec",
+    description: "Conference room in ruins — whiteboard covered in frantic notes, half-eaten pizza, scattered highlighters. The aftermath of a late-night RFP session. No people. The room tells the story.",
+    camera: "Wide shot, slow push-in.",
+    prompt: "Wide cinematic shot of an empty corporate conference room in total disarray, whiteboard filled with frantic handwritten notes and diagrams, half-eaten pizza boxes on the table, scattered highlighters and papers everywhere, fluorescent overhead lighting, aftermath of a late night work session, documentary style, 16:9, moody, muted tones, shallow depth of field"
+  },
+  {
+    num: "04",
+    name: "The Endless Printer",
+    type: "broll",
+    duration: "3–4 sec",
+    description: "An office printer endlessly spitting out pages. Paper piles up on the output tray. No one comes to collect it.",
+    camera: "Close-up on printer output tray, pages accumulating.",
+    prompt: "Close-up cinematic shot of an office printer continuously printing pages, paper overflowing from the output tray onto the floor, no one collecting the pages, stark office lighting, documentary cinematography, 16:9, slight lens distortion, muted corporate color palette, film grain"
+  },
+  {
+    num: "05",
+    name: "Title Card: One Firm's Story",
+    type: "title",
+    duration: "2–3 sec",
+    description: "Clean title card transition. \"This is one firm's story.\"",
+    camera: "Static frame. Text fade-in.",
+    prompt: "Minimalist black background, white serif text centered reading \"This is one firm's story.\" — clean cinematic title card, 16:9 aspect ratio, documentary film aesthetic, subtle film grain, prestige television style"
+  },
+  {
+    num: "06",
+    name: "JOB: The Confession",
+    type: "interview",
+    duration: "12–15 sec",
+    description: "JOB on camera. Tight framing, shallow depth of field. Looking just off-camera. \"I've been in this industry for over 20 years. And there's something we need to talk about...\"",
+    camera: "Tight MCU. JOB centered. Warm key light camera-right. Bokeh background.",
+    prompt: "Cinematic tight medium close-up portrait of a man in his early-to-mid 30s with dark brown hair and a full dark beard, wearing a professional button-down shirt, sitting in a modern office interview setup, looking slightly off-camera to the left, warm directional key light from the right, shallow depth of field with soft bokeh background, documentary interview lighting, 16:9, prestige television cinematography, serious and contemplative expression, muted warm color grade"
+  },
+  {
+    num: "07",
+    name: "JOB: \"RFPs.\"",
+    type: "interview",
+    duration: "4–5 sec",
+    description: "JOB delivers \"RFPs\" with gravity. Then: dead silence. Two full seconds of nothing. This is the comedic hinge of the entire piece.",
+    camera: "Tighter than Shot 06. Hold through the silence.",
+    prompt: "Extreme close-up cinematic portrait of a bearded man with dark hair in a documentary interview setting, very tight framing showing face from chin to forehead, serious measured expression as if delivering an important revelation, warm side lighting, very shallow depth of field, 16:9, prestige television style, film grain, dramatic pause energy"
+  },
+  {
+    num: "08",
+    name: "The Historical Artifact",
+    type: "broll",
+    duration: "4–5 sec",
+    description: "Ken Burns-style slow zoom on a printed RFP cover page. Treated like a museum artifact or historical document. Dramatic spotlight.",
+    camera: "Overhead, slow push-in (Ken Burns effect).",
+    prompt: "Overhead cinematic shot of a printed RFP proposal cover page on a dark mahogany desk, dramatic directional spotlight illuminating the document like a museum artifact, the title reads \"REQUEST FOR PROPOSAL\" in formal serif font, slow-zoom Ken Burns style composition, documentary cinematography, 16:9, warm amber lighting, film grain, shallow depth of field, treated with reverence like a historical document"
+  },
+  {
+    num: "09",
+    name: "Lost in Formatting",
+    type: "broll",
+    duration: "3–4 sec",
+    description: "Someone aggressively reformatting a Word doc. Adjusting margins. Fiddling with fonts. They have completely lost the plot.",
+    camera: "Over-shoulder CU on screen, hands on keyboard visible.",
+    prompt: "Over-the-shoulder cinematic close-up of someone at a computer screen aggressively reformatting a Word document, visible margin guides and font menus on screen, hands on keyboard, frustrated energy, office environment, documentary lighting, 16:9, muted color palette, prestige television b-roll, the person has completely lost perspective on what matters"
+  },
+  {
+    num: "10",
+    name: "Best RFP Response 2024",
+    type: "broll",
+    duration: "3 sec",
+    description: "Close-up of a cheap trophy reading \"Best RFP Response 2024.\" Displayed like an Oscar. No one acknowledges it. Absurdist, played straight.",
+    camera: "Close-up, shallow DOF. Trophy alone on a shelf.",
+    prompt: "Close-up cinematic shot of a small cheap corporate trophy on a dusty office shelf that reads \"Best RFP Response 2024\" with a gold star on top, treated with the lighting and composition of a prestige documentary — warm directional spotlight, very shallow depth of field, bokeh background showing blurred office environment, 16:9, absurd yet played completely straight, film grain"
+  },
+  {
+    num: "11",
+    name: "The Stack",
+    type: "broll",
+    duration: "3–4 sec",
+    description: "A stack of identical-looking proposals, all slightly different colors. Visual metaphor: we are all the same on paper.",
+    camera: "Low angle looking up at the stack. Dramatic.",
+    prompt: "Low-angle cinematic shot looking up at a tall stack of printed proposal documents on a conference table, each bound with slightly different colored covers — blue, red, green, grey — but all essentially identical in appearance, dramatic directional lighting, documentary cinematography, 16:9, muted corporate color palette, the visual metaphor that everyone looks the same on paper, film grain, shallow depth of field"
+  },
+  {
+    num: "12",
+    name: "The Rubber Stamp",
+    type: "broll",
+    duration: "2 sec",
+    description: "A rubber stamp comes down HARD on a document. Definitive. Final.",
+    camera: "ECU on stamp hitting paper. Impactful.",
+    prompt: "Extreme close-up cinematic shot of a red rubber stamp coming down forcefully onto a white official document, moment of impact, dramatic lighting from the side, shallow depth of field, documentary style, 16:9, decisive and final energy, muted color palette with the red stamp as the only saturated color, film grain"
+  },
+  {
+    num: "13",
+    name: "The Serious Nod",
+    type: "broll",
+    duration: "2–3 sec",
+    description: "Someone in a suit nodding very seriously at absolutely nothing. Played completely straight.",
+    camera: "Medium shot, professional office background.",
+    prompt: "Medium cinematic shot of a person in a dark business suit nodding very seriously while looking at nothing in particular, corporate office background, the expression is completely earnest and committed, documentary lighting, 16:9, played utterly straight, prestige television b-roll, muted color grade, film grain"
+  },
+  {
+    num: "14",
+    name: "The Overflowing Bin",
+    type: "broll",
+    duration: "4–5 sec",
+    description: "Slow zoom on a recycling bin overflowing with printed proposals. Emotional peak. Somber piano at its fullest. The visual thesis of waste.",
+    camera: "Slow push-in. Somber. Overhead fluorescent casting harsh shadows.",
+    prompt: "Slow-zoom cinematic shot of a blue office recycling bin overflowing with crumpled and discarded printed proposal documents spilling onto the floor, somber documentary lighting, overhead fluorescent light casting harsh shadows, 16:9, muted desaturated color palette, the visual weight of bureaucratic waste, prestige documentary style, film grain, emotional and heavy"
+  },
+  {
+    num: "15",
+    name: "JOB: The Stare",
+    type: "interview",
+    duration: "6–8 sec",
+    description: "JOB stares into the middle distance. Very prestige TV. The camera does not flinch. Held at least 4 seconds. \"Who is this actually serving?\" He almost smiles, but doesn't.",
+    camera: "MCU. Held unflinchingly. Side light. Bokeh.",
+    prompt: "Cinematic medium close-up of a bearded man with dark hair staring thoughtfully into the middle distance, interview setting, warm contemplative lighting from the side, the expression carries the weight of years of accumulated professional frustration, very shallow depth of field, soft bokeh background, 16:9, prestige television drama style, the camera holds unflinchingly, muted warm color grade, film grain"
+  },
+  {
+    num: "16",
+    name: "JOB: The Declaration",
+    type: "interview",
+    duration: "5–6 sec",
+    description: "Direct to camera for the first time. Energy shifts. Lighting may change. \"So SBS is done with RFPs.\" This is the thesis statement.",
+    camera: "Same framing, now with direct eye contact. Warmer, more confident light.",
+    prompt: "Cinematic medium close-up portrait of a bearded man with dark hair looking directly into the camera lens for the first time, slight shift in lighting — warmer, more confident, the energy has changed from reflective to resolute, documentary interview setting, direct eye contact with the viewer, 16:9, prestige television, this is a declaration moment, film grain, shallow depth of field"
+  },
+  {
+    num: "17",
+    name: "Laptop Close",
+    type: "broll",
+    duration: "2 sec",
+    description: "Someone closing a laptop firmly. Satisfied. Done.",
+    camera: "CU on hands closing laptop. Clean, satisfying motion.",
+    prompt: "Close-up cinematic shot of two hands firmly closing a silver laptop computer on a clean desk, deliberate and satisfied motion, the gesture says \"I'm done with this,\" warm directional lighting, documentary style, 16:9, clean and minimal composition, muted color palette, film grain"
+  },
+  {
+    num: "18",
+    name: "RFP to Trash",
+    type: "broll",
+    duration: "2–3 sec",
+    description: "Screen shows \"RFP Invitation\" email dragged to trash. The trash empties. Cathartic.",
+    camera: "CU on screen. Clean UI visible.",
+    prompt: "Close-up cinematic shot of a computer screen showing an email inbox, an email titled \"RFP Invitation\" is being dragged to the trash icon, clean modern email interface, the trash icon empties, cathartic moment, screen glow illuminating the immediate area, documentary b-roll style, 16:9, muted blue-white screen tones, film grain"
+  },
+  {
+    num: "19",
+    name: "The Real Conversation",
+    type: "broll",
+    duration: "4–5 sec",
+    description: "Two people having an actual conversation over coffee. Warm, human, lived-in. A pointed contrast to everything cold and corporate before.",
+    camera: "Medium two-shot. Natural light. Warm.",
+    prompt: "Warm cinematic medium two-shot of two professionals having a genuine conversation over coffee at a small cafe table, natural sunlight streaming through a window, both leaning in and engaged, warm golden hour lighting, the mood is human and authentic — a deliberate contrast to cold corporate environments, 16:9, shallow depth of field, documentary style, warm color grade with golden tones, film grain"
+  },
+  {
+    num: "20",
+    name: "JOB Picks Up the Phone",
+    type: "interview",
+    duration: "3–4 sec",
+    description: "JOB picks up a phone. Intentionally corny. Absolutely perfect. He half-smiles. Don't oversell it.",
+    camera: "Medium shot. Warm. Slightly playful.",
+    prompt: "Cinematic medium shot of a bearded man with dark hair in a professional setting picking up a telephone handset with a slight knowing half-smile, the gesture is intentionally a little corny but charming, warm inviting lighting, shallow depth of field, documentary style, 16:9, the energy is warm and human after a serious piece, subtle humor in the performance, film grain"
+  },
+  {
+    num: "21",
+    name: "End Card",
+    type: "title",
+    duration: "4–5 sec",
+    description: "Clean end card. SBS Comms | Let's Talk. | hello@sbscomms.com",
+    camera: "Static. Warm dark background.",
+    prompt: "Clean minimalist end card on a warm dark background, elegant white typography reading \"SBS Comms\" in a refined sans-serif font, below it \"Let's Talk.\" in lighter weight, and \"hello@sbscomms.com\" underneath, 16:9 aspect ratio, cinematic title card design, warm and inviting energy, subtle texture in the background, film grain"
+  }
+];
+
+function getTypeTag(type) {
+  const map = {
+    interview: '<span class="shot-tag tag-interview">Interview</span>',
+    broll: '<span class="shot-tag tag-broll">B-Roll</span>',
+    title: '<span class="shot-tag tag-title">Title Card</span>'
+  };
+  return map[type] || '';
+}
+
+function renderShots() {
+  const grid = document.getElementById('shotGrid');
+  grid.innerHTML = shots.map((shot, i) => `
+    <div class="shot-card">
+      <div class="shot-card-inner">
+        <div class="shot-visual">
+          <span class="frame-label">Frame ${shot.num}</span>
+          <span class="shot-number">${shot.num}</span>
+          <span class="aspect-badge">16:9</span>
+        </div>
+        <div class="shot-details">
+          <div class="shot-header">
+            <h4>${shot.name}</h4>
+            <div style="display:flex;gap:0.8rem;align-items:center;">
+              <span class="shot-duration">${shot.duration}</span>
+              ${getTypeTag(shot.type)}
+            </div>
+          </div>
+          <p class="description">${shot.description}</p>
+          <p class="camera-note">CAM: ${shot.camera}</p>
+          <button class="shot-prompt-toggle" onclick="togglePrompt(${i})">Show Prompt</button>
+          <div class="shot-prompt" id="prompt-${i}">${shot.prompt}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function togglePrompt(index) {
+  const el = document.getElementById(`prompt-${index}`);
+  const btn = el.previousElementSibling;
+  el.classList.toggle('visible');
+  btn.textContent = el.classList.contains('visible') ? 'Hide Prompt' : 'Show Prompt';
+}
+
+function copyPrompt() {
+  const text = document.getElementById('sunoPromptText').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy Prompt', 2000);
+  });
+}
+
+renderShots();
+</script>
+
+</body>
+</html>
