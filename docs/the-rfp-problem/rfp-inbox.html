@@ -165,12 +165,11 @@
     box-shadow: 0 0 0 2px #1a73e8 inset;
     z-index: 10;
   }
-  .email-row.rfp-dragging {
-    position: relative;
-    z-index: 50;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.2s ease, box-shadow 0.3s;
+  .email-row.rfp-ghost {
+    opacity: 0.3;
+    background: #f1f3f4;
   }
+  .email-row.rfp-ghost * { color: #bbb !important; fill: #ccc !important; stroke: #ccc !important; }
   .email-row.rfp-gone {
     opacity: 0;
     max-height: 0;
@@ -178,6 +177,27 @@
     padding-bottom: 0;
     border-bottom-width: 0;
     margin: 0;
+  }
+
+  .drag-clone {
+    position: absolute;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    padding: 4px 16px;
+    font-size: 13px;
+    background: #c2e7ff;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25), 0 0 0 2px #1a73e8 inset;
+    border-radius: 8px;
+    pointer-events: none;
+    transition: top 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+                left 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+                width 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .email-check-star {
@@ -382,6 +402,8 @@ function renderEmails() {
 
 function replayAnimation() {
   document.getElementById('replayBtn').classList.remove('visible');
+  const existing = document.querySelector('.drag-clone');
+  if (existing) existing.remove();
   renderEmails();
   setTimeout(runAnimation, 1500);
 }
@@ -392,41 +414,77 @@ function runAnimation() {
   const trashBadge = document.getElementById('trashBadge');
   const toast = document.getElementById('toast');
   const replayBtn = document.getElementById('replayBtn');
+  const gmailWindow = document.querySelector('.gmail-window');
 
-  if (!rfpRow || !trashItem) return;
+  if (!rfpRow || !trashItem || !gmailWindow) return;
 
+  // Phase 1: highlight the row
   rfpRow.classList.add('rfp-highlight');
 
   setTimeout(() => {
+    // Measure positions relative to .gmail-window
+    const winRect = gmailWindow.getBoundingClientRect();
     const rfpRect = rfpRow.getBoundingClientRect();
     const trashRect = trashItem.getBoundingClientRect();
 
-    const dx = trashRect.left + trashRect.width / 2 - (rfpRect.left + rfpRect.width / 2);
-    const dy = trashRect.top + trashRect.height / 2 - (rfpRect.top + rfpRect.height / 2);
+    const startTop = rfpRect.top - winRect.top;
+    const startLeft = rfpRect.left - winRect.left;
+    const startWidth = rfpRect.width;
+
+    const trashCenterX = trashRect.left - winRect.left + trashRect.width / 2;
+    const trashCenterY = trashRect.top - winRect.top + trashRect.height / 2;
+
+    // Phase 2: create the floating clone and grey out the original
+    const clone = rfpRow.cloneNode(true);
+    clone.className = 'drag-clone';
+    clone.style.top = startTop + 'px';
+    clone.style.left = startLeft + 'px';
+    clone.style.width = startWidth + 'px';
+    clone.style.opacity = '1';
+    clone.style.transform = 'scale(1)';
+    gmailWindow.appendChild(clone);
 
     rfpRow.classList.remove('rfp-highlight');
-    rfpRow.classList.add('rfp-dragging');
-    rfpRow.style.transform = `translate(${dx}px, ${dy}px) scale(0.4)`;
-    rfpRow.style.opacity = '0.3';
+    rfpRow.classList.add('rfp-ghost');
 
+    // Phase 3: animate the clone toward trash (after a frame so transition kicks in)
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const endWidth = 180;
+        clone.style.top = (trashCenterY - 20) + 'px';
+        clone.style.left = (trashCenterX - endWidth / 2) + 'px';
+        clone.style.width = endWidth + 'px';
+        clone.style.opacity = '0.5';
+        clone.style.transform = 'scale(0.6)';
+      });
+    });
+
+    // Phase 4: trash highlight as clone approaches
     setTimeout(() => {
       trashItem.classList.add('highlight');
     }, 800);
 
+    // Phase 5: clone arrives — remove clone, collapse ghost, show toast
     setTimeout(() => {
-      rfpRow.classList.remove('rfp-dragging');
-      rfpRow.classList.add('rfp-gone');
+      clone.style.opacity = '0';
+      clone.style.transform = 'scale(0.2)';
 
       setTimeout(() => {
-        trashItem.classList.remove('highlight');
-        trashBadge.classList.add('visible');
-        toast.classList.add('visible');
+        clone.remove();
+        rfpRow.classList.remove('rfp-ghost');
+        rfpRow.classList.add('rfp-gone');
 
         setTimeout(() => {
-          toast.classList.remove('visible');
-          replayBtn.classList.add('visible');
-        }, 3000);
-      }, 400);
+          trashItem.classList.remove('highlight');
+          trashBadge.classList.add('visible');
+          toast.classList.add('visible');
+
+          setTimeout(() => {
+            toast.classList.remove('visible');
+            replayBtn.classList.add('visible');
+          }, 3000);
+        }, 400);
+      }, 300);
     }, 1300);
   }, 800);
 }
