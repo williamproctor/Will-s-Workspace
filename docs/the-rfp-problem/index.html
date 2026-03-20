@@ -466,6 +466,19 @@
     z-index: 2;
   }
 
+  .shot-visual-embed {
+    background: #1a1a2e;
+  }
+
+  .shot-visual-embed iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border: none;
+    position: absolute;
+    inset: 0;
+  }
+
   .shot-visual .aspect-badge {
     position: absolute;
     bottom: 1rem;
@@ -876,6 +889,7 @@
 
     .shot-card-inner { grid-template-columns: 1fr; }
     .shot-visual { min-height: 200px; }
+    .shot-visual-embed iframe { min-height: 340px; }
     .shot-details { padding: 1.2rem 1.25rem; }
     .shot-details .shot-header { flex-direction: column; gap: 0.5rem; }
     .shot-prompt { word-break: break-word; }
@@ -1332,6 +1346,16 @@ const shots = [
     prompt: "Close-up cinematic shot of a computer screen showing an email inbox, an email titled \"RFP Invitation\" is being dragged to the trash icon, clean modern email interface, the trash icon empties, cathartic moment, screen glow illuminating the immediate area, documentary b-roll style, 16:9, muted blue-white screen tones, film grain"
   },
   {
+    num: "18b",
+    name: "RFP to Trash — Interactive Animatic",
+    type: "broll",
+    duration: "~6 sec loop",
+    description: "Interactive HTML recreation of the inbox screen from Shot 18. The RFP Invitation email highlights, lifts off the list (leaving a greyed-out ghost behind), floats over the UI into the Trash, and the remaining emails slide up to close the gap. Toast notification confirms deletion. Click Replay to re-run.",
+    camera: "Screen capture / interactive embed. Full inbox UI visible.",
+    prompt: "Interactive HTML/CSS/JS animation — no AI generation needed. Built as a functional Gmail-style inbox clone with animated drag-to-trash sequence.",
+    embed: "rfp-inbox.html"
+  },
+  {
     num: "19",
     name: "The Real Conversation",
     type: "broll",
@@ -1371,15 +1395,22 @@ function getTypeTag(type) {
 
 function renderShots() {
   const grid = document.getElementById('shotGrid');
-  grid.innerHTML = shots.map((shot, i) => `
-    <div class="shot-card">
+  grid.innerHTML = shots.map((shot, i) => {
+    const visualHTML = shot.embed
+      ? `<div class="shot-visual shot-visual-embed">
+           <iframe src="${shot.embed}" title="Shot ${shot.num} — ${shot.name}" loading="lazy" allow="autoplay"></iframe>
+           <span class="frame-label">Frame ${shot.num} · Interactive</span>
+         </div>`
+      : `<div class="shot-visual">
+           <img src="storyboard/shot-${shot.num}.png" alt="Storyboard frame ${shot.num}: ${shot.name}" loading="lazy">
+           <div class="frame-overlay"></div>
+           <span class="frame-label">Frame ${shot.num}</span>
+           <span class="aspect-badge">16:9</span>
+         </div>`;
+
+    return `<div class="shot-card">
       <div class="shot-card-inner">
-        <div class="shot-visual">
-          <img src="storyboard/shot-${shot.num}.png" alt="Storyboard frame ${shot.num}: ${shot.name}" loading="lazy">
-          <div class="frame-overlay"></div>
-          <span class="frame-label">Frame ${shot.num}</span>
-          <span class="aspect-badge">16:9</span>
-        </div>
+        ${visualHTML}
         <div class="shot-details">
           <div class="shot-header">
             <h4>${shot.name}</h4>
@@ -1394,8 +1425,8 @@ function renderShots() {
           <div class="shot-prompt" id="prompt-${i}">${shot.prompt}</div>
         </div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
 function togglePrompt(index) {
