@@ -177,6 +177,10 @@
     padding-bottom: 0;
     border-bottom-width: 0;
     margin: 0;
+    min-height: 0;
+  }
+  .email-row.slide-up {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .drag-clone {
@@ -464,17 +468,44 @@ function runAnimation() {
       trashItem.classList.add('highlight');
     }, 800);
 
-    // Phase 5: clone arrives — remove clone, collapse ghost, show toast
+    // Phase 5: clone arrives — remove clone, slide rows up to fill the gap, show toast
     setTimeout(() => {
       clone.style.opacity = '0';
       clone.style.transform = 'scale(0.2)';
 
       setTimeout(() => {
         clone.remove();
-        rfpRow.classList.remove('rfp-ghost');
-        rfpRow.classList.add('rfp-gone');
+
+        const rowHeight = rfpRow.offsetHeight + 1;
+        const allRows = Array.from(document.querySelectorAll('.email-row'));
+        const rfpIndex = allRows.indexOf(rfpRow);
+        const belowRows = allRows.slice(rfpIndex + 1);
+
+        rfpRow.style.position = 'absolute';
+        rfpRow.style.opacity = '0';
+        rfpRow.style.pointerEvents = 'none';
+        rfpRow.style.width = rfpRow.offsetWidth + 'px';
+
+        belowRows.forEach(row => {
+          row.style.transform = `translateY(-${rowHeight}px)`;
+        });
+
+        requestAnimationFrame(() => {
+          belowRows.forEach(row => row.classList.add('slide-up'));
+          requestAnimationFrame(() => {
+            belowRows.forEach(row => {
+              row.style.transform = 'translateY(0)';
+            });
+          });
+        });
 
         setTimeout(() => {
+          rfpRow.remove();
+          belowRows.forEach(row => {
+            row.classList.remove('slide-up');
+            row.style.transform = '';
+          });
+
           trashItem.classList.remove('highlight');
           trashBadge.classList.add('visible');
           toast.classList.add('visible');
@@ -483,7 +514,7 @@ function runAnimation() {
             toast.classList.remove('visible');
             replayBtn.classList.add('visible');
           }, 3000);
-        }, 400);
+        }, 550);
       }, 300);
     }, 1300);
   }, 800);
