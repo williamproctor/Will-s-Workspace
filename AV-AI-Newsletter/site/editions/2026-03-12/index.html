@@ -75,6 +75,7 @@
 
     const VIDEO_SRC = "/video/2026-03-12.mp4";
     const VIDEO_TITLE = "The End-to-End AI Agency";
+    const VIDEO_THUMB = "/video/thumbs/2026-03-12.png";
     const HAS_VIDEO = true;
 
     const videoMount = document.getElementById('videoMount');
@@ -91,7 +92,7 @@
             </div>
           </div>
           <div class="video-card-body">
-            <video controls preload="metadata" playsinline>
+            <video controls preload="metadata" playsinline poster="${VIDEO_THUMB}">
               <source src="${VIDEO_SRC}" type="video/mp4">
             </video>
           </div>
