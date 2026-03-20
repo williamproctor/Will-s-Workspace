@@ -41,21 +41,20 @@ Most AV teams will interact with these models as chatbots first (research, brain
 
 ### The frontier model lineup — March 2026
 
-| Provider | Chatbot | Flagship Model | Best Reasoning Model | Context Window | Access |
-|----------|---------|----------------|---------------------|----------------|--------|
-| OpenAI³⁵ | ChatGPT | GPT-5.4 | o3 / o4-mini | Up to 1M tokens | Free tier; Plus $20/mo; Pro $200/mo |
-| Anthropic³⁶ | Claude | Claude Opus 4.6 | Claude Opus 4.6 (extended thinking) | 1M tokens (beta) | Free tier; Pro $20/mo; Max $100–$200/mo |
-| Google³⁷ | Gemini | Gemini 3.1 Pro | Gemini 2.5 Pro (thinking mode) | 1M tokens | Free tier; AI Plus $19.99/mo; Pro/Ultra tiers |
-| xAI³⁸ | Grok | Grok 4.20 | Grok 3 (Think Mode) | 256K tokens | SuperGrok subscription |
-| Meta³⁹ | — (no chatbot) | Llama 4 Maverick | Llama 4 Behemoth (unreleased) | 10M tokens (Scout) | Open-weight; free to download and self-host |
-| DeepSeek⁴⁰ | DeepSeek Chat | DeepSeek V3.2 | DeepSeek R1 | 128K tokens | Free tier; API pricing (~$0.28/M tokens) |
-| Mistral⁴¹ | Le Chat | Mistral Large 3 | Mistral Small 4 (reasoning mode) | 256K tokens | Free tier; API and on-prem available |
+| Provider | Chatbot | Flagship Model | Context Window | Pricing |
+|----------|---------|----------------|----------------|---------|
+| OpenAI³⁵ | ChatGPT | GPT-5.4 | Up to 1M tokens | Free tier; Plus $20/mo; Pro $200/mo |
+| Anthropic³⁶ | Claude | Claude Opus 4.6 | 1M tokens (beta) | Free tier; Pro $20/mo; Max $100/mo or $200/mo |
+| Google³⁷ | Gemini | Gemini 3.1 Pro | 1M tokens | Free tier; AI Plus $5/mo; Pro $20/mo; Ultra $250/mo |
+| xAI³⁸ | Grok | Grok 4.20 | 256K tokens | Free tier; SuperGrok $30/mo; Heavy $300/mo |
+| Meta³⁹ | — (no chatbot) | Llama 4 Maverick | 10M tokens (Scout) | Open-weight; free to download and self-host |
+| DeepSeek⁴⁰ | DeepSeek Chat | DeepSeek V3.2 | 128K tokens | Free tier; API ~$0.28/M tokens |
+| Mistral⁴¹ | Le Chat | Mistral Large 3 | 256K tokens | Free tier; Pro $15/mo; Team $25/user/mo |
 
 ### What each column means
 
 - **Chatbot** is the consumer-facing product — the thing you open in a browser or app to have a conversation.
 - **Flagship Model** is the provider's most capable general-purpose model as of this writing.
-- **Best Reasoning Model** is the model optimized for step-by-step logic, math, and complex problem-solving. Some providers separate this into a distinct model (OpenAI's o-series); others build reasoning into their flagship with a toggle (Claude's extended thinking, Gemini's thinking mode).
 - **Context Window** is how much text the model can process in a single conversation. 1 million tokens is roughly 750,000 words — enough to analyze an entire book or a full production bible.
 
 ### Open-weight vs. closed
