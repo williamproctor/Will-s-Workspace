@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RFP Inbox — Animation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Roboto', 'Google Sans', Arial, sans-serif;
+    background: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  #root { width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="importmap">
+{ "imports": { "react": "https://esm.sh/react@18.3.1", "react-dom": "https://esm.sh/react-dom@18.3.1/client", "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime" } }
+</script>
+<script type="module">
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { createRoot } from 'react-dom';
+import { jsx as h, Fragment } from 'react/jsx-runtime';
+
+const EMAILS = [
+  { id: 1, starred: false, from: "Nolan Greene", org: "Acme Corp", subject: "Lessons on how to time strategy for...", unread: true },
+  { id: 2, starred: false, from: "Nolan Greene", org: "Acme Corp", subject: "Travelors a top focusing RFP best...", unread: false },
+  { id: 3, starred: false, from: "Nolan Greene", org: "Acme Corp", subject: "Sortspoof of the Formatters article...", unread: false },
+  { id: 4, starred: true,  from: "RFP Invitation", org: "", subject: "", unread: true, isRFP: true },
+  { id: 5, starred: false, from: "Countlate", org: "", subject: "Wanting up to overall fathomous and the summer of unfurl tire...", unread: false },
+  { id: 6, starred: true,  from: "RFP Invitation", org: "", subject: "Tond Wreaptina Commatry for a Transmenting for IteraBot...", unread: false },
+  { id: 7, starred: true,  from: "RFP Invitation", org: "", subject: "", unread: false },
+  { id: 8, starred: false, from: "Nolan Greene", org: "Acme Corp", subject: "Take for streamclata to partner groups verne for post lite is...", unread: false },
+  { id: 9, starred: true,  from: "RFP Invitation", org: "", subject: "", unread: false },
+  { id: 10, starred: false, from: "Nolan Greene", org: "Acme Corp", subject: "Unscent hollan like brignat roses...", unread: false },
+  { id: 11, starred: false, from: "Forton Cavil Fortum", org: "", subject: "Put a comverts to your meeting site...", unread: false },
+];
+
+const SIDEBAR_ITEMS = [
+  { icon: "inbox", label: "Inbox", count: 18, active: true },
+  { icon: "send", label: "Sent", count: null },
+  { icon: "drafts", label: "Drafts", count: 22 },
+  { icon: "send", label: "Sent", count: null },
+  { icon: "drafts", label: "Drafts", count: null },
+];
+
+function StarIcon({ filled }) {
+  return h('svg', { width: 18, height: 18, viewBox: "0 0 24 24", fill: filled ? "#f4b400" : "none", stroke: filled ? "#f4b400" : "#9aa0a6", strokeWidth: 2 },
+    h('polygon', { points: "12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26" })
+  );
+}
+
+function CheckboxIcon() {
+  return h('svg', { width: 18, height: 18, viewBox: "0 0 24 24", fill: "none", stroke: "#9aa0a6", strokeWidth: 2 },
+    h('rect', { x: 3, y: 3, width: 18, height: 18, rx: 2 })
+  );
+}
+
+function TrashIcon({ shaking }) {
+  return h('svg', {
+    width: 18, height: 18, viewBox: "0 0 24 24", fill: "none", stroke: "#9aa0a6", strokeWidth: 2,
+    style: { transition: "transform 0.15s", transform: shaking ? "rotate(-8deg)" : "none" }
+  },
+    h('polyline', { points: "3 6 5 6 21 6" }),
+    h('path', { d: "M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" })
+  );
+}
+
+function InboxIcon() {
+  return h('svg', { width: 18, height: 18, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2 },
+    h('polyline', { points: "22 12 16 12 14 15 10 15 8 12 2 12" }),
+    h('path', { d: "M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z" })
+  );
+}
+
+function App() {
+  const [phase, setPhase] = useState("idle");
+  const [rfpPos, setRfpPos] = useState({ x: 0, y: 0 });
+  const [trashShake, setTrashShake] = useState(false);
+  const [emails, setEmails] = useState(EMAILS);
+  const [showToast, setShowToast] = useState(false);
+  const [trashCount, setTrashCount] = useState(0);
+  const rfpRef = useRef(null);
+  const trashRef = useRef(null);
+  const containerRef = useRef(null);
+
+  const runAnimation = useCallback(() => {
+    if (phase !== "idle") return;
+
+    const rfpEl = rfpRef.current;
+    const trashEl = trashRef.current;
+    const container = containerRef.current;
+    if (!rfpEl || !trashEl || !container) return;
+
+    const rfpRect = rfpEl.getBoundingClientRect();
+    const trashRect = trashEl.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+
+    const startX = 0;
+    const startY = 0;
+    const endX = trashRect.left - rfpRect.left + (trashRect.width / 2) - (rfpRect.width / 2);
+    const endY = trashRect.top - rfpRect.top + (trashRect.height / 2) - (rfpRect.height / 2);
+
+    setPhase("highlight");
+
+    setTimeout(() => {
+      setPhase("dragging");
+      const dur = 1200;
+      const startTime = Date.now();
+
+      function animate() {
+        const elapsed = Date.now() - startTime;
+        const t = Math.min(elapsed / dur, 1);
+        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+        setRfpPos({ x: startX + (endX - startX) * ease, y: startY + (endY - startY) * ease });
+
+        const scale = 1 - 0.5 * ease;
+
+        if (rfpEl) {
+          rfpEl.style.transform = `translate(${startX + (endX - startX) * ease}px, ${startY + (endY - startY) * ease}px) scale(${scale})`;
+          rfpEl.style.opacity = 1 - 0.6 * ease;
+        }
+
+        if (t > 0.7) setTrashShake(true);
+
+        if (t < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          setPhase("dropped");
+          setTrashShake(false);
+
+          setTimeout(() => {
+            setEmails(prev => prev.filter(e => !e.isRFP));
+            setTrashCount(1);
+            setShowToast(true);
+            setPhase("done");
+
+            setTimeout(() => setShowToast(false), 3000);
+
+            setTimeout(() => {
+              setPhase("idle");
+              setEmails(EMAILS);
+              setTrashCount(0);
+              setRfpPos({ x: 0, y: 0 });
+              if (rfpEl) {
+                rfpEl.style.transform = "";
+                rfpEl.style.opacity = 1;
+              }
+            }, 5000);
+          }, 400);
+        }
+      }
+      requestAnimationFrame(animate);
+    }, 800);
+  }, [phase]);
+
+  useEffect(() => {
+    const timer = setTimeout(runAnimation, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (phase === "idle" && trashCount === 0) {
+      const timer = setTimeout(runAnimation, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [phase, trashCount, runAnimation]);
+
+  const styles = {
+    wrapper: {
+      width: "min(960px, 95vw)",
+      height: "min(580px, 85vh)",
+      background: "#fff",
+      borderRadius: 12,
+      overflow: "hidden",
+      display: "flex",
+      flexDirection: "column",
+      boxShadow: "0 25px 80px rgba(0,0,0,0.5)",
+      position: "relative",
+      fontFamily: "'Roboto', 'Google Sans', Arial, sans-serif",
+    },
+    toolbar: {
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      padding: "8px 16px",
+      borderBottom: "1px solid #e0e0e0",
+      background: "#f6f8fc",
+      minHeight: 48,
+    },
+    toolbarBtn: {
+      background: "none",
+      border: "none",
+      color: "#5f6368",
+      cursor: "pointer",
+      padding: "6px 8px",
+      borderRadius: 4,
+      fontSize: 13,
+      display: "flex",
+      alignItems: "center",
+      gap: 4,
+    },
+    body: {
+      display: "flex",
+      flex: 1,
+      overflow: "hidden",
+    },
+    sidebar: {
+      width: 200,
+      background: "#f6f8fc",
+      padding: "8px 0",
+      borderRight: "1px solid #e0e0e0",
+      display: "flex",
+      flexDirection: "column",
+      gap: 2,
+      flexShrink: 0,
+    },
+    composeBtn: {
+      margin: "4px 12px 12px",
+      padding: "10px 24px",
+      background: "#c2e7ff",
+      border: "none",
+      borderRadius: 16,
+      fontSize: 14,
+      fontWeight: 500,
+      color: "#001d35",
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+    },
+    sidebarItem: (active) => ({
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      padding: "6px 24px",
+      fontSize: 13,
+      color: active ? "#001d35" : "#444746",
+      fontWeight: active ? 500 : 400,
+      background: active ? "#d3e3fd" : "transparent",
+      borderRadius: "0 16px 16px 0",
+      cursor: "pointer",
+      marginRight: 12,
+    }),
+    folderLabel: {
+      padding: "12px 24px 6px",
+      fontSize: 12,
+      color: "#444746",
+      fontWeight: 500,
+      display: "flex",
+      alignItems: "center",
+      gap: 6,
+    },
+    trashItem: (shaking) => ({
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      padding: "6px 24px",
+      fontSize: 13,
+      color: "#444746",
+      cursor: "pointer",
+      marginRight: 12,
+      borderRadius: "0 16px 16px 0",
+      transition: "background 0.2s",
+      background: shaking ? "#fce8e6" : "transparent",
+    }),
+    emailList: {
+      flex: 1,
+      overflow: "auto",
+      position: "relative",
+    },
+    emailListHeader: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      padding: "6px 16px",
+      borderBottom: "1px solid #e0e0e0",
+      fontSize: 12,
+      color: "#5f6368",
+    },
+    emailRow: (isRFP, highlight, isDragging) => ({
+      display: "flex",
+      alignItems: "center",
+      padding: "4px 16px",
+      borderBottom: "1px solid #f1f3f4",
+      fontSize: 13,
+      cursor: "pointer",
+      transition: isDragging ? "none" : "all 0.3s ease",
+      background: highlight ? "#c2e7ff" : isRFP ? "#fff" : "#fff",
+      position: "relative",
+      zIndex: isDragging ? 100 : 1,
+      opacity: 1,
+      minHeight: 40,
+    }),
+    emailCheckStar: {
+      display: "flex",
+      alignItems: "center",
+      gap: 6,
+      flexShrink: 0,
+      width: 52,
+    },
+    emailFrom: (bold) => ({
+      width: 180,
+      flexShrink: 0,
+      fontWeight: bold ? 600 : 400,
+      color: "#202124",
+      fontSize: 13,
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap",
+    }),
+    emailSubject: {
+      flex: 1,
+      color: "#5f6368",
+      fontSize: 13,
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap",
+      marginLeft: 8,
+    },
+    toast: {
+      position: "absolute",
+      bottom: 16,
+      left: "50%",
+      transform: "translateX(-50%)",
+      background: "#323232",
+      color: "#fff",
+      padding: "10px 24px",
+      borderRadius: 8,
+      fontSize: 13,
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+      zIndex: 200,
+      boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+    },
+    toastUndo: {
+      color: "#8ab4f8",
+      background: "none",
+      border: "none",
+      cursor: "pointer",
+      fontWeight: 500,
+      fontSize: 13,
+    },
+    dragGhost: {
+      position: "absolute",
+      background: "#c2e7ff",
+      border: "2px solid #1a73e8",
+      borderRadius: 8,
+      padding: "8px 16px",
+      fontSize: 13,
+      fontWeight: 600,
+      color: "#001d35",
+      zIndex: 150,
+      pointerEvents: "none",
+      boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      whiteSpace: "nowrap",
+    },
+    countBadge: {
+      background: "#1a73e8",
+      color: "#fff",
+      borderRadius: 10,
+      padding: "1px 7px",
+      fontSize: 11,
+      fontWeight: 500,
+      marginLeft: 4,
+    },
+  };
+
+  const rfpEmail = emails.find(e => e.isRFP);
+  const isHighlight = phase === "highlight";
+  const isDragging = phase === "dragging" || phase === "dropped";
+
+  return h('div', { style: styles.wrapper, ref: containerRef },
+
+    h('div', { style: styles.toolbar },
+      h('button', { style: styles.composeBtn }, "+  Compose"),
+      h('span', { style: { flex: 1 } }),
+      h('span', { style: { ...styles.toolbarBtn, gap: 8 } },
+        h(CheckboxIcon),
+        h('svg', { width: 16, height: 16, viewBox: "0 0 24 24", fill: "none", stroke: "#5f6368", strokeWidth: 2 },
+          h('polyline', { points: "1 4 1 10 7 10" }),
+          h('path', { d: "M3.51 15a9 9 0 1014.85-3.36L23 4" })
+        ),
+        h('svg', { width: 16, height: 16, viewBox: "0 0 24 24", fill: "none", stroke: "#5f6368", strokeWidth: 2 },
+          h('circle', { cx: 12, cy: 12, r: 1 }),
+          h('circle', { cx: 19, cy: 12, r: 1 }),
+          h('circle', { cx: 5, cy: 12, r: 1 })
+        ),
+      )
+    ),
+
+    h('div', { style: styles.body },
+
+      h('div', { style: styles.sidebar },
+        SIDEBAR_ITEMS.map((item, i) =>
+          h('div', { key: i, style: styles.sidebarItem(item.active) },
+            i === 0 ? h(InboxIcon) : h('span', { style: { width: 18 } }),
+            h('span', null, item.label),
+            item.count && h('span', { style: { marginLeft: "auto", fontSize: 12, fontWeight: 500 } }, item.count)
+          )
+        ),
+        h('div', { style: { ...styles.folderLabel, marginTop: 8 } },
+          h('svg', { width: 12, height: 12, viewBox: "0 0 24 24", fill: "none", stroke: "#444746", strokeWidth: 2 },
+            h('polyline', { points: "6 9 12 15 18 9" })
+          ),
+          "Folders"
+        ),
+        h('div', {
+          ref: trashRef,
+          style: styles.trashItem(trashShake),
+        },
+          h(TrashIcon, { shaking: trashShake }),
+          h('span', null, "Trash"),
+          trashCount > 0 && h('span', { style: styles.countBadge }, trashCount)
+        ),
+      ),
+
+      h('div', { style: styles.emailList },
+        h('div', { style: styles.emailListHeader },
+          h('span', null, "Inbox"),
+          h('span', { style: { display: "flex", gap: 12 } },
+            h('span', null, "Inboxry"),
+            h('span', null, "Foldest"),
+          )
+        ),
+
+        emails.map((email) => {
+          const isRFP = email.isRFP;
+          return h('div', {
+            key: email.id,
+            ref: isRFP ? rfpRef : null,
+            style: {
+              ...styles.emailRow(isRFP, isRFP && isHighlight, isRFP && isDragging),
+              ...(isRFP && (phase === "dropped" || phase === "done") ? { opacity: 0, height: 0, padding: 0, minHeight: 0, overflow: "hidden" } : {}),
+            },
+          },
+            h('div', { style: styles.emailCheckStar },
+              h(CheckboxIcon),
+              h(StarIcon, { filled: email.starred })
+            ),
+            h('div', { style: styles.emailFrom(email.unread) },
+              email.from,
+              email.org ? h('span', { style: { color: "#5f6368", fontWeight: 400 } }, ` | ${email.org}`) : null
+            ),
+            h('div', { style: styles.emailSubject },
+              isRFP
+                ? h('span', { style: { fontWeight: 600, color: "#202124" } }, "Nolan Greene | Acme Corp · RFP Invitation")
+                : email.subject
+            ),
+          );
+        }),
+      ),
+    ),
+
+    showToast && h('div', { style: styles.toast },
+      "Conversation moved to Trash.",
+      h('button', { style: styles.toastUndo }, "Undo"),
+    ),
+  );
+}
+
+const root = createRoot(document.getElementById('root'));
+root.render(h(App));
+</script>
+</body>
+</html>
