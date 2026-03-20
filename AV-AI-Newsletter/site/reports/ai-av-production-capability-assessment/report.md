@@ -303,58 +303,6 @@ The most mature AI category in production.
 
 ---
 
-## Legal & Copyright
-
-### The ruling that changed the landscape
-
-On March 2, 2026, the U.S. Supreme Court declined certiorari in *Thaler v. Perlmutter*, confirming that AI-generated content without meaningful human authorship is **not copyrightable**.¹⁹
-
-### Risks to know
-
-- **70+ new copyright lawsuits** filed since January 2026 targeting enterprises using AI-generated assets.³⁰
-- **EU AI Act** mandates AI content labeling by August 2, 2026. Fines up to **6% of global annual turnover**.³¹
-- **Voice cloning** is now regulated under the AI Fraud Accountability Act and state-level likeness laws.
-- **Training data lawsuits** (Runway, OpenAI, Suno/Udio settlements) create derivative liability risk.
-
-### What to do about it
-
-1. **Document human involvement** in every AI-assisted deliverable — shot selection, editing, creative direction.
-2. **Negotiate IP indemnification** with vendors. Adobe Firefly and Sora offer the strongest protections.
-3. **Label AI content proactively** — even outside the EU, norms are shifting.
-4. **Do not use consumer AI tools** for confidential content — courts treat AI as a "third party" waiving privilege.
-
----
-
-## What It Costs at Scale
-
-### 100 Videos/Month (Educational/Instructional)
-
-| Component | Tool | Monthly Cost |
-|-----------|------|-------------|
-| Script generation | Claude/GPT API | $50–$200 |
-| Avatar video | Synthesia Enterprise²⁵ | ~$2,500 |
-| Voice/audio | ElevenLabs Scale¹⁷ | $99–$330 |
-| Transcription | Whisper API | $3 |
-| QC automation | Telestream/Venera | $800–$2,000 |
-| Workflow automation | n8n Cloud | $24–$80 |
-| **Total** | | **$3,500–$5,100** |
-
-### 500 Videos/Month (Mixed Formats, Web & App Distribution)
-
-| Component | Tool | Monthly Cost |
-|-----------|------|-------------|
-| Script + creative direction | Claude/GPT API + human | $500–$1,500 |
-| Video generation | HeyGen Enterprise + Luma API | $3,000–$8,000 |
-| Audio production | ElevenLabs Enterprise | $500–$1,500 |
-| Transcription | AssemblyAI²⁸ | $150–$300 |
-| QC + compliance | Enterprise QC suite | $2,000–$5,000 |
-| Human review/editing | Staff editors | $5,000–$15,000 |
-| **Total** | | **$12,000–$34,000** |
-
-The largest cost in any AI production pipeline is still **human review and editing** — and it cannot be eliminated.
-
----
-
 ## The Cheat Sheet
 
 ### Use now — clear ROI
@@ -432,9 +380,6 @@ This assessment draws from manufacturer documentation, third-party benchmarks (A
 27. Make.com and n8n workflow automation platforms.
 28. AssemblyAI Universal-3 Pro benchmarks and pricing. [assemblyai.com](https://www.assemblyai.com/universal-3-pro); [assemblyai.com/benchmarks](https://www.assemblyai.com/benchmarks)
 29. Deepgram Nova-3 pricing and latency. [deepgram.com](https://deepgram.com/pricing-test-page)
-30. Based on aggregated tracking of AI-related copyright litigation filings, January–March 2026.
-31. EU AI Act, Article 50: content labeling requirements. European Commission Code of Practice, second draft published March 2026. [digital-strategy.ec.europa.eu](https://digital-strategy.ec.europa.eu/en/library/commission-publishes-second-draft-code-practice-marking-and-labelling-ai-generated-content); AI Business Weekly coverage. [aibusinessweekly.net](https://aibusinessweekly.net/p/eu-ai-transparency-code-synthetic-content-labels)
-
 ---
 
 *Published by The AV AI Dispatch · Q1 2026*
