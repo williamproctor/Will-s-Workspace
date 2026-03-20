@@ -668,6 +668,119 @@ body {
   .research-icon-grid { gap: 12px; padding: 0; justify-items: center; }
 }
 
+/* ── EXPERIMENTS ── */
+.experiments-section {
+  background: var(--parchment-light);
+  position: relative;
+}
+.experiments-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.experiment-card {
+  background: var(--white);
+  border: 1px solid var(--parchment-dark);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.experiment-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--dispatch-blue), var(--dispatch-blue-light));
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.experiment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(74, 109, 167, 0.12);
+  border-color: var(--dispatch-blue-light);
+}
+.experiment-card:hover::before { opacity: 1; }
+.experiment-card-number {
+  font-family: var(--font-mono);
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: var(--parchment-dark);
+  line-height: 1;
+  margin-bottom: 14px;
+  transition: color 0.35s;
+}
+.experiment-card:hover .experiment-card-number {
+  color: var(--dispatch-blue-10);
+}
+.experiment-card-type {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dispatch-blue);
+  margin-bottom: 8px;
+}
+.experiment-card-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.experiment-card-desc {
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  margin-bottom: 16px;
+  flex: 1;
+}
+.experiment-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 18px;
+}
+.experiment-card-tags span {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  background: var(--parchment);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.experiment-card-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dispatch-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.experiment-card-link svg {
+  transition: transform 0.3s;
+}
+.experiment-card:hover .experiment-card-link svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .experiments-grid { grid-template-columns: 1fr; }
+  .experiment-card { padding: 24px; }
+  .experiment-card-number { font-size: 32px; }
+}
+
 /* ── ARCHIVE ── */
 .archive-section { background: var(--parchment); }
 .archive-grid {
