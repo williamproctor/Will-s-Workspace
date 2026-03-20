@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-AI has crossed meaningful thresholds in audio/video production. Text-to-speech passes for human narration in controlled scenarios. Short-form video generation is production-usable. Post-production AI (noise removal, rotoscoping, transcript editing) is saving real hours today. But the gap between demos and reliable enterprise output remains wide.
+AI has crossed meaningful thresholds in audio/video production. Text-to-speech passes for human narration in controlled scenarios. AI-generated video clips are becoming usable for specific production needs. Post-production AI (noise removal, rotoscoping, transcript editing) is saving real hours today. But the gap between demos and reliable enterprise output remains wide.
 
 **The pattern across every category:** AI gets you 70–90% of the way there, fast. The last 10–30% still needs human judgment, and that gap matters enormously at enterprise quality.
 
@@ -30,7 +30,7 @@ AI has crossed meaningful thresholds in audio/video production. Text-to-speech p
 
 ### What Works
 
-- **Short-form clips (5–15s)** for social media, ads, and B-roll. All major tools produce usable footage at this duration.
+- **Short clips (5–15s)** for B-roll, interstitials, and supplemental website/app content. All major tools produce usable footage at this duration.
 - **Image-to-video animation.** Starting from a reference image consistently beats text-to-video quality.
 - **Style, mood, and camera movement.** Cinematic lighting, color grading, and camera moves are well-handled by the top three tools.
 - **Concept visualization and pre-vis.** Over 14,000 enterprises use these tools for storyboarding, cutting pre-production time by ~40%.
@@ -53,7 +53,7 @@ AI has crossed meaningful thresholds in audio/video production. Text-to-speech p
 
 ### Recommendation
 
-**Adopt now** for pre-visualization, social B-roll, and concept work. **Evaluate carefully** for multi-shot narrative sequences. **Don't rely on** AI-only video for hero brand content or anything requiring precise human representation.
+**Adopt now** for pre-visualization, supplemental B-roll, and concept work. **Evaluate carefully** for multi-shot narrative sequences. **Don't rely on** AI-only video for published content or anything requiring precise human representation.
 
 ---
 
@@ -62,7 +62,7 @@ AI has crossed meaningful thresholds in audio/video production. Text-to-speech p
 ### What Works
 
 - **Transcript-based editing (Descript).** Edit video by editing text. Filler word removal, silence trimming, and rough-cut assembly are production-proven. 60–70% time savings for spoken-word content.
-- **AI-powered clipping (Opus Clip).** 70–80% of generated clips are usable without further editing. Converting long-form to short-form is the strongest use case.
+- **AI-powered clipping (Opus Clip).** 70–80% of generated clips are usable without further editing. Extracting highlights or segments from long-form productions is the strongest use case.
 - **Object masking and tracking (Premiere Pro).** Adobe's AI Object Mask is a workflow accelerator — hover, click, tracked mask in seconds. Production-ready.
 - **AI audio cleanup (DaVinci Resolve, Descript).** Fairlight Voice Isolation and Descript Studio Sound reliably improve bad audio to acceptable levels.
 - **Auto-captioning.** 92–95% accuracy for clear English audio. Dramatically faster than manual captioning.
@@ -133,7 +133,7 @@ DaVinci Resolve's free version includes most AI features and is a legitimate pro
 
 ### What Works
 
-- **Short-to-medium narration (under 10 minutes).** ElevenLabs, Azure Neural TTS, and Fish Audio S2 produce speech indistinguishable from human narration for corporate/explainer content, IVR, and eLearning.
+- **Short-to-medium narration (under 10 minutes).** ElevenLabs, Azure Neural TTS, and Fish Audio S2 produce speech indistinguishable from human narration for explainer content, educational material, and eLearning.
 - **Voice cloning.** Production-viable. ElevenLabs requires ~30 minutes of studio audio. Fish Audio S2 needs only 15 seconds. Near-human fidelity.
 - **Word-level emotion control (Fish Audio S2).** Tag individual words with `[excited]`, `[whispered]`, `[somber]` — a genuine breakthrough in TTS control.
 
@@ -145,7 +145,7 @@ DaVinci Resolve's free version includes most AI features and is a legitimate pro
 
 ### What Doesn't Work
 
-- **Replacing professional voice actors for premium content.** Feature film narration, AAA game characters, high-emotion advertising — the last 5% of human vocal nuance remains out of reach.
+- **Replacing professional voice actors for premium content.** Feature film narration, dramatic performances, and emotionally nuanced storytelling — the last 5% of human vocal nuance remains out of reach.
 - **Singing voice synthesis at production quality.** A separate unsolved problem.
 
 ### Pricing
@@ -162,7 +162,7 @@ DaVinci Resolve's free version includes most AI features and is a legitimate pro
 
 ### What Works
 
-- **Background music, mood beds, podcast intros, social media content.** AI music has crossed the "good enough for production" threshold for non-focal music. Suno V5 produces broadcast-quality 48kHz tracks with natural-sounding vocals. 2 million paid subscribers generating 7 million tracks/day.
+- **Background music, mood beds, and underscore.** AI music has crossed the "good enough for production" threshold for non-focal music — tracks that support visuals rather than being the primary product. Suno V5 produces broadcast-quality 48kHz tracks with natural-sounding vocals. 2 million paid subscribers generating 7 million tracks/day.
 - **Genre coverage.** Pop, hip-hop, electronic, lo-fi, ambient, corporate/upbeat — all reliable.
 
 ### What Partially Works
@@ -270,7 +270,7 @@ This is a 4–5 tool pipeline, not end-to-end.
 AI agents work for structured, repeatable tasks (ingest → transcribe → tag → distribute). They fail at creative judgment and anything requiring visual quality assessment.
 
 - **Claude Computer Use:** ~60% success rate on simple tasks, ~45% on complex workflows. Anthropic cut their own productivity forecasts in half.
-- **Make.com / n8n:** ~50% time reduction for trigger-based workflows. Reliable for multi-platform publishing, template-based video creation, and file routing.
+- **Make.com / n8n:** ~50% time reduction for trigger-based workflows. Reliable for template-based video creation, file routing, and automated distribution to web platforms.
 - **No agent is ready for autonomous production.** Every workflow needs human checkpoints.
 
 ---
@@ -313,7 +313,7 @@ The U.S. Supreme Court declined certiorari on March 2, 2026, confirming that AI-
 
 ## Enterprise Cost Modeling
 
-### 100 Videos/Month (Corporate Training)
+### 100 Videos/Month (Educational/Instructional)
 
 | Component | Tool | Monthly Cost |
 |-----------|------|-------------|
@@ -321,12 +321,12 @@ The U.S. Supreme Court declined certiorari on March 2, 2026, confirming that AI-
 | Avatar video | Synthesia Enterprise | ~$2,500 |
 | Voice/audio | ElevenLabs Scale | $99–$330 |
 | Transcription/captions | Whisper API | $3 |
-| Content repurposing | Opus Clip Pro | $15 |
+| Clip extraction | Opus Clip Pro | $15 |
 | QC automation | Telestream/Venera | $800–$2,000 |
 | Workflow automation | n8n Cloud | $24–$80 |
 | **Total** | | **$3,500–$5,200** |
 
-### 500 Marketing Videos/Month (Mixed Formats)
+### 500 Videos/Month (Mixed Formats, Web & App Distribution)
 
 | Component | Tool | Monthly Cost |
 |-----------|------|-------------|
@@ -348,14 +348,14 @@ The largest cost in any AI production pipeline remains **human review and editin
 
 | Use Case | Best Tools |
 |----------|-----------|
-| Short-form social clips from long-form | Opus Clip + Descript |
+| Clip extraction from long-form productions | Opus Clip + Descript |
 | Concept/pre-visualization | Runway Gen-4.5 or Kling 3.0 |
 | Rotoscoping and masking | DaVinci Resolve Magic Mask or Premiere Object Mask |
 | Audio cleanup | iZotope RX 11 or Adobe Podcast Enhance (free) |
 | Transcript-based editing | Descript |
 | Background music | Suno V5 |
 | Voice synthesis (short-form) | ElevenLabs or Fish Audio S2 |
-| Corporate talking-head video | Synthesia or HeyGen |
+| Instructional talking-head video | Synthesia or HeyGen |
 | Animation blocking and mocap cleanup | Cascadeur + Rokoko |
 | CG character compositing | Wonder Studio (~$1K/yr) |
 
