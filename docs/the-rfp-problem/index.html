@@ -468,6 +468,7 @@
 
   .shot-visual-embed {
     background: #fff;
+    min-height: 380px;
   }
 
   .shot-visual-embed iframe {
@@ -1396,7 +1397,7 @@ function renderShots() {
   grid.innerHTML = shots.map((shot, i) => {
     const visualHTML = shot.embed
       ? `<div class="shot-visual shot-visual-embed">
-           <iframe src="${shot.embed}" title="Shot ${shot.num} — ${shot.name}" loading="lazy" allow="autoplay"></iframe>
+           <iframe src="${shot.embed}?v=${Date.now()}" title="Shot ${shot.num} — ${shot.name}" loading="lazy" allow="autoplay"></iframe>
            <span class="frame-label">Frame ${shot.num} · Interactive</span>
          </div>`
       : `<div class="shot-visual">
