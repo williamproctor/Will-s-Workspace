@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intent — Act I, Scene 1: The Crash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --chrome-bg: #1e1e1e;
+  --chrome-tab: #2d2d2d;
+  --chrome-active-tab: #3c3c3c;
+  --chrome-text: #ccc;
+  --chrome-border: #444;
+  --addr-bg: #323232;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  background: #111;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+  cursor: none;
+}
+
+#stage {
+  position: relative;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Browser Chrome ── */
+.browser-chrome {
+  flex-shrink: 0;
+  background: var(--chrome-bg);
+  border-bottom: 1px solid var(--chrome-border);
+}
+
+.tab-bar {
+  display: flex;
+  align-items: flex-end;
+  padding: 8px 12px 0;
+  gap: 2px;
+  height: 40px;
+}
+
+.tab {
+  background: var(--chrome-tab);
+  color: var(--chrome-text);
+  font-size: 12px;
+  padding: 6px 16px;
+  border-radius: 8px 8px 0 0;
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab.active {
+  background: var(--chrome-active-tab);
+  color: #fff;
+}
+
+.tab-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.tab.active .tab-dot { background: #4ade80; }
+.tab:not(.active) .tab-dot { background: #666; }
+
+.address-bar {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px 8px;
+  gap: 8px;
+}
+
+.nav-buttons {
+  display: flex; gap: 6px;
+}
+
+.nav-btn {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+}
+
+.addr-input {
+  flex: 1;
+  background: var(--addr-bg);
+  border: 1px solid var(--chrome-border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  color: #aaa;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+}
+
+.addr-lock {
+  color: #888;
+  margin-right: 4px;
+  font-size: 11px;
+}
+
+/* ── Content Viewport ── */
+.viewport {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #0a0a12;
+}
+
+/* ── GORGEOUS LANDING PAGE ── */
+.landing-page {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: linear-gradient(165deg, #0a0a1a 0%, #0d0d2b 30%, #12082e 60%, #0a0a1a 100%);
+}
+
+.landing-page.visible { opacity: 1; }
+
+.lp-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.lp-glow-1 {
+  width: 600px; height: 600px;
+  top: -200px; right: -100px;
+  background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%);
+}
+
+.lp-glow-2 {
+  width: 500px; height: 500px;
+  bottom: -150px; left: -100px;
+  background: radial-gradient(circle, rgba(139,92,246,0.25) 0%, transparent 70%);
+}
+
+.lp-glow-3 {
+  width: 300px; height: 300px;
+  top: 40%; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+}
+
+.lp-nav {
+  position: relative; z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.lp-logo {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+
+.lp-logo span { color: #818cf8; }
+
+.lp-nav-links {
+  display: flex; gap: 32px;
+  list-style: none;
+}
+
+.lp-nav-links a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.lp-nav-cta {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: #fff;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.lp-hero {
+  position: relative; z-index: 1;
+  text-align: center;
+  padding: 80px 48px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.lp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99,102,241,0.12);
+  border: 1px solid rgba(99,102,241,0.25);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #a5b4fc;
+  margin-bottom: 32px;
+}
+
+.lp-pill-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #818cf8;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+.lp-h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.08;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.lp-h1 .grad {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lp-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+  max-width: 540px;
+  margin: 0 auto 40px;
+  font-weight: 400;
+}
+
+.lp-cta-group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.lp-btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: none;
+  font-family: 'Inter', sans-serif;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 0 0 0 rgba(99,102,241,0), 0 4px 20px rgba(99,102,241,0.3);
+  overflow: hidden;
+}
+
+.lp-btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+  border-radius: inherit;
+}
+
+.lp-btn-primary.hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(99,102,241,0.4), 0 8px 32px rgba(99,102,241,0.4);
+}
+
+.lp-btn-primary.pressed {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 0 0 10px rgba(99,102,241,0.2), 0 2px 8px rgba(99,102,241,0.2);
+}
+
+.lp-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 12px;
+  cursor: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.lp-features {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 60px 48px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.lp-feature {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: border-color 0.3s;
+}
+
+.lp-feature-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.lp-feature:nth-child(1) .lp-feature-icon { background: rgba(99,102,241,0.15); }
+.lp-feature:nth-child(2) .lp-feature-icon { background: rgba(139,92,246,0.15); }
+.lp-feature:nth-child(3) .lp-feature-icon { background: rgba(59,130,246,0.15); }
+
+.lp-feature h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.lp-feature p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.35);
+}
+
+.lp-social-proof {
+  position: relative; z-index: 1;
+  text-align: center;
+  padding: 20px 48px 60px;
+}
+
+.lp-avatars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.lp-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 2px solid #0a0a1a;
+  margin-left: -8px;
+}
+
+.lp-avatar:first-child { margin-left: 0; }
+
+.lp-social-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+}
+
+.lp-social-text strong {
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+}
+
+/* ── ERROR PAGE ── */
+.error-page {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  z-index: 10;
+}
+
+.error-page.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.error-icon {
+  width: 80px; height: 80px;
+  margin-bottom: 24px;
+  opacity: 0.25;
+}
+
+.error-page h1 {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #202124;
+  margin-bottom: 16px;
+}
+
+.error-page .error-sub {
+  font-size: 14px;
+  color: #5f6368;
+  margin-bottom: 28px;
+}
+
+.error-page .error-try {
+  font-size: 14px;
+  color: #202124;
+  margin-bottom: 8px;
+}
+
+.error-page ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 32px;
+}
+
+.error-page ul li {
+  font-size: 14px;
+  color: #5f6368;
+  padding: 3px 0;
+  padding-left: 16px;
+  position: relative;
+}
+
+.error-page ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #5f6368;
+}
+
+.error-code {
+  font-size: 12px;
+  color: #9aa0a6;
+  font-family: 'Inter', monospace;
+  letter-spacing: 0.5px;
+}
+
+/* ── FAKE CURSOR ── */
+.fake-cursor {
+  position: fixed;
+  z-index: 9999;
+  width: 20px; height: 20px;
+  pointer-events: none;
+  transition: left 0.8s cubic-bezier(0.22, 1, 0.36, 1), top 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.fake-cursor.instant {
+  transition: none;
+}
+
+/* Click ripple */
+.click-ripple {
+  position: fixed;
+  z-index: 9998;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(99,102,241,0.3);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.click-ripple.fire {
+  animation: ripplePop 0.4s ease-out forwards;
+}
+
+@keyframes ripplePop {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+/* ── REPLAY ── */
+.replay-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 10000;
+  background: #202124;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.replay-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.replay-btn:hover {
+  background: #333;
+}
+
+/* ── WHITE FLASH ── */
+.flash-overlay {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.flash-overlay.fire {
+  animation: flashBang 0.15s ease-out forwards;
+}
+
+@keyframes flashBang {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .lp-nav { padding: 16px 24px; }
+  .lp-nav-links { display: none; }
+  .lp-hero { padding: 48px 24px 24px; }
+  .lp-features { grid-template-columns: 1fr; padding: 32px 24px; }
+  .lp-social-proof { padding: 16px 24px 40px; }
+  .tab { font-size: 11px; padding: 5px 12px; }
+  .addr-input { font-size: 12px; padding: 5px 10px; }
+}
+
+@media (max-width: 400px) {
+  .lp-hero { padding: 32px 16px 20px; }
+  .lp-pill { font-size: 11px; padding: 4px 12px; }
+  .lp-cta-group { flex-direction: column; align-items: center; }
+  .lp-features { padding: 24px 16px; gap: 12px; }
+  .lp-feature { padding: 20px 16px; }
+  .address-bar { padding: 4px 8px 6px; }
+  .nav-buttons { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="stage">
+  <!-- Browser Chrome -->
+  <div class="browser-chrome">
+    <div class="tab-bar">
+      <div class="tab active">
+        <span class="tab-dot"></span>localhost:3000
+      </div>
+      <div class="tab">
+        <span class="tab-dot"></span>Figma — Landing...
+      </div>
+    </div>
+    <div class="address-bar">
+      <div class="nav-buttons">
+        <button class="nav-btn">‹</button>
+        <button class="nav-btn">›</button>
+        <button class="nav-btn">↻</button>
+      </div>
+      <div class="addr-input">
+        <span class="addr-lock">🔒</span>
+        localhost:3000
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Viewport -->
+  <div class="viewport">
+
+    <!-- Gorgeous Landing Page -->
+    <div class="landing-page" id="landingPage">
+      <div class="lp-glow lp-glow-1"></div>
+      <div class="lp-glow lp-glow-2"></div>
+      <div class="lp-glow lp-glow-3"></div>
+
+      <nav class="lp-nav">
+        <div class="lp-logo">nova<span>.</span></div>
+        <ul class="lp-nav-links">
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Docs</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+        <button class="lp-nav-cta">Sign in</button>
+      </nav>
+
+      <section class="lp-hero">
+        <div class="lp-pill">
+          <span class="lp-pill-dot"></span>
+          Now in public beta
+        </div>
+        <h1 class="lp-h1">
+          Ship products<br><span class="grad">10x faster</span>
+        </h1>
+        <p class="lp-sub">
+          The AI-native platform that turns your designs into production-ready code. No hand-off friction, no pixel mismatches.
+        </p>
+        <div class="lp-cta-group">
+          <button class="lp-btn-primary" id="ctaBtn">
+            Get started free →
+          </button>
+          <button class="lp-btn-secondary">
+            Watch demo
+          </button>
+        </div>
+      </section>
+
+      <section class="lp-features">
+        <div class="lp-feature">
+          <div class="lp-feature-icon">⚡</div>
+          <h3>Instant Sync</h3>
+          <p>Design changes flow to code in real-time. No exports, no stale specs.</p>
+        </div>
+        <div class="lp-feature">
+          <div class="lp-feature-icon">🎨</div>
+          <h3>Pixel Perfect</h3>
+          <p>AI matches your design tokens, spacing, and typography to the last detail.</p>
+        </div>
+        <div class="lp-feature">
+          <div class="lp-feature-icon">🚀</div>
+          <h3>Deploy Ready</h3>
+          <p>Production-grade React, Vue, or Swift. Not throwaway prototypes.</p>
+        </div>
+      </section>
+
+      <div class="lp-social-proof">
+        <div class="lp-avatars">
+          <svg class="lp-avatar" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#6366f1"/><circle cx="16" cy="13" r="6" fill="rgba(255,255,255,0.3)"/><ellipse cx="16" cy="28" rx="10" ry="8" fill="rgba(255,255,255,0.2)"/></svg>
+          <svg class="lp-avatar" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#8b5cf6"/><circle cx="16" cy="13" r="6" fill="rgba(255,255,255,0.3)"/><ellipse cx="16" cy="28" rx="10" ry="8" fill="rgba(255,255,255,0.2)"/></svg>
+          <svg class="lp-avatar" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#3b82f6"/><circle cx="16" cy="13" r="6" fill="rgba(255,255,255,0.3)"/><ellipse cx="16" cy="28" rx="10" ry="8" fill="rgba(255,255,255,0.2)"/></svg>
+          <svg class="lp-avatar" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#a78bfa"/><circle cx="16" cy="13" r="6" fill="rgba(255,255,255,0.3)"/><ellipse cx="16" cy="28" rx="10" ry="8" fill="rgba(255,255,255,0.2)"/></svg>
+          <svg class="lp-avatar" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#60a5fa"/><circle cx="16" cy="13" r="6" fill="rgba(255,255,255,0.3)"/><ellipse cx="16" cy="28" rx="10" ry="8" fill="rgba(255,255,255,0.2)"/></svg>
+        </div>
+        <p class="lp-social-text"><strong>2,400+ teams</strong> already shipping with nova</p>
+      </div>
+    </div>
+
+    <!-- Error Page -->
+    <div class="error-page" id="errorPage">
+      <svg class="error-icon" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="22" stroke="#dadce0" stroke-width="2"/>
+        <path d="M24 14v12" stroke="#9aa0a6" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="24" cy="32" r="1.5" fill="#9aa0a6"/>
+      </svg>
+      <h1>This site can't be reached</h1>
+      <p class="error-sub"><strong>localhost</strong> refused to connect.</p>
+      <p class="error-try">Try:</p>
+      <ul>
+        <li>Checking the connection</li>
+        <li>Checking the proxy and the firewall</li>
+      </ul>
+      <p class="error-code">ERR_CONNECTION_REFUSED</p>
+    </div>
+
+    <!-- Flash overlay -->
+    <div class="flash-overlay" id="flashOverlay"></div>
+
+  </div>
+</div>
+
+<!-- Fake Cursor -->
+<svg class="fake-cursor" id="fakeCursor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5 3l14 10.5-6.5 1.5-3.5 6z" fill="#fff" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>
+
+<!-- Click Ripple -->
+<div class="click-ripple" id="clickRipple"></div>
+
+<!-- Replay Button -->
+<button class="replay-btn" id="replayBtn">↻ Replay</button>
+
+<script>
+(function () {
+  const cursor = document.getElementById('fakeCursor');
+  const landingPage = document.getElementById('landingPage');
+  const errorPage = document.getElementById('errorPage');
+  const ctaBtn = document.getElementById('ctaBtn');
+  const flashOverlay = document.getElementById('flashOverlay');
+  const clickRipple = document.getElementById('clickRipple');
+  const replayBtn = document.getElementById('replayBtn');
+
+  let timeouts = [];
+
+  function schedule(fn, ms) {
+    const id = setTimeout(fn, ms);
+    timeouts.push(id);
+    return id;
+  }
+
+  function clearAllTimeouts() {
+    timeouts.forEach(clearTimeout);
+    timeouts = [];
+  }
+
+  function moveCursor(x, y, instant) {
+    if (instant) cursor.classList.add('instant');
+    else cursor.classList.remove('instant');
+    cursor.style.left = x + 'px';
+    cursor.style.top = y + 'px';
+  }
+
+  function getCtaCenter() {
+    const rect = ctaBtn.getBoundingClientRect();
+    return {
+      x: rect.left + rect.width * 0.35,
+      y: rect.top + rect.height * 0.35
+    };
+  }
+
+  function reset() {
+    clearAllTimeouts();
+    landingPage.classList.remove('visible');
+    errorPage.classList.remove('visible');
+    flashOverlay.classList.remove('fire');
+    clickRipple.classList.remove('fire');
+    ctaBtn.classList.remove('hover', 'pressed');
+    replayBtn.classList.remove('visible');
+    cursor.style.opacity = '0';
+    moveCursor(window.innerWidth * 0.2, window.innerHeight * 0.65, true);
+  }
+
+  function runSequence() {
+    reset();
+
+    // Phase 1 — Landing page fades in (0–2s)
+    schedule(function () {
+      cursor.style.opacity = '1';
+      landingPage.classList.add('visible');
+    }, 100);
+
+    // Phase 2 — Cursor glides to CTA (2–4s)
+    schedule(function () {
+      const target = getCtaCenter();
+      moveCursor(target.x, target.y, false);
+    }, 2000);
+
+    // Hover state when cursor arrives (~2.8s)
+    schedule(function () {
+      ctaBtn.classList.add('hover');
+    }, 2800);
+
+    // Phase 3 — Click (4s)
+    schedule(function () {
+      const target = getCtaCenter();
+      ctaBtn.classList.remove('hover');
+      ctaBtn.classList.add('pressed');
+
+      clickRipple.style.left = target.x + 'px';
+      clickRipple.style.top = target.y + 'px';
+      clickRipple.classList.remove('fire');
+      void clickRipple.offsetWidth;
+      clickRipple.classList.add('fire');
+    }, 4000);
+
+    // Phase 4 — HARD CUT to error (4.5s)
+    schedule(function () {
+      ctaBtn.classList.remove('pressed');
+      landingPage.classList.remove('visible');
+      landingPage.style.display = 'none';
+
+      flashOverlay.classList.remove('fire');
+      void flashOverlay.offsetWidth;
+      flashOverlay.classList.add('fire');
+
+      errorPage.classList.add('visible');
+      cursor.style.opacity = '0.6';
+    }, 4500);
+
+    // Phase 5 — Error holds. Cursor freezes. (5–8s)
+    // (Nothing happens — that's the joke.)
+
+    // Phase 6 — Replay button appears (8s)
+    schedule(function () {
+      replayBtn.classList.add('visible');
+    }, 8000);
+  }
+
+  replayBtn.addEventListener('click', function () {
+    landingPage.style.display = '';
+    runSequence();
+  });
+
+  document.addEventListener('mousemove', function () {});
+
+  runSequence();
+})();
+</script>
+
+</body>
+</html>

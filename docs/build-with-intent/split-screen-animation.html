@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intent — Design is Code</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --design-bg: #FAFBFC;
+  --design-grid: #E8ECF0;
+  --code-bg: #1A1D23;
+  --code-grid: #22262E;
+  --divider: #2E2E3A;
+  --accent: #6C5CE7;
+  --accent-glow: #A78BFA;
+  --accent-warm: #F472B6;
+  --sync-pulse: #818CF8;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --code-text: #D1D5DB;
+  --code-keyword: #C084FC;
+  --code-string: #34D399;
+  --code-tag: #60A5FA;
+  --code-attr: #FBBF24;
+  --code-comment: #6B7280;
+  --code-prop: #F9A8D4;
+  --code-bracket: #9CA3AF;
+  --code-number: #FB923C;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #0F0F14;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+/* ─── PANEL BASES ─── */
+.panel {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-design {
+  background: var(--design-bg);
+  background-image:
+    linear-gradient(var(--design-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--design-grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: center center;
+}
+
+.panel-code {
+  background: var(--code-bg);
+  background-image:
+    linear-gradient(var(--code-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--code-grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: center center;
+}
+
+/* ─── PANEL LABELS ─── */
+.panel-label {
+  padding: 16px 24px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.panel-label.visible { opacity: 1; }
+
+.panel-design .panel-label {
+  color: var(--text-secondary);
+}
+
+.panel-code .panel-label {
+  color: #6B7280;
+}
+
+.label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.panel-code .label-dot {
+  background: var(--accent-glow);
+}
+
+/* ─── CENTER DIVIDER ─── */
+.divider {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--divider);
+  transform: translateX(-50%);
+  z-index: 10;
+  overflow: visible;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--accent) 20%,
+    var(--accent-glow) 50%,
+    var(--accent) 80%,
+    transparent 100%
+  );
+  opacity: 0.15;
+}
+
+/* ─── SYNC PULSE PARTICLES ─── */
+.sync-pulse {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sync-pulse);
+  box-shadow:
+    0 0 12px var(--sync-pulse),
+    0 0 24px var(--accent-glow),
+    0 0 40px rgba(129, 140, 248, 0.3);
+  opacity: 0;
+  z-index: 11;
+  pointer-events: none;
+}
+
+/* Data particles that flow left → right */
+.data-particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 11;
+  pointer-events: none;
+  filter: blur(0.5px);
+}
+
+/* ─── DESIGN SIDE CONTENT ─── */
+.design-content {
+  flex: 1;
+  padding: 12px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+}
+
+.design-headline {
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.design-headline.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.design-subtitle {
+  font-size: clamp(13px, 1.4vw, 16px);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 420px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.design-subtitle.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.feature-card {
+  background: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(10px) scale(0.96);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.feature-icon.purple { background: #EDE9FE; color: #7C3AED; }
+.feature-icon.blue { background: #DBEAFE; color: #2563EB; }
+.feature-icon.pink { background: #FCE7F3; color: #DB2777; }
+
+.feature-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.feature-card-desc {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.design-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6C5CE7 0%, #A78BFA 50%, #F472B6 100%);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: default;
+  width: fit-content;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  box-shadow: 0 4px 16px rgba(108, 92, 231, 0.3);
+  letter-spacing: -0.01em;
+}
+
+.design-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-arrow {
+  transition: transform 0.3s ease;
+  font-size: 16px;
+}
+
+/* ─── CODE SIDE CONTENT ─── */
+.code-content {
+  flex: 1;
+  padding: 8px 20px 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(10px, 1.1vw, 13px);
+  line-height: 1.7;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.code-line {
+  white-space: pre;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  min-height: 1.7em;
+}
+
+.code-line.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.code-line .line-num {
+  display: inline-block;
+  width: 2.5em;
+  color: #4B5563;
+  user-select: none;
+  text-align: right;
+  padding-right: 1em;
+  font-size: 0.85em;
+}
+
+.kw { color: var(--code-keyword); }
+.tg { color: var(--code-tag); }
+.st { color: var(--code-string); }
+.at { color: var(--code-attr); }
+.cm { color: var(--code-comment); }
+.pr { color: var(--code-prop); }
+.br { color: var(--code-bracket); }
+.nm { color: var(--code-number); }
+.tx { color: var(--code-text); }
+.fn { color: #34D399; }
+
+/* ─── TAGLINE ─── */
+.tagline {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.tagline.visible { opacity: 1; }
+
+.tagline-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(13px, 1.6vw, 18px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: linear-gradient(90deg, #A78BFA, #F472B6, #60A5FA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── REPLAY BUTTON ─── */
+.replay-btn {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  padding: 10px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: white;
+  background: rgba(108, 92, 231, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.6s ease, background 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.replay-btn:hover {
+  background: rgba(108, 92, 231, 0.4);
+}
+
+.replay-btn.visible { opacity: 1; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 640px) {
+  .container { flex-direction: column; }
+
+  .divider {
+    left: 0;
+    top: 50%;
+    bottom: auto;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+  }
+
+  .divider::before {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--accent) 20%,
+      var(--accent-glow) 50%,
+      var(--accent) 80%,
+      transparent 100%
+    );
+  }
+
+  .feature-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .feature-card { padding: 10px 8px; }
+  .feature-icon { width: 24px; height: 24px; font-size: 12px; }
+  .feature-card-title { font-size: 11px; }
+  .feature-card-desc { display: none; }
+  .design-content { padding: 8px 16px 16px; gap: 12px; }
+  .code-content { padding: 4px 12px 12px; }
+  .panel-label { padding: 10px 16px; font-size: 10px; }
+  .tagline { bottom: auto; top: 50%; transform: translate(-50%, -50%); }
+  .replay-btn { bottom: 16px; }
+}
+
+@media (max-width: 400px) {
+  .feature-grid { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .design-headline { font-size: 20px; }
+  .design-subtitle { font-size: 11px; }
+  .design-cta { padding: 10px 20px; font-size: 12px; }
+  .code-content { font-size: 9px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LEFT: Design Panel -->
+  <div class="panel panel-design">
+    <div class="panel-label" id="label-design">
+      <span class="label-dot"></span>Design
+    </div>
+    <div class="design-content">
+      <h1 class="design-headline" id="design-headline">Ship faster with Intent</h1>
+      <p class="design-subtitle" id="design-subtitle">
+        Bridge the gap between design and development. Every pixel, every prop, always in sync.
+      </p>
+      <div class="feature-grid">
+        <div class="feature-card" id="card-1">
+          <div class="feature-icon purple">⚡</div>
+          <div class="feature-card-title">Real-time Sync</div>
+          <div class="feature-card-desc">Design changes flow to code instantly</div>
+        </div>
+        <div class="feature-card" id="card-2">
+          <div class="feature-icon blue">🧩</div>
+          <div class="feature-card-title">Components</div>
+          <div class="feature-card-desc">Shared language between tools</div>
+        </div>
+        <div class="feature-card" id="card-3">
+          <div class="feature-icon pink">✨</div>
+          <div class="feature-card-title">Tokens</div>
+          <div class="feature-card-desc">Colors & spacing stay in sync</div>
+        </div>
+      </div>
+      <button class="design-cta" id="design-cta">
+        Get Started <span class="cta-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- CENTER DIVIDER -->
+  <div class="divider" id="divider"></div>
+
+  <!-- RIGHT: Code Panel -->
+  <div class="panel panel-code">
+    <div class="panel-label" id="label-code">
+      <span class="label-dot"></span>Code
+    </div>
+    <div class="code-content" id="code-content"></div>
+  </div>
+
+</div>
+
+<!-- Tagline -->
+<div class="tagline" id="tagline">
+  <div class="tagline-text">Design is code. Code is design.</div>
+</div>
+
+<!-- Replay -->
+<button class="replay-btn" id="replay-btn" onclick="replay()">↻ Replay</button>
+
+<script>
+const codeEl = document.getElementById('code-content');
+
+const codeBlocks = {
+  headline: [
+    { num: 1, html: '<span class="kw">export</span> <span class="kw">function</span> <span class="fn">HeroSection</span><span class="br">()</span> <span class="br">{</span>' },
+    { num: 2, html: '  <span class="kw">return</span> <span class="br">(</span>' },
+    { num: 3, html: '    <span class="tg">&lt;section</span> <span class="at">className</span>=<span class="st">"hero"</span><span class="tg">&gt;</span>' },
+    { num: 4, html: '      <span class="tg">&lt;h1</span> <span class="at">className</span>=<span class="st">"text-5xl font-extrabold"</span><span class="tg">&gt;</span>' },
+    { num: 5, html: '        <span class="tx">Ship faster with Intent</span>' },
+    { num: 6, html: '      <span class="tg">&lt;/h1&gt;</span>' },
+  ],
+  subtitle: [
+    { num: 7, html: '      <span class="tg">&lt;p</span> <span class="at">className</span>=<span class="st">"text-lg text-gray-500"</span><span class="tg">&gt;</span>' },
+    { num: 8, html: '        <span class="tx">Bridge the gap between design</span>' },
+    { num: 9, html: '        <span class="tx">and development.</span>' },
+    { num: 10, html: '      <span class="tg">&lt;/p&gt;</span>' },
+  ],
+  cards: [
+    { num: 11, html: '      <span class="tg">&lt;div</span> <span class="at">className</span>=<span class="st">"grid grid-cols-3 gap-4"</span><span class="tg">&gt;</span>' },
+    { num: 12, html: '        <span class="br">{</span><span class="tx">features</span>.<span class="fn">map</span><span class="br">((</span><span class="tx">f</span><span class="br">)</span> <span class="kw">=&gt;</span> <span class="br">(</span>' },
+    { num: 13, html: '          <span class="tg">&lt;FeatureCard</span>' },
+    { num: 14, html: '            <span class="at">key</span>=<span class="br">{</span><span class="tx">f</span>.<span class="pr">id</span><span class="br">}</span>' },
+    { num: 15, html: '            <span class="at">icon</span>=<span class="br">{</span><span class="tx">f</span>.<span class="pr">icon</span><span class="br">}</span>' },
+    { num: 16, html: '            <span class="at">title</span>=<span class="br">{</span><span class="tx">f</span>.<span class="pr">title</span><span class="br">}</span>' },
+    { num: 17, html: '            <span class="at">description</span>=<span class="br">{</span><span class="tx">f</span>.<span class="pr">desc</span><span class="br">}</span>' },
+    { num: 18, html: '          <span class="tg">/&gt;</span>' },
+    { num: 19, html: '        <span class="br">))}</span>' },
+    { num: 20, html: '      <span class="tg">&lt;/div&gt;</span>' },
+  ],
+  cta: [
+    { num: 21, html: '      <span class="tg">&lt;Button</span>' },
+    { num: 22, html: '        <span class="at">className</span>=<span class="st">"bg-gradient-to-r</span>' },
+    { num: 23, html: '          <span class="st">from-purple-500 via-violet-400</span>' },
+    { num: 24, html: '          <span class="st">to-pink-400"</span>' },
+    { num: 25, html: '      <span class="tg">&gt;</span>' },
+    { num: 26, html: '        <span class="tx">Get Started</span> <span class="tg">&lt;ArrowRight /&gt;</span>' },
+    { num: 27, html: '      <span class="tg">&lt;/Button&gt;</span>' },
+    { num: 28, html: '    <span class="tg">&lt;/section&gt;</span>' },
+    { num: 29, html: '  <span class="br">)</span>' },
+    { num: 30, html: '<span class="br">}</span>' },
+  ],
+};
+
+function buildCodeLines() {
+  codeEl.innerHTML = '';
+  const allBlocks = ['headline', 'subtitle', 'cards', 'cta'];
+  allBlocks.forEach(blockName => {
+    codeBlocks[blockName].forEach(line => {
+      const div = document.createElement('div');
+      div.className = 'code-line';
+      div.dataset.block = blockName;
+      div.innerHTML = `<span class="line-num">${line.num}</span>${line.html}`;
+      codeEl.appendChild(div);
+    });
+  });
+}
+
+function showCodeBlock(blockName, stagger = 60) {
+  const lines = codeEl.querySelectorAll(`.code-line[data-block="${blockName}"]`);
+  lines.forEach((line, i) => {
+    setTimeout(() => line.classList.add('visible'), i * stagger);
+  });
+}
+
+function fireSyncPulse(startY, count = 1) {
+  const divider = document.getElementById('divider');
+  const isVertical = window.innerWidth > 640;
+
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const pulse = document.createElement('div');
+      pulse.className = 'sync-pulse';
+
+      if (isVertical) {
+        const y = typeof startY === 'number' ? startY : 30 + Math.random() * 40;
+        pulse.style.top = y + '%';
+        pulse.style.left = '50%';
+        pulse.animate([
+          { opacity: 0, transform: 'translateX(-50%) scale(0.3)' },
+          { opacity: 1, transform: 'translateX(-50%) scale(1.2)', offset: 0.3 },
+          { opacity: 1, transform: 'translateX(-50%) scale(1)', offset: 0.5 },
+          { opacity: 0, transform: 'translateX(-50%) scale(0.5)' },
+        ], { duration: 800, easing: 'ease-out' });
+      } else {
+        const x = typeof startY === 'number' ? startY : 30 + Math.random() * 40;
+        pulse.style.left = x + '%';
+        pulse.style.top = '50%';
+        pulse.animate([
+          { opacity: 0, transform: 'translateY(-50%) scale(0.3)' },
+          { opacity: 1, transform: 'translateY(-50%) scale(1.2)', offset: 0.3 },
+          { opacity: 1, transform: 'translateY(-50%) scale(1)', offset: 0.5 },
+          { opacity: 0, transform: 'translateY(-50%) scale(0.5)' },
+        ], { duration: 800, easing: 'ease-out' });
+      }
+
+      divider.appendChild(pulse);
+      setTimeout(() => pulse.remove(), 900);
+    }, i * 200);
+  }
+}
+
+function fireDataParticles(colors, count = 8) {
+  const divider = document.getElementById('divider');
+  const isVertical = window.innerWidth > 640;
+  const rect = divider.getBoundingClientRect();
+
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const p = document.createElement('div');
+      p.className = 'data-particle';
+      p.style.background = colors[i % colors.length];
+      p.style.boxShadow = `0 0 8px ${colors[i % colors.length]}`;
+
+      if (isVertical) {
+        const startY = 20 + Math.random() * 60;
+        p.style.top = startY + '%';
+        p.style.left = '50%';
+
+        const drift = (Math.random() - 0.5) * 40;
+        p.animate([
+          { opacity: 0, transform: `translate(-20px, 0) scale(0.4)` },
+          { opacity: 1, transform: `translate(0px, ${drift * 0.3}px) scale(1)`, offset: 0.2 },
+          { opacity: 0.8, transform: `translate(20px, ${drift * 0.7}px) scale(0.8)`, offset: 0.7 },
+          { opacity: 0, transform: `translate(40px, ${drift}px) scale(0.2)` },
+        ], { duration: 600 + Math.random() * 400, easing: 'ease-in-out' });
+      } else {
+        const startX = 20 + Math.random() * 60;
+        p.style.left = startX + '%';
+        p.style.top = '50%';
+
+        const drift = (Math.random() - 0.5) * 30;
+        p.animate([
+          { opacity: 0, transform: `translate(0, -15px) scale(0.4)` },
+          { opacity: 1, transform: `translate(${drift * 0.3}px, 0) scale(1)`, offset: 0.2 },
+          { opacity: 0.8, transform: `translate(${drift * 0.7}px, 15px) scale(0.8)`, offset: 0.7 },
+          { opacity: 0, transform: `translate(${drift}px, 30px) scale(0.2)` },
+        ], { duration: 600 + Math.random() * 400, easing: 'ease-in-out' });
+      }
+
+      divider.appendChild(p);
+      setTimeout(() => p.remove(), 1100);
+    }, i * 80);
+  }
+}
+
+function resetAll() {
+  document.getElementById('label-design').classList.remove('visible');
+  document.getElementById('label-code').classList.remove('visible');
+  document.getElementById('design-headline').classList.remove('visible');
+  document.getElementById('design-subtitle').classList.remove('visible');
+  document.getElementById('card-1').classList.remove('visible');
+  document.getElementById('card-2').classList.remove('visible');
+  document.getElementById('card-3').classList.remove('visible');
+  document.getElementById('design-cta').classList.remove('visible');
+  document.getElementById('tagline').classList.remove('visible');
+  document.getElementById('replay-btn').classList.remove('visible');
+
+  buildCodeLines();
+}
+
+function runAnimation() {
+  resetAll();
+
+  // Phase 1 (0–1s): Layout renders, labels appear
+  setTimeout(() => {
+    document.getElementById('label-design').classList.add('visible');
+    document.getElementById('label-code').classList.add('visible');
+  }, 400);
+
+  // Phase 2 (1–3s): Headline
+  setTimeout(() => {
+    document.getElementById('design-headline').classList.add('visible');
+    fireSyncPulse(25, 2);
+    setTimeout(() => showCodeBlock('headline', 70), 200);
+  }, 1200);
+
+  // Phase 3 (3–5s): Subtitle
+  setTimeout(() => {
+    document.getElementById('design-subtitle').classList.add('visible');
+    fireSyncPulse(38, 1);
+    setTimeout(() => showCodeBlock('subtitle', 70), 150);
+  }, 3000);
+
+  // Phase 3b: Feature cards
+  setTimeout(() => {
+    document.getElementById('card-1').classList.add('visible');
+    fireSyncPulse(52, 1);
+  }, 3800);
+
+  setTimeout(() => {
+    document.getElementById('card-2').classList.add('visible');
+    fireSyncPulse(55, 1);
+  }, 4100);
+
+  setTimeout(() => {
+    document.getElementById('card-3').classList.add('visible');
+    fireSyncPulse(58, 2);
+    setTimeout(() => showCodeBlock('cards', 55), 100);
+  }, 4400);
+
+  // Phase 4 (5–7s): CTA with data particles
+  setTimeout(() => {
+    document.getElementById('design-cta').classList.add('visible');
+    fireSyncPulse(72, 3);
+    fireDataParticles(['#6C5CE7', '#A78BFA', '#F472B6', '#60A5FA', '#34D399'], 12);
+    setTimeout(() => showCodeBlock('cta', 60), 250);
+  }, 5500);
+
+  // Phase 5 (7–9s): Completion shimmer
+  setTimeout(() => {
+    fireSyncPulse(20, 1);
+    fireSyncPulse(40, 1);
+    fireSyncPulse(60, 1);
+    fireSyncPulse(80, 1);
+    fireDataParticles(['#A78BFA', '#F472B6', '#60A5FA'], 6);
+  }, 7500);
+
+  // Phase 6 (9–10s): Tagline
+  setTimeout(() => {
+    document.getElementById('tagline').classList.add('visible');
+  }, 9000);
+
+  // After 10s: Replay
+  setTimeout(() => {
+    document.getElementById('tagline').classList.remove('visible');
+    setTimeout(() => {
+      document.getElementById('replay-btn').classList.add('visible');
+    }, 600);
+  }, 11000);
+}
+
+function replay() {
+  document.getElementById('replay-btn').classList.remove('visible');
+  setTimeout(runAnimation, 300);
+}
+
+buildCodeLines();
+runAnimation();
+</script>
+
+</body>
+</html>
