@@ -121,19 +121,31 @@ The most visible category — and the one with the widest gap between demos and 
 
 ## Video Editing & Post-Production
 
-Where AI delivers the most immediate, measurable time savings today.
+Where AI delivers the most immediate, measurable time savings today. Every major NLE now ships AI features — but a new class of AI-native editors is emerging alongside them.
 
-### Ready to use
+### Industry NLEs — AI features in your existing toolset
 
-- **Transcript-based editing (Descript).** Edit video by editing text. 60–70% time savings for spoken-word content.¹⁰
-- **Object masking and tracking (Premiere Pro).** Adobe's AI Object Mask: hover, click, tracked mask in seconds.
-- **AI audio cleanup (Descript).** Studio Sound reliably lifts bad audio to usable levels.
-- **Auto-captioning.** 92–95% accuracy for clear English. Dramatically faster than manual captioning.
+The editors your team already uses have integrated significant AI capabilities:
+
+- **DaVinci Resolve (Studio).** The DaVinci Neural Engine powers Magic Mask (AI-driven subject isolation), IntelliTrack (ML point tracking that handles occlusion), Voice Isolation and Dialogue Separator (separate dialogue from background and ambience), UltraNR (AI spatial denoising), Music Remixer, and automatic audio classification. Text-based editing with automatic speaker detection arrived in Resolve 19.¹⁰
+- **Final Cut Pro.** Magnetic Mask uses AI subject recognition to isolate people, objects, and backgrounds frame-by-frame — work that previously took 30–60 minutes now completes in minutes. ML-based object tracking handles moderate occlusion. Transcribe to Captions generates captions on-device with no cloud upload. Optimized for Apple silicon.
+- **Avid Media Composer.** ScriptSync AI automatically indexes all audible dialogue and syncs source clips to script lines — find specific takes by searching a word or phrase. Phonetic indexing across 21+ languages. Included with Ultimate and Enterprise tiers.
+- **Premiere Pro.** AI Object Mask (hover, click, tracked mask in seconds), Generative Extend for subtle clip extensions, and auto-captioning at 92–95% accuracy.
+
+### Experimental AI-native editors
+
+A different approach to editing entirely — built around transcripts and AI workflows rather than traditional timelines:
+
+- **Descript.** Edit video by editing text: delete a word from the transcript and the video edits automatically. 60–70% time savings for spoken-word content. Studio Sound lifts bad audio to usable levels. Underlord (agentic AI co-editor) interprets natural-language instructions to automate cuts, filler removal, and arrangement.¹⁰ AI dubbing in 30+ languages with lip-sync — strong for major European languages, weak for tonal languages.
+- **Flixier.** Browser-based transcript editing with AI B-roll generation, filler removal, and hook generation.
+- **CutScript.** Open-source, Descript-like alternative with local-first processing via WhisperX.
+
+These tools are not replacing traditional NLEs — they serve different use cases. Descript excels at spoken-word content (podcasts, interviews, narration-heavy pieces). For complex narrative editing, color grading, VFX integration, and multi-format delivery, your NLE remains the right tool.
 
 ### Close but not reliable
 
 - **Generative Extend (Premiere Pro).** Subtle clip extensions work. Quality degrades with longer extensions or moving subjects.
-- **AI translation and dubbing (Descript).** 30+ languages with lip-sync. Strong for major European languages, weak for tonal languages.
+- **AI dubbing at scale.** Strong for major European languages, weak for tonal languages across all tools.
 
 ### Not there yet
 
@@ -141,9 +153,9 @@ Where AI delivers the most immediate, measurable time savings today.
 - **Brand-consistent editing at scale.** Consistent editorial voice across dozens of AI-assisted videos still needs a human.
 - **Complex narrative editing.** Multi-act structures and parallel storylines — entirely human-driven.
 
-**The takeaway:** The strongest ROI in this entire report. If you edit spoken-word content, transcript-based editing alone justifies the tool cost.
+**The takeaway:** The strongest ROI in this entire report. Your existing NLE (Resolve, Final Cut, Avid, Premiere) already has AI features worth learning. For spoken-word workflows, experimental editors like Descript offer a fundamentally different — and faster — approach.
 
-> *Also in this space:* VEED.IO (browser-based transcript editing), Choppity (podcast-focused), Flixier (browser-based with AI B-roll), PlayPlay (enterprise), ScreenApp, Mocha Pro 2026 (AI masking/tracking plugin for After Effects, Premiere, Nuke — $48/mo)
+> *Also in this space:* VEED.IO (browser-based transcript editing), Choppity (podcast-focused), PlayPlay (enterprise), ScreenApp, Mocha Pro 2026 (AI masking/tracking plugin for After Effects, Premiere, Nuke — $48/mo)
 
 ---
 
@@ -291,14 +303,15 @@ The most production-ready AI audio category. If you adopt nothing else from this
 - **Noise removal (iZotope RX 11).** Industry gold standard. ML-based Repair Assistant fixes clipping, clicks, hum, noise, reverb, and sibilance.²⁰
 - **Free speech enhancement (Adobe Podcast Enhance v2).** Source separation with independent speech/noise/music sliders. Free (1hr/day).²¹
 - **Stem separation (LALAL.AI).** 10-stem separation using proprietary neural networks trained on 20TB+ of studio recordings. 14.8M hours processed.²²
-- **Transcript-based editing (Descript).** One-click cleanup, filler word removal, and audio regeneration for corrections.
+- **In-NLE audio AI.** DaVinci Resolve's Fairlight page includes Voice Isolation, Dialogue Separator, and Music Remixer — all powered by the DaVinci Neural Engine. Final Cut Pro processes speech-to-text on-device for captioning.
+- **Transcript-based cleanup (Descript).** One-click filler word removal, audio regeneration for corrections, and Studio Sound enhancement. Best suited for spoken-word workflows.
 
 ### Not there yet
 
 - **AI mastering for premium releases.** LANDR and eMastered produce 80% solutions — insufficient where mastering decisions affect artistic outcome.
 - **Fully automated podcast/video post.** Pacing, narrative editing, and tonal consistency still need a human editor.
 
-**The takeaway:** Audio post is where AI saves the most hours per dollar spent. iZotope RX 11 and Descript should be in every production toolkit.
+**The takeaway:** Audio post is where AI saves the most hours per dollar spent. iZotope RX 11 belongs in every toolkit; your NLE's built-in AI audio features (Resolve's Fairlight, FCP's on-device processing) handle many tasks without leaving the timeline.
 
 > *Also in this space:* Accusonus ERA Bundle (one-knob audio cleanup), Audo.ai (browser-based noise removal), Krisp (real-time noise cancellation), Auphonic (automated podcast mastering), LANDR (AI mastering), eMastered (AI mastering), Acon Digital (restoration plugins), CrumplePop (AI audio plugins for FCPX/Premiere), Moises.ai (stem separation)
 
@@ -436,7 +449,7 @@ The most mature AI category in production.
 | Concept/pre-visualization | Runway Gen-4.5 or Kling 3.0 |
 | Rotoscoping and masking | Premiere Object Mask or Slapshot |
 | Audio cleanup | iZotope RX 11 or Adobe Podcast Enhance (free) |
-| Transcript-based editing | Descript |
+| Transcript-based editing | Descript (AI-native); DaVinci Resolve, FCP, Avid (in-NLE) |
 | Background music | Suno V5 |
 | Voice synthesis (short-form) | ElevenLabs or Fish Audio S2 |
 | Instructional talking-head video | Synthesia or HeyGen |
