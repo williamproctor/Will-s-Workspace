@@ -4,7 +4,11 @@
 
 In 1986, the Multilanguage Electronic Publishing System — MEPS — was the most advanced technology our organization had ever built. It could typeset dozens of scripts on a single machine, a genuine breakthrough at a time when most publishers couldn't handle more than one alphabet. A staff member marveled at the system and told a writer, "It's sure great that you have MEPS. Now writing must be easy for you." The writer had to gently correct the assumption: [people, not machines, do the writing](https://wol.jw.org/en/wol/d/r1/lp-e/101986170).¹
 
-That exchange happened in a world where the internet didn't exist, a "computer" meant a room-sized mainframe, and the idea of a machine generating video from a text prompt would have sounded like science fiction. Forty years later, the technology has leapt so far that MEPS would be unrecognizable — but the misunderstanding hasn't budged an inch. People still look at a powerful new tool and assume the hard part is over. It never is. The tool changes what's possible; it doesn't change what's difficult.
+That exchange happened in a world where the internet didn't exist, a "computer" meant a room-sized mainframe, and the idea of a machine generating video from a text prompt would have sounded like science fiction. But the staff member who assumed MEPS made writing easy missed something important. He didn't grasp what MEPS actually *meant*. It didn't eliminate hard work — it gave one person the capacity to do what previously required a hundred. A single operator could now typeset in dozens of languages. Not because the work was easier, but because the lever was longer.
+
+Forty years later, we are holding a much longer lever. At times, we may look at these tools and assume the hard part is over. It's not that the hard part is over — it's that the hard work is now capable of reaching further than we have ever imagined. What once took a team now takes an individual. What once took a department may soon take a team. The ceilings we've accepted as fixed are not fixed. They never were — we just didn't have the tools to test them.
+
+This report is a honest snapshot of where AI stands today in audio/video production. Some of what follows will feel limiting. Some of it will feel impossibly ahead of where we were a year ago. Both reactions are correct. But the real question is not "can AI do my job?" — it's "what could I accomplish if every repetitive hour in my week were returned to me?" That is the possibility worth examining.
 
 ---
 
