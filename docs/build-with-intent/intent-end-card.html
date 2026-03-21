@@ -25,7 +25,6 @@
     position: relative;
   }
 
-  /* Film grain overlay */
   body::after {
     content: '';
     position: fixed;
@@ -36,6 +35,12 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     background-size: 128px 128px;
     mix-blend-mode: overlay;
+    animation: grainDrift 0.8s steps(4) infinite;
+  }
+
+  @keyframes grainDrift {
+    0% { background-position: 0 0; }
+    100% { background-position: 128px 128px; }
   }
 
   .end-card {
@@ -45,7 +50,6 @@
     user-select: none;
   }
 
-  /* Warm glow behind the lockup */
   .glow {
     position: absolute;
     top: 50%;
@@ -75,60 +79,53 @@
     justify-content: center;
     gap: 0;
     line-height: 1;
-  }
-
-  .build-with {
     font-size: clamp(28px, 5vw, 64px);
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.92);
     letter-spacing: 0.04em;
-    text-transform: lowercase;
+    color: rgba(255, 248, 240, 0.95);
+  }
+
+  .word-build {
     opacity: 0;
     margin-right: 0.3em;
   }
 
-  .build-with.visible {
-    animation: fadeIn 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  .word-build.visible {
+    animation: fadeIn 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .intent-word {
-    display: inline-flex;
-    font-size: clamp(28px, 5vw, 64px);
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    line-height: 1;
-  }
-
-  .intent-word .letter {
+  .word-swap {
+    position: relative;
     display: inline-block;
-    color: rgba(255, 248, 240, 0.95);
+  }
+
+  .word-swap .phase-text {
     opacity: 0;
-    min-width: 0.05em;
-    text-align: center;
+    white-space: nowrap;
   }
 
-  .intent-word .letter.cycling {
+  .word-swap .phase-text.visible {
     opacity: 1;
-    color: rgba(255, 255, 255, 0.4);
   }
 
-  .intent-word .letter.settled {
-    opacity: 1;
-    color: rgba(255, 248, 240, 0.95);
+  .word-swap .phase-text.fade-out {
+    animation: fadeOutUp 0.5s cubic-bezier(0.4, 0, 1, 1) forwards;
   }
 
-  .intent-word .period {
-    color: rgba(255, 248, 240, 0.95);
+  .word-swap .phase-text.fade-in {
+    animation: fadeInDown 0.6s cubic-bezier(0, 0, 0.25, 1) forwards;
+  }
+
+  .period {
     opacity: 0;
   }
 
-  .intent-word .period.visible {
-    animation: fadeIn 0.3s ease forwards;
+  .period.visible {
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  .intent-accent {
+    color: #3ecf8e;
   }
 
   .url {
@@ -144,19 +141,24 @@
     animation: urlFade 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
   }
 
-  @keyframes urlFade {
-    from { opacity: 0; transform: translateY(6px); }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Animate grain position for liveliness */
-  @keyframes grainDrift {
-    0% { background-position: 0 0; }
-    100% { background-position: 128px 128px; }
+  @keyframes fadeOutUp {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-12px); }
   }
 
-  body::after {
-    animation: grainDrift 0.8s steps(4) infinite;
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes urlFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 </style>
 </head>
@@ -165,106 +167,59 @@
 <div class="end-card">
   <div class="glow" id="glow"></div>
   <div class="tagline">
-    <span class="build-with" id="buildWith">build with</span>
-    <span class="intent-word" id="intentWord"></span>
+    <span class="word-build" id="wordBuild">Build</span>
+    <span class="word-swap" id="wordSwap">
+      <span class="phase-text" id="phaseOne">Together</span>
+      <span class="phase-text" id="phaseTwo" style="position:absolute;left:0;top:0;">with <span class="intent-accent">Intent</span></span>
+    </span>
+    <span class="period" id="period">.</span>
   </div>
   <div class="url" id="url">intent.augmentcode.com</div>
 </div>
 
 <script>
 (function () {
-  const INTENT = 'Intent';
-  const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  const CYCLE_INTERVAL = 60;
-  const CYCLES_PER_LETTER = 5;
-  const STAGGER_DELAY = 120;
+  var wordBuild = document.getElementById('wordBuild');
+  var phaseOne  = document.getElementById('phaseOne');
+  var phaseTwo  = document.getElementById('phaseTwo');
+  var period    = document.getElementById('period');
+  var glow      = document.getElementById('glow');
+  var url       = document.getElementById('url');
 
-  const container = document.getElementById('intentWord');
-  const buildWith = document.getElementById('buildWith');
-  const glow = document.getElementById('glow');
-  const url = document.getElementById('url');
-
-  const letterEls = [];
-  for (let i = 0; i < INTENT.length; i++) {
-    const span = document.createElement('span');
-    span.className = 'letter';
-    span.textContent = '\u00A0';
-    span.dataset.target = INTENT[i];
-    span.dataset.index = i;
-    container.appendChild(span);
-    letterEls.push(span);
-  }
-
-  const period = document.createElement('span');
-  period.className = 'letter period';
-  period.textContent = '.';
-  container.appendChild(period);
-
-  function randomChar() {
-    return CHARS[Math.floor(Math.random() * CHARS.length)];
-  }
-
-  function animateLetters() {
-    let settledCount = 0;
-
-    letterEls.forEach((el, i) => {
-      const startDelay = i * STAGGER_DELAY;
-      const totalCycles = CYCLES_PER_LETTER + Math.floor(Math.random() * 3);
-      let cycleCount = 0;
-      let started = false;
-      let settled = false;
-      let lastCycleTime = 0;
-
-      function tick(timestamp) {
-        if (!started) {
-          started = true;
-          lastCycleTime = timestamp;
-          el.classList.add('cycling');
-        }
-
-        if (settled) return;
-
-        if (timestamp - lastCycleTime >= CYCLE_INTERVAL) {
-          lastCycleTime = timestamp;
-          cycleCount++;
-
-          if (cycleCount >= totalCycles) {
-            el.textContent = el.dataset.target;
-            el.classList.remove('cycling');
-            el.classList.add('settled');
-            settled = true;
-            settledCount++;
-            if (settledCount === letterEls.length) {
-              period.classList.add('visible');
-              setTimeout(() => glow.classList.add('visible'), 200);
-            }
-            return;
-          }
-
-          el.textContent = randomChar();
-        }
-
-        requestAnimationFrame(tick);
-      }
-
-      setTimeout(() => requestAnimationFrame(tick), startDelay);
-    });
-  }
-
-  // Phase 1: "Build with" fades in at 0.8s
-  setTimeout(() => {
-    buildWith.classList.add('visible');
+  // 0.8s — "Build" fades in
+  setTimeout(function () {
+    wordBuild.classList.add('visible');
   }, 800);
 
-  // Phase 2: Letter cycling starts at 1.5s
-  setTimeout(() => {
-    animateLetters();
-  }, 1500);
+  // 1.4s — "Together" fades in, period appears
+  setTimeout(function () {
+    phaseOne.classList.add('visible');
+    phaseOne.style.animation = 'fadeIn 0.6s cubic-bezier(0.25,0.1,0.25,1) forwards';
+    period.classList.add('visible');
+  }, 1400);
 
-  // Phase 4: URL fades in at 4.5s
-  setTimeout(() => {
+  // 3.2s — "Together" fades out upward
+  setTimeout(function () {
+    phaseOne.classList.add('fade-out');
+    period.style.opacity = '0';
+  }, 3200);
+
+  // 3.7s — "with Intent" fades in from below, period returns, glow starts
+  setTimeout(function () {
+    phaseOne.style.display = 'none';
+    phaseTwo.style.position = 'relative';
+    phaseTwo.classList.add('fade-in');
+    period.style.opacity = '0';
+    period.style.animation = 'fadeIn 0.4s ease 0.3s forwards';
+    setTimeout(function () {
+      glow.classList.add('visible');
+    }, 400);
+  }, 3700);
+
+  // 5.5s — URL fades in
+  setTimeout(function () {
     url.classList.add('visible');
-  }, 4500);
+  }, 5500);
 })();
 </script>
 </body>
