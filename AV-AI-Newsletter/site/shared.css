@@ -560,10 +560,11 @@ body {
 .research-card-title {
   font-size: clamp(22px, 2.5vw, 30px);
   font-weight: 800;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   line-height: 1.15;
   color: var(--white);
   margin-bottom: 14px;
+  word-spacing: 1px;
 }
 .research-card-desc {
   font-size: 14px;
@@ -920,9 +921,27 @@ body {
   .experiment-card-title { font-size: 18px; }
   .experiment-card-desc { font-size: 12px; }
   .footer { padding: 28px 16px; }
+  .report-hero-title { margin: 0 16px 8px; font-size: 24px; letter-spacing: -1px; }
   .pdf-download-bar { margin: 0 16px 16px; }
   .pdf-download-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
   .pdf-download-btn { width: 100%; text-align: center; }
+}
+
+/* ── Report Hero Title ── */
+.report-hero-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0 24px 8px;
+  padding-top: 8px;
+}
+.report-hero-dash {
+  color: var(--dispatch-blue);
+  font-weight: 400;
+  letter-spacing: 0;
+  margin: 0 2px;
 }
 
 /* ── PDF Download Bar ── */

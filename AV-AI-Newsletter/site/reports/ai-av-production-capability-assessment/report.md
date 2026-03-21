@@ -2,7 +2,9 @@
 
 > A quarterly assessment of what AI can and can't do in audio/video production. No hype. Just what works, what's close, and what's still a demo. This is the inaugural edition.
 
-In 1986, a headquarters staff member told a writer, "It's sure great that you have MEPS. Now writing must be easy for you." The writer had to explain that [people, not machines, do the writing](https://wol.jw.org/en/wol/d/r1/lp-e/101986170).¹ Forty years later, the technology is different, but the punchline is the same.
+In 1986, the Multilanguage Electronic Publishing System — MEPS — was the most advanced technology our organization had ever built. It could typeset dozens of scripts on a single machine, a genuine breakthrough at a time when most publishers couldn't handle more than one alphabet. A staff member marveled at the system and told a writer, "It's sure great that you have MEPS. Now writing must be easy for you." The writer had to gently correct the assumption: [people, not machines, do the writing](https://wol.jw.org/en/wol/d/r1/lp-e/101986170).¹
+
+That exchange happened in a world where the internet didn't exist, a "computer" meant a room-sized mainframe, and the idea of a machine generating video from a text prompt would have sounded like science fiction. Forty years later, the technology has leapt so far that MEPS would be unrecognizable — but the misunderstanding hasn't budged an inch. People still look at a powerful new tool and assume the hard part is over. It never is. The tool changes what's possible; it doesn't change what's difficult.
 
 ---
 
@@ -113,6 +115,8 @@ The most visible category — and the one with the widest gap between demos and 
 
 **The takeaway:** Use now for pre-vis, supplemental B-roll, and concept work. Don't ship AI-only video for anything requiring precise human representation.
 
+> *Also in this space:* Vidu (anime/stylized), Hailuo/MiniMax (motion quality), CapCut AI (consumer-grade), Genmo Mochi (open-source), Higgsfield, Haiper
+
 ---
 
 ## Video Editing & Post-Production
@@ -138,6 +142,8 @@ Where AI delivers the most immediate, measurable time savings today.
 - **Complex narrative editing.** Multi-act structures and parallel storylines — entirely human-driven.
 
 **The takeaway:** The strongest ROI in this entire report. If you edit spoken-word content, transcript-based editing alone justifies the tool cost.
+
+> *Also in this space:* VEED.IO (browser-based transcript editing), Choppity (podcast-focused), Flixier (browser-based with AI B-roll), PlayPlay (enterprise), ScreenApp, Mocha Pro 2026 (AI masking/tracking plugin for After Effects, Premiere, Nuke — $48/mo)
 
 ---
 
@@ -165,6 +171,8 @@ AI rotoscoping is the single most production-ready AI capability in all of VFX.
 
 **The takeaway:** Rotoscoping and simple compositing are ready to deploy today. Everything else still needs an artist in the loop.
 
+> *Also in this space:* Mocha Pro 2026/Boris FX (planar tracking, 3D camera solve), Runway Inpainting/Gen Remove, HitFilm (free VFX compositor)
+
 ---
 
 ## Animation
@@ -187,6 +195,8 @@ AI rotoscoping is the single most production-ready AI capability in all of VFX.
 - **Complex multi-character choreography.** Fight scenes, dance sequences, group conversations remain manual.
 
 **The takeaway:** Cascadeur and Rokoko are genuine time multipliers for blocking and cleanup. Final animation still needs human artistry.
+
+> *Also in this space:* DeepMotion (web-based markerless mocap), Move.ai (multi-person studio mocap), Plask (browser-based mocap + retargeting), Wonder Dynamics (body mocap in Wonder Studio), RADiCAL (phone/webcam mocap), KinectA.I., Motorica (game locomotion AI)
 
 ---
 
@@ -221,6 +231,8 @@ The category where AI most consistently passes for human output.
 
 **The takeaway:** For narration under 10 minutes, AI TTS is production-ready today. Voice cloning is viable for consistent brand voices. Premium dramatic performance still needs a human.
 
+> *Also in this space:* PlayHT 3.0 (ultra-low-latency streaming TTS), WellSaid Labs (enterprise brand voices), Murf.ai (studio-grade TTS), Resemble AI (voice cloning + deepfake detection), Coqui/XTTS (open-source multilingual), Tortoise TTS (open-source, slow but high quality), Bark (Suno's open-source TTS), Amazon Polly, Google Cloud TTS
+
 ---
 
 ## Music Generation
@@ -246,6 +258,8 @@ Purely AI-generated music (prompt-only, no human editing) likely cannot be copyr
 
 **The takeaway:** Strong for underscore and mood beds. Not a replacement for a composer when the music needs to be memorable.
 
+> *Also in this space:* Udio (comparable to Suno, stronger on vocals), AIVA (classical/orchestral focus, copyright-clear), Soundraw (customizable loops), Boomy (consumer-grade), Loudly, Beatoven.ai (mood-based scoring), Stability Audio (open-weight model), MusicFX (Google's experimental tool)
+
 ---
 
 ## Sound Design & SFX
@@ -263,6 +277,8 @@ Simple ambient textures, basic UI sounds, and atmospheric backgrounds. ElevenLab
 - **Cinematic sound design.** Simple whooshes and risers work. Complex, layered designs do not.
 
 **The takeaway:** Use for rapid prototyping. Keep your stock SFX library (Epidemic Sound, Artlist) and sound designer for anything that ships.
+
+> *Also in this space:* Stable Audio (Stability AI, text-to-audio), AudioCraft/AudioGen (Meta, open-source), Soundful, Splash Pro, MusicLM/SoundStorm (Google), Lovo SFX
 
 ---
 
@@ -284,6 +300,8 @@ The most production-ready AI audio category. If you adopt nothing else from this
 
 **The takeaway:** Audio post is where AI saves the most hours per dollar spent. iZotope RX 11 and Descript should be in every production toolkit.
 
+> *Also in this space:* Accusonus ERA Bundle (one-knob audio cleanup), Audo.ai (browser-based noise removal), Krisp (real-time noise cancellation), Auphonic (automated podcast mastering), LANDR (AI mastering), eMastered (AI mastering), Acon Digital (restoration plugins), CrumplePop (AI audio plugins for FCPX/Premiere), Moises.ai (stem separation)
+
 ---
 
 ## Dubbing & Localization
@@ -304,6 +322,8 @@ The most production-ready AI audio category. If you adopt nothing else from this
 - **Singing/musical numbers.** AI dubbing handles dialogue only.
 
 **The takeaway:** Viable now for corporate and instructional content with a human QA layer. Not ready for premium entertainment.
+
+> *Also in this space:* Translated (RWS/Papercup parent company), Dubverse.ai, Rask.ai (video-native dubbing), Flawless AI (TrueSync lip-sync for film), Camb.ai, AppTek, TransPerfect, AI Studios/DeepBrain AI
 
 ---
 
@@ -327,6 +347,8 @@ The most production-ready AI audio category. If you adopt nothing else from this
 
 This is a 4–5 tool pipeline. True end-to-end is not here yet.
 
+> *Also in this space:* Colossyan (enterprise avatar video), D-ID (live avatar API), Tavus (personalized video), Elai.io, Vidnoz, Hour One, DeepBrain AI, Runway Orchestration (emerging), Descript Storyboard (emerging)
+
 ---
 
 ## AI Agents for Production
@@ -335,6 +357,8 @@ AI agents work for structured, repeatable tasks (ingest → transcribe → tag �
 
 - **Make.com / n8n:** ~50% time reduction for trigger-based workflows. Reliable for template-based video creation and file routing.²⁷
 - **No agent is ready for autonomous production.** Every workflow needs human checkpoints.
+
+> *Also in this space:* Zapier (mainstream automation), Activepieces (open-source alternative to Make), Pipedream (developer-focused), Bardeen.ai (browser automation), CrewAI (multi-agent framework), LangChain/LangGraph (agent orchestration), AutoGen (Microsoft, multi-agent)
 
 ---
 
@@ -383,6 +407,8 @@ These are not autocomplete tools — they are agentic environments where you des
 
 **The takeaway:** IDE harnesses like Cursor and Windsurf are the fastest path to building internal tools and web platforms. Autonomous agents (Codex, Jules, Claude Code) handle well-defined tasks asynchronously. Neither replaces a developer — they replace the repetitive 70% of development work so your team can focus on the hard 30%.
 
+> *Also in this space:* GitHub Copilot (agent mode now available), JetBrains AI (Junie agent), Tabnine (enterprise-focused), Codeium (free tier), Replit Agent (full-stack from prompt), Bolt.new (Stackblitz), Lovable (UI-focused), Devin (Cognition, autonomous SWE), Sweep AI (junior dev tasks)
+
 ---
 
 ## Transcription & Captioning
@@ -396,6 +422,8 @@ The most mature AI category in production.
 | Deepgram Nova-3²⁹ | ~92% | $0.0043/min | Real-time (<300ms latency) |
 
 **Speaker diarization** remains the weak point: 85–90% accuracy in typical conditions, dropping to 75–80% with noise or 5+ speakers.
+
+> *Also in this space:* Rev.com (hybrid AI+human), Otter.ai (meeting transcription), Sonix, Trint (journalist-focused), Verbit (enterprise/legal), Speechmatics (on-prem option), Gladia (real-time API), Amazon Transcribe, Google Cloud Speech-to-Text, Transkriptor
 
 ---
 

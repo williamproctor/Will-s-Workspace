@@ -191,7 +191,7 @@
       letter-spacing: -1.2px;
       line-height: 1.15;
       color: var(--ink);
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
     .slide--content h3 em {
       font-style: normal;
@@ -199,7 +199,7 @@
     }
 
     /* ── COMMON ELEMENTS ── */
-    .cols { display: flex; gap: 48px; flex: 1; }
+    .cols { display: flex; gap: 40px; flex: 1; }
     .col { flex: 1; }
     .col--wide { flex: 1.4; }
 
@@ -207,11 +207,11 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
     ul.deck-list li {
-      font-size: 15px;
-      line-height: 1.55;
+      font-size: 14px;
+      line-height: 1.5;
       color: var(--ink-soft);
       padding-left: 18px;
       position: relative;
@@ -258,13 +258,13 @@
 
     .takeaway-box {
       margin-top: auto;
-      padding: 16px 20px;
+      padding: 14px 20px;
       background: var(--blue-pale);
       border-radius: 10px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       color: var(--blue-dark);
-      line-height: 1.55;
+      line-height: 1.5;
     }
     .takeaway-box strong { font-weight: 700; }
 
@@ -338,6 +338,19 @@
       text-align: right;
     }
 
+    .also-in-space {
+      font-size: 10px;
+      color: var(--ink-faint);
+      margin-top: 10px;
+      line-height: 1.45;
+      padding-top: 8px;
+      border-top: 1px solid #f0ece4;
+    }
+    .also-in-space strong {
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
     .print-hint {
       text-align: center;
       font-size: 12px;
@@ -366,7 +379,7 @@
 <section class="slide slide--content">
   <div class="slide-label">The Punchline</div>
   <h3>40 Years Later, the Same Lesson</h3>
-  <div class="blurb">In 1986, a headquarters staff member told a writer, "It's sure great that you have MEPS. Now writing must be easy for you." The writer had to explain that people, not machines, do the writing. Forty years later, the technology is different, but the punchline is the same.</div>
+  <div class="blurb">In 1986, MEPS was the most advanced technology our organization had ever built — typesetting dozens of scripts when most publishers couldn't handle two. A staff member told a writer, "Now writing must be easy for you." The writer gently corrected: people, not machines, do the writing. That was a world without the internet, where "computer" meant a room-sized mainframe. Forty years later, the technology has leapt beyond recognition — but the misunderstanding hasn't budged an inch.</div>
 
   <div class="stat-row">
     <div class="stat-card">
@@ -415,6 +428,9 @@
       </ul>
     </div>
   </div>
+  <div class="takeaway-box" style="margin-top: auto;">
+    Every section below follows the same structure: <strong>what's ready, what's close, what's not there yet</strong>, and a one-line recommendation.
+  </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
     <span>3</span>
@@ -448,7 +464,8 @@
       <p style="font-size: 13px; color: var(--ink-faint); font-style: italic;">"Fix the audio sync bug, run the tests, open a PR."</p>
     </div>
   </div>
-  <div class="stat-row" style="margin-top: auto;">
+  <p style="font-size: 14px; color: var(--ink-muted); margin-top: auto; margin-bottom: 20px; line-height: 1.6;">Most AV teams will interact with these models as <strong style="color: var(--ink);">chatbots first</strong> (research, brainstorming, drafting) and as <strong style="color: var(--ink);">agents later</strong> (automating workflows, building tools).</p>
+  <div class="stat-row">
     <div class="stat-card">
       <div class="stat-num" style="font-size: 24px;">Chatbot</div>
       <div class="stat-label">Responds to messages</div>
@@ -498,18 +515,18 @@
   <div class="slide-label">The Basics</div>
   <h3>Why This Matters for <em>AV Production</em></h3>
   <p style="font-size: 15px; color: var(--ink-muted); margin-bottom: 24px; line-height: 1.6;">Every specialized AI tool in this report connects back to a frontier LLM in one of three ways:</p>
-  <div class="stat-row">
-    <div class="stat-card">
-      <div class="stat-num" style="font-size: 20px;">Built on</div>
-      <div class="stat-label" style="font-size: 12px; margin-top: 6px;">Descript uses Whisper for transcription. ElevenLabs uses custom models for voice.</div>
+  <div class="stat-row" style="margin-bottom: 0;">
+    <div class="stat-card" style="text-align: left; padding: 24px;">
+      <div class="stat-num" style="font-size: 18px; margin-bottom: 8px;">Built on</div>
+      <div class="stat-label" style="font-size: 13px; line-height: 1.55;">Descript uses Whisper for transcription. ElevenLabs uses custom models for voice synthesis.</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-num" style="font-size: 20px;">Orchestrated by</div>
-      <div class="stat-label" style="font-size: 12px; margin-top: 6px;">AI agents use Claude or GPT to plan and execute multi-step production workflows.</div>
+    <div class="stat-card" style="text-align: left; padding: 24px;">
+      <div class="stat-num" style="font-size: 18px; margin-bottom: 8px;">Orchestrated by</div>
+      <div class="stat-label" style="font-size: 13px; line-height: 1.55;">AI agents use Claude or GPT to plan and execute multi-step production workflows.</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-num" style="font-size: 20px;">Enhanced by</div>
-      <div class="stat-label" style="font-size: 12px; margin-top: 6px;">Cursor uses Claude/GPT to understand your codebase and write internal tools.</div>
+    <div class="stat-card" style="text-align: left; padding: 24px;">
+      <div class="stat-num" style="font-size: 18px; margin-bottom: 8px;">Enhanced by</div>
+      <div class="stat-label" style="font-size: 13px; line-height: 1.55;">Cursor uses Claude/GPT to understand your codebase and write internal tools.</div>
     </div>
   </div>
   <div class="takeaway-box" style="margin-top: auto;">
@@ -548,6 +565,8 @@
       <tr><td>Luma Ray 3.14</td><td>1080p native</td><td>5–10s (ext. 30s)</td><td>Moderate</td><td>Enterprise</td></tr>
     </tbody>
   </table>
+  <p style="font-size: 13px; color: var(--ink-muted); margin-top: 24px; line-height: 1.6;">All tools produce usable results for short clips. The differences emerge in duration, consistency across shots, and physics simulation. Image-to-video consistently outperforms text-to-video across every platform.</p>
+  <p class="also-in-space"><strong>Also in this space:</strong> Vidu · Hailuo/MiniMax · CapCut AI · Genmo Mochi · Higgsfield · Haiper</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
     <span>9</span>
@@ -635,6 +654,7 @@
   <div class="takeaway-box">
     <strong>Takeaway:</strong> The strongest ROI in this entire report. Transcript-based editing alone justifies the tool cost.
   </div>
+  <p class="also-in-space"><strong>Also in this space:</strong> VEED.IO · Choppity · Flixier · PlayPlay · ScreenApp · Mocha Pro 2026</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
     <span>12</span>
@@ -689,6 +709,7 @@
   <div class="takeaway-box">
     <strong>Takeaway:</strong> Rotoscoping and mocap cleanup are deploy-today tools. Final artistry still needs humans.
   </div>
+  <p class="also-in-space"><strong>Also in this space:</strong> VFX: Mocha Pro/Boris FX · Runway Inpainting · HitFilm &nbsp;|&nbsp; Animation: DeepMotion · Move.ai · Plask · RADiCAL · Motorica</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
     <span>14</span>
@@ -739,6 +760,7 @@
   <div class="takeaway-box">
     <strong>Takeaway:</strong> AI TTS is production-ready for narration under 10 minutes. Premium dramatic performance still needs a human.
   </div>
+  <p class="also-in-space"><strong>Also in this space:</strong> PlayHT 3.0 · WellSaid Labs · Murf.ai · Resemble AI · Coqui/XTTS · Bark · Tortoise TTS · Amazon Polly · Google Cloud TTS</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
     <span>16</span>
@@ -746,27 +768,27 @@
 </section>
 
 <!-- ═══════════ SLIDE 17: MUSIC + SFX + AUDIO POST ═══════════ -->
-<section class="slide slide--content">
+<section class="slide slide--content" style="padding: 48px 72px;">
   <div class="slide-label">Audio</div>
-  <h3>Music, SFX & <em>Audio Post</em></h3>
-  <div class="cols">
+  <h3 style="margin-bottom: 20px;">Music, SFX & <em>Audio Post</em></h3>
+  <div class="cols" style="gap: 40px;">
     <div class="col">
-      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">Music Generation</p>
-      <ul class="deck-list" style="margin-bottom: 16px;">
+      <p style="font-weight: 700; font-size: 13px; color: var(--ink); margin-bottom: 8px;">Music Generation</p>
+      <ul class="deck-list" style="margin-bottom: 14px; gap: 9px;">
         <li><span class="badge badge--green">Ready</span> <strong>Background music & underscore</strong> — Suno V5, 48kHz, 7M tracks/day</li>
         <li><span class="badge badge--amber">Close</span> Full songs — vocals drift, structures collapse</li>
         <li><span class="badge badge--red">Not Yet</span> Distinctive compositional voice</li>
       </ul>
-      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">Sound Design & SFX</p>
-      <ul class="deck-list">
+      <p style="font-weight: 700; font-size: 13px; color: var(--ink); margin-bottom: 8px;">Sound Design & SFX</p>
+      <ul class="deck-list" style="gap: 9px;">
         <li><span class="badge badge--green">Ready</span> Simple ambience, UI sounds, atmospheres</li>
         <li><span class="badge badge--red">Not Yet</span> Foley, cinematic sound design, anything that ships</li>
       </ul>
     </div>
     <div class="col">
-      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">Audio Post-Production</p>
-      <p style="font-size: 13px; color: var(--ink-muted); margin-bottom: 10px;">The most production-ready AI audio category.</p>
-      <ul class="deck-list deck-list--green">
+      <p style="font-weight: 700; font-size: 13px; color: var(--ink); margin-bottom: 8px;">Audio Post-Production</p>
+      <p style="font-size: 12px; color: var(--ink-muted); margin-bottom: 8px;">The most production-ready AI audio category.</p>
+      <ul class="deck-list deck-list--green" style="gap: 9px;">
         <li><strong>Noise removal (iZotope RX 11)</strong> — industry gold standard</li>
         <li><strong>Speech enhancement (Adobe Podcast)</strong> — free (1hr/day)</li>
         <li><strong>10-stem separation (LALAL.AI)</strong> — 14.8M hours processed</li>
@@ -777,6 +799,7 @@
   <div class="takeaway-box">
     <strong>Takeaway:</strong> Audio post saves the most hours per dollar. iZotope RX 11 and Descript belong in every toolkit.
   </div>
+  <p class="also-in-space"><strong>Also:</strong> Music: Udio · AIVA · Soundraw · Beatoven.ai &nbsp;|&nbsp; SFX: Stable Audio · AudioGen &nbsp;|&nbsp; Post: Accusonus ERA · Audo.ai · Krisp · Auphonic · Moises.ai</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
     <span>17</span>
@@ -826,6 +849,10 @@
       <p style="font-size: 13px; color: var(--ink-muted); margin-top: 16px; line-height: 1.55;"><strong style="color: var(--ink);">Realistic pipeline:</strong> Script (LLM) → Video (Synthesia/Runway) → Audio (ElevenLabs) → Edit (NLE/Descript) → Deliver</p>
     </div>
   </div>
+  <div class="takeaway-box">
+    <strong>Takeaway:</strong> Viable now for informational content with human QA. True end-to-end is a 4–5 tool pipeline — no single platform handles it all.
+  </div>
+  <p class="also-in-space"><strong>Also:</strong> Dubbing: Rask.ai · Flawless AI · Dubverse · Camb.ai &nbsp;|&nbsp; Platforms: Colossyan · D-ID · Tavus · Elai.io &nbsp;|&nbsp; Agents: Zapier · Activepieces · CrewAI · LangChain</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
     <span>19</span>
@@ -855,7 +882,7 @@
       <tr><td>Google Antigravity</td><td>Agent-first: plan → execute → test → verify across editor, terminal, browser</td><td>Free preview</td></tr>
     </tbody>
   </table>
-  <p style="font-size: 13px; color: var(--ink-muted); margin-bottom: 16px;">These are not autocomplete tools — they are agentic environments where you describe intent and the AI plans, writes, tests, and debugs. Over half the Fortune 500 use Cursor alone.</p>
+  <p style="font-size: 12px; color: var(--ink-muted); margin-bottom: 20px; line-height: 1.55;">Not autocomplete — agentic environments where you describe intent and the AI plans, writes, tests, and debugs. Over half the Fortune 500 use Cursor.</p>
   <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 10px;">Autonomous Agents — No IDE Required</p>
   <table class="deck-table">
     <thead><tr><th>Agent</th><th>How It Works</th><th>Access</th></tr></thead>
@@ -898,6 +925,7 @@
   <div class="takeaway-box">
     <strong>Takeaway:</strong> IDE harnesses (Cursor, Windsurf) are the fastest path to internal tools. Autonomous agents (Codex, Jules) handle well-scoped tasks async. Neither replaces a developer — they replace the repetitive 70%.
   </div>
+  <p class="also-in-space"><strong>Also in this space:</strong> GitHub Copilot · JetBrains AI (Junie) · Tabnine · Codeium · Replit Agent · Bolt.new · Lovable · Devin · Sweep AI</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
     <span>22</span>
@@ -909,18 +937,34 @@
   <div class="slide-label">Transcription</div>
   <h3>Transcription & <em>Captioning</em></h3>
   <p style="font-size: 15px; color: var(--ink-muted); margin-bottom: 24px;">The most mature AI category in production.</p>
-  <table class="deck-table" style="max-width: 800px;">
-    <thead><tr><th>Provider</th><th>English Accuracy</th><th>Price/Min</th><th>Best For</th></tr></thead>
-    <tbody>
-      <tr><td>AssemblyAI Universal-3 Pro</td><td>94.1%</td><td>$0.0035</td><td>Audio intelligence, PII redaction</td></tr>
-      <tr><td>OpenAI Whisper</td><td>~92%</td><td>$0.006</td><td>Budget batch, 100+ languages</td></tr>
-      <tr><td>Deepgram Nova-3</td><td>~92%</td><td>$0.0043</td><td>Real-time (&lt;300ms latency)</td></tr>
-    </tbody>
-  </table>
-  <p style="font-size: 14px; color: var(--ink-muted); margin-top: 20px;"><strong style="color: var(--ink);">Weak point:</strong> Speaker diarization — 85–90% in good conditions, 75–80% with noise or 5+ speakers.</p>
+  <div class="cols">
+    <div class="col col--wide">
+      <table class="deck-table">
+        <thead><tr><th>Provider</th><th>Accuracy</th><th>Price/Min</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr><td>AssemblyAI Universal-3 Pro</td><td>94.1%</td><td>$0.0035</td><td>Audio intelligence, PII redaction</td></tr>
+          <tr><td>OpenAI Whisper</td><td>~92%</td><td>$0.006</td><td>Budget batch, 100+ languages</td></tr>
+          <tr><td>Deepgram Nova-3</td><td>~92%</td><td>$0.0043</td><td>Real-time (&lt;300ms latency)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 12px;">Key Strengths</p>
+      <ul class="deck-list deck-list--green" style="margin-bottom: 20px;">
+        <li><strong>92–95% accuracy</strong> for clear English across all providers</li>
+        <li><strong>Real-time</strong> transcription under 300ms latency</li>
+        <li><strong>100+ languages</strong> supported by Whisper</li>
+      </ul>
+      <p style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 12px;">Weak Point</p>
+      <ul class="deck-list deck-list--red">
+        <li><strong>Speaker diarization</strong> — 85–90% in good conditions, drops to 75–80% with noise or 5+ speakers</li>
+      </ul>
+    </div>
+  </div>
   <div class="takeaway-box" style="margin-top: auto;">
     <strong>Takeaway:</strong> Transcription is solved for most use cases. Budget under $1/hour for enterprise-grade accuracy.
   </div>
+  <p class="also-in-space"><strong>Also in this space:</strong> Rev.com · Otter.ai · Sonix · Trint · Verbit · Speechmatics · Gladia · Amazon Transcribe · Google Cloud STT · Transkriptor</p>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
     <span>23</span>
@@ -988,11 +1032,11 @@
         <li>Automated editorial decision-making</li>
         <li>AI text rendering within generated video</li>
         <li>Unsupervised VFX compositing</li>
+        <li>AI-only character animation for broadcast</li>
       </ul>
     </div>
     <div class="col">
       <ul class="deck-list deck-list--red">
-        <li>AI-only character animation for broadcast</li>
         <li>Fully autonomous production agents for creative work</li>
         <li>AI music as hero content</li>
         <li>AI sound effects for final delivery</li>
@@ -1000,8 +1044,12 @@
       </ul>
     </div>
   </div>
-  <div class="takeaway-box" style="margin-top: auto;">
-    <strong>Shelf life:</strong> This assessment is useful for roughly 3–6 months. The Q2 2026 edition will follow.
+  <div style="margin-top: auto;">
+    <p style="font-family: var(--mono); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 10px; font-weight: 500;">Methodology</p>
+    <p style="font-size: 13px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 16px;">Based on manufacturer documentation, third-party benchmarks (Artificial Analysis), trade press, enterprise case studies, and 41 independent references. Where marketing claims conflict with testing, the conservative position is taken.</p>
+    <div class="takeaway-box">
+      <strong>Shelf life:</strong> Roughly 3–6 months. The Q2 2026 edition will follow.
+    </div>
   </div>
   <div class="slide-footer">
     <span>The AV AI Production Index — Q1 2026</span>
