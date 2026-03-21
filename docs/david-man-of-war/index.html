@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAVID: MAN OF WAR — Pre-Production Package</title>
+<meta property="og:title" content="DAVID: MAN OF WAR — Pre-Production Package">
+<meta property="og:description" content="A concept trailer reimagining the life of King David with the epic scale of Denis Villeneuve's Dune.">
+<meta property="og:image" content="storyboard/shot-01.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050505;
+    --surface: #101010;
+    --surface-raised: #181818;
+    --border: #2a2218;
+    --border-accent: #403020;
+    --text-primary: #f0ebd8;
+    --text-secondary: #9c9284;
+    --text-muted: #6b6356;
+    --accent: #d4af37;
+    --accent-dim: #997e28;
+    --accent-glow: rgba(212, 175, 55, 0.08);
+    --red: #8b0000;
+    --green: #5a7051;
+    --blue: #4a6a8a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-accent) var(--bg);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- NAVIGATION --- */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav .brand {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.1rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  nav .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  nav .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  nav .nav-links a:hover { color: var(--text-primary); }
+
+  /* --- HERO --- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero .overline {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    max-width: 900px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .hero .meta-row {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .meta-item .label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .meta-item .value {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  /* --- SECTIONS --- */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 4rem;
+  }
+
+  section + section {
+    border-top: 1px solid var(--border);
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-header .overline {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text-primary);
+    max-width: 600px;
+  }
+
+  .section-header p {
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    max-width: 550px;
+    font-size: 0.95rem;
+  }
+
+  /* --- SCRIPT BREAKDOWN --- */
+  .script-structure {
+    display: grid;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .script-block {
+    display: grid;
+    grid-template-columns: 200px 1fr 100px;
+    background: var(--surface);
+    padding: 1.5rem 2rem;
+    align-items: start;
+    gap: 2rem;
+    transition: background 0.2s;
+  }
+
+  .script-block:hover {
+    background: var(--surface-raised);
+  }
+
+  .script-block .block-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--accent);
+    padding-top: 0.15rem;
+  }
+
+  .script-block .block-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .script-block .block-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: right;
+    padding-top: 0.15rem;
+  }
+
+  /* --- SHOT LIST --- */
+  .shot-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .shot-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .shot-card:hover {
+    border-color: var(--border-accent);
+  }
+
+  .shot-card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 220px;
+  }
+
+  .shot-visual {
+    background: var(--surface-raised);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+  }
+
+  .shot-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+
+  .shot-visual .frame-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.5) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .shot-visual .frame-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    position: absolute;
+    top: 1rem;
+    left: 1.2rem;
+    z-index: 2;
+  }
+
+  .shot-visual .aspect-badge {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.3);
+  }
+
+  .shot-details {
+    padding: 1.8rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .shot-details .shot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .shot-details h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .shot-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .tag-hero { background: rgba(212, 175, 55, 0.15); color: var(--accent); }
+  .tag-broll { background: rgba(139, 0, 0, 0.15); color: #ff6b6b; }
+  .tag-title { background: rgba(255, 255, 255, 0.1); color: #ccc; }
+
+  .shot-details .description {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.7;
+    flex-grow: 1;
+  }
+
+  .shot-details .camera-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .shot-prompt-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    width: fit-content;
+  }
+
+  .shot-prompt-toggle:hover {
+    border-color: var(--accent-dim);
+    color: var(--accent);
+  }
+
+  .shot-prompt {
+    display: none;
+    background: rgba(212, 175, 55, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .shot-prompt.visible { display: block; }
+
+  /* --- FOOTER --- */
+  footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer .footer-brand {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+  }
+
+  footer .footer-meta {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">David: Man of War</div>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#structure">Structure</a></li>
+    <li><a href="#shots">Shot List</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="overview">
+  <div class="overline">Pre-Production Package</div>
+  <h1>David: <em>Man of War</em></h1>
+  <p class="subtitle">A concept trailer reimagining the life of King David with the epic, brutal, and imposing scale of Denis Villeneuve's Dune. An unflinching look at the burden of the crown and the cost of blood.</p>
+  <div class="meta-row">
+    <div class="meta-item">
+      <span class="label">Project</span>
+      <span class="value">Concept Trailer</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Runtime</span>
+      <span class="value">~1:30 minutes</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Style</span>
+      <span class="value">Epic Cinematic</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Inspiration</span>
+      <span class="value">Dune Part 3 Teaser</span>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT STRUCTURE -->
+<section id="structure">
+  <div class="section-header">
+    <div class="overline">01 — Script Structure</div>
+    <h2>The Arc</h2>
+    <p>Mapping the explicit structure of the Dune Part 3 Teaser to the life and biblical accounts of King David.</p>
+  </div>
+
+  <div class="script-structure" style="margin-top: 3rem;">
+    <div class="script-block">
+      <div class="block-name">1. THE NEW EMPIRE</div>
+      <div class="block-desc">A sweeping, high-angle wide shot of the capital city. The united armies of Israel in rigid formation. Establishing the massive scale of David's kingdom. (2 Samuel 5:6-10)</div>
+      <div class="block-time">10s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">2. THE KING'S BURDEN</div>
+      <div class="block-desc">David on his throne in a dimly lit, vast room. He looks older, tired, and heavily burdened by his rule and the endless bloodshed. (1 Chronicles 22:8)</div>
+      <div class="block-time">15s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">3. GHOST OF THE PAST</div>
+      <div class="block-desc">A solitary figure in the wilderness. Michal looking betrayed, turning away into the harsh desert winds. The human cost of the protagonist's choices. (2 Samuel 6:20-23)</div>
+      <div class="block-time">12s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">4. THE SCHEMER</div>
+      <div class="block-desc">An eerie, intimate close-up of Absalom, looking dangerously handsome, calculating in the shadows of the palace. An inner-circle threat. (2 Samuel 15:1-6)</div>
+      <div class="block-time">10s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">5. VISIONS OF WARFARE</div>
+      <div class="block-desc">Rapid montage. Chariots burning, hand-to-hand combat against the Philistines. Violent bursts of bronze, dust, and blood. (2 Samuel 8)</div>
+      <div class="block-time">25s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">6. THE TRAGIC PATH</div>
+      <div class="block-desc">Slow-motion, wide tracking shot on the palace roof at sunset. David looking out over the city. Bathsheba in the distance. The inevitable fall. (2 Samuel 11:2)</div>
+      <div class="block-time">12s</div>
+    </div>
+    <div class="script-block">
+      <div class="block-name">7. TITLE CARD</div>
+      <div class="block-desc">Pitch-black screen. Thundering sound effect. The words fade in glowing with a fiery orange aura before fading to black.</div>
+      <div class="block-time">6s</div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOT LIST -->
+<section id="shots">
+  <div class="section-header">
+    <div class="overline">02 — Shot List & Storyboard</div>
+    <h2>Frame by Frame</h2>
+    <p>AI-generated storyboard frames capturing the mood, lighting, and composition of the Dune cinematic universe.</p>
+  </div>
+
+  <div class="shot-grid" id="shotGrid">
+    <!-- Shots injected by JS -->
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">David: Man of War — Concept Pitch</div>
+  <div class="footer-meta">Reimagining Biblical Epics</div>
+</footer>
+
+<script>
+const shots = [
+  {
+    num: "01",
+    name: "The New Empire (Conquered Jerusalem)",
+    type: "hero",
+    duration: "10 sec",
+    description: "A sweeping, high-angle wide shot of the capital city. The color palette is dominated by harsh, golden sunlight and deep, stark shadows. Architecture is ancient monumental stone. Thousands of armored soldiers in rigid, militaristic formation below.",
+    camera: "High-angle wide shot, slow push-in over the city.",
+    prompt: "Cinematic high-angle wide shot of an ancient stone city (Jerusalem). Harsh, golden sunlight and deep, stark shadows. Massive banners with a Lion motif hanging from monumental, ancient brutalist stone structures. Thousands of bronze-armored soldiers in rigid, militaristic formation below in a grand courtyard. The energy is oppressive, grand, and foreboding. Denis Villeneuve Dune cinematic style, documentary cinematography, 16:9 aspect ratio, film grain."
+  },
+  {
+    num: "02",
+    name: "The King's Burden",
+    type: "hero",
+    duration: "15 sec",
+    description: "A medium close-up shot set in a dimly lit, vast throne room. Heavy contrast in the lighting features a single shaft of light illuminating the throne. David looks visibly older, tired, and heavily burdened by his rule.",
+    camera: "Medium close-up, static, high contrast lighting.",
+    prompt: "Cinematic medium close-up of a middle-aged, battle-weary King in ancient Israel sitting on an ancient stone throne in a dimly lit, vast room. Heavy contrast lighting, a single shaft of light illuminates the throne from above, leaving the edges in darkness. He is dressed in dark, ornate ancient robes, resting his head on his hand in a gesture of deep contemplation and sorrow. Melancholic and tense mood. Denis Villeneuve Dune cinematic style, documentary cinematography, 16:9 aspect ratio, film grain."
+  },
+  {
+    num: "03",
+    name: "Ghost of the Past (Michal)",
+    type: "broll",
+    duration: "12 sec",
+    description: "An extreme wide shot of the deep desert or rocky wilderness. The color shifts to a washed-out, dusty orange. A solitary woman stands alone, looking back over her shoulder with an expression mixing anger and betrayal.",
+    camera: "Extreme wide shot, lateral tracking.",
+    prompt: "Cinematic extreme wide shot of a dusty, rocky wilderness. The color shifts to a washed-out, dusty orange. A solitary woman in ancient desert survival gear stands alone on a rocky ridge. She is looking back over her shoulder, her eyes striking through the dusty air, expression mixing anger and betrayal. Defiant and isolated mood. Denis Villeneuve Dune cinematic style, documentary cinematography, 16:9 aspect ratio, film grain."
+  },
+  {
+    num: "04",
+    name: "The Schemer (Absalom)",
+    type: "broll",
+    duration: "10 sec",
+    description: "A shadowy, intimate close-up. The lighting is eerie and cold. A beautiful but dangerous young man turns his head slightly toward the camera, giving a faint, unsettling smirk.",
+    camera: "Intimate close-up, slow push-in.",
+    prompt: "Cinematic shadowy, intimate close-up of a young, extraordinarily handsome ancient prince with long, thick hair. He is dressed in dark and intricate ancient royal clothing. Eerie, cold lighting contrasting with warm desert tones. He is turning his head slightly toward the camera with a faint, unsettling, calculating smirk. Sinister and unpredictable mood. Denis Villeneuve Dune cinematic style, documentary cinematography, 16:9 aspect ratio, film grain."
+  },
+  {
+    num: "05",
+    name: "Visions of Warfare",
+    type: "broll",
+    duration: "25 sec",
+    description: "A rapid montage of quick, chaotic cuts. Explosions of dust, brutal hand-to-hand combat, chariots, and King David leading the charge. Violent bursts of fire-orange, deep blacks, and harsh silvers.",
+    camera: "Rapid cuts, chaotic handheld motion.",
+    prompt: "Cinematic rapid, chaotic mid-shot of a brutal, ancient hand-to-hand combat sequence. Flashes of massive explosions of dust, burning wooden chariots, and warriors swarming heavily armored ancient soldiers. Violent bursts of fire-orange, deep blacks, and harsh silvers. A fierce king leading the charge with a bloodied bronze sword. Terrifying, violent, and chaotic mood. Denis Villeneuve Dune cinematic style, documentary cinematography, 16:9 aspect ratio, film grain."
+  },
+  {
+    num: "06",
+    name: "The Tragic Path (Bathsheba)",
+    type: "hero",
+    duration: "12 sec",
+    description: "A slow-motion, wide tracking shot on a massive balcony overlooking the city at sunset. Dramatic shadows. David looks out, whispering something. In the background, the silhouette of a woman.",
+    camera: "Slow-motion, wide tracking shot, deep focus.",
+    prompt: "Cinematic slow-motion, wide tracking shot on a massive stone palace balcony overlooking the ancient city and desert. A beautiful, tragic sunset casts long, dramatic shadows. A king stands looking out over the city. In the far, blurred background, the faint silhouette of a woman. Somber, inevitable, and fateful mood. Denis Villeneuve Dune cinematic style, documentary cinematography, 16:9 aspect ratio, film grain."
+  }
+];
+
+function getTypeTag(type) {
+  const map = {
+    hero: '<span class="shot-tag tag-hero">Hero Shot</span>',
+    broll: '<span class="shot-tag tag-broll">Action / B-Roll</span>',
+    title: '<span class="shot-tag tag-title">Title Card</span>'
+  };
+  return map[type] || '';
+}
+
+function renderShots() {
+  const grid = document.getElementById('shotGrid');
+  grid.innerHTML = shots.map((shot, i) => {
+    return `<div class="shot-card">
+      <div class="shot-card-inner">
+        <div class="shot-visual">
+           <img src="storyboard/shot-${shot.num}.png" alt="Storyboard frame ${shot.num}: ${shot.name}" loading="lazy" onerror="this.src='https://placehold.co/1376x768/101010/333333?text=Frame+Generation+Pending'">
+           <div class="frame-overlay"></div>
+           <span class="frame-label">Frame ${shot.num}</span>
+           <span class="aspect-badge">16:9</span>
+         </div>
+        <div class="shot-details">
+          <div class="shot-header">
+            <h4>${shot.name}</h4>
+            <div style="display:flex;gap:0.8rem;align-items:center;">
+              <span style="font-family:'JetBrains Mono', monospace; font-size:0.65rem; color:var(--text-muted);">${shot.duration}</span>
+              ${getTypeTag(shot.type)}
+            </div>
+          </div>
+          <p class="description">${shot.description}</p>
+          <p class="camera-note">CAM: ${shot.camera}</p>
+          <button class="shot-prompt-toggle" onclick="togglePrompt(${i})">Show Prompt</button>
+          <div class="shot-prompt" id="prompt-${i}">${shot.prompt}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function togglePrompt(index) {
+  const el = document.getElementById(`prompt-${index}`);
+  const btn = el.previousElementSibling;
+  el.classList.toggle('visible');
+  btn.textContent = el.classList.contains('visible') ? 'Hide Prompt' : 'Show Prompt';
+}
+
+renderShots();
+</script>
+
+</body>
+</html>
