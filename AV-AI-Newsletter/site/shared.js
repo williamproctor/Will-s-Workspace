@@ -7,7 +7,7 @@ function buildPodcastPlayer(audioSrc, title) {
         <svg viewBox="0 0 24 24" id="podcastPlayIcon"><polygon points="6,3 20,12 6,21"/></svg>
       </button>
       <div class="podcast-info">
-        <div class="podcast-label">NotebookLM Podcast</div>
+        <div class="podcast-label">Audio Summary</div>
         <div class="podcast-title">${title}</div>
         <div class="podcast-progress-wrap">
           <span class="podcast-time" id="podcastCurrent">0:00</span>
@@ -29,7 +29,7 @@ function buildPodcastMissing() {
   return `
     <div class="podcast-player-missing">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 1.5"/></svg>
-      <p>The audio podcast for this edition is being generated and will appear here soon.</p>
+      <p>The audio summary for this edition is being generated and will appear here soon.</p>
     </div>`;
 }
 
