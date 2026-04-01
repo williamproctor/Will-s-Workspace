@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Engine — Sales Enablement Video Pre-Production</title>
+<meta property="og:title" content="The Engine — GrowthX Sales Enablement Video">
+<meta property="og:description" content="60–90 second narrated video for the sales deck. Matthew Panzarino introduces the GrowthX content engine.">
+<meta property="og:image" content="https://williamproctor.github.io/Will-s-Workspace/sales-enablement-video/storyboard/shot-01.png">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Engine — GrowthX Sales Enablement Video">
+<meta name="twitter:description" content="60–90 second narrated video for the sales deck. Matthew Panzarino introduces the GrowthX content engine.">
+<meta name="twitter:image" content="https://williamproctor.github.io/Will-s-Workspace/sales-enablement-video/storyboard/shot-01.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --bg-warm: #f5f3ef;
+    --surface: #ffffff;
+    --surface-raised: #f0eeea;
+    --border: #e5e2dd;
+    --border-accent: #d0cdc7;
+    --text-primary: #1a1a1a;
+    --text-secondary: #5a5856;
+    --text-muted: #8a8784;
+    --accent: #1a1a1a;
+    --accent-soft: #3a3a3a;
+    --accent-glow: rgba(26, 26, 26, 0.04);
+    --green: #1a7a3a;
+    --green-bg: rgba(26, 122, 58, 0.08);
+    --blue: #2a5a8a;
+    --blue-bg: rgba(42, 90, 138, 0.08);
+    --gold: #8a7040;
+    --gold-bg: rgba(138, 112, 64, 0.08);
+    --red: #9a3a2a;
+    --red-bg: rgba(154, 58, 42, 0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-accent) var(--bg);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- NAVIGATION --- */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    background: rgba(250, 249, 246, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  nav .brand img {
+    height: 22px;
+    width: auto;
+    display: block;
+  }
+
+  nav .brand span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0;
+  }
+
+  nav .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  nav .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  nav .nav-links a:hover { color: var(--text-primary); }
+
+  /* --- AMBIENT PLAYER BAR --- */
+  .ambient-player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.55rem 2rem;
+    background: rgba(26, 26, 26, 0.95);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    user-select: none;
+  }
+
+  .ambient-player:hover {
+    background: rgba(26, 26, 26, 1);
+  }
+
+  .ambient-player.is-playing {
+    background: rgba(26, 26, 26, 0.9);
+  }
+
+  .ambient-player .play-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+
+  .ambient-player .play-icon svg {
+    width: 8px;
+    height: 8px;
+    fill: rgba(255,255,255,0.5);
+  }
+
+  .ambient-player .play-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    transition: opacity 0.3s;
+  }
+
+  .ambient-player .eq-bars {
+    display: none;
+    gap: 2px;
+    align-items: flex-end;
+    height: 12px;
+  }
+
+  .ambient-player.is-playing .eq-bars { display: flex; }
+  .ambient-player.is-playing .play-icon { display: none; }
+  .ambient-player.is-playing .play-label { opacity: 0.5; }
+
+  .eq-bar {
+    width: 2px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 1px;
+    animation: eq-bounce 0.8s ease-in-out infinite alternate;
+  }
+
+  .eq-bar:nth-child(1) { height: 4px; animation-delay: 0s; }
+  .eq-bar:nth-child(2) { height: 8px; animation-delay: 0.15s; }
+  .eq-bar:nth-child(3) { height: 5px; animation-delay: 0.3s; }
+  .eq-bar:nth-child(4) { height: 10px; animation-delay: 0.1s; }
+  .eq-bar:nth-child(5) { height: 3px; animation-delay: 0.25s; }
+
+  @keyframes eq-bounce {
+    0% { transform: scaleY(0.3); }
+    100% { transform: scaleY(1); }
+  }
+
+  .ambient-player + nav { top: 33px; }
+  .ambient-player.dismissed { display: none; }
+  .ambient-player.dismissed + nav { top: 0; }
+
+  /* --- HERO --- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero .overline {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    max-width: 800px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+  }
+
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .hero .meta-row {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .meta-item .label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .meta-item .value {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  /* --- SECTIONS --- */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 4rem;
+  }
+
+  section + section {
+    border-top: 1px solid var(--border);
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-header .overline {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text-primary);
+    max-width: 600px;
+  }
+
+  .section-header p {
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    font-size: 0.95rem;
+  }
+
+  /* --- TALENT --- */
+  .talent-card {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .talent-card .photo-area {
+    width: 100%;
+    height: 100%;
+    min-height: 340px;
+    background: var(--surface-raised);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .talent-card .photo-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .talent-card .photo-area .placeholder-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .talent-info {
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .talent-info h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .talent-info .role {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .talent-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  /* --- SCRIPT SECTION --- */
+  .script-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .script-act {
+    padding: 2.5rem 3rem;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .script-act:last-child { border-bottom: none; }
+  .script-act:hover { background: var(--bg-warm); }
+
+  .script-act-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+  }
+
+  .script-act-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .script-act-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .script-act h4 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .script-act .stage-direction {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border);
+  }
+
+  .script-act .dialogue {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    padding-left: 1rem;
+    border-left: 2px solid var(--text-primary);
+  }
+
+  .script-act .dialogue .speaker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  /* --- STRUCTURE TABLE --- */
+  .structure-blocks {
+    display: grid;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .structure-block {
+    display: grid;
+    grid-template-columns: 200px 1fr 100px;
+    background: var(--surface);
+    padding: 1.5rem 2rem;
+    align-items: start;
+    gap: 2rem;
+    transition: background 0.2s;
+  }
+
+  .structure-block:hover {
+    background: var(--bg-warm);
+  }
+
+  .structure-block .block-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    padding-top: 0.15rem;
+  }
+
+  .structure-block .block-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .structure-block .block-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: right;
+    padding-top: 0.15rem;
+  }
+
+  /* --- TIMELINE --- */
+  .timeline-bar {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 36px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+  }
+
+  .timeline-segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    transition: opacity 0.2s;
+    cursor: default;
+  }
+
+  .timeline-segment:hover { opacity: 0.85; }
+
+  .seg-problem { background: #2a2a2a; flex: 20; }
+  .seg-engine  { background: #3a3a3a; flex: 35; }
+  .seg-invite  { background: #5a5a5a; flex: 15; }
+
+  .timeline-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+  }
+
+  /* --- PACING TABLE --- */
+  .pacing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+  }
+
+  .pacing-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: left;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pacing-table td {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pacing-table tr:last-child td {
+    border-bottom: none;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .pacing-table .shots-col {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  /* --- SHOT LIST --- */
+  .shot-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .shot-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .shot-card:hover {
+    border-color: var(--border-accent);
+  }
+
+  .shot-card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 220px;
+  }
+
+  .shot-visual {
+    background: var(--surface-raised);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+  }
+
+  .shot-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+
+  .shot-visual .frame-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .shot-visual .frame-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    position: absolute;
+    top: 1rem;
+    left: 1.2rem;
+    z-index: 2;
+  }
+
+  .shot-visual .shot-number {
+    display: none;
+  }
+
+  /* --- LIGHTBOX --- */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    cursor: default;
+  }
+
+  .lightbox-caption {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    backdrop-filter: blur(8px);
+  }
+
+  .lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+  }
+
+  .lightbox-prev { left: 1.5rem; }
+  .lightbox-next { right: 1.5rem; }
+
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  .shot-visual { cursor: pointer; }
+
+  .shot-visual-embed {
+    background: #1a1a1a;
+    min-height: 380px;
+  }
+
+  .shot-visual-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    inset: 0;
+  }
+
+  .shot-visual .aspect-badge {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.3);
+  }
+
+  .shot-details {
+    padding: 1.8rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .shot-details .shot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .shot-details h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .shot-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .tag-interview { background: var(--blue-bg); color: var(--blue); }
+  .tag-broll { background: var(--green-bg); color: var(--green); }
+  .tag-title { background: var(--gold-bg); color: var(--gold); }
+  .tag-screen { background: var(--red-bg); color: var(--red); }
+
+  .shot-details .description {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.7;
+    flex-grow: 1;
+  }
+
+  .shot-details .camera-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .shot-prompt-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    width: fit-content;
+  }
+
+  .shot-prompt-toggle:hover {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+  }
+
+  .shot-prompt {
+    display: none;
+    background: var(--accent-glow);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .shot-prompt.visible { display: block; }
+
+  .shot-duration {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+  }
+
+  /* --- MUSIC DIRECTION --- */
+  .music-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .music-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+  }
+
+  .music-card h4 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  .music-card p, .music-card li {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.8;
+  }
+
+  .music-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .music-card ul li {
+    padding: 0.4rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .music-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--text-muted);
+  }
+
+  .suno-prompt-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+    position: relative;
+  }
+
+  .suno-prompt-box .char-count {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--green);
+  }
+
+  .suno-prompt-box h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .suno-prompt-box .prompt-text {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.9;
+    font-style: italic;
+  }
+
+  .suno-prompt-box .copy-btn {
+    margin-top: 1.5rem;
+    background: var(--text-primary);
+    border: none;
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .suno-prompt-box .copy-btn:hover {
+    opacity: 0.85;
+  }
+
+  .style-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .style-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+  }
+
+  /* --- DIRECTOR'S NOTES --- */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .note-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+  }
+
+  .note-card h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .note-card p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.8;
+  }
+
+  .note-card .highlight {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* --- FOOTER --- */
+  footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  footer .footer-brand img {
+    height: 18px;
+    width: auto;
+    display: block;
+    opacity: 0.5;
+  }
+
+  footer .footer-brand span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  footer .footer-meta {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 768px) {
+    html, body { overflow-x: hidden; max-width: 100vw; }
+
+    .hero { padding: 6rem 1.25rem 3rem; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero .subtitle { font-size: 1rem; }
+    .hero .meta-row { gap: 1.5rem 2rem; }
+
+    section { padding: 3rem 1.25rem; }
+    .section-header h2 { font-size: 1.8rem; }
+
+    nav { padding: 0.8rem 1.25rem; }
+    nav .nav-links { display: none; }
+
+    .ambient-player { padding: 0.5rem 1.25rem; }
+    .ambient-player + nav { top: 30px; }
+
+    .talent-card { grid-template-columns: 1fr; }
+    .talent-card .photo-area { min-height: 280px; }
+    .talent-info { padding: 1.5rem; }
+
+    .structure-blocks { border-radius: 8px; }
+    .structure-block { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.2rem 1.25rem; }
+    .structure-block .block-time { text-align: left; }
+
+    .script-act { padding: 1.5rem; }
+
+    .timeline-bar { height: 24px; }
+    .timeline-segment { font-size: 0px; }
+    .timeline-legend { gap: 0.8rem 1.2rem; }
+    .legend-item { font-size: 0.6rem; }
+
+    .pacing-table th, .pacing-table td { padding: 0.6rem 0.8rem; font-size: 0.75rem; }
+
+    .shot-card-inner { grid-template-columns: 1fr; }
+    .shot-visual { min-height: 200px; }
+    .shot-details { padding: 1.2rem 1.25rem; }
+    .shot-details .shot-header { flex-direction: column; gap: 0.5rem; }
+    .shot-prompt { word-break: break-word; }
+
+    .music-section { grid-template-columns: 1fr; }
+    .music-card { padding: 1.5rem; }
+    .suno-prompt-box { padding: 1.5rem; }
+    .suno-prompt-box .char-count { position: static; margin-bottom: 1rem; display: block; }
+    .suno-prompt-box .prompt-text { word-break: break-word; }
+    .style-tags { gap: 0.4rem; }
+
+    .notes-grid { grid-template-columns: 1fr; }
+    .note-card { padding: 1.5rem; }
+
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 3rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ambient-player" id="ambientPlayer" onclick="toggleAmbient()">
+  <div class="play-icon">
+    <svg viewBox="0 0 10 12"><polygon points="2,0 10,6 2,12"/></svg>
+  </div>
+  <div class="eq-bars">
+    <div class="eq-bar"></div>
+    <div class="eq-bar"></div>
+    <div class="eq-bar"></div>
+    <div class="eq-bar"></div>
+    <div class="eq-bar"></div>
+  </div>
+  <span class="play-label">Play the score while reading</span>
+  <audio id="ambientAudio" preload="metadata" src="score.mp3"></audio>
+</div>
+
+<nav>
+  <div class="brand"><img src="growthx-logo.png" alt="GrowthX"> <span>Pre-Production</span></div>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#talent">Talent</a></li>
+    <li><a href="#script">Script</a></li>
+    <li><a href="#structure">Structure</a></li>
+    <li><a href="#shots">Shot List</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#notes">Director's Notes</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="overview">
+  <div class="overline">Pre-Production Package</div>
+  <h1>The <em>Engine</em></h1>
+  <p class="subtitle">75 seconds. One take. Matthew Panzarino — a decade running TechCrunch — explains the engine, then hands it to the rep. It plays mid-deck, after the rep has set up the problem and before the live demo. The whole job is to make the prospect want to see what's behind the curtain.</p>
+  <div class="meta-row">
+    <div class="meta-item">
+      <span class="label">Client</span>
+      <span class="value">GrowthX (Internal)</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Runtime</span>
+      <span class="value">60–90 sec</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Talent</span>
+      <span class="value">Matthew Panzarino, CCO</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Format</span>
+      <span class="value">Sales Deck Insert</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Total Shots</span>
+      <span class="value" id="shotCount">16</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Version</span>
+      <span class="value">v0.1</span>
+    </div>
+  </div>
+</div>
+
+<!-- TALENT -->
+<section id="talent">
+  <div class="section-header">
+    <div class="overline">01 — Talent</div>
+    <h2>Matthew Panzarino</h2>
+    <p>The entire video rests on one bet: that Matthew's face and resume do more work in 75 seconds than any amount of motion graphics could. If the audience buys him, they'll buy the demo.</p>
+  </div>
+
+  <div class="talent-card">
+    <div class="photo-area">
+      <img src="matthew-headshot.png" alt="Matthew Panzarino — CCO, GrowthX" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span class="placeholder-text" style="display:none;">Headshot Pending</span>
+    </div>
+    <div class="talent-info">
+      <h3>Matthew Panzarino</h3>
+      <div class="role">Chief Content Officer / On-Camera Narrator</div>
+      <p>Ran TechCrunch for ten years. That's the credential that does the heavy lifting — when Matthew says "I know what great content operations look like," the prospect doesn't need to take it on faith. He built one of the most visible editorial operations in tech. The line between his resume and the product he's selling is a straight one.</p>
+      <p style="margin-top: 1rem;">Performance direction: talk like you're explaining this to a smart friend at dinner, not to a conference room. The quieter and more matter-of-fact he is, the more authority he carries. Any hint of "sales energy" and the whole thing collapses.</p>
+    </div>
+  </div>
+</section>
+
+<!-- POLISHED SCRIPT -->
+<section id="script">
+  <div class="section-header">
+    <div class="overline">02 — The Script</div>
+    <h2>Polished Draft</h2>
+    <p>Reworked from the initial brief. Cut the throat-clearing, reframed content as an infrastructure problem, and rewired the close from a CTA to a personal statement. ~195 words at 150 wpm gives Matthew about 75 seconds with room for the pauses that actually matter.</p>
+  </div>
+
+  <div class="script-container">
+    <!-- ACT 1 -->
+    <div class="script-act">
+      <div class="script-act-header">
+        <span class="script-act-label">Act 1 — The Problem</span>
+        <span class="script-act-time">~18 sec</span>
+      </div>
+      <h4>The thing everyone knows but nobody says out loud.</h4>
+      <div class="stage-direction">VISUAL: Matthew on camera, clean environment — not a studio, more like a well-lit workspace. The framing says peer, not presenter. Cut to abstract data visualizations: content volume curves plateauing, headcount growing linearly while output stays flat.</div>
+      <div class="dialogue">
+        <span class="speaker">Matthew</span>
+        You already know organic content is your highest-leverage growth channel. That's not the insight. The insight is that doing it well — really well, at the scale your business actually needs — is one of the hardest infrastructure problems in marketing. The talent is scarce. The systems are complex. And if you try to build it all yourself, you're looking at years before anything compounds.
+      </div>
+    </div>
+
+    <!-- ACT 2 -->
+    <div class="script-act">
+      <div class="script-act-header">
+        <span class="script-act-label">Act 2 — The Engine</span>
+        <span class="script-act-time">~35 sec</span>
+      </div>
+      <h4>What it actually looks like when everything clicks.</h4>
+      <div class="stage-direction">VISUAL: Transition to Atlas interface — workflow configurations, content pipelines in motion, artifact generation. Data flowing through the system. Brief flashes of client growth curves. The visuals should feel alive, like watching an engine run.</div>
+      <div class="dialogue">
+        <span class="speaker">Matthew</span>
+        I ran TechCrunch for ten years. I know what great content operations look like at scale — and I know what was always missing. Better tooling. Tighter data loops. More leverage per person. That's what we built.
+      </div>
+      <div class="stage-direction" style="margin-top: 1.5rem;">VISUAL: Deeper into Atlas. Bespoke workflow being configured. Agentic pipeline processing data. Side-by-side of raw input vs. finished content output.</div>
+      <div class="dialogue" style="margin-top: 1rem;">
+        <span class="speaker">Matthew</span>
+        Atlas is our content engine. For every client, we build bespoke workflows — agentic pipelines that process your market data, your competitive landscape, your audience signals — and turn them into content that actually performs. But the technology is only half of it.
+      </div>
+      <div class="stage-direction" style="margin-top: 1.5rem;">VISUAL: Quick montage — strategy sessions, editorial reviews, performance dashboards showing upward trajectories. The human layer on top of the machine.</div>
+      <div class="dialogue" style="margin-top: 1rem;">
+        <span class="speaker">Matthew</span>
+        We've done this with hundreds of companies. Every engagement teaches the system something new — which strategies actually drive growth, which formats convert, which audiences respond. That's not something you get from prompting ChatGPT. It's an engine built on real results, run by people who make it smarter every single week.
+      </div>
+    </div>
+
+    <!-- ACT 3 -->
+    <div class="script-act">
+      <div class="script-act-header">
+        <span class="script-act-label">Act 3 — The Invitation</span>
+        <span class="script-act-time">~12 sec</span>
+      </div>
+      <h4>The hand-off.</h4>
+      <div class="stage-direction">VISUAL: Back to Matthew on camera. Warmer, more direct. A slight shift in energy — from explaining to inviting. He's no longer building a case; he's opening a door.</div>
+      <div class="dialogue">
+        <span class="speaker">Matthew</span>
+        This is the thing I spent my whole career wanting to build. And now it exists. So — let's go deeper. Let me show you what this actually looks like for your business.
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Notes -->
+  <div style="margin-top: 2rem; padding: 2rem 2.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px;">
+    <h4 style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 1.2rem;">Script Notes — Changes from Draft</h4>
+    <ul style="list-style: none; padding: 0;">
+      <li style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.8; padding: 0.3rem 0; padding-left: 1.2rem; position: relative;"><span style="position: absolute; left: 0; color: var(--green);">+</span> <strong>"That's not the insight."</strong> The prospect sitting in this call already knows content matters. Spending 10 seconds telling them again is wasted time. This line skips past the obvious and gets to the actual problem — scale — in the first breath.</li>
+      <li style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.8; padding: 0.3rem 0; padding-left: 1.2rem; position: relative;"><span style="position: absolute; left: 0; color: var(--green);">+</span> <strong>"Infrastructure problem."</strong> Most content agencies position around creativity. We're positioning around engineering. "Hardest infrastructure problem in marketing" signals to VP-level buyers that we understand the actual constraint — it's a systems challenge, not a talent acquisition problem.</li>
+      <li style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.8; padding: 0.3rem 0; padding-left: 1.2rem; position: relative;"><span style="position: absolute; left: 0; color: var(--green);">+</span> <strong>"What was always missing."</strong> This is the move that makes Matthew's TechCrunch years work for the pitch instead of just next to it. He's not listing credentials — he's saying "I ran the thing and it still wasn't enough." That gap between TechCrunch and GrowthX is the product's origin story in six words.</li>
+      <li style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.8; padding: 0.3rem 0; padding-left: 1.2rem; position: relative;"><span style="position: absolute; left: 0; color: var(--green);">+</span> <strong>ChatGPT in one line.</strong> Every prospect is thinking it. Addressing it in a single declarative sentence — then immediately moving on — is the strongest possible move. Dwelling on it signals insecurity. Stating it and continuing signals that the answer is so obvious it doesn't warrant discussion.</li>
+      <li style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.8; padding: 0.3rem 0; padding-left: 1.2rem; position: relative;"><span style="position: absolute; left: 0; color: var(--green);">+</span> <strong>"My whole career."</strong> The original close was "That's why I'm here." Fine, but generic. "The thing I spent my whole career wanting to build" puts personal stakes on the table. It's a bet — Matthew is saying this is the culmination of everything he's done. That lands differently than a transition line.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section id="structure">
+  <div class="section-header">
+    <div class="overline">03 — Structure</div>
+    <h2>Three Acts in 75 Seconds</h2>
+    <p>Problem, engine, invitation. That's it. The prospect has about 90 seconds of attention before they start thinking about their next meeting. Matthew's credibility buys some patience, but every beat still needs to earn its place.</p>
+  </div>
+
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-problem">The Problem</div>
+    <div class="timeline-segment seg-engine">The Engine</div>
+    <div class="timeline-segment seg-invite">The Invitation</div>
+  </div>
+
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#2a2a2a"></div> Act 1 — The Problem (15–20s)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3a3a3a"></div> Act 2 — The Engine (25–35s)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#5a5a5a"></div> Act 3 — The Invitation (10–15s)</div>
+  </div>
+
+  <div class="structure-blocks" style="margin-top: 3rem;">
+    <div class="structure-block">
+      <div class="block-name">ACT 1: THE PROBLEM</div>
+      <div class="block-desc">Matthew on camera. Skip the setup — go straight to the gap between knowing content works and being able to execute it at scale. The data visualizations do the work here: one chart showing content demand growing exponentially while team capacity stays linear. That image is worth 30 seconds of explanation.</div>
+      <div class="block-time">15–20s</div>
+    </div>
+    <div class="structure-block">
+      <div class="block-name">ACT 2: THE ENGINE</div>
+      <div class="block-desc">This is where the prospect sees the product. Visuals shift from abstract charts to real UI — Atlas running, data flowing through pipelines, content coming out the other end. Matthew connects his TechCrunch experience to what GrowthX built, drops the ChatGPT line without breaking stride, and lands on the compounding flywheel. The whole act runs on specificity: show the system, show the results, show why it can't be replicated with off-the-shelf tools.</div>
+      <div class="block-time">25–35s</div>
+    </div>
+    <div class="structure-block">
+      <div class="block-name">ACT 3: THE INVITATION</div>
+      <div class="block-desc">The energy shifts from explanation to invitation. Matthew has been looking directly at camera the entire video — interrotron, always — but here his posture opens, the tone warms, and the pitch disappears. His last line — "let me show you what this actually looks like for your business" — is a literal cue for the rep to take over. No end card, no CTA, no logo hold. The video cuts and the rep is already pulling up the live demo.</div>
+      <div class="block-time">10–15s</div>
+    </div>
+  </div>
+
+  <table class="pacing-table" style="margin-top: 3rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Shots</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Act 1 — The Problem</td><td class="shots-col">01–04</td><td>15–20 sec</td></tr>
+      <tr><td>Act 2 — The Engine</td><td class="shots-col">05–12</td><td>25–35 sec</td></tr>
+      <tr><td>Act 3 — The Invitation</td><td class="shots-col">13–16</td><td>10–15 sec</td></tr>
+      <tr><td><strong>Total</strong></td><td class="shots-col"><strong>16 shots</strong></td><td><strong>~75 sec</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SHOT LIST -->
+<section id="shots">
+  <div class="section-header">
+    <div class="overline">04 — Shot List & Storyboard</div>
+    <h2>21 Shots</h2>
+    <p>Every shot has a description, camera direction, and a Gemini image generation prompt. Visual palette pulls directly from the GrowthX website — warm cream, near-black, clean type. The "Show Prompt" button on each card reveals the exact text used to generate the storyboard frame.</p>
+  </div>
+
+  <div class="shot-grid" id="shotGrid"></div>
+</section>
+
+<!-- MUSIC DIRECTION -->
+<section id="music">
+  <div class="section-header">
+    <div class="overline">05 — Music Direction</div>
+    <h2>The Score</h2>
+    <p>One texture, start to finish. Low resonant synth that sits underneath everything without ever calling attention to itself. The kind of sound that makes a room feel like it costs more than it does. If the prospect notices the music, it's too loud.</p>
+  </div>
+
+  <div class="music-section">
+    <div class="music-card">
+      <h4>Musical Feel</h4>
+      <ul>
+        <li>One consistent texture from start to finish — no dramatic arc, no big build, no drop</li>
+        <li>Low, resonant synth pad as the foundation — warm but serious, like a hum underneath everything</li>
+        <li>Subtle sub-bass presence that you feel more than hear — chest resonance, not bass drop</li>
+        <li>Sparse, deliberate high-register touches — a single clean tone every few bars, almost like a signal</li>
+        <li>Gentle rhythmic pulse buried deep in the mix — not a beat, more like a heartbeat or a clock</li>
+        <li>The piece should feel like it was already playing before the video started and continues after it ends</li>
+      </ul>
+    </div>
+    <div class="music-card">
+      <h4>Reference & Constraints</h4>
+      <ul>
+        <li><strong>Think:</strong> The ambient bed under a high-end tech keynote — not the keynote music itself</li>
+        <li><strong>Also:</strong> Brian Eno's "Music for Airports" meets modern brand film underscore</li>
+        <li><strong>Mood board:</strong> Apple product reveal ambiance, Stripe brand film, Vercel conference opener</li>
+        <li>No melody that you could hum — this is texture, not tune</li>
+        <li>No crescendo, no climax, no emotional swell</li>
+        <li>Must sit completely under dialogue without competing — mix at 50% under voice</li>
+        <li>The energy is "the future is already here" — calm certainty, not excitement</li>
+        <li>Should feel expensive and considered, like every frequency was chosen on purpose</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="suno-prompt-box">
+    <span class="char-count" id="charCount">0 / 1000 chars</span>
+    <h4>Suno Generation Prompt</h4>
+    <p class="prompt-text" id="sunoPromptText">Deep ambient underscore. Low resonant synth pad, warm and serious but not dark. One steady sustained texture that holds for the entire piece — no builds, no drops, no arc. A single chord voicing that breathes slowly, shifting by microtones rather than changing key. Subtle sub-bass warmth you feel in your chest. Buried deep in the mix, a quiet pulse — not a beat, more like a slow mechanical heartbeat, barely perceptible. Every eight to ten seconds a single clean high-register tone appears briefly, like a soft signal or a distant notification, then dissolves back into the pad. No melody. No piano. No percussion. No strings. Pure analog synth texture and air. The mood is calm technological confidence — the sound of infrastructure that already works. Think: the ambient bed playing under an Apple keynote, or the hum of a server room translated into music. Should feel like it was already playing before you started listening. 75 seconds. Fades in from silence over 3 seconds at the start, sustains evenly throughout, fades out over 3 seconds at the end. Expensive, considered, minimal. Every frequency intentional.</p>
+    <div class="style-tags">
+      <span class="style-tag">deep ambient</span>
+      <span class="style-tag">resonant drone</span>
+      <span class="style-tag">analog synth pad</span>
+      <span class="style-tag">underscore</span>
+      <span class="style-tag">sub-bass</span>
+      <span class="style-tag">Brian Eno</span>
+      <span class="style-tag">brand film</span>
+      <span class="style-tag">tech keynote</span>
+      <span class="style-tag">minimal</span>
+      <span class="style-tag">steady state</span>
+    </div>
+    <button class="copy-btn" onclick="copyPrompt()">Copy Prompt</button>
+  </div>
+
+  <div class="suno-prompt-box" style="margin-top: 2rem;">
+    <h4>Generated Score</h4>
+    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">Generated with Suno using the prompt above. Deep ambient underscore, ~75 seconds, steady resonant synth pad.</p>
+    <audio controls preload="metadata" style="width: 100%; height: 40px; border-radius: 4px;">
+      <source src="score.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+</section>
+
+<!-- DIRECTOR'S NOTES -->
+<section id="notes">
+  <div class="section-header">
+    <div class="overline">06 — Director's Notes</div>
+    <h2>Tone & Execution</h2>
+  </div>
+
+  <div class="notes-grid">
+    <div class="note-card">
+      <h4>The Interrotron</h4>
+      <p>Matthew looks directly into the lens the entire time. Not off-camera-to-an-interviewer. Not the "45-degree thought-leader gaze." <span class="highlight">Straight into the viewer's eyes, every shot, no exceptions.</span> This is an interrotron setup — a teleprompter rig that lets him read or reference the interviewer's face while the camera captures direct eye contact. The effect: it feels like Matthew is sitting across from you personally, not performing for a camera crew. Every wide shot and every punch-in CU maintains the same axis. <span class="highlight">The variation comes from framing and energy, never from gaze.</span></p>
+    </div>
+    <div class="note-card">
+      <h4>Tone & Performance</h4>
+      <p>The trap is performing authority. Matthew already has it — TechCrunch, a decade of editorial operations, the kind of resume that doesn't need a LinkedIn headline. So the direction is simple: <span class="highlight">talk quieter than you think you should</span>. One person across a table. The more he sounds like he's explaining something to a colleague over coffee, the more the C-suite prospect leans in. Any trace of "sales video energy" and credibility evaporates.</p>
+    </div>
+    <div class="note-card">
+      <h4>The ChatGPT Line</h4>
+      <p>Every prospect in the room is thinking it. The smart move is to say it once, plainly, and keep going. <span class="highlight">"That's not something you get from prompting ChatGPT"</span> — stated as a fact, the way you'd say "water is wet." No emphasis. No dramatic pause after. The confidence is in <span class="highlight">not treating it like an objection</span>. If we dwell on it, we signal that it's a real threat. If we mention it and immediately move to the next sentence, we signal that the answer is so obvious it barely warrants airtime.</p>
+    </div>
+    <div class="note-card">
+      <h4>Visual Language</h4>
+      <p>Pull directly from the website. <span class="highlight">Warm cream, near-black, clean sans-serif type.</span> The video should look like a page on growthx.com came to life, not like we hired a separate production company with a different mood board. When we cut to Atlas or data visualizations, <span class="highlight">keep the palette to three colors max</span>. The moment you add a neon gradient or a floating 3D UI mockup, you're in "generic SaaS explainer" territory and the trust Matthew just built gets undercut by the visuals.</p>
+    </div>
+    <div class="note-card">
+      <h4>The Hand-Off</h4>
+      <p>Matthew's final line is a stage direction for the sales rep. "Let me show you what this actually looks like for your business" — then the video ends and <span class="highlight">the rep is already sharing their screen</span>. No end card. No logo hold. No 3-second fade to black. The transition should feel like Matthew just passed the conversation to his colleague sitting in the room. <span class="highlight">If there's a visible seam between the video ending and the demo starting, the whole thing is less effective.</span></p>
+    </div>
+    <div class="note-card">
+      <h4>Pacing</h4>
+      <p>The math: 150 words/minute is about 185 words in 75 seconds. The script runs ~195 words, which gives Matthew about 10 words of breathing room — <span class="highlight">enough for two meaningful pauses</span>. The first one matters most: the half-beat after "That's not the insight" in Act 1, where the prospect recalibrates from "I've heard this before" to "okay, this is different." The second is the shift into Act 3, where his energy changes from explaining to inviting. Those two micro-moments are the difference between a video that converts and one that gets politely watched.</p>
+    </div>
+    <div class="note-card">
+      <h4>What This Video Is Not</h4>
+      <p>Marcel's videos already cover the origin story and the market thesis. This video <span class="highlight">assumes the prospect already understands why content matters</span> — because the rep just spent 10 minutes establishing that. So we skip Act 1 of the broader sales narrative entirely. This video is Act 2: here's the system, here's why it's different, here's the person who built it. Act 3 is the live demo that follows immediately after. If this video tries to re-explain the problem from scratch, it's redundant and it wastes the rep's setup.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand"><img src="growthx-logo.png" alt="GrowthX"> <span>Pre-Production v0.1</span></div>
+  <div class="footer-meta">The Engine — 21 shots — ~75s runtime</div>
+</footer>
+
+<script>
+const shots = [
+  {
+    num: "01",
+    name: "Title Card: GrowthX",
+    type: "title",
+    duration: "2–3 sec",
+    description: "Clean title card. The GrowthX logo resolves on a warm cream background — the same background as the website. Minimal. Confident. No tagline. The logo alone sets the tone.",
+    camera: "Static frame. Logo fade-in, slight scale animation (100% → 100.5%). Cream bg (#faf9f6).",
+    prompt: "Minimalist title card on warm cream background (#faf9f6), the word 'GrowthX' in bold black sans-serif typography centered in frame, clean and modern, premium SaaS brand aesthetic, 16:9 aspect ratio, no other elements, the confidence of a brand that doesn't need to explain itself"
+  },
+  {
+    num: "02",
+    name: "Matthew: The Setup — Wide",
+    type: "interview",
+    duration: "4–5 sec",
+    description: "Matthew on camera for the first time. Interrotron framing — looking directly into the lens. Wide shot showing him from the waist up, his bright modern kitchen visible around him. Daylight flooding through large windows, pendant lights as accents, marble countertops. The setting reads as personal and high-end — his home, not a studio.",
+    camera: "Interrotron. Wide (waist up). Rule of thirds, camera-left. 35mm equivalent. Bright natural daylight with pendant accent lights. Shallow DOF.",
+    prompt: "Cinematic wide shot of the same man from the reference photo — framed waist up, looking directly into camera through interrotron, direct eye contact with viewer, in a bright modern upscale home kitchen in daylight, large windows flooding the space with warm natural light, pendant lights, marble countertops, bright airy space, shallow depth of field, 16:9, premium brand film, interrotron interview, confident and conversational, personal setting not a studio"
+  },
+  {
+    num: "02a",
+    name: "Matthew: The Setup — Punch-In",
+    type: "interview",
+    duration: "3–4 sec",
+    description: "Same take, tighter framing. Punch-in to a medium close-up — head to mid-chest. The interrotron eye contact is more intimate at this distance. Cut to this when Matthew says 'one of the hardest infrastructure problems in marketing.'",
+    camera: "Interrotron. MCU (head to mid-chest). Same axis as 02, cropped tighter. 85mm equivalent.",
+    prompt: "Cinematic medium close-up of the same man from the reference photo — head to mid-chest filling the frame, looking directly into camera through interrotron, direct eye contact, same bright kitchen softly blurred in background with warm daylight bokeh, very shallow depth of field, 16:9, premium brand film, the intimacy of someone telling you something important"
+  },
+  {
+    num: "03",
+    name: "Data Viz: The Scale Problem",
+    type: "broll",
+    duration: "3–4 sec",
+    description: "Abstract motion graphic: a clean line chart on a dark background. One line shows content demand growing exponentially. Another shows team capacity growing linearly. The gap between them widens. Simple. Devastating. The visual thesis of Act 1.",
+    camera: "Full-frame graphic. Animated lines drawing in real-time. Dark bg with cream/white lines.",
+    prompt: "Clean data visualization on dark background (#1a1a1a), two animated line charts — one curving upward exponentially labeled 'Content Demand' in cream white, another growing slowly linearly labeled 'Team Capacity', the gap between them widening dramatically, minimal modern typography, no grid lines, no clutter, premium data visualization aesthetic, 16:9, the kind of chart that makes a CMO uncomfortable"
+  },
+  {
+    num: "04",
+    name: "Data Viz: Cost of Building In-House",
+    type: "broll",
+    duration: "3–4 sec",
+    description: "Motion graphic continuation. A timeline showing the in-house build path: 'Year 1: Hire team' → 'Year 2: Build systems' → 'Year 3: Start iterating' → 'Year 4: Maybe compounding.' The timeline stretches across the screen. At the end, a small annotation: 'If nothing breaks.'",
+    camera: "Full-frame graphic. Timeline animates left-to-right. Same dark bg, cream typography.",
+    prompt: "Clean horizontal timeline infographic on dark background, showing four milestones spanning years 1 through 4 of building content operations in-house, each milestone labeled in cream white sans-serif typography, the timeline stretches impossibly long across the frame, small annotation at the end reading 'If nothing breaks' in muted grey, modern minimal design, 16:9, premium brand film graphic"
+  },
+  {
+    num: "05",
+    name: "Matthew: The TechCrunch Line — Wide",
+    type: "interview",
+    duration: "3–4 sec",
+    description: "Back to Matthew, wide interrotron framing matching 02. Same kitchen, same lighting. The energy shifts — he's confessing what he's always wanted. 'I ran TechCrunch for ten years.' Let the weight land.",
+    camera: "Interrotron. Wide (waist up) matching 02. Hold steady. Let the performance carry.",
+    prompt: "Cinematic wide shot of the same man from the reference photo — waist up framing matching the first interview shot, interrotron direct eye contact, same bright kitchen in daylight with pendant lights and marble countertops, expression shifted to quiet personal conviction, shallow depth of field, warm natural light, 16:9, premium brand film"
+  },
+  {
+    num: "05a",
+    name: "Matthew: The TechCrunch Line — Punch-In",
+    type: "interview",
+    duration: "3–4 sec",
+    description: "Punch-in on 'I know what was always missing.' MCU, head to mid-chest. The interrotron eye contact at this distance makes the confession feel directed at one person.",
+    camera: "Interrotron. MCU matching 02a. Same axis, tighter crop.",
+    prompt: "Cinematic medium close-up of the same man from the reference photo — head to mid-chest, interrotron direct eye contact, the expression of someone confessing what they always wished they could build, very shallow depth of field, bright kitchen background softly blurred with warm daylight bokeh, 16:9, premium brand film, personal and direct"
+  },
+  {
+    num: "06",
+    name: "Atlas: Pipeline Overview",
+    type: "screen",
+    duration: "4–5 sec",
+    description: "First look at Atlas. A wide view of the platform — a content pipeline with five stages (Data Ingestion, Analysis, Generation, Editorial, Publishing), data particles streaming between nodes. The interface should feel sophisticated but clean. This is the 'money shot' — the moment the prospect sees the actual product.",
+    camera: "Screen capture, slight perspective tilt (5°). Subtle camera drift. Warm ambient glow around the screen edges.",
+    prompt: "Atlas content pipeline interface — dark mode UI, five pipeline stages with status cards and metrics, green data particles streaming between stages, pipeline throughput counter, content quality score, 16:9, premium SaaS product visualization"
+  },
+  {
+    num: "06a",
+    name: "Atlas: Pipeline Overview — Interactive",
+    type: "screen",
+    duration: "4–5 sec",
+    description: "The interactive version of the Atlas pipeline. Same view as 06, but the data flow is live — particles streaming between stages in real time, counters ticking up, status cards populating. This is the embedded animation that plays in the actual video.",
+    camera: "Screen capture, full-screen. The animation runs continuously.",
+    prompt: "Interactive HTML animation — Atlas content pipeline interface with animated data flow between stages.",
+    embed: "atlas-pipeline-animation.html"
+  },
+  {
+    num: "07",
+    name: "Atlas: Bespoke Workflow",
+    type: "screen",
+    duration: "3–4 sec",
+    description: "The Atlas editorial pipeline execution view — a multi-step workflow running in real time. Left sidebar shows pipeline stages with green checkmarks, right panel shows the active assignment with content requirements. Dark mode UI matching the actual product.",
+    camera: "Screen capture, full-screen. Subtle zoom into the pipeline steps. Dark UI with warm accents.",
+    prompt: "A screenshot-accurate rendering of a content operations platform execution view matching the reference screenshot — dark mode UI, left sidebar showing pipeline stages (Research Topic, Draft Article, Add Internal Links, Content Fact Checker, etc.) each with green checkmarks and execution times, right panel showing Pipeline Input with a topic field and Assignment Direction document, 16:9, premium SaaS product visualization, the detail communicates a real working system"
+  },
+  {
+    num: "08",
+    name: "Atlas: Content Output",
+    type: "screen",
+    duration: "3–4 sec",
+    description: "Split-screen showing the full content transformation. Left: Atlas pipeline execution view — stages running with green checkmarks, raw JSON data, pipeline status. Right: the polished output — a published blog article with clean typography, structured headings, table of contents sidebar, and the editorial quality of a real content team. The contrast between raw pipeline and finished product makes the value visible.",
+    camera: "Split-screen composition. Left side darker, right side cleaner. The transformation is immediate and visual.",
+    prompt: "Split-screen composition showing content transformation in a SaaS platform, left side showing Atlas editorial pipeline execution with dark mode UI — green checkmarks on pipeline stages, raw JSON configuration data, and pipeline status readouts, right side showing the polished finished output — a published blog article with dark background, bold heading, author byline, hero image, structured body with headers and bullet points, table of contents sidebar, 16:9, premium SaaS product visualization, the contrast between raw pipeline and refined output"
+  },
+  {
+    num: "09",
+    name: "Matthew: The Differentiator — Wide",
+    type: "interview",
+    duration: "2–3 sec",
+    description: "Matthew delivers 'But the technology is only half of it.' Wide interrotron framing matching 02. Same kitchen. His expression shifts from showing to explaining — the pivot from product demo to institutional knowledge.",
+    camera: "Interrotron. Wide (waist up) matching 02. Slight lean forward from Matthew.",
+    prompt: "Cinematic wide shot of the same man from the reference photo — waist up framing matching previous wide shots, interrotron direct eye contact, leaning slightly forward, the expression communicating a shift from demonstration to deeper explanation, engaged and direct, same bright kitchen in daylight with pendant lights and marble countertops, shallow depth of field, 16:9, premium brand film"
+  },
+  {
+    num: "09a",
+    name: "Matthew: The Differentiator — Punch-In",
+    type: "interview",
+    duration: "2–3 sec",
+    description: "Punch-in as he gets into the substance — 'every engagement teaches the system something new.' MCU, head to mid-chest. The interrotron framing makes it feel like he's talking to you specifically about your business.",
+    camera: "Interrotron. MCU matching 02a. Same axis.",
+    prompt: "Cinematic medium close-up of the same man from the reference photo — head to mid-chest, interrotron direct eye contact, engaged and earnest, leaning in, the look of someone explaining the key insight, very shallow depth of field, bright kitchen background softly blurred with warm daylight bokeh, 16:9, premium brand film"
+  },
+  {
+    num: "10",
+    name: "Results Montage: Growth Curves",
+    type: "broll",
+    duration: "3–4 sec",
+    description: "Quick montage of growth metrics — traffic curves trending up, ranking positions improving, content volume scaling. Not client-specific. Aggregate or illustrative. The visual should feel like watching a portfolio of wins.",
+    camera: "Rapid cuts (0.75s each), each showing a different metric. Motion graphics on dark bg. Numbers counting up.",
+    prompt: "Animated data dashboard montage on dark background showing multiple growth metrics — organic traffic curve trending sharply upward, search ranking positions chart with green upward arrows, content output volume bar chart growing month over month, all rendered in clean modern data visualization style with cream white and green accent colors, 16:9, premium analytics aesthetic, the data tells a clear story of acceleration"
+  },
+  {
+    num: "11",
+    name: "The Flywheel Visualization",
+    type: "broll",
+    duration: "3–4 sec",
+    description: "Abstract motion graphic: a flywheel diagram. Data feeds into content → content generates results → results feed back into strategy → strategy improves content. The cycle accelerates. Each loop is faster than the last. Visual metaphor for compounding returns.",
+    camera: "Full-frame animated graphic. Flywheel spins and accelerates. Particles flow along the cycle path.",
+    prompt: "Clean animated flywheel diagram on dark background, four connected nodes in a circle — 'Data', 'Content', 'Results', 'Strategy' — with glowing particles flowing between them in a continuous loop, each rotation visually faster than the last, minimal modern typography in cream white, subtle glow effects on the connecting paths, 16:9, the visual metaphor of a system that compounds, premium motion graphic aesthetic"
+  },
+  {
+    num: "12",
+    name: "Matthew: The ChatGPT Line — Wide",
+    type: "interview",
+    duration: "2–3 sec",
+    description: "Wide interrotron framing matching 02 for the most important line. Same kitchen. 'That's not something you get from prompting ChatGPT.' Calm, matter-of-fact. No dramatic energy.",
+    camera: "Interrotron. Wide (waist up) matching 02. No camera movement. Let the delivery do the work.",
+    prompt: "Cinematic wide shot of the same man from the reference photo — waist up framing matching previous wide shots, interrotron direct eye contact, calm and matter-of-fact expression, stating something obvious rather than making an argument, no dramatic energy, just quiet authority, same bright kitchen in daylight with pendant lights and marble countertops, shallow depth of field, 16:9, premium brand film"
+  },
+  {
+    num: "12a",
+    name: "Matthew: The ChatGPT Line — Punch-In",
+    type: "interview",
+    duration: "2–3 sec",
+    description: "Punch-in as he continues without pausing — 'It's an engine built on real results.' MCU, head to mid-chest. The interrotron carries the conviction. He doesn't dwell.",
+    camera: "Interrotron. MCU matching 02a. Same axis, no movement.",
+    prompt: "Cinematic medium close-up of the same man from the reference photo — head to mid-chest, interrotron direct eye contact, expression of calm quiet authority, already moving past the point to the next thought, no dramatic pause, very shallow depth of field, bright kitchen background softly blurred with warm daylight bokeh, 16:9, premium brand film, confidence in not dwelling"
+  },
+  {
+    num: "13",
+    name: "Matthew: The Shift — Wide",
+    type: "interview",
+    duration: "2–3 sec",
+    description: "Energy shift. Wide interrotron framing matching 02. Same kitchen, same direct eye contact as every interview shot, but Matthew's posture opens slightly — shoulders drop, a half-smile starts. He's transitioning from explaining to inviting. The shift is tonal, not visual. This is the hinge into Act 3.",
+    camera: "Interrotron. Wide (waist up) matching 02. Subtle warmth shift in color grade.",
+    prompt: "Cinematic wide shot of the same man from the reference photo — waist up framing matching previous wide shots, interrotron direct eye contact, same bright kitchen in daylight, expression has softened — warm and inviting, posture slightly more open, shoulders relaxed, a half-smile forming, lighting slightly warmer than previous shots, shallow depth of field, 16:9, premium brand film, the tonal transition from explanation to invitation"
+  },
+  {
+    num: "14",
+    name: "Matthew: The Close — Punch-In",
+    type: "interview",
+    duration: "5–6 sec",
+    description: "MCU interrotron for the close. 'This is the thing I spent my whole career wanting to build. And now it exists. So — let's go deeper.' Hold through the final line. Do not cut away. The interrotron eye contact at this distance makes the conviction feel personal.",
+    camera: "Interrotron. MCU matching 02a. Direct eye contact. Hold. Do not cut.",
+    prompt: "Cinematic medium close-up of the same man from the reference photo — head to mid-chest, interrotron direct eye contact, the expression carries genuine personal conviction, warm and confident, slight forward lean, very shallow depth of field, bright kitchen background softly blurred with warm daylight bokeh, 16:9, premium brand film, the final frame should feel like an open door — hold on this face"
+  },
+  {
+    num: "15",
+    name: "Atlas: Live Demo Teaser",
+    type: "screen",
+    duration: "2–3 sec",
+    description: "Quick flash of the Atlas dashboard — the real product overview with Content Quality Score, AI Visibility Score, SEO Score, traffic charts, and publishing activity. Just enough to create appetite for the live demo that follows. Intentionally brief — we're creating a cliffhanger, not giving the tour.",
+    camera: "Screen capture, slight pull-back revealing more of the dashboard. Brief enough to intrigue, not enough to satisfy.",
+    prompt: "A screenshot-accurate rendering of a content operations platform dashboard matching the reference screenshot — dark mode UI, top row of metric cards (Content Quality Score 88%, AI Visibility Score 84%, SEO Score 92%, Total Page Views 45.2K with green trend indicators), Traffic Overview line chart, Content Metrics radar chart, Publishing Activity stacked bar chart, Performance Trends line chart, left sidebar navigation, 16:9, shown briefly like a glimpse behind a curtain, premium SaaS product"
+  },
+  {
+    num: "16",
+    name: "End Frame",
+    type: "title",
+    duration: "2–3 sec",
+    description: "Clean end frame. The GrowthX logo centered on the warm cream background. No CTA. No URL. The rep picks up from here — the video's last purpose is to set the stage, not close the deal.",
+    camera: "Static. Logo holds, then the rep transitions to their screen share.",
+    prompt: "Minimalist end frame on warm cream background (#faf9f6), the GrowthX logo in bold black centered in frame, generous whitespace, no tagline no URL no CTA — just the brand mark, clean and confident, 16:9, the visual equivalent of a clean handshake before the conversation continues"
+  }
+];
+
+function getTypeTag(type) {
+  const map = {
+    interview: '<span class="shot-tag tag-interview">Interview</span>',
+    broll: '<span class="shot-tag tag-broll">B-Roll / MoGraph</span>',
+    title: '<span class="shot-tag tag-title">Title Card</span>',
+    screen: '<span class="shot-tag tag-screen">Screen / UI</span>'
+  };
+  return map[type] || '';
+}
+
+function renderShots() {
+  const grid = document.getElementById('shotGrid');
+  document.getElementById('shotCount').textContent = shots.length;
+  grid.innerHTML = shots.map((shot, i) => {
+    const visualHTML = shot.embed
+      ? `<div class="shot-visual shot-visual-embed">
+           <iframe src="${shot.embed}?v=${Date.now()}" title="Shot ${shot.num} — ${shot.name}" loading="lazy" allow="autoplay"></iframe>
+           <span class="frame-label">Frame ${shot.num} · Interactive</span>
+         </div>`
+      : `<div class="shot-visual" onclick="openLightbox(${i})">
+           <img src="storyboard/shot-${shot.num}.png" alt="Storyboard frame ${shot.num}: ${shot.name}" loading="lazy"
+                onerror="this.style.display='none'">
+           <div class="frame-overlay"></div>
+           <span class="frame-label">Frame ${shot.num}</span>
+           <span class="aspect-badge">16:9</span>
+         </div>`;
+
+    return `<div class="shot-card">
+      <div class="shot-card-inner">
+        ${visualHTML}
+        <div class="shot-details">
+          <div class="shot-header">
+            <h4>${shot.name}</h4>
+            <div style="display:flex;gap:0.8rem;align-items:center;">
+              <span class="shot-duration">${shot.duration}</span>
+              ${getTypeTag(shot.type)}
+            </div>
+          </div>
+          <p class="description">${shot.description}</p>
+          <p class="camera-note">CAM: ${shot.camera}</p>
+          <button class="shot-prompt-toggle" onclick="togglePrompt(${i})">Show Prompt</button>
+          <div class="shot-prompt" id="prompt-${i}">${shot.prompt}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function togglePrompt(index) {
+  const el = document.getElementById(`prompt-${index}`);
+  const btn = el.previousElementSibling;
+  el.classList.toggle('visible');
+  btn.textContent = el.classList.contains('visible') ? 'Hide Prompt' : 'Show Prompt';
+}
+
+function copyPrompt() {
+  const text = document.getElementById('sunoPromptText').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy Prompt', 2000);
+  });
+}
+
+function updateCharCount() {
+  const text = document.getElementById('sunoPromptText').textContent;
+  document.getElementById('charCount').textContent = `${text.length} / 1000 chars`;
+  document.getElementById('charCount').style.color = text.length <= 1000 ? 'var(--green)' : 'var(--red)';
+}
+
+renderShots();
+updateCharCount();
+
+function toggleAmbient() {
+  const player = document.getElementById('ambientPlayer');
+  const audio = document.getElementById('ambientAudio');
+  if (audio.paused) {
+    audio.play();
+    player.classList.add('is-playing');
+    player.querySelector('.play-label').textContent = 'Score playing';
+  } else {
+    audio.pause();
+    player.classList.remove('is-playing');
+    player.querySelector('.play-label').textContent = 'Play the score while reading';
+  }
+}
+
+document.getElementById('ambientAudio').addEventListener('ended', function() {
+  const player = document.getElementById('ambientPlayer');
+  player.classList.remove('is-playing');
+  player.querySelector('.play-label').textContent = 'Play the score while reading';
+});
+
+let lightboxIndex = 0;
+const lightboxShots = shots.filter(s => !s.embed);
+
+function openLightbox(shotIndex) {
+  const shot = shots[shotIndex];
+  if (shot.embed) return;
+  lightboxIndex = lightboxShots.findIndex(s => s.num === shot.num);
+  if (lightboxIndex < 0) return;
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateLightbox() {
+  const shot = lightboxShots[lightboxIndex];
+  document.getElementById('lightboxImg').src = `storyboard/shot-${shot.num}.png`;
+  document.getElementById('lightboxImg').alt = shot.name;
+  document.getElementById('lightboxCaption').textContent = `Frame ${shot.num} — ${shot.name}  (${lightboxIndex + 1} / ${lightboxShots.length})`;
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function lightboxPrev(e) {
+  e.stopPropagation();
+  lightboxIndex = (lightboxIndex - 1 + lightboxShots.length) % lightboxShots.length;
+  updateLightbox();
+}
+
+function lightboxNext(e) {
+  e.stopPropagation();
+  lightboxIndex = (lightboxIndex + 1) % lightboxShots.length;
+  updateLightbox();
+}
+
+document.addEventListener('keydown', function(e) {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') { lightboxIndex = (lightboxIndex - 1 + lightboxShots.length) % lightboxShots.length; updateLightbox(); }
+  if (e.key === 'ArrowRight') { lightboxIndex = (lightboxIndex + 1) % lightboxShots.length; updateLightbox(); }
+});
+</script>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-nav lightbox-prev" onclick="lightboxPrev(event)">‹</button>
+  <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+  <button class="lightbox-nav lightbox-next" onclick="lightboxNext(event)">›</button>
+  <div id="lightboxCaption" class="lightbox-caption"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Pipeline — Interactive Animation</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background: #0f0f0f;
+    color: #e8e5e0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pipeline-container {
+    width: 100%;
+    max-width: 960px;
+    height: 100%;
+    max-height: 540px;
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  .header .logo {
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: -0.02em;
+    color: #faf9f6;
+  }
+
+  .header .logo span {
+    color: #666;
+    font-weight: 400;
+    margin-left: 0.4rem;
+  }
+
+  .header .status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    color: #666;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .header .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #3a8a4a;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .pipeline-stages {
+    display: flex;
+    gap: 1px;
+    flex: 1;
+    background: #1a1a1a;
+    border: 1px solid #222;
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.6s ease 0.3s forwards;
+  }
+
+  .stage {
+    flex: 1;
+    background: #141414;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .stage:hover {
+    background: #1a1a1a;
+  }
+
+  .stage-header {
+    margin-bottom: 0.8rem;
+  }
+
+  .stage-num {
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 0.3rem;
+  }
+
+  .stage-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #e8e5e0;
+    letter-spacing: -0.01em;
+  }
+
+  .stage-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .stage-item {
+    background: #1e1e1e;
+    border: 1px solid #2a2a2a;
+    border-radius: 5px;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.65rem;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s;
+  }
+
+  .stage-item.active {
+    border-color: #3a8a4a;
+    background: rgba(58, 138, 74, 0.06);
+    color: #ccc;
+  }
+
+  .stage-item.processing {
+    border-color: #8a7040;
+    background: rgba(138, 112, 64, 0.06);
+    color: #ccc;
+  }
+
+  .stage-item .item-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #333;
+    flex-shrink: 0;
+  }
+
+  .stage-item.active .item-dot { background: #3a8a4a; }
+  .stage-item.processing .item-dot { background: #8a7040; }
+
+  .stage-count {
+    margin-top: auto;
+    padding-top: 0.6rem;
+    border-top: 1px solid #1e1e1e;
+    font-size: 0.55rem;
+    color: #444;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .stage-count .count-num {
+    color: #666;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .flow-arrows {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+
+  .metrics-bar {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 0.6s ease 0.6s forwards;
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .metric-label {
+    font-size: 0.55rem;
+    color: #555;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .metric-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e8e5e0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .metric-value.green { color: #4a9a5a; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 640px) {
+    .pipeline-container { padding: 1rem; }
+    .pipeline-stages { flex-direction: column; }
+    .stage { padding: 0.8rem; }
+    .metrics-bar { flex-wrap: wrap; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pipeline-container">
+  <div class="header">
+    <div class="logo">Atlas <span>Content Engine</span></div>
+    <div class="status">
+      <div class="status-dot"></div>
+      Pipeline Active
+    </div>
+  </div>
+
+  <div class="pipeline-stages" id="pipeline">
+    <div class="stage" id="stage-ingest">
+      <div class="stage-header">
+        <div class="stage-num">Stage 01</div>
+        <div class="stage-name">Data Ingestion</div>
+      </div>
+      <div class="stage-items" id="items-ingest"></div>
+      <div class="stage-count">
+        <span>Processed</span>
+        <span class="count-num" id="count-ingest">0</span>
+      </div>
+    </div>
+
+    <div class="stage" id="stage-analysis">
+      <div class="stage-header">
+        <div class="stage-num">Stage 02</div>
+        <div class="stage-name">Analysis</div>
+      </div>
+      <div class="stage-items" id="items-analysis"></div>
+      <div class="stage-count">
+        <span>In Queue</span>
+        <span class="count-num" id="count-analysis">0</span>
+      </div>
+    </div>
+
+    <div class="stage" id="stage-generation">
+      <div class="stage-header">
+        <div class="stage-num">Stage 03</div>
+        <div class="stage-name">Generation</div>
+      </div>
+      <div class="stage-items" id="items-generation"></div>
+      <div class="stage-count">
+        <span>Active</span>
+        <span class="count-num" id="count-generation">0</span>
+      </div>
+    </div>
+
+    <div class="stage" id="stage-review">
+      <div class="stage-header">
+        <div class="stage-num">Stage 04</div>
+        <div class="stage-name">Editorial</div>
+      </div>
+      <div class="stage-items" id="items-review"></div>
+      <div class="stage-count">
+        <span>Reviewed</span>
+        <span class="count-num" id="count-review">0</span>
+      </div>
+    </div>
+
+    <div class="stage" id="stage-publish">
+      <div class="stage-header">
+        <div class="stage-num">Stage 05</div>
+        <div class="stage-name">Publishing</div>
+      </div>
+      <div class="stage-items" id="items-publish"></div>
+      <div class="stage-count">
+        <span>Live</span>
+        <span class="count-num" id="count-publish">0</span>
+      </div>
+    </div>
+
+    <div class="flow-arrows" id="flowArrows"></div>
+  </div>
+
+  <div class="metrics-bar">
+    <div class="metric">
+      <span class="metric-label">Pipeline Throughput</span>
+      <span class="metric-value" id="metric-throughput">0 items/hr</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Content Quality</span>
+      <span class="metric-value green" id="metric-quality">92</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Avg. Time to Publish</span>
+      <span class="metric-value" id="metric-time">—</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Active Workflows</span>
+      <span class="metric-value" id="metric-workflows">3</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const ingestData = [
+  "Competitor SERP analysis",
+  "Market keyword clusters",
+  "Audience intent signals",
+  "Topic gap detection",
+  "Trending query extraction",
+  "Content decay audit"
+];
+
+const analysisData = [
+  "Intent classification",
+  "Funnel stage mapping",
+  "Difficulty scoring",
+  "Opportunity ranking",
+  "Semantic clustering"
+];
+
+const generationData = [
+  "Brief: Zero Trust Guide",
+  "Brief: API Security 101",
+  "Comparison: Vendor A vs B",
+  "Glossary: SASE explained",
+  "Landing: Enterprise plan"
+];
+
+const reviewData = [
+  "E-E-A-T compliance",
+  "Brand voice check",
+  "Technical accuracy",
+  "Schema markup"
+];
+
+const publishData = [
+  "Staged for deployment",
+  "Distribution queued",
+  "Analytics tracking"
+];
+
+function animateItems(containerId, items, delay, stateClass) {
+  const container = document.getElementById(containerId);
+  items.forEach((text, i) => {
+    const el = document.createElement('div');
+    el.className = 'stage-item';
+    el.innerHTML = `<div class="item-dot"></div>${text}`;
+    container.appendChild(el);
+
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+      if (stateClass && (i === 0 || i === 1)) {
+        el.classList.add(stateClass);
+      }
+    }, delay + (i * 200));
+  });
+}
+
+function animateCounters() {
+  const counters = [
+    { id: 'count-ingest', target: 847 },
+    { id: 'count-analysis', target: 234 },
+    { id: 'count-generation', target: 18 },
+    { id: 'count-review', target: 12 },
+    { id: 'count-publish', target: 156 }
+  ];
+
+  counters.forEach(({ id, target }) => {
+    const el = document.getElementById(id);
+    let current = 0;
+    const step = Math.ceil(target / 40);
+    const interval = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = current.toLocaleString();
+      if (current >= target) clearInterval(interval);
+    }, 50);
+  });
+}
+
+function animateMetrics() {
+  setTimeout(() => {
+    document.getElementById('metric-throughput').textContent = '142 items/hr';
+  }, 2000);
+  setTimeout(() => {
+    document.getElementById('metric-time').textContent = '2.4 hrs';
+  }, 2500);
+}
+
+function spawnParticles() {
+  const container = document.getElementById('flowArrows');
+  const stages = document.querySelectorAll('.stage');
+  if (stages.length < 2) return;
+
+  const colors = [
+    'rgba(58, 138, 74, 0.7)',
+    'rgba(58, 138, 74, 0.4)',
+    'rgba(74, 154, 90, 0.5)',
+    'rgba(138, 112, 64, 0.4)',
+    'rgba(100, 160, 110, 0.35)',
+  ];
+
+  function emitBurst(stageIndex) {
+    const fromStage = stages[stageIndex];
+    const toStage = stages[stageIndex + 1];
+    const fromRect = fromStage.getBoundingClientRect();
+    const toRect = toStage.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    const startX = fromRect.right - containerRect.left;
+    const endX = toRect.left - containerRect.left;
+    const gapWidth = endX - startX;
+
+    const count = 3 + Math.floor(Math.random() * 4);
+    for (let i = 0; i < count; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+
+      const size = 1.5 + Math.random() * 3;
+      const ySpread = fromRect.height * (0.15 + Math.random() * 0.7);
+      const startY = fromRect.top + ySpread - containerRect.top;
+      const duration = 0.4 + Math.random() * 0.6;
+      const delay = Math.random() * 0.15;
+
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+      particle.style.boxShadow = `0 0 ${size * 2}px ${particle.style.background}`;
+      particle.style.left = (startX - 2 + Math.random() * 4) + 'px';
+      particle.style.top = startY + 'px';
+      particle.style.opacity = '0';
+      particle.style.transition = `transform ${duration}s ease-out ${delay}s, opacity 0.2s ease ${delay}s`;
+
+      container.appendChild(particle);
+
+      requestAnimationFrame(() => {
+        particle.style.opacity = '1';
+        particle.style.transform = `translateX(${gapWidth + Math.random() * 10}px)`;
+      });
+
+      const fadeTime = (duration + delay) * 1000 - 150;
+      setTimeout(() => {
+        particle.style.opacity = '0';
+        setTimeout(() => particle.remove(), 250);
+      }, Math.max(fadeTime, 200));
+    }
+  }
+
+  setInterval(() => {
+    for (let s = 0; s < stages.length - 1; s++) {
+      if (Math.random() < 0.7) emitBurst(s);
+    }
+  }, 80);
+}
+
+setTimeout(() => animateItems('items-ingest', ingestData, 800, 'active'), 0);
+setTimeout(() => animateItems('items-analysis', analysisData, 600, 'processing'), 1200);
+setTimeout(() => animateItems('items-generation', generationData, 500, 'active'), 2200);
+setTimeout(() => animateItems('items-review', reviewData, 400, 'processing'), 3000);
+setTimeout(() => animateItems('items-publish', publishData, 400, 'active'), 3600);
+
+setTimeout(animateCounters, 1500);
+setTimeout(animateMetrics, 1800);
+setTimeout(spawnParticles, 2000);
+</script>
+
+</body>
+</html>
