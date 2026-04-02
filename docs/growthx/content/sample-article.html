@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Atlas Turns Market Data Into Content That Compounds — GrowthX</title>
+  <meta name="description" content="A walkthrough of the system behind the system. How Atlas processes competitive intelligence, audience signals, and SEO data into a content pipeline that gets smarter every week.">
+  <meta property="og:title" content="How Atlas Turns Market Data Into Content That Compounds">
+  <meta property="og:description" content="A walkthrough of the content engine — from competitive intelligence ingestion to published output.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://williamproctor.github.io/Will-s-Workspace/growthx/content/sample-article.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">
+        <img src="../assets/growthx-logo-dark.svg" alt="GrowthX">
+        <div class="nav-logo-divider"></div>
+        <span class="nav-logo-label">Content Library</span>
+      </a>
+      <div class="nav-links">
+        <a href="../#library">Library</a>
+        <a href="../#playbooks">Playbooks</a>
+        <a href="https://growthx.ai" target="_blank" rel="noopener">GrowthX.ai</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="article">
+    <header class="article-header reveal">
+      <span class="card-tag">Video + Article</span>
+      <h1>How Atlas Turns Market Data Into Content That Compounds</h1>
+      <p class="article-subtitle">A walkthrough of the system behind the system. Marcel Santilli breaks down how Atlas processes competitive intelligence, audience signals, and SEO data into a content pipeline that gets smarter every week.</p>
+      <div class="article-meta">
+        <span>Marcel Santilli</span>
+        <div class="article-meta-divider"></div>
+        <span>18 min</span>
+        <div class="article-meta-divider"></div>
+        <span>April 2026</span>
+      </div>
+    </header>
+
+    <!-- Full video player with chapters -->
+    <div class="video-player reveal reveal-d1" id="mainPlayer" style="margin-top: 48px;">
+      <div class="video-player-header">
+        <div class="video-player-icon">
+          <svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+        </div>
+        <div class="video-player-info">
+          <div class="video-player-label">Full Walkthrough</div>
+          <div class="video-player-title">Atlas: From Market Data to Compounding Content</div>
+        </div>
+      </div>
+      <div class="video-player-body">
+        <video id="mainVideo" poster="" preload="metadata">
+          <source src="../assets/clips/atlas-walkthrough.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-player-controls">
+        <button id="playBtn" aria-label="Play">
+          <svg viewBox="0 0 24 24" id="playIcon"><polygon points="6,3 20,12 6,21"/></svg>
+        </button>
+        <div class="video-progress" id="videoProgress">
+          <div class="video-progress-bar" id="videoBar"></div>
+        </div>
+        <span class="video-time" id="videoTime">0:00 / --:--</span>
+      </div>
+      <div class="chapter-list" id="chapterList"></div>
+    </div>
+
+    <!-- Article body -->
+    <div class="article-body reveal reveal-d2" style="margin-top: 56px;">
+
+      <h2>The Infrastructure Problem Nobody Talks About</h2>
+
+      <p>Every marketing leader knows content is their highest-leverage growth channel. That's not the insight. The insight is that doing it well — really well, at the scale your business actually needs — is one of the hardest infrastructure problems in marketing.</p>
+
+      <p>The talent is scarce. The systems are complex. And if you try to build it all yourself, you're looking at years before anything compounds. Most companies reach a ceiling: they can produce content, but they can't produce content that <strong>systematically improves</strong> over time. That's the gap Atlas was built to close.</p>
+
+      <blockquote>
+        <p>The question isn't whether you should be doing content. It's whether your content operation is built to learn from its own output.</p>
+      </blockquote>
+
+      <!-- Inline clip 1 -->
+      <div class="inline-clip">
+        <div class="inline-clip-header">
+          <span class="inline-clip-badge">Clip</span>
+          <span class="inline-clip-title">Marcel on the infrastructure gap</span>
+        </div>
+        <video controls preload="metadata">
+          <source src="../assets/clips/marcel-infrastructure-gap.mp4" type="video/mp4">
+        </video>
+        <div class="inline-clip-caption">From the full walkthrough — 2:14 to 3:45</div>
+      </div>
+
+      <h2>How Atlas Actually Works</h2>
+
+      <p>Atlas is a content engine. For every client, we build bespoke workflows — agentic pipelines that process market data, competitive landscape, and audience signals — and turn them into content that actually performs.</p>
+
+      <p>But the technology is only half of it. The other half is the institutional knowledge baked into every workflow. We've done this with hundreds of companies. Every engagement teaches the system something new — which strategies actually drive growth, which formats convert, which audiences respond.</p>
+
+      <h3>The Five Pipeline Stages</h3>
+
+      <p>Every piece of content flows through five discrete stages inside Atlas. Each stage has its own quality gates, its own feedback loops, and its own learning mechanisms:</p>
+
+      <ul>
+        <li><strong>Data Ingestion</strong> — Market signals, competitor analysis, keyword landscape, audience behavior patterns. Atlas aggregates data from dozens of sources into a unified intelligence layer.</li>
+        <li><strong>Analysis</strong> — The system identifies content opportunities ranked by impact potential. Not just keyword volume — actual business impact, mapped to the client's ICP and sales cycle.</li>
+        <li><strong>Generation</strong> — Agentic workflows produce draft content using client-specific voice models, editorial guidelines, and brand constraints. Every client gets a custom pipeline.</li>
+        <li><strong>Editorial Review</strong> — Human experts review, refine, and approve. This isn't a rubber stamp — it's where institutional knowledge gets encoded back into the system.</li>
+        <li><strong>Publishing &amp; Measurement</strong> — Content ships and the feedback loop begins. Performance data flows back into the Analysis stage, making the next cycle smarter.</li>
+      </ul>
+
+      <!-- Inline clip 2 -->
+      <div class="inline-clip">
+        <div class="inline-clip-header">
+          <span class="inline-clip-badge">Clip</span>
+          <span class="inline-clip-title">Atlas pipeline walkthrough</span>
+        </div>
+        <video controls preload="metadata">
+          <source src="../assets/clips/atlas-pipeline-demo.mp4" type="video/mp4">
+        </video>
+        <div class="inline-clip-caption">Screen recording of the Atlas pipeline in action — 5:30 to 8:12</div>
+      </div>
+
+      <h2>The Compounding Effect</h2>
+
+      <p>Here's what makes this different from every other content operation: the system gets smarter. Every published piece generates performance data. That data feeds back into the strategy layer. The strategy layer adjusts what we produce next. The next cycle outperforms the last one.</p>
+
+      <p>This is the flywheel. Data feeds content. Content generates results. Results feed strategy. Strategy improves content. Each rotation is faster, more targeted, and more effective than the one before it.</p>
+
+      <blockquote>
+        <p>That's not something you get from prompting ChatGPT. It's an engine built on real results, run by people who make it smarter every single week.</p>
+      </blockquote>
+
+      <h3>What This Looks Like in Practice</h3>
+
+      <p>For a typical engagement, the compounding effect becomes measurable by month two. By month four, content is performing 2-3x better than initial baselines — not because the writers got better, but because the system learned what works for that specific client, in that specific market, for that specific audience.</p>
+
+      <p>The data is unambiguous: teams using Atlas see organic traffic curves that inflect upward, not plateau. Search rankings that improve week over week, not month over month. And content quality scores that climb because the editorial feedback loops are continuous, not quarterly.</p>
+
+      <!-- Inline clip 3 -->
+      <div class="inline-clip">
+        <div class="inline-clip-header">
+          <span class="inline-clip-badge">Clip</span>
+          <span class="inline-clip-title">The compounding flywheel — live data</span>
+        </div>
+        <video controls preload="metadata">
+          <source src="../assets/clips/flywheel-data.mp4" type="video/mp4">
+        </video>
+        <div class="inline-clip-caption">Real client data showing the compounding effect over six months — 12:40 to 14:55</div>
+      </div>
+
+      <hr>
+
+      <h2>Building for the Next Three Years</h2>
+
+      <p>The companies that win the next era of organic growth won't be the ones that produce the most content. They'll be the ones whose content operations <strong>learn the fastest</strong>. That's what we're building. Not a content factory — a growth engine that gets smarter with every rotation.</p>
+
+      <p>If you're evaluating how to scale content without sacrificing quality — or if you've already hit the ceiling with your current approach — this is the system that changes the equation.</p>
+
+    </div>
+  </div>
+
+  <footer class="site-footer" style="margin-top: 80px;">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="../assets/growthx-logo-dark.svg" alt="GrowthX">
+        <span>&copy; 2026 GrowthX. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="../">Content Library</a>
+        <a href="https://growthx.ai" target="_blank" rel="noopener">GrowthX.ai</a>
+        <a href="https://growthx.ai/brand" target="_blank" rel="noopener">Brand</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const CHAPTERS = [
+      { time: 0, label: "Introduction" },
+      { time: 134, label: "The Infrastructure Problem" },
+      { time: 225, label: "Marcel on the Content Gap" },
+      { time: 330, label: "How Atlas Works" },
+      { time: 510, label: "The Five Pipeline Stages" },
+      { time: 760, label: "The Compounding Flywheel" },
+      { time: 895, label: "Real Client Data" },
+      { time: 1020, label: "Building for the Next Three Years" }
+    ];
+
+    function fmtTime(s) {
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    const chapterList = document.getElementById('chapterList');
+    chapterList.innerHTML = CHAPTERS.map((ch, i) => `
+      <div class="chapter-item${i === 0 ? ' active' : ''}" data-time="${ch.time}" data-index="${i}">
+        <span class="chapter-timestamp">${fmtTime(ch.time)}</span>
+        <span class="chapter-title">${ch.label}</span>
+      </div>
+    `).join('');
+
+    const video = document.getElementById('mainVideo');
+    const playBtn = document.getElementById('playBtn');
+    const playIcon = document.getElementById('playIcon');
+    const progress = document.getElementById('videoProgress');
+    const bar = document.getElementById('videoBar');
+    const timeDisplay = document.getElementById('videoTime');
+
+    if (video) {
+      playBtn.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+        } else {
+          video.pause();
+          playIcon.innerHTML = '<polygon points="6,3 20,12 6,21"/>';
+        }
+      });
+
+      video.addEventListener('timeupdate', () => {
+        if (!video.duration) return;
+        bar.style.width = (video.currentTime / video.duration * 100) + '%';
+        timeDisplay.textContent = fmtTime(video.currentTime) + ' / ' + fmtTime(video.duration);
+
+        document.querySelectorAll('.chapter-item').forEach((el, i) => {
+          const next = CHAPTERS[i + 1];
+          const isCurrent = video.currentTime >= CHAPTERS[i].time && (!next || video.currentTime < next.time);
+          el.classList.toggle('active', isCurrent);
+        });
+      });
+
+      video.addEventListener('ended', () => {
+        playIcon.innerHTML = '<polygon points="6,3 20,12 6,21"/>';
+      });
+
+      progress.addEventListener('click', (e) => {
+        if (!video.duration) return;
+        const rect = progress.getBoundingClientRect();
+        video.currentTime = ((e.clientX - rect.left) / rect.width) * video.duration;
+      });
+
+      document.querySelectorAll('.chapter-item').forEach(el => {
+        el.addEventListener('click', () => {
+          video.currentTime = parseFloat(el.dataset.time);
+          if (video.paused) {
+            video.play();
+            playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+          }
+        });
+      });
+    }
+
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver(
+        entries => entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        }),
+        { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
+      );
+      revealEls.forEach(el => obs.observe(el));
+      setTimeout(() => revealEls.forEach(el => el.classList.add('visible')), 1200);
+    } else {
+      revealEls.forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>

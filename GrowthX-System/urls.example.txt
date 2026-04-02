@@ -1,0 +1,8 @@
+# GrowthX Loom Video URLs
+# One URL per line. Lines starting with # are ignored.
+# Paste your Loom share links here, then run:
+#   python tools/loom_downloader.py --batch urls.txt
+
+# Example:
+# https://www.loom.com/share/abc123def456abc123def456abc123de
+# https://www.loom.com/share/789012ghi345789012ghi345789012gh
