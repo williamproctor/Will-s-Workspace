@@ -19,6 +19,10 @@ content_vault/catalog_export.csv
 # Keep the directory structure
 !content_vault/**/.gitkeep
 
+# Site: large video clips (keep logos + HTML)
+site/assets/clips/*.mp4
+site/assets/clips/*.webm
+
 # Python
 __pycache__/
 *.pyc
