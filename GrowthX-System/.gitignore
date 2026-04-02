@@ -1,0 +1,26 @@
+# Downloaded video files (large binaries — don't commit to git)
+content_vault/videos/**/*.mp4
+content_vault/videos/**/*.webm
+content_vault/videos/**/*.mkv
+
+# yt-dlp info dumps (contain signed CDN URLs)
+content_vault/videos/**/*.info.json
+
+# Transcript files (can be re-downloaded)
+content_vault/transcripts/*.vtt
+content_vault/transcripts/*.srt
+
+# Batch run summaries
+content_vault/metadata/batch_*.json
+
+# Catalog export
+content_vault/catalog_export.csv
+
+# Keep the directory structure
+!content_vault/**/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
