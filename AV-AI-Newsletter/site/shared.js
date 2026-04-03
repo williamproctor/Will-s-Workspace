@@ -107,6 +107,7 @@ function markdownToHtml(md) {
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
     .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<figure class="edition-figure"><img src="$2" alt="$1" loading="lazy"><figcaption>$1</figcaption></figure>')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
     .replace(/^---$/gm, '<hr>')
     .replace(/\n\n/g, '</p><p>')
@@ -120,7 +121,9 @@ function markdownToHtml(md) {
     .replace(/<p>(<table)/g, '$1')
     .replace(/(<\/table>)<\/p>/g, '$1')
     .replace(/<p>(<ul)/g, '$1')
-    .replace(/(<\/ul>)<\/p>/g, '$1');
+    .replace(/(<\/ul>)<\/p>/g, '$1')
+    .replace(/<p>(<figure)/g, '$1')
+    .replace(/(<\/figure>)<\/p>/g, '$1');
 }
 
 function convertTables(md) {
