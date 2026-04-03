@@ -1,0 +1,9 @@
+# Nested git repos — these have their own remotes and should not be tracked by the parent
+docs/growthx/
+
+# OS
+.DS_Store
+
+# Editor
+.cursor/
+.vscode/
