@@ -1000,10 +1000,13 @@ body {
   text-align: center;
 }
 .edition-figure img {
-  max-width: 100%;
+  max-width: 50%;
   border-radius: var(--radius);
   border: 1px solid var(--parchment-dark);
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+@media (max-width: 768px) {
+  .edition-figure img { max-width: 85%; }
 }
 .edition-figure figcaption {
   margin-top: 10px;
