@@ -1,0 +1,1454 @@
+From b2e6ff316debeb0c4e0b6469f93c874ad20af1ca Mon Sep 17 00:00:00 2001
+From: Cursor Agent <cursoragent@cursor.com>
+Date: Fri, 3 Apr 2026 00:42:47 +0000
+Subject: [PATCH] UX polish: mobile nav, unified gold token, accessibility,
+ play overlays
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Design system (shared.css):
+- Add --accent-gold/#C49A3C as single source of truth for gold accent
+- Dark mode gold auto-adapts via --accent-gold override
+- Add mobile hamburger menu with slide-out drawer
+- Add .nav-drawer, .nav-overlay, .nav-hamburger components
+- Add :focus-visible states using gold accent (buttons, nav links, toggle)
+- Add .play-overlay component for inline video clips
+- Add .nav-divider/.nav-label aliases for module page nav compatibility
+
+All 12 pages:
+- Add hamburger button + mobile drawer with all 5 nav links
+- Add aria-current='page' to active nav link (desktop + drawer)
+- Add toggleNav() JS for mobile menu open/close/overlay
+
+Module pages (01-07):
+- Replace hardcoded #b8922f/#d4a843 with var(--accent-gold)
+- Add play overlay JS that injects centered play button on video clips
+
+Inventory page:
+- Replace --gold: #996f1a/#c9a44a with var(--accent-gold)
+
+Assessments page:
+- Replace progress bar #996f1a/#c9a44a with var(--accent-gold)
+
+Landing page (system/index.html):
+- Fix Google Fonts import: discrete weights → variable axis (400..680)
+- Replace font-weight 500/600/700 with brand-spec 520/580/680
+- Remove redundant --accent-gold redefinition (now from shared.css)
+---
+ assessments/index.html |  33 +++++++-
+ index.html             |  27 ++++++-
+ inventory/index.html   |  31 +++++++-
+ modules/01.html        |  57 ++++++++++++--
+ modules/02.html        |  53 ++++++++++++-
+ modules/03.html        |  53 ++++++++++++-
+ modules/04.html        |  53 ++++++++++++-
+ modules/05.html        |  53 ++++++++++++-
+ modules/06.html        |  57 ++++++++++++--
+ modules/07.html        |  53 ++++++++++++-
+ modules/index.html     |  35 +++++++--
+ shared.css             | 167 ++++++++++++++++++++++++++++++++++++++++-
+ system/index.html      |  62 ++++++++++-----
+ 13 files changed, 666 insertions(+), 68 deletions(-)
+
+diff --git a/assessments/index.html b/assessments/index.html
+index cc4aad8..e0a7b93 100644
+--- a/assessments/index.html
++++ b/assessments/index.html
+@@ -32,15 +32,15 @@
+ 
+ [data-theme="dark"] .progress-bar-fill,
+ :root:not([data-theme]) .progress-bar-fill {
+-  background: #c9a44a;
++  background: var(--accent-gold);
+ }
+ 
+ :root .progress-bar-fill {
+-  background: #996f1a;
++  background: var(--accent-gold);
+ }
+ 
+ [data-theme="dark"] .progress-bar-fill {
+-  background: #c9a44a;
++  background: var(--accent-gold);
+ }
+ 
+ .progress-bar-label {
+@@ -518,15 +518,32 @@
+       <a href="../system/index.html">Landing Page</a>
+       <a href="../modules/index.html">Modules</a>
+       <a href="../inventory/index.html">Inventory</a>
+-      <a href="index.html">Self-Assessments</a>
++      <a href="index.html" aria-current="page">Self-Assessments</a>
+       <button class="theme-toggle" aria-label="Toggle dark mode">
+         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+       </button>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+     </div>
+   </div>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="../index.html">Hub</a>
++  <a href="../system/index.html">Landing Page</a>
++  <a href="../modules/index.html">Modules</a>
++  <a href="../inventory/index.html">Inventory</a>
++  <a href="../assessments/index.html" aria-current="page">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <div class="progress-bar-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="39">
+   <div class="progress-bar-fill"></div>
+ </div>
+@@ -929,5 +946,13 @@
+   initReveal();
+ })();
+ </script>
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
+ </body>
+ </html>
+diff --git a/index.html b/index.html
+index 391b53a..efe55e1 100644
+--- a/index.html
++++ b/index.html
+@@ -31,7 +31,7 @@
+       <span class="nav-logo-label">The System</span>
+     </a>
+     <div class="nav-links">
+-      <a href="index.html">Hub</a>
++      <a href="index.html" aria-current="page">Hub</a>
+       <a href="system/index.html">Landing Page</a>
+       <a href="modules/index.html">Modules</a>
+       <a href="inventory/index.html">Inventory</a>
+@@ -40,10 +40,27 @@
+         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+       </button>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+     </div>
+   </div>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="index.html" aria-current="page">Hub</a>
++  <a href="system/index.html">Landing Page</a>
++  <a href="modules/index.html">Modules</a>
++  <a href="inventory/index.html">Inventory</a>
++  <a href="assessments/index.html">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <header class="hero">
+   <p class="hero-label reveal">The GrowthX System</p>
+   <h1 class="reveal reveal-d1">The system behind the engine.</h1>
+@@ -134,5 +151,13 @@
+   nodes.forEach(function (el) { io.observe(el); });
+ })();
+ </script>
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
+ </body>
+ </html>
+diff --git a/inventory/index.html b/inventory/index.html
+index 6f85829..896da70 100644
+--- a/inventory/index.html
++++ b/inventory/index.html
+@@ -20,13 +20,13 @@
+   --surface-2: var(--secondary);
+   --sans: var(--font-sans);
+   --mono: var(--font-mono);
+-  --gold: #996f1a;
++  --gold: var(--accent-gold);
+   --green: #1a7a45;
+   --amber: #a07b12;
+   --red: #b53228;
+ }
+ [data-theme="dark"] {
+-  --gold: #c9a44a;
++  --gold: var(--accent-gold);
+   --green: #2d9c5e;
+   --amber: #d4a017;
+   --red: #d4453a;
+@@ -570,16 +570,33 @@
+       <a href="../index.html">Hub</a>
+       <a href="../system/index.html">Landing Page</a>
+       <a href="../modules/index.html">Modules</a>
+-      <a href="index.html">Inventory</a>
++      <a href="index.html" aria-current="page">Inventory</a>
+       <a href="../assessments/index.html">Self-Assessments</a>
+       <button class="theme-toggle" aria-label="Toggle dark mode">
+         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+       </button>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+     </div>
+   </div>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="../index.html">Hub</a>
++  <a href="../system/index.html">Landing Page</a>
++  <a href="../modules/index.html">Modules</a>
++  <a href="../inventory/index.html" aria-current="page">Inventory</a>
++  <a href="../assessments/index.html">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <main class="inventory-page">
+ 
+ <div class="header">
+@@ -1590,5 +1607,13 @@
+ })();
+ </script>
+ 
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
+ </body>
+ </html>
+diff --git a/modules/01.html b/modules/01.html
+index e3a67ce..ad5d593 100644
+--- a/modules/01.html
++++ b/modules/01.html
+@@ -30,11 +30,11 @@
+   font-weight: 500;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+-  color: #b8922f;
++  color: var(--accent-gold);
+   margin-bottom: 16px;
+ }
+ 
+-[data-theme="dark"] .module-overline { color: #d4a843; }
++[data-theme="dark"] .module-overline { color: var(--accent-gold); }
+ 
+ .module-header h1 {
+   font-size: clamp(32px, 5vw, 56px);
+@@ -87,14 +87,14 @@
+ .gap-notice {
+   background: var(--surface-raised);
+   border: 1px solid var(--border-subtle);
+-  border-left: 3px solid #b8922f;
++  border-left: 3px solid var(--accent-gold);
+   border-radius: var(--radius);
+   padding: 16px 20px;
+   max-width: var(--content-inset);
+   margin: 0 auto 40px;
+ }
+ 
+-[data-theme="dark"] .gap-notice { border-left-color: #d4a843; }
++[data-theme="dark"] .gap-notice { border-left-color: var(--accent-gold); }
+ 
+ .gap-notice p {
+   font-size: 14px;
+@@ -186,7 +186,7 @@
+   width: 8px;
+   height: 8px;
+   border-radius: 2px;
+-  background: #b8922f;
++  background: var(--accent-gold);
+ }
+ 
+ [data-theme="dark"] .takeaways-card li::before { background: #d4a843; }
+@@ -356,17 +356,34 @@
+     <div class="nav-links">
+       <a href="../index.html">Hub</a>
+       <a href="../system/index.html">Landing Page</a>
+-      <a href="index.html">Modules</a>
++      <a href="index.html" aria-current="page">Modules</a>
+       <a href="../inventory/index.html">Inventory</a>
+       <a href="../assessments/index.html">Self-Assessments</a>
+       <button class="theme-toggle" aria-label="Toggle dark mode">
+         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+       </button>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+     </div>
+   </div>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="../index.html">Hub</a>
++  <a href="../system/index.html">Landing Page</a>
++  <a href="../modules/index.html" aria-current="page">Modules</a>
++  <a href="../inventory/index.html">Inventory</a>
++  <a href="../assessments/index.html">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <header class="module-header">
+   <p class="module-overline reveal">Module 01</p>
+   <h1 class="reveal reveal-d1">The 15-Minute System Overview</h1>
+@@ -543,5 +560,33 @@ graph LR
+   nodes.forEach(function (el) { io.observe(el); });
+ })();
+ </script>
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
++<script>
++document.querySelectorAll('.inline-clip-body').forEach(function(body) {
++  var video = body.querySelector('video');
++  if (!video) return;
++  if (!body.querySelector('.play-overlay')) {
++    var overlay = document.createElement('div');
++    overlay.className = 'play-overlay';
++    overlay.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
++    body.appendChild(overlay);
++  }
++  body.addEventListener('click', function(e) {
++    if (e.target.closest('video') && video.controls) return;
++    if (video.paused) { video.play(); body.classList.add('playing'); }
++    else { video.pause(); body.classList.remove('playing'); }
++  });
++  video.addEventListener('play', function() { body.classList.add('playing'); });
++  video.addEventListener('pause', function() { body.classList.remove('playing'); });
++  video.addEventListener('ended', function() { body.classList.remove('playing'); });
++});
++</script>
+ </body>
+ </html>
+diff --git a/modules/02.html b/modules/02.html
+index 1fb0400..945b6d6 100644
+--- a/modules/02.html
++++ b/modules/02.html
+@@ -30,11 +30,11 @@
+   font-weight: 500;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+-  color: #b8922f;
++  color: var(--accent-gold);
+   margin-bottom: 16px;
+ }
+ 
+-[data-theme="dark"] .module-overline { color: #d4a843; }
++[data-theme="dark"] .module-overline { color: var(--accent-gold); }
+ 
+ .module-header h1 {
+   font-size: clamp(32px, 5vw, 56px);
+@@ -163,7 +163,7 @@
+   width: 8px;
+   height: 8px;
+   border-radius: 2px;
+-  background: #b8922f;
++  background: var(--accent-gold);
+ }
+ 
+ [data-theme="dark"] .takeaways-card li::before { background: #d4a843; }
+@@ -333,17 +333,34 @@
+     <div class="nav-links">
+       <a href="../index.html">Hub</a>
+       <a href="../system/index.html">Landing Page</a>
+-      <a href="index.html">Modules</a>
++      <a href="index.html" aria-current="page">Modules</a>
+       <a href="../inventory/index.html">Inventory</a>
+       <a href="../assessments/index.html">Self-Assessments</a>
+       <button class="theme-toggle" aria-label="Toggle dark mode">
+         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+       </button>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+     </div>
+   </div>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="../index.html">Hub</a>
++  <a href="../system/index.html">Landing Page</a>
++  <a href="../modules/index.html" aria-current="page">Modules</a>
++  <a href="../inventory/index.html">Inventory</a>
++  <a href="../assessments/index.html">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <header class="module-header">
+   <p class="module-overline reveal">Module 02</p>
+   <h1 class="reveal reveal-d1">AI Visibility Playbook</h1>
+@@ -542,5 +559,33 @@ graph LR
+   nodes.forEach(function (el) { io.observe(el); });
+ })();
+ </script>
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
++<script>
++document.querySelectorAll('.inline-clip-body').forEach(function(body) {
++  var video = body.querySelector('video');
++  if (!video) return;
++  if (!body.querySelector('.play-overlay')) {
++    var overlay = document.createElement('div');
++    overlay.className = 'play-overlay';
++    overlay.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
++    body.appendChild(overlay);
++  }
++  body.addEventListener('click', function(e) {
++    if (e.target.closest('video') && video.controls) return;
++    if (video.paused) { video.play(); body.classList.add('playing'); }
++    else { video.pause(); body.classList.remove('playing'); }
++  });
++  video.addEventListener('play', function() { body.classList.add('playing'); });
++  video.addEventListener('pause', function() { body.classList.remove('playing'); });
++  video.addEventListener('ended', function() { body.classList.remove('playing'); });
++});
++</script>
+ </body>
+ </html>
+diff --git a/modules/03.html b/modules/03.html
+index f78b46c..744c780 100644
+--- a/modules/03.html
++++ b/modules/03.html
+@@ -30,11 +30,11 @@
+   font-weight: 500;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+-  color: #b8922f;
++  color: var(--accent-gold);
+   margin-bottom: 16px;
+ }
+ 
+-[data-theme="dark"] .module-overline { color: #d4a843; }
++[data-theme="dark"] .module-overline { color: var(--accent-gold); }
+ 
+ .module-header h1 {
+   font-size: clamp(32px, 5vw, 56px);
+@@ -163,7 +163,7 @@
+   width: 8px;
+   height: 8px;
+   border-radius: 2px;
+-  background: #b8922f;
++  background: var(--accent-gold);
+ }
+ 
+ [data-theme="dark"] .takeaways-card li::before { background: #d4a843; }
+@@ -333,17 +333,34 @@
+     <div class="nav-links">
+       <a href="../index.html">Hub</a>
+       <a href="../system/index.html">Landing Page</a>
+-      <a href="index.html">Modules</a>
++      <a href="index.html" aria-current="page">Modules</a>
+       <a href="../inventory/index.html">Inventory</a>
+       <a href="../assessments/index.html">Self-Assessments</a>
+       <button class="theme-toggle" aria-label="Toggle dark mode">
+         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+       </button>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+     </div>
+   </div>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="../index.html">Hub</a>
++  <a href="../system/index.html">Landing Page</a>
++  <a href="../modules/index.html" aria-current="page">Modules</a>
++  <a href="../inventory/index.html">Inventory</a>
++  <a href="../assessments/index.html">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <header class="module-header">
+   <p class="module-overline reveal">Module 03</p>
+   <h1 class="reveal reveal-d1">Content Strategy Framework</h1>
+@@ -540,5 +557,33 @@ graph TD
+   nodes.forEach(function (el) { io.observe(el); });
+ })();
+ </script>
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
++<script>
++document.querySelectorAll('.inline-clip-body').forEach(function(body) {
++  var video = body.querySelector('video');
++  if (!video) return;
++  if (!body.querySelector('.play-overlay')) {
++    var overlay = document.createElement('div');
++    overlay.className = 'play-overlay';
++    overlay.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
++    body.appendChild(overlay);
++  }
++  body.addEventListener('click', function(e) {
++    if (e.target.closest('video') && video.controls) return;
++    if (video.paused) { video.play(); body.classList.add('playing'); }
++    else { video.pause(); body.classList.remove('playing'); }
++  });
++  video.addEventListener('play', function() { body.classList.add('playing'); });
++  video.addEventListener('pause', function() { body.classList.remove('playing'); });
++  video.addEventListener('ended', function() { body.classList.remove('playing'); });
++});
++</script>
+ </body>
+ </html>
+diff --git a/modules/04.html b/modules/04.html
+index 74f8474..3dc31ab 100644
+--- a/modules/04.html
++++ b/modules/04.html
+@@ -30,11 +30,11 @@
+   font-weight: 500;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+-  color: #b8922f;
++  color: var(--accent-gold);
+   margin-bottom: 16px;
+ }
+ 
+-[data-theme="dark"] .module-overline { color: #d4a843; }
++[data-theme="dark"] .module-overline { color: var(--accent-gold); }
+ 
+ .module-header h1 {
+   font-size: clamp(32px, 5vw, 56px);
+@@ -163,7 +163,7 @@
+   width: 8px;
+   height: 8px;
+   border-radius: 2px;
+-  background: #b8922f;
++  background: var(--accent-gold);
+ }
+ 
+ [data-theme="dark"] .takeaways-card li::before { background: #d4a843; }
+@@ -333,17 +333,34 @@
+     <div class="nav-links">
+       <a href="../index.html">Hub</a>
+       <a href="../system/index.html">Landing Page</a>
+-      <a href="index.html">Modules</a>
++      <a href="index.html" aria-current="page">Modules</a>
+       <a href="../inventory/index.html">Inventory</a>
+       <a href="../assessments/index.html">Self-Assessments</a>
+       <button class="theme-toggle" aria-label="Toggle dark mode">
+         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+       </button>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+     </div>
+   </div>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="../index.html">Hub</a>
++  <a href="../system/index.html">Landing Page</a>
++  <a href="../modules/index.html" aria-current="page">Modules</a>
++  <a href="../inventory/index.html">Inventory</a>
++  <a href="../assessments/index.html">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <header class="module-header">
+   <p class="module-overline reveal">Module 04</p>
+   <h1 class="reveal reveal-d1">Content Quality System</h1>
+@@ -557,5 +574,33 @@ graph LR
+   nodes.forEach(function (el) { io.observe(el); });
+ })();
+ </script>
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
++<script>
++document.querySelectorAll('.inline-clip-body').forEach(function(body) {
++  var video = body.querySelector('video');
++  if (!video) return;
++  if (!body.querySelector('.play-overlay')) {
++    var overlay = document.createElement('div');
++    overlay.className = 'play-overlay';
++    overlay.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
++    body.appendChild(overlay);
++  }
++  body.addEventListener('click', function(e) {
++    if (e.target.closest('video') && video.controls) return;
++    if (video.paused) { video.play(); body.classList.add('playing'); }
++    else { video.pause(); body.classList.remove('playing'); }
++  });
++  video.addEventListener('play', function() { body.classList.add('playing'); });
++  video.addEventListener('pause', function() { body.classList.remove('playing'); });
++  video.addEventListener('ended', function() { body.classList.remove('playing'); });
++});
++</script>
+ </body>
+ </html>
+diff --git a/modules/05.html b/modules/05.html
+index cf1bf5a..b2c6b53 100644
+--- a/modules/05.html
++++ b/modules/05.html
+@@ -30,11 +30,11 @@
+   font-weight: 500;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+-  color: #b8922f;
++  color: var(--accent-gold);
+   margin-bottom: 16px;
+ }
+ 
+-[data-theme="dark"] .module-overline { color: #d4a843; }
++[data-theme="dark"] .module-overline { color: var(--accent-gold); }
+ 
+ .module-header h1 {
+   font-size: clamp(32px, 5vw, 56px);
+@@ -163,7 +163,7 @@
+   width: 8px;
+   height: 8px;
+   border-radius: 2px;
+-  background: #b8922f;
++  background: var(--accent-gold);
+ }
+ 
+ [data-theme="dark"] .takeaways-card li::before { background: #d4a843; }
+@@ -333,17 +333,34 @@
+     <div class="nav-links">
+       <a href="../index.html">Hub</a>
+       <a href="../system/index.html">Landing Page</a>
+-      <a href="index.html">Modules</a>
++      <a href="index.html" aria-current="page">Modules</a>
+       <a href="../inventory/index.html">Inventory</a>
+       <a href="../assessments/index.html">Self-Assessments</a>
+       <button class="theme-toggle" aria-label="Toggle dark mode">
+         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+       </button>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+     </div>
+   </div>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="../index.html">Hub</a>
++  <a href="../system/index.html">Landing Page</a>
++  <a href="../modules/index.html" aria-current="page">Modules</a>
++  <a href="../inventory/index.html">Inventory</a>
++  <a href="../assessments/index.html">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <header class="module-header">
+   <p class="module-overline reveal">Module 05</p>
+   <h1 class="reveal reveal-d1">AEO Masterclass</h1>
+@@ -604,5 +621,33 @@ graph TB
+   nodes.forEach(function (el) { io.observe(el); });
+ })();
+ </script>
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
++<script>
++document.querySelectorAll('.inline-clip-body').forEach(function(body) {
++  var video = body.querySelector('video');
++  if (!video) return;
++  if (!body.querySelector('.play-overlay')) {
++    var overlay = document.createElement('div');
++    overlay.className = 'play-overlay';
++    overlay.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
++    body.appendChild(overlay);
++  }
++  body.addEventListener('click', function(e) {
++    if (e.target.closest('video') && video.controls) return;
++    if (video.paused) { video.play(); body.classList.add('playing'); }
++    else { video.pause(); body.classList.remove('playing'); }
++  });
++  video.addEventListener('play', function() { body.classList.add('playing'); });
++  video.addEventListener('pause', function() { body.classList.remove('playing'); });
++  video.addEventListener('ended', function() { body.classList.remove('playing'); });
++});
++</script>
+ </body>
+ </html>
+diff --git a/modules/06.html b/modules/06.html
+index 7d0260f..942731c 100644
+--- a/modules/06.html
++++ b/modules/06.html
+@@ -30,11 +30,11 @@
+   font-weight: 500;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+-  color: #b8922f;
++  color: var(--accent-gold);
+   margin-bottom: 16px;
+ }
+ 
+-[data-theme="dark"] .module-overline { color: #d4a843; }
++[data-theme="dark"] .module-overline { color: var(--accent-gold); }
+ 
+ .module-header h1 {
+   font-size: clamp(32px, 5vw, 56px);
+@@ -87,7 +87,7 @@
+ .module-callout {
+   background: var(--surface-raised);
+   border: 1px solid var(--border-subtle);
+-  border-left: 3px solid #b8922f;
++  border-left: 3px solid var(--accent-gold);
+   border-radius: var(--radius);
+   padding: 16px 20px;
+   margin-top: 32px;
+@@ -98,7 +98,7 @@
+   letter-spacing: -0.02em;
+ }
+ 
+-[data-theme="dark"] .module-callout { border-left-color: #d4a843; }
++[data-theme="dark"] .module-callout { border-left-color: var(--accent-gold); }
+ 
+ .module-callout strong {
+   color: var(--text-primary);
+@@ -185,7 +185,7 @@
+   width: 8px;
+   height: 8px;
+   border-radius: 2px;
+-  background: #b8922f;
++  background: var(--accent-gold);
+ }
+ 
+ [data-theme="dark"] .takeaways-card li::before { background: #d4a843; }
+@@ -355,17 +355,34 @@
+     <div class="nav-links">
+       <a href="../index.html">Hub</a>
+       <a href="../system/index.html">Landing Page</a>
+-      <a href="index.html">Modules</a>
++      <a href="index.html" aria-current="page">Modules</a>
+       <a href="../inventory/index.html">Inventory</a>
+       <a href="../assessments/index.html">Self-Assessments</a>
+       <button class="theme-toggle" aria-label="Toggle dark mode">
+         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+       </button>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+     </div>
+   </div>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="../index.html">Hub</a>
++  <a href="../system/index.html">Landing Page</a>
++  <a href="../modules/index.html" aria-current="page">Modules</a>
++  <a href="../inventory/index.html">Inventory</a>
++  <a href="../assessments/index.html">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <header class="module-header">
+   <p class="module-overline reveal">Module 06</p>
+   <h1 class="reveal reveal-d1">Starter Prompts &amp; Artifacts</h1>
+@@ -544,5 +561,33 @@ graph LR
+   nodes.forEach(function (el) { io.observe(el); });
+ })();
+ </script>
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
++<script>
++document.querySelectorAll('.inline-clip-body').forEach(function(body) {
++  var video = body.querySelector('video');
++  if (!video) return;
++  if (!body.querySelector('.play-overlay')) {
++    var overlay = document.createElement('div');
++    overlay.className = 'play-overlay';
++    overlay.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
++    body.appendChild(overlay);
++  }
++  body.addEventListener('click', function(e) {
++    if (e.target.closest('video') && video.controls) return;
++    if (video.paused) { video.play(); body.classList.add('playing'); }
++    else { video.pause(); body.classList.remove('playing'); }
++  });
++  video.addEventListener('play', function() { body.classList.add('playing'); });
++  video.addEventListener('pause', function() { body.classList.remove('playing'); });
++  video.addEventListener('ended', function() { body.classList.remove('playing'); });
++});
++</script>
+ </body>
+ </html>
+diff --git a/modules/07.html b/modules/07.html
+index 7145799..b24445f 100644
+--- a/modules/07.html
++++ b/modules/07.html
+@@ -30,11 +30,11 @@
+   font-weight: 500;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+-  color: #b8922f;
++  color: var(--accent-gold);
+   margin-bottom: 16px;
+ }
+ 
+-[data-theme="dark"] .module-overline { color: #d4a843; }
++[data-theme="dark"] .module-overline { color: var(--accent-gold); }
+ 
+ .module-header h1 {
+   font-size: clamp(32px, 5vw, 56px);
+@@ -163,7 +163,7 @@
+   width: 8px;
+   height: 8px;
+   border-radius: 2px;
+-  background: #b8922f;
++  background: var(--accent-gold);
+ }
+ 
+ [data-theme="dark"] .takeaways-card li::before { background: #d4a843; }
+@@ -333,17 +333,34 @@
+     <div class="nav-links">
+       <a href="../index.html">Hub</a>
+       <a href="../system/index.html">Landing Page</a>
+-      <a href="index.html">Modules</a>
++      <a href="index.html" aria-current="page">Modules</a>
+       <a href="../inventory/index.html">Inventory</a>
+       <a href="../assessments/index.html">Self-Assessments</a>
+       <button class="theme-toggle" aria-label="Toggle dark mode">
+         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+       </button>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+     </div>
+   </div>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="../index.html">Hub</a>
++  <a href="../system/index.html">Landing Page</a>
++  <a href="../modules/index.html" aria-current="page">Modules</a>
++  <a href="../inventory/index.html">Inventory</a>
++  <a href="../assessments/index.html">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <header class="module-header">
+   <p class="module-overline reveal">Module 07</p>
+   <h1 class="reveal reveal-d1">Measurement &amp; Monitoring</h1>
+@@ -565,5 +582,33 @@ graph TD
+   nodes.forEach(function (el) { io.observe(el); });
+ })();
+ </script>
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
++<script>
++document.querySelectorAll('.inline-clip-body').forEach(function(body) {
++  var video = body.querySelector('video');
++  if (!video) return;
++  if (!body.querySelector('.play-overlay')) {
++    var overlay = document.createElement('div');
++    overlay.className = 'play-overlay';
++    overlay.innerHTML = '<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>';
++    body.appendChild(overlay);
++  }
++  body.addEventListener('click', function(e) {
++    if (e.target.closest('video') && video.controls) return;
++    if (video.paused) { video.play(); body.classList.add('playing'); }
++    else { video.pause(); body.classList.remove('playing'); }
++  });
++  video.addEventListener('play', function() { body.classList.add('playing'); });
++  video.addEventListener('pause', function() { body.classList.remove('playing'); });
++  video.addEventListener('ended', function() { body.classList.remove('playing'); });
++});
++</script>
+ </body>
+ </html>
+diff --git a/modules/index.html b/modules/index.html
+index 87063fd..01aaab5 100644
+--- a/modules/index.html
++++ b/modules/index.html
+@@ -50,11 +50,11 @@
+   font-weight: 450;
+   letter-spacing: 0.06em;
+   text-transform: uppercase;
+-  color: #b8922f;
++  color: var(--accent-gold);
+   margin-bottom: 10px;
+ }
+ 
+-[data-theme="dark"] .module-card-overline { color: #d4a843; }
++[data-theme="dark"] .module-card-overline { color: var(--accent-gold); }
+ 
+ .module-card-title {
+   font-size: 18px;
+@@ -90,11 +90,11 @@
+ }
+ 
+ .assessment-card {
+-  border-left: 3px solid #b8922f;
++  border-left: 3px solid var(--accent-gold);
+ }
+ 
+ [data-theme="dark"] .assessment-card {
+-  border-left-color: #d4a843;
++  border-left-color: var(--accent-gold);
+ }
+ 
+ @media (max-width: 768px) {
+@@ -114,17 +114,34 @@
+     <div class="nav-links">
+       <a href="../index.html">Hub</a>
+       <a href="../system/index.html">Landing Page</a>
+-      <a href="index.html">Modules</a>
++      <a href="index.html" aria-current="page">Modules</a>
+       <a href="../inventory/index.html">Inventory</a>
+       <a href="../assessments/index.html">Self-Assessments</a>
+       <button class="theme-toggle" aria-label="Toggle dark mode">
+         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+       </button>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+     </div>
+   </div>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="../index.html">Hub</a>
++  <a href="../system/index.html">Landing Page</a>
++  <a href="../modules/index.html" aria-current="page">Modules</a>
++  <a href="../inventory/index.html">Inventory</a>
++  <a href="../assessments/index.html">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <header class="hero">
+   <p class="hero-label reveal">The GrowthX System</p>
+   <h1 class="reveal reveal-d1">The modules.</h1>
+@@ -257,5 +274,13 @@
+   nodes.forEach(function (el) { io.observe(el); });
+ })();
+ </script>
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
+ </body>
+ </html>
+diff --git a/shared.css b/shared.css
+index ee19749..813ff43 100644
+--- a/shared.css
++++ b/shared.css
+@@ -18,6 +18,11 @@
+   --border: #B3B3B3;
+   --border-subtle: #D4D1CC;
+ 
++  /* ── Accent ── */
++  --accent-gold: #C49A3C;
++  --accent-gold-soft: rgba(196, 154, 60, 0.12);
++  --accent-gold-dark: #d4a843;
++
+   /* ── Semantic ── */
+   --text-primary: var(--foreground);
+   --text-secondary: #3a3a3a;
+@@ -61,6 +66,9 @@
+   --text-muted: #6b6b6b;
+   --surface: #111114;
+   --surface-raised: #1a1a1f;
++  --accent-gold: #d4a843;
++  --accent-gold-soft: rgba(212, 168, 67, 0.15);
++  --accent-gold-dark: #d4a843;
+ }
+ 
+ [data-theme="dark"] .site-nav {
+@@ -763,8 +771,8 @@ body {
+   font-weight: 500;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+-  color: #b8922f;
+-  background: rgba(184, 146, 47, 0.1);
++  color: var(--accent-gold);
++  background: var(--accent-gold-soft);
+   padding: 3px 8px;
+   border-radius: var(--radius-pill);
+ }
+@@ -960,12 +968,163 @@ body {
+ .reveal-d2 { transition-delay: 0.16s; }
+ .reveal-d3 { transition-delay: 0.24s; }
+ 
++/* ── NAV CLASS ALIASES (module pages use .nav-divider/.nav-label) ── */
++.nav-divider {
++  width: 1px;
++  height: 16px;
++  background: var(--border);
++}
++
++.nav-label {
++  font-size: 13px;
++  font-weight: 480;
++  color: var(--text-muted);
++  letter-spacing: -0.03em;
++}
++
++/* ── MOBILE HAMBURGER ── */
++.nav-hamburger {
++  display: none;
++  background: none;
++  border: none;
++  cursor: pointer;
++  padding: 6px;
++  color: var(--text-primary);
++  z-index: 102;
++}
++
++.nav-hamburger svg {
++  width: 22px;
++  height: 22px;
++  stroke: currentColor;
++  fill: none;
++  stroke-width: 2;
++  stroke-linecap: round;
++}
++
++.nav-hamburger .icon-close { display: none; }
++.nav-hamburger.open .icon-menu { display: none; }
++.nav-hamburger.open .icon-close { display: block; }
++
++.nav-overlay {
++  display: none;
++  position: fixed;
++  inset: 0;
++  z-index: 99;
++  background: rgba(0, 0, 0, 0.3);
++  backdrop-filter: blur(4px);
++  -webkit-backdrop-filter: blur(4px);
++}
++
++.nav-overlay.open { display: block; }
++
++.nav-drawer {
++  display: none;
++  position: fixed;
++  top: 0; right: 0; bottom: 0;
++  width: 280px;
++  max-width: 85vw;
++  z-index: 101;
++  background: var(--background);
++  border-left: 1px solid var(--border);
++  padding: 80px 24px 32px;
++  flex-direction: column;
++  gap: 8px;
++  overflow-y: auto;
++  transform: translateX(100%);
++  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
++}
++
++.nav-drawer.open {
++  display: flex;
++  transform: translateX(0);
++}
++
++.nav-drawer a {
++  font-size: 16px;
++  font-weight: 520;
++  color: var(--text-secondary);
++  text-decoration: none;
++  padding: 12px 0;
++  border-bottom: 1px solid var(--border-subtle);
++  transition: color 0.2s;
++  letter-spacing: -0.03em;
++}
++
++.nav-drawer a:hover,
++.nav-drawer a.active {
++  color: var(--text-primary);
++}
++
++.nav-drawer .theme-toggle {
++  margin-top: 16px;
++  align-self: flex-start;
++}
++
++/* ── PLAY OVERLAY (for inline clips) ── */
++.inline-clip-body {
++  position: relative;
++  cursor: pointer;
++}
++
++.inline-clip-body .play-overlay {
++  position: absolute;
++  inset: 0;
++  display: flex;
++  align-items: center;
++  justify-content: center;
++  background: rgba(0, 0, 0, 0.25);
++  transition: opacity 0.3s;
++  z-index: 1;
++  pointer-events: none;
++}
++
++.inline-clip-body .play-overlay svg {
++  width: 48px;
++  height: 48px;
++  fill: rgba(255, 255, 255, 0.85);
++  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
++  transition: transform 0.2s;
++}
++
++.inline-clip-body:hover .play-overlay svg {
++  transform: scale(1.08);
++}
++
++.inline-clip-body.playing .play-overlay {
++  opacity: 0;
++}
++
++/* ── FOCUS STATES (accessibility) ── */
++:focus-visible {
++  outline: 2px solid var(--accent-gold);
++  outline-offset: 2px;
++}
++
++.btn:focus-visible {
++  outline: 2px solid var(--accent-gold);
++  outline-offset: 2px;
++}
++
++.theme-toggle:focus-visible {
++  outline: 2px solid var(--accent-gold);
++  outline-offset: 2px;
++}
++
++.nav-links a:focus-visible {
++  outline: 2px solid var(--accent-gold);
++  outline-offset: 4px;
++  border-radius: var(--radius-sm);
++}
++
+ /* ── RESPONSIVE ── */
+ @media (max-width: 768px) {
+-  .nav-links { gap: 16px; }
+-  .nav-links a { font-size: 13px; }
++  .nav-links { display: none; }
++  .nav-hamburger { display: flex; }
+   .nav-logo-label { display: none; }
+   .nav-logo-divider { display: none; }
++  .nav-divider { display: none; }
++  .nav-label { display: none; }
+ 
+   .hero { padding: 100px 16px 56px; }
+ 
+diff --git a/system/index.html b/system/index.html
+index 550dde0..928fbeb 100644
+--- a/system/index.html
++++ b/system/index.html
+@@ -8,14 +8,13 @@
+ <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
++<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..680;1,14..32,400..680&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../shared.css">
+ <script src="../theme.js"></script>
+ <style>
+ /* GrowthX System landing — extends shared.css tokens */
+ :root {
+-  --accent-gold: #c49a3c;
+-  --accent-gold-soft: rgba(196, 154, 60, 0.12);
++  /* accent-gold now inherited from shared.css */
+   --section-pad: clamp(48px, 8vw, 96px);
+   --section-pad-mobile: 48px;
+   --radius-lg: 12px;
+@@ -36,7 +35,7 @@
+ }
+ .system-landing .section-header h2 {
+   font-size: clamp(28px, 3.5vw, 42px);
+-  font-weight: 700;
++  font-weight: 680;
+   letter-spacing: -0.05em;
+   line-height: 1.12;
+   color: var(--text-primary);
+@@ -201,7 +200,7 @@
+ .shift-col-label {
+   font-family: var(--font-mono);
+   font-size: 10px;
+-  font-weight: 500;
++  font-weight: 520;
+   text-transform: uppercase;
+   letter-spacing: 1.5px;
+ }
+@@ -233,14 +232,14 @@
+   position: absolute;
+   left: 0;
+   color: var(--text-muted);
+-  font-weight: 600;
++  font-weight: 580;
+ }
+ .shift-col--system li::before {
+   content: '→';
+   position: absolute;
+   left: 0;
+   color: var(--accent-gold);
+-  font-weight: 600;
++  font-weight: 580;
+ }
+ 
+ /* What's inside */
+@@ -279,7 +278,7 @@ a.module-card {
+ .module-number {
+   font-family: var(--font-mono);
+   font-size: 48px;
+-  font-weight: 500;
++  font-weight: 520;
+   color: var(--foreground);
+   opacity: 0.06;
+   line-height: 1;
+@@ -289,7 +288,7 @@ a.module-card {
+ }
+ .module-card h3 {
+   font-size: 17px;
+-  font-weight: 600;
++  font-weight: 580;
+   letter-spacing: -0.04em;
+   margin-bottom: 4px;
+   padding-right: 48px;
+@@ -309,7 +308,7 @@ a.module-card {
+   padding: 4px 10px;
+   border-radius: var(--radius-pill);
+   font-family: var(--font-mono);
+-  font-weight: 500;
++  font-weight: 520;
+   font-size: 10px;
+   text-transform: uppercase;
+   letter-spacing: 0.06em;
+@@ -338,7 +337,7 @@ a.module-card {
+ }
+ .stat-number {
+   font-family: var(--font-sans);
+-  font-weight: 700;
++  font-weight: 680;
+   font-size: clamp(36px, 4vw, 52px);
+   letter-spacing: -0.05em;
+   color: var(--text-primary);
+@@ -359,7 +358,7 @@ a.module-card {
+ }
+ .testimonial-quote {
+   font-size: clamp(20px, 3vw, 28px);
+-  font-weight: 600;
++  font-weight: 580;
+   font-style: italic;
+   letter-spacing: -0.04em;
+   line-height: 1.35;
+@@ -407,7 +406,7 @@ a.module-card {
+ }
+ .qualify-col h4 {
+   font-family: var(--font-sans);
+-  font-weight: 600;
++  font-weight: 580;
+   font-size: 16px;
+   margin-bottom: 28px;
+   letter-spacing: -0.03em;
+@@ -488,7 +487,7 @@ a.module-card {
+ .form-group label {
+   display: block;
+   font-size: 13px;
+-  font-weight: 500;
++  font-weight: 520;
+   color: var(--text-primary);
+   margin-bottom: 6px;
+   letter-spacing: -0.03em;
+@@ -546,7 +545,7 @@ a.module-card {
+   color: var(--background);
+   font-family: var(--font-sans);
+   font-size: 15px;
+-  font-weight: 500;
++  font-weight: 520;
+   border: none;
+   cursor: pointer;
+   transition: opacity 0.2s, transform 0.2s;
+@@ -573,7 +572,7 @@ a.module-card {
+ }
+ .form-success h3 {
+   font-size: 24px;
+-  font-weight: 700;
++  font-weight: 680;
+   margin-bottom: 12px;
+   color: var(--text-primary);
+   letter-spacing: -0.04em;
+@@ -623,7 +622,7 @@ a.module-card {
+   color: #F1EEE9;
+   margin-bottom: 20px;
+   font-size: clamp(28px, 3.5vw, 42px);
+-  font-weight: 700;
++  font-weight: 680;
+   letter-spacing: -0.05em;
+   line-height: 1.12;
+ }
+@@ -646,7 +645,7 @@ a.module-card {
+   color: #F1EEE9;
+   font-family: var(--font-sans);
+   font-size: 14px;
+-  font-weight: 500;
++  font-weight: 520;
+   letter-spacing: -0.03em;
+   border: 1px solid rgba(241, 238, 233, 0.35);
+   cursor: pointer;
+@@ -731,7 +730,7 @@ a.module-card {
+     </a>
+     <div class="nav-links">
+       <a href="../index.html">Hub</a>
+-      <a href="index.html">Landing Page</a>
++      <a href="index.html" aria-current="page">Landing Page</a>
+       <a href="../modules/index.html">Modules</a>
+       <a href="../inventory/index.html">Inventory</a>
+       <a href="../assessments/index.html">Self-Assessments</a>
+@@ -742,8 +741,25 @@ a.module-card {
+       <a href="#form" class="btn btn-primary">Get the System <span>→</span></a>
+     </div>
+   </div>
++      <button class="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
++        <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
++        <svg class="icon-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
++      </button>
+ </nav>
+ 
++<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
++<div class="nav-drawer" id="navDrawer">
++  <a href="../index.html">Hub</a>
++  <a href="../system/index.html" aria-current="page">Landing Page</a>
++  <a href="../modules/index.html">Modules</a>
++  <a href="../inventory/index.html">Inventory</a>
++  <a href="../assessments/index.html">Self-Assessments</a>
++  <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleNav()">
++    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
++    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
++  </button>
++</div>
++
+ <section class="hero system-hero">
+   <div class="container">
+     <div class="hero-label reveal">THE GROWTHX SYSTEM</div>
+@@ -1150,5 +1166,13 @@ a.module-card {
+ })();
+ </script>
+ 
++<script>
++function toggleNav() {
++  document.querySelector('.nav-hamburger').classList.toggle('open');
++  document.getElementById('navOverlay').classList.toggle('open');
++  document.getElementById('navDrawer').classList.toggle('open');
++  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
++}
++</script>
+ </body>
+ </html>
+-- 
+2.43.0
+
