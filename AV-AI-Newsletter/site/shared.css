@@ -993,6 +993,50 @@ body {
   background: var(--dispatch-blue-dark);
 }
 
+/* ── Reading Mode Toggle ── */
+.reading-toggle {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--parchment-warm);
+  border-radius: 10px;
+  margin: 0 0 24px;
+  width: fit-content;
+}
+.reading-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-muted);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.reading-toggle-btn:hover {
+  color: var(--ink-soft);
+  background: rgba(255,255,255,0.5);
+}
+.reading-toggle-btn.active {
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.reading-toggle-btn svg {
+  flex-shrink: 0;
+}
+@media (max-width: 480px) {
+  .reading-toggle { width: 100%; }
+  .reading-toggle-btn { flex: 1; justify-content: center; padding: 9px 12px; font-size: 12px; }
+}
+
 /* ── Inline figures in edition content ── */
 .edition-figure {
   margin: 28px 0;
