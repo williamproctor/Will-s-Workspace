@@ -1,4 +1,4 @@
-/* AV AI Dispatch — Shared JS (podcast player, markdown renderer) */
+/* AVS AI Dispatch — Shared JS (podcast player, markdown renderer) */
 
 function buildPodcastPlayer(audioSrc, title) {
   return `

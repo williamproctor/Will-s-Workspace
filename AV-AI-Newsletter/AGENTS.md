@@ -1,8 +1,8 @@
-# AV AI Dispatch — Writing Guidelines
+# AVS AI Dispatch — Writing Guidelines
 
 ## Purpose
 
-The AV AI Dispatch is a weekly awareness newsletter for the Audio/Video Services department. Its sole purpose is to keep the team informed about what is happening on the frontier of AI as it relates to AV workflows. It is not a strategy document, a recommendations engine, or a roadmap.
+The AVS AI Dispatch is a weekly awareness newsletter for the Audio/Video Services department. Its sole purpose is to keep the team informed about what is happening on the frontier of AI as it relates to AV workflows. It is not a strategy document, a recommendations engine, or a roadmap.
 
 ## Voice & Tone
 

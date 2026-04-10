@@ -1,4 +1,4 @@
-# The AV AI Dispatch — Week of April 3, 2026
+# The AVS AI Dispatch — Week of April 3, 2026
 
 > A quick, plain-language summary of this week's biggest AI developments and what they mean for people who work in audio and video.
 
@@ -70,4 +70,4 @@ The trend is clear: AI video generation is getting dramatically cheaper and more
 
 ---
 
-*The AV AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the simplified edition — switch to "Full Edition" above for the complete version with technical details and sources.*
+*The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the simplified edition — switch to "Full Edition" above for the complete version with technical details and sources.*

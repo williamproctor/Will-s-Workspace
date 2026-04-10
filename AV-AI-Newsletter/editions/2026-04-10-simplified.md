@@ -1,4 +1,4 @@
-# The AV AI Dispatch — Week of April 10, 2026
+# The AVS AI Dispatch — Week of April 10, 2026
 
 > Quick Summary: A major AI model was so powerful that the U.S. government called an emergency meeting about it. A new video generation tool took the #1 spot globally. And Netflix released a free tool that can remove objects from video while keeping the scene realistic.
 
@@ -60,4 +60,4 @@ This was one of the most eventful weeks in AI this year. A few things worth noti
 
 ---
 
-*The AV AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the simplified edition — switch to "Full Edition" for the complete technical breakdown.*
+*The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the simplified edition — switch to "Full Edition" for the complete technical breakdown.*

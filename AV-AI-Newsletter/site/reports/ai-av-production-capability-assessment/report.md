@@ -1,4 +1,4 @@
-# The AV AI Production Index — Q1 2026
+# The AVS AI Production Index — Q1 2026
 
 > A quarterly assessment of what AI can and can't do in audio/video production. No hype. Just what works, what's close, and what's still a demo. This is the inaugural edition.
 
@@ -540,4 +540,4 @@ This assessment draws from manufacturer documentation, third-party benchmarks (A
 41. Mistral Small 4 and model lineup. "Mistral Small 4." [docs.mistral.ai](https://docs.mistral.ai/models/mistral-small-4-0-26-03); Models overview. [docs.mistral.ai](https://docs.mistral.ai/models/)
 ---
 
-*Published by The AV AI Dispatch · Q1 2026*
+*Published by The AVS AI Dispatch · Q1 2026*
