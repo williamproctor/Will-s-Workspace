@@ -51,3 +51,18 @@ Each edition follows this structure:
 - The markdown is JSON-escaped and injected into the HTML page's `EDITION_MD` constant via a Python script.
 - Edition dates follow a Friday publication schedule.
 - Images can be placed in the edition's site directory (e.g., `site/editions/2026-04-03/`) and referenced with relative paths in the markdown.
+
+## Audio Pipeline (required for every new edition)
+
+Every edition ships with two audio formats so downstream platforms (SharePoint, email clients, legacy players) always have a compatible option:
+
+1. The original `.m4a` file (NotebookLM export) is placed at `site/audio/YYYY-MM-DD.m4a`.
+2. **An MP3 copy MUST be generated and placed at `site/audio/mp3/YYYY-MM-DD.mp3`** alongside the m4a. This is not optional — do it as part of the same step that copies the audio into `site/audio/`.
+
+**Conversion command** (uses `ffmpeg`, VBR quality 2 ≈ 190 kbps, which typically halves file size while preserving audio quality):
+
+```bash
+ffmpeg -i site/audio/YYYY-MM-DD.m4a -codec:a libmp3lame -qscale:a 2 site/audio/mp3/YYYY-MM-DD.mp3 -y
+```
+
+Create the `site/audio/mp3/` directory if it does not already exist. After conversion, verify both files exist before committing.
