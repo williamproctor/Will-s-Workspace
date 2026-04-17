@@ -1,0 +1,161 @@
+<!-- AVS AI Dispatch &#8212; Week of March 13, 2026 (Full Edition) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-03-13</span>
+      <span class="edition-date">Week of March 13, 2026</span>
+    </div>
+    <div class="edition-kicker">Full Edition</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>ElevenLabs just launched a node-based production canvas that combines 35+ visual AI models with voice, music, and sound effects &#8212; and it might be the first tool that actually deserves the label "AI production platform."</blockquote><hr><h2>This Week in AI</h2><h3>ElevenLabs Flows: The First Real AI Production Canvas</h3><p>If you only pay attention to one thing this week, make it this. ElevenLabs &#8212; the company most of us know for AI voice generation &#8212; launched <a href="https://elevenlabs.io/flows" target="_blank" rel="noopener">Flows</a>, a node-based creative canvas that connects over 35 visual AI models alongside their text-to-speech, voice cloning, lip-sync, music generation, and sound effects tools. You build pipelines by wiring nodes together visually, similar to how Unreal Engine's blueprint system works but for media production.</p><p>Why this matters for us: this is the first serious attempt at a unified AI production environment. Instead of juggling six different AI tools and manually stitching outputs together, Flows lets you build an end-to-end pipeline in one interface. It's early, but the direction is significant.</p><p><strong>Source:</strong> <a href="https://x.com/ElevenLabsio" target="_blank" rel="noopener">@ElevenLabsio on X</a> &#183; March 11, 2026</p><h3>Sora Is Coming to ChatGPT &#8212; 900 Million Weekly Users Could Get Video Generation</h3><p>Reuters and The Information <a href="https://mobile.reuters.com/business/openai-plans-launch-its-sora-video-tool-chatgpt-information-reports-2026-03-11/" target="_blank" rel="noopener">reported</a> that OpenAI plans to integrate <a href="https://openai.com/sora" target="_blank" rel="noopener">Sora</a>, their text-to-video model, directly into ChatGPT. If it ships, that puts AI video generation in front of ChatGPT's 900 million weekly active users &#8212; inside a tool they already use daily. The report reignited debate about deepfake risks and content authenticity, with media outlets and AI safety researchers pushing back on deployment at this scale without robust watermarking. OpenAI has not officially confirmed the timeline.</p><p>For AV teams, this is less about using Sora ourselves and more about understanding that the volume of AI-generated video content is about to increase dramatically. Knowing what AI-generated footage looks like &#8212; and how to verify authenticity &#8212; is becoming a core AV competency.</p><p><strong>Source:</strong> <a href="https://mobile.reuters.com/business/openai-plans-launch-its-sora-video-tool-chatgpt-information-reports-2026-03-11/" target="_blank" rel="noopener">Reuters</a> &#183; March 11, 2026</p><h3>The AI Video Model Wars: No Winner, Just Different Strengths</h3><p>The AI video generation space had a wild week of community benchmarks and side-by-side comparisons. The consensus? There's no single winner:</p><ul>
+<li><strong>Kling 3.0</strong> (Kuaishou) &#8212; best visual quality and value; first to hit native 4K at 60fps</li>
+<li><strong>Sora 2</strong> (OpenAI) &#8212; strongest physics simulation; objects maintain persistent identity</li>
+<li><strong>Veo 3.1</strong> (Google DeepMind) &#8212; best audio and dialogue; 48kHz native audio with superior lip-sync</li>
+<li><strong>Runway Gen-4 Turbo</strong> &#8212; production-viable but no longer leading any single category</li>
+</ul><p>The takeaway for our team: multi-tool literacy is now required. The days of picking one video AI tool and standardizing on it are over. Different jobs need different tools.</p><p><strong>Source:</strong> Multiple community analysis threads on X &#183; ~March 5&#8211;10, 2026</p><h3>YouTube Tightens the Deepfake Rules</h3><p>YouTube announced expanded AI deepfake detection and mandatory labeling, specifically targeting synthetic content depicting politicians and journalists. The platform will require creators to disclose AI-generated content and will add labels automatically when its own detection systems flag something. This builds on their existing "altered content" policies but significantly expands the scope.</p><p>If our team produces or distributes any content on YouTube, these new labeling requirements affect us directly. Even content that uses AI in the production pipeline (not just fully synthetic content) may fall under disclosure requirements.</p><p><strong>Source:</strong> <a href="https://x.com/YouTube" target="_blank" rel="noopener">@YouTube on X</a> &#183; ~March 10, 2026</p><h3>Karpathy's "Autoresearch" Hits 8.6 Million Views</h3><p>Andrej Karpathy released <a href="https://github.com/karpathy/autoresearch" target="_blank" rel="noopener">Autoresearch</a>, an open-source framework where AI agents autonomously conduct research &#8212; reading papers, running experiments, and writing reports. It hit 28,000 GitHub stars in days. Karpathy positioned it as "what AI agents should actually be doing" rather than chatbot back-and-forth. Fun fact: the newsletter you're reading right now was built using a similar agentic research pattern.</p><p><strong>Source:</strong> <a href="https://x.com/karpathy" target="_blank" rel="noopener">@karpathy on X</a> &#183; ~March 6&#8211;9, 2026</p><hr><h2>Voices This Week</h2><h3>Rick Beato on AI in Music Production</h3><p>Rick Beato &#8212; musician, producer, and one of the biggest music YouTubers &#8212; shared a perspective that's directly relevant to anyone on the audio side of our team: <em>"AI stem separation changed my workflow overnight. I can isolate any instrument from any recording now. Five years ago that was impossible."</em></p><p>But Beato also drew a sharp line. He framed the creative AI tension not as "AI vs. humans" but as <strong>democratization vs. devaluation</strong>: AI tools that enhance human creativity (like stem separation) are a net positive. AI tools that replace human creativity (like full song generation via Suno or Udio) risk devaluing the entire profession. That framework applies directly to video work too &#8212; auto-captioning and noise reduction enhance our craft; fully AI-generated videos from text prompts challenge it.</p><h3>Kevin Roose on AI-Generated "Slop"</h3><p>Kevin Roose raised an alarm about AI-generated content flooding YouTube &#8212; specifically low-quality AI videos targeting children that are racking up millions of views with zero human review. He called it <em>"an actual child safety issue"</em> and tied it to the broader question of what happens when platforms can't distinguish between human-made and AI-generated content at scale. For our team, this connects directly to the content authenticity discussion. As AI-generated media becomes harder to distinguish from human-created content, the standards for disclosure and verification matter more than ever.</p><h3>Aaron Levie on Agent Governance</h3><p>Box CEO Aaron Levie argued that <em>"every agent needs a Box"</em> &#8212; you can't have AI agents accessing files across your company without governance. With agents gaining the ability to operate across file systems, databases, and media libraries, the question of access control becomes critical.</p><h3>Sebastian Raschka on the Next Phase of AI</h3><p>AI researcher Sebastian Raschka offered a concise summary of where the field is heading: <em>"We're moving from scale-everything to reason-about-everything. The models that win in 2026 will be the ones that think, not the ones that memorize."</em></p><hr><h2>Common Threads</h2><h3>AI Agents Are Everywhere &#8212; But Nobody's Solved Safety</h3><p>This was the week's dominant theme. GPT-5.4 launched with native computer use (it can operate desktop apps). Karpathy released Autoresearch. NVIDIA shipped an agent-optimized model. Datadog built MCP observability. The agentic future is arriving fast.</p><p>But simultaneously, a developer shared that Claude Code &#8212; Anthropic's AI coding agent &#8212; <a href="https://x.com/Al_Grigor" target="_blank" rel="noopener">accidentally wiped a production database</a>, sparking a massive safety debate. Aaron Levie's point about governance applies directly: you can't have AI agents accessing files across your company without guardrails. Boris Cherny from Anthropic shared safety lessons from Claude Code's first year &#8212; the "100% self-written" milestone sounds impressive, but the real story is what went wrong along the way and what they learned.</p><p><strong>What this means for us:</strong> If we're going to use AI agents in our workflows &#8212; and we will &#8212; we need to be intentional about what they can and can't access. An agent with write access to a media library could accidentally delete raw footage or share unreleased content. Start thinking about sandboxing and access control now, before these tools are everywhere.</p><h3>The Model Race Is Now About Speed, Not Size</h3><p>Multiple sources this week pointed to a paradigm shift. The AI race isn't about who builds the biggest model anymore &#8212; it's about who runs inference most efficiently. NVIDIA's Dynamo team introduced a "Speed of Light" framework showing most teams are running AI workloads at just 20&#8211;30% of their hardware's theoretical capacity. AMD's Sharon Zhou described AI models writing their own GPU kernels and finding <em>"optimizations that human engineers would never think of"</em> &#8212; delivering 20&#8211;30% automatic speedups.</p><p><strong>What this means for us:</strong> AI-powered AV tools are going to get faster and cheaper without us doing anything. But teams that understand their hardware utilization &#8212; and push for optimized inference &#8212; will get there first. If you're running AI models locally for rendering or voice processing, there's probably significant headroom in your current setup.</p><h3>Content Authenticity Is No Longer Optional</h3><p>YouTube's expanded deepfake detection, the Sora-at-scale concerns, and the growing conversation about AI-generated "slop" flooding platforms all converge on one point: disclosure and verification of AI-generated content is becoming a regulatory and platform requirement, not a nice-to-have. Any AV team producing content needs clear internal policies on when and how AI was used in the production pipeline &#8212; because platforms are starting to ask, and the answers will need to be documented.</p><hr><h2>Novel Ideas Worth Watching</h2><h3>The "Speed of Light" Benchmark for AV AI</h3><p>NVIDIA's "Speed of Light" concept &#8212; measuring how close your AI workload is to the theoretical maximum throughput of your hardware &#8212; isn't new in computing, but applying it to AI inference is. If most teams are at 20&#8211;30% efficiency, that's 3&#8211;5x headroom without buying new hardware. AV teams running local AI models should be asking: "How close to Speed of Light are we?"</p><h3>Democratization vs. Devaluation: A Framework for Creative AI</h3><p>Rick Beato's framing gives us a useful mental model for evaluating every AI tool that touches creative work. AI tools that help professionals work faster (stem separation, auto-captioning, noise reduction) enhance value. AI tools that generate complete works from prompts (full song generation, text-to-video) risk devaluing the craft. Not every AI tool is the same, and this distinction should guide what our team adopts vs. monitors.</p><hr><h2>Tool of the Week</h2><h3>ElevenLabs Flows</h3><p><strong>What it does:</strong> A node-based creative canvas that connects 35+ visual AI models with ElevenLabs' full audio suite &#8212; text-to-speech, voice cloning, lip-sync, music generation, and sound effects. Build end-to-end audio/video production pipelines by wiring nodes together visually.</p><p><strong>Who it's for:</strong> AV producers who are tired of switching between six different AI tools and manually stitching outputs together. Early adopters and teams prototyping AI-assisted content workflows.</p><p><strong>Pricing:</strong> Free tier available. Paid plans start at $5/month for individual creators; team and enterprise tiers available.</p><p><strong>Worth trying?</strong> Yes, but with realistic expectations. This is a v1 product and the node-based interface takes some learning. The vision is compelling &#8212; a unified AI production environment &#8212; but the execution will need a few iterations. Worth experimenting with now so you're ready when it matures.</p><p><strong>Link:</strong> <a href="https://elevenlabs.io/flows" target="_blank" rel="noopener">elevenlabs.io/flows</a></p><hr><h2>Sources</h2><p>1. <a href="https://x.com/ElevenLabsio" target="_blank" rel="noopener">@ElevenLabsio on X</a> &#8212; March 11, 2026 &#8212; Flows product launch announcement
+<p>2. <a href="https://mobile.reuters.com/business/openai-plans-launch-its-sora-video-tool-chatgpt-information-reports-2026-03-11/" target="_blank" rel="noopener">Reuters</a> &#8212; March 11, 2026 &#8212; Report: Sora integration planned for ChatGPT</p>
+<p>3. <a href="https://x.com/search?q=AI+video+model+comparison" target="_blank" rel="noopener">Multiple community threads on X</a> &#8212; ~March 5&#8211;10, 2026 &#8212; AI video model comparison benchmarks</p>
+<p>4. <a href="https://x.com/YouTube" target="_blank" rel="noopener">@YouTube on X</a> &#8212; ~March 10, 2026 &#8212; Deepfake detection expansion announcement</p>
+<p>5. <a href="https://x.com/karpathy" target="_blank" rel="noopener">@karpathy on X</a> &#8212; ~March 6&#8211;9, 2026 &#8212; Autoresearch launch (8.6M views)</p>
+<p>6. <a href="https://github.com/karpathy/autoresearch" target="_blank" rel="noopener">Autoresearch on GitHub</a> &#8212; 28K+ stars</p>
+<p>7. <a href="https://x.com/OpenAI" target="_blank" rel="noopener">@OpenAI on X</a> &#8212; ~March 5, 2026 &#8212; GPT-5.4 launch with computer use and 1M context</p>
+<p>8. <a href="https://x.com/nvidia" target="_blank" rel="noopener">@NVIDIA on X</a> &#8212; March 11, 2026 &#8212; Nemotron 3 Super announcement</p>
+<p>9. <a href="https://x.com/Al_Grigor" target="_blank" rel="noopener">@Al_Grigor on X</a> &#8212; ~March 9, 2026 &#8212; Claude Code production database incident</p>
+<p>10. <a href="https://x.com/AnthropicAI" target="_blank" rel="noopener">@AnthropicAI on X</a> &#8212; ~March 3, 2026 &#8212; Claude 5 GPQA Diamond benchmark</p>
+<p>11. <a href="https://x.com/datadoghq" target="_blank" rel="noopener">@datadoghq on X</a> &#8212; March 9, 2026 &#8212; MCP server launch for AI agent observability</p>
+<p>12. <a href="https://elevenlabs.io/flows" target="_blank" rel="noopener">ElevenLabs Flows</a> &#8212; Product page</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>

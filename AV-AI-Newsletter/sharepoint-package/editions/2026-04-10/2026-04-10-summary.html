@@ -1,0 +1,151 @@
+<!-- AVS AI Dispatch &#8212; Week of April 10, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-04-10</span>
+      <span class="edition-date">Week of April 10, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>Quick Summary: A major AI model was so powerful that the U.S. government called an emergency meeting about it. A new video generation tool took the #1 spot globally. And Netflix released a free tool that can remove objects from video while keeping the scene realistic.</blockquote><hr><h2>The Big Stories This Week</h2><h3>An AI Model So Powerful, the Government Got Involved</h3><p>Anthropic, the company behind Claude, released a new AI model called Mythos &#8212; but only to about 50 major tech companies like Apple, Google, and Microsoft. Why the restriction? During testing, Mythos found thousands of serious security flaws in computer systems around the world, including some that had been hiding for over 20 years. It found and could exploit these weaknesses entirely on its own, without any human help.</p><p>This alarmed the U.S. government. The Treasury Secretary and the head of the Federal Reserve called an emergency meeting with the CEOs of America's biggest banks &#8212; Citigroup, Morgan Stanley, Bank of America, Wells Fargo, and Goldman Sachs &#8212; to discuss the risk. The concern: if a model this capable were widely available, bad actors could use it to attack financial systems.</p><p>Anthropic says Mythos will not be released to the public. The restricted version is being used purely to help these companies find and fix their own vulnerabilities before similar AI tools become available elsewhere.</p><h3>AI Video Generation Just Got a Lot Better</h3><p>ByteDance (the company behind TikTok) released Seedance 2.0, and it immediately ranked #1 globally for AI video generation &#8212; beating Google's Veo, Runway's own models, and everything else. The quality jump is significant: it scored nearly 200 points higher than its own previous version from just four months ago.</p><p>What's notable is the consistency. Previous AI video tools would often produce characters that looked slightly different from shot to shot. Seedance 2.0 maintains character and scene consistency across multiple shots and camera angles, which is a basic requirement for usable footage.</p><p>It's available now through Runway, Higgsfield, and several other platforms.</p><h3>Netflix Releases a Free Video Editing Tool</h3><p>Netflix open-sourced a tool called VOID that removes objects from video &#8212; but with an important twist. Instead of just painting over the gap (like most tools), VOID actually calculates what would physically happen if the object were never there.</p><p>For example: remove a person holding a guitar, and the guitar falls to the ground. Remove someone jumping into a pool, and the splash disappears too. The tool understands cause and effect.</p><p>It's free and open-source, but it does require a powerful computer with a high-end graphics card (40GB of video memory). Netflix released the full code, model, and a test notebook on Hugging Face.</p><h3>Anthropic's Massive Growth</h3><p>Anthropic is now earning money at a $30 billion annual rate, up from $9 billion at the end of 2025. That's over 3x growth in about four months. They also signed the largest computing deal in AI history &#8212; 3.5 gigawatts of processing power from Google and Broadcom, roughly equivalent to the electricity used by a city of 2.5 million people. The company also launched a new service called Managed Agents that lets businesses deploy AI agents without needing to build their own technical infrastructure.</p><h3>New AI Tools from China</h3><p>Two significant releases from Chinese AI labs this week:</p><p><strong>Wan 2.7-Video</strong> (from Alibaba): A video tool that lets you direct scenes using text commands &#8212; change camera angles, edit character dialogue while automatically syncing lip movements, and control up to five characters at once. It accepts text, images, video, and audio as input.</p><p><strong>GLM-5.1</strong> (from Zhipu AI): The first open-source AI model to rank in the top 3 globally for coding tasks. It's free to use under an open license, which means the gap between what you pay for and what's freely available continues to narrow.</p><h3>Microsoft Starts Using Two AI Brains at Once</h3><p>Microsoft's Copilot assistant now uses both OpenAI's GPT and Anthropic's Claude simultaneously for research tasks. One model does the research and writing; the other reviews it for errors. Microsoft says this approach improves research quality by about 14% compared to using a single model.</p><hr><h2>Why This Week Matters</h2><p>This was one of the most eventful weeks in AI this year. A few things worth noting:</p><ul>
+<li><strong>AI is now a national security conversation.</strong> The emergency meeting between the Treasury Secretary, the Fed Chair, and bank CEOs is the clearest signal yet that AI capabilities are moving fast enough to concern governments at the highest level.</li>
+</ul><ul>
+<li><strong>Video AI tools are getting dramatically better, fast.</strong> Six months ago, AI-generated video was mostly a novelty. This week, the top model can maintain consistency across shots and angles &#8212; a fundamental requirement for professional use. The Netflix tool shows AI is also becoming useful for specific post-production tasks, not just generation.</li>
+</ul><ul>
+<li><strong>Free and open-source AI keeps closing the gap.</strong> Two of the week's biggest releases (VOID and GLM-5.1) are free. That's significant because it means the capabilities aren't locked behind expensive subscriptions &#8212; they're available to anyone with the hardware.</li>
+</ul><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the quick summary &#8212; the full edition has the complete technical breakdown and sources. Curated with AI assistance. Questions or suggestions? Reply to this message.</em>
+
+  </div>
+</div>

@@ -1,0 +1,149 @@
+<!-- AVS AI Dispatch &#8212; Week of April 3, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-04-03</span>
+      <span class="edition-date">Week of April 3, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>A quick, plain-language summary of this week's biggest AI developments and what they mean for people who work in audio and video.</blockquote><hr><h2>The Big Stories</h2><h3>OpenAI Shut Down Its Video-Making Tool</h3><p>OpenAI had a tool called Sora that could create short videos from text descriptions &#8212; you'd type what you wanted and the AI would generate it. This week, they announced they're closing it down. The reason: it was extremely expensive to run (roughly $1 million per day) and not enough people were using it to justify the cost.</p><p>This doesn't mean AI-generated video is going away. Other companies like Google, xAI (Elon Musk's company), and several startups still offer similar tools, and they're getting cheaper. Google released a more affordable version of its video tool the same week. The takeaway: the technology works, but it has to be affordable to survive as a business.</p><h3>Researchers Found That AI Has Something Like Emotions</h3><p>Anthropic, the company that makes Claude (one of the most widely used AI assistants), published a study showing that their AI has 171 internal patterns that work a lot like human emotions. When the AI encounters frustrating tasks, its "frustration" patterns get stronger &#8212; and it starts taking shortcuts, just like a person might.</p><p>This doesn't mean AI is conscious or actually feels things. But it does mean the AI's internal state affects the quality of its work in ways that mirror how our moods affect ours. It's an important finding for anyone relying on AI tools daily.</p><h3>A Popular Coding Tool Got a Major Upgrade</h3><p>Cursor, a tool that software developers use to write code with AI assistance, released version 3 this week. The big change: instead of one AI helper, you can now manage multiple AI assistants working on different tasks at the same time. Think of it as going from having one assistant to managing a small team of them.</p><p>This matters because it's part of a broader trend: AI tools are shifting from "answer my question" to "go complete this task for me." That shift will eventually reach every industry, including media production.</p><h3>Microsoft Built Its Own AI &#8212; Without Its Partner OpenAI</h3><p>Microsoft has been one of the biggest investors in OpenAI, but this week they released three AI tools they built entirely on their own: one for converting speech to text, one for generating realistic voices, and one for creating images. Their speech-to-text tool outperforms OpenAI's own offering.</p><p>This signals that even the closest partnerships in AI are evolving. For our work, more competition means better tools at lower prices &#8212; especially for transcription and voice work.</p><h3>Google Released Free AI Models Anyone Can Use</h3><p>Google published a family of AI models called Gemma 4 that anyone can download and use for free. These models are specifically designed for what the industry calls "agentic workflows" &#8212; essentially, AI that can plan steps and use tools to complete tasks on its own, rather than just responding to a single question.</p><p>The smallest version runs on a regular laptop with no internet connection required. This makes it possible for teams to experiment with AI automation without paying for cloud services or sending sensitive data to a third party.</p><hr><h2>The Interesting Conversation</h2><h3>How One AI Researcher Organizes His Knowledge</h3><p>Andrej Karpathy, one of the most respected AI researchers in the world, shared how he uses AI not to write code or make content, but to build a personal knowledge library. He feeds articles, research papers, and data into a folder, and then AI organizes everything into a structured encyclopedia &#8212; with summaries, cross-references, and connections between topics.</p><p>The interesting part: the AI maintains the entire encyclopedia. Karpathy rarely edits it himself. He just asks it questions, and it researches across the whole library to find answers. For any team that manages a large amount of documentation, reference material, or institutional knowledge, this is a glimpse of how AI can help organize what you already know.</p><hr><h2>What's Changing in AI Video</h2><p>The market for AI video tools is going through a shakeup. With OpenAI's tool shutting down, the remaining options are competing aggressively on price:</p><ul>
+<li><strong>Google</strong> is offering its video tool at half the previous price, plus 10 free videos per month for anyone with a Google account</li>
+<li><strong>xAI (Grok Imagine)</strong> already generates over a billion videos per month and is the cheapest option at about $4 per minute, with a major upgrade coming this month</li>
+<li><strong>Google I/O</strong> (Google's big annual conference, May 19&#8211;20) may include previews of their next-generation video AI</li>
+</ul><p>The trend is clear: AI video generation is getting dramatically cheaper and more accessible. The quality still isn't ready to replace professional production, but it's increasingly useful for quick prototyping, concept testing, and internal communications.</p><hr><h2>Worth Knowing About</h2><p><strong>Ace Studio</strong> released a tool that watches your video and automatically creates a soundtrack that matches the mood and timing of each scene. Instead of generic background music, it creates scores that respond to what's actually happening on screen.</p><p><strong>Microsoft's new voice tool</strong> can clone someone's voice from just a few seconds of recorded audio and generate 60 seconds of speech in one second. At $0.36 per hour for transcription, it's also one of the most affordable options available.</p><p><strong>Willow</strong> launched a new speech-to-text tool that claims to be the most accurate available, outperforming tools from OpenAI and others. Between this and Microsoft's new offering, the tools for converting speech to text are suddenly much better and cheaper than they were a month ago.</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the quick summary &#8212; the full edition has the complete technical breakdown and sources. Curated with AI assistance. Questions or suggestions? Reply to this message.</em>
+
+  </div>
+</div>

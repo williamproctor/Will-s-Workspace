@@ -1,0 +1,157 @@
+<!-- AVS AI Dispatch &#8212; Week of April 10, 2026 (Full Edition) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-04-10</span>
+      <span class="edition-date">Week of April 10, 2026</span>
+    </div>
+    <div class="edition-kicker">Full Edition</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>Anthropic's Mythos model went live and immediately triggered an emergency meeting between the Treasury Secretary, the Fed Chair, and the CEOs of America's biggest banks. Seedance 2.0 hit #1 on every video benchmark. Netflix open-sourced a tool that removes objects from video while simulating what would physically happen without them. And Anthropic's revenue hit $30 billion.</blockquote><hr><h2>This Week in AI</h2><h3>Anthropic's Mythos Goes Live &#8212; And the U.S. Treasury Secretary and Federal Reserve Chair Called an Emergency Meeting</h3><p>The Mythos model we covered two weeks ago as a leak is now real, controlled, and already shaking markets. Anthropic launched <strong>Project Glasswing</strong> on April 7, making a preview of Claude Mythos available to 12 core partner organizations &#8212; Amazon, Apple, Cisco, CrowdStrike, Google, JPMorgan Chase, Linux Foundation, Microsoft, Nvidia, and Palo Alto Networks &#8212; plus roughly 40 additional organizations. The purpose: defensive cybersecurity only.</p><p>What prompted the restricted release: in internal testing, Mythos autonomously identified thousands of high-severity vulnerabilities across every major operating system and web browser, including flaws that are one to two decades old. It developed exploits entirely without human intervention. Anthropic briefed U.S. government officials on the model's offensive and defensive capabilities, and the company is subsidizing usage costs with up to $100 million in credits and $4 million in direct donations.</p><p>Then, on April 9, Treasury Secretary Scott Bessent and Federal Reserve Chair Jerome Powell convened an emergency meeting at Treasury headquarters with the CEOs of Citigroup, Morgan Stanley, Bank of America, Wells Fargo, and Goldman Sachs. The topic: the systemic cyber risk that Mythos represents to financial infrastructure. Cybersecurity stocks dropped immediately &#8212; Cloudflare fell 8.6%, CrowdStrike fell 7.5%.</p><p>Anthropic has stated that Mythos will not be released to the general public.</p><p><strong>Source:</strong> <a href="https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/" target="_blank" rel="noopener">TechCrunch</a> &#183; <a href="https://news.bloomberglaw.com/tech-and-telecom-law/bessent-urgently-summons-bank-ceos-to-discuss-anthropics-new-ai" target="_blank" rel="noopener">Bloomberg</a> &#183; <a href="https://www.cnn.com/2026/04/07/tech/anthropic-claude-mythos-preview-cybersecurity" target="_blank" rel="noopener">CNN</a> &#183; April 7&#8211;9, 2026</p><h3>Seedance 2.0 Takes #1 on Every Video Benchmark</h3><p>ByteDance's Seedance 2.0 landed on Runway this week and immediately claimed the top position on the Artificial Analysis Video Arena for both text-to-video and image-to-video generation. The 720p variant scored 1,450 Elo &#8212; 79 points above second-place Veo 3.1 1080p in text-to-video, and 29 points above Grok Imagine Video in image-to-video. That's a 191-point jump from Seedance v1.5 Pro, which was released less than four months ago.</p><p>Seedance 2.0 is also now available on Higgsfield (with 60-second generation and consistency control across shots), Lovart, and Venice. Runway is offering 50% off for three months with code SEEDANCE50 through April 13. The model's 90% first-try success rate is roughly 4.5x the industry average.</p><p>Runway CEO Crist&#243;bal Valenzuela highlighted a thread of ads created entirely by solo creators using the tool: <em>"Every single one of these ads was made by one person. Six months ago, that would have been impossible to say."</em></p><p><strong>Source:</strong> <a href="https://arena.ai" target="_blank" rel="noopener">Arena.ai</a> &#183; <a href="https://nofilmschool.com/runway-seedance-2-0" target="_blank" rel="noopener">No Film School</a> &#183; April 8&#8211;10, 2026</p><h3>Netflix Open-Sources VOID &#8212; AI Object Removal That Understands Physics</h3><p>Netflix released VOID (Video Object and Interaction Deletion), an open-source AI framework that goes well beyond simple object erasure. When you remove an object from a video, VOID simulates what would physically happen without it. Remove a person holding a guitar &#8212; the guitar falls. Remove someone jumping into a pool &#8212; the splash disappears. Remove a car from a collision &#8212; the remaining vehicle continues undisturbed.</p><p>The model uses a two-pass transformer architecture built on Alibaba's CogVideoX. In user studies with 25 participants, VOID was preferred 64.8% of the time, significantly ahead of Runway (18.4%) and other competitors. It requires a GPU with 40GB+ VRAM, so it's not running on laptops &#8212; but the code, model weights, training pipeline, and a Colab notebook are all freely available on Hugging Face under an open license.</p><p>For AV post-production, this is significant. Physics-aware object removal has been a VFX problem that traditionally requires manual rotoscoping and compositing. VOID doesn't replace a senior compositor, but it handles the cases that eat the most time: removing boom mics, crew reflections, unwanted signage, continuity errors.</p><p><strong>Source:</strong> <a href="https://nofilmschool.com" target="_blank" rel="noopener">No Film School / Netflix</a> &#183; <a href="https://hf.co/netflix/void-model" target="_blank" rel="noopener">Hugging Face</a> &#183; April 6, 2026</p><h3>Anthropic Hits $30 Billion Run Rate &#8212; and Signs the Biggest Compute Deal in AI</h3><p>Anthropic disclosed that its annualized revenue has surpassed $30 billion, up from roughly $9 billion at the end of 2025. Enterprise customers spending over $1 million annually doubled from 500 to over 1,000 in less than two months. Simultaneously, the company signed a deal with Google and Broadcom for 3.5 gigawatts of next-generation TPU capacity, expected to come online in 2027. That's the largest compute deal in AI history. Broadcom CEO Hock Tan said the company would provide 1 gigawatt in 2026, surging to over 3 gigawatts in 2027.</p><p>For context: 3.5 gigawatts is roughly the electricity consumption of a city of 2.5 million people. Mizuho analysts estimated Broadcom could earn $21 billion in AI revenue from Anthropic in 2026 and $42 billion in 2027. The majority of the capacity will be sited in the United States, aligned with Anthropic's $50 billion domestic infrastructure commitment.</p><p><strong>Source:</strong> <a href="https://www.anthropic.com/news/google-broadcom-partnership-compute" target="_blank" rel="noopener">Anthropic Blog</a> &#183; <a href="https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/" target="_blank" rel="noopener">TechCrunch</a> &#183; April 6&#8211;7, 2026</p><h3>Anthropic Launches Claude Managed Agents</h3><p>Anthropic shipped Claude Managed Agents in public beta on April 8 &#8212; a hosted service for deploying production AI agents without building the infrastructure yourself. Developers describe tasks in natural language or YAML, connect third-party tools, and define security rules. Anthropic handles sandboxing, orchestration, scaling, monitoring, error recovery, and millisecond-level billing.</p><p>The engineering blog post framed the challenge as solving "programs as yet unthought of" &#8212; designing infrastructure flexible enough to host agents that don't exist yet. Several enterprise customers had agents in production before the public beta launched. The service claims a 10x reduction in development time compared to building equivalent infrastructure from scratch.</p><p><strong>Source:</strong> <a href="https://www.anthropic.com/engineering" target="_blank" rel="noopener">Anthropic Engineering Blog</a> &#183; <a href="https://www.wired.com" target="_blank" rel="noopener">Wired</a> &#183; April 8, 2026</p><h3>Wan 2.7 and GLM-5.1: China's AI Labs Ship Two Major Open Models</h3><p>Alibaba launched Wan2.7-Video, an integrated video model that handles generation, editing, and reference-based recreation in a single architecture. The model accepts text, images, video, and audio as input. Its standout feature: directorial-level control, including camera movements (Hitchcock zooms, 360-degree tracking), character dialogue editing that automatically syncs lip movements, and support for up to five simultaneous character references. Pricing: $0.10/second at 720p, $0.15/second at 1080p. OpenArt confirmed that Wan 2.7 held character consistency across five shots, three camera angles, and a voice swap without breaking.</p><p>Meanwhile, Zhipu AI (Z.AI) released GLM-5.1, a 754-billion-parameter open-weight model under the MIT license. It hit #1 on SWE-Bench Pro (58.4, ahead of GPT-5.4 and Claude Opus 4.6) and broke into the top 3 on Arena.ai's Code Arena &#8212; the first open-source model to reach that tier. It sustains 8-hour autonomous execution sessions using only 40 billion active parameters per token.</p><p><strong>Source:</strong> <a href="https://www.alibabacloud.com/blog/" target="_blank" rel="noopener">Alibaba Cloud Blog</a> &#183; <a href="https://www.marktechpost.com/2026/04/08/z-ai-introduces-glm-5-1/" target="_blank" rel="noopener">MarkTechPost</a> &#183; April 3&#8211;8, 2026</p><h3>Microsoft Copilot Goes Multi-Model: GPT + Claude Together</h3><p>Microsoft introduced "Critique," a framework inside Copilot that runs OpenAI's GPT and Anthropic's Claude simultaneously for research tasks. GPT handles deep exploration and drafting; Claude serves as a critical reviewer to validate claims and reduce hallucinations. A companion feature called "Council" shows users parallel responses from both models side by side. Microsoft reports a 13.88% improvement in research quality compared to single-model approaches.</p><p>This is the first major consumer product to run two competing frontier models in tandem as a feature, not a fallback. It's also a signal about where Microsoft sees the value: not in any single model, but in the orchestration layer that routes between them.</p><p><strong>Source:</strong> <a href="https://time.news/microsoft-copilot-now-combines-openai-and-anthropic-for-better-research/" target="_blank" rel="noopener">Time</a> &#183; April 2026</p><hr><h2>Voices This Week</h2><h3>Crist&#243;bal Valenzuela on Solo Creators and AI Video</h3><p>Runway's CEO shared a thread of AI-generated advertisements, each made by a single person: <em>"Every single one of these ads was made by one person. That's insane. Six months ago, that would have been impossible to say. The level of craft, story, and quality is quite impressive. What great talent can do with the right tools is what excites me most."</em></p><h3>Akshay Pachaar on the "Advisor Model" Pattern</h3><p>One of the most technically significant threads of the week described a converging idea: instead of running the most powerful (expensive) AI model on every task, use a cheaper model for routine work and only consult the expensive model when the cheap one gets stuck. Anthropic shipped this as an "advisor tool" in the Claude API &#8212; Sonnet handles execution, Opus gets called only for hard decisions. UC Berkeley published a paper showing the same pattern independently. The result: near-Opus intelligence at Sonnet prices, with Haiku's BrowseComp score more than doubling (19.7% &#8594; 41.2%) when paired with an Opus advisor.</p><hr><h2>Common Threads</h2><h3>Anthropic's Week</h3><p>This was Anthropic's week by any measure: Mythos launched (restricted), Managed Agents shipped, a $30 billion revenue run rate was disclosed, the largest compute deal in AI was signed, and the U.S. government convened an emergency meeting partly because of their technology. No other AI company has simultaneously driven a national security response and an enterprise product launch in the same seven-day window. The 3.3x revenue growth in roughly four months ($9B &#8594; $30B) is unprecedented in enterprise software.</p><h3>The Video Benchmark Leaderboard Just Reshuffled</h3><p>Seedance 2.0 at #1, Wan 2.7 demonstrating multi-shot consistency, Netflix's VOID handling physics-aware removal &#8212; the video AI landscape changed more this week than in the previous month. The pattern: quality is converging at the top (the gap between #1 and #5 is narrowing), but differentiation is moving to specialization. Seedance dominates general-purpose generation. Wan 2.7 owns directorial control. VOID solves post-production removal. Veo competes on price. No single tool covers everything, and the tools that try to cover everything are being outperformed by the ones that specialize.</p><h3>Open-Source Models Are Reaching Frontier Performance</h3><p>GLM-5.1 hit #1 on SWE-Bench Pro and top 3 in Code Arena &#8212; the first open-source model to break into that tier. VOID is open-source and outperforms Runway on object removal. Wan 2.7 is available through multiple open platforms. The practical consequence: the gap between proprietary and open-source AI is closing measurably, which increases competition and drives down the cost of the equivalent capability.</p><hr><h2>Novel Ideas Worth Watching</h2><h3>Netflix VOID's Physics Simulation Approach</h3><p>Most AI video editing tools treat the frame as a flat image &#8212; paint over the removed area. VOID treats the frame as a physical scene &#8212; simulate what would happen if the object were never there. This is a fundamentally different approach to video editing, and it has implications beyond object removal: scene reconstruction, continuity correction, and eventually, full scene modification grounded in physical plausibility.</p><h3>The Advisor Model Pattern</h3><p>The idea that a cheap model should handle routine work and only consult an expensive model when stuck emerged independently at Anthropic and UC Berkeley in the same week. This is likely how most production AI systems will work in the near future: tiered intelligence, where the cost of reasoning scales with the difficulty of the task rather than being fixed.</p><h3>Alibaba's "SWE-CI" Benchmark for Code Maintenance</h3><p>Alibaba tested 18 AI coding agents across 100 real codebases over 233 simulated days each. The finding: 75% of models break previously working code during maintenance. Only Claude Opus 4.5 and 4.6 stayed above a 50% zero-regression rate. This is the first benchmark to measure whether AI code holds up over time, not just whether it passes tests today. It's a sobering counterweight to the impressive one-shot benchmarks.</p><hr><h2>Tool of the Week</h2><h3>Netflix VOID</h3><p><strong>What it does:</strong> Open-source AI framework that removes objects from video while simulating what would physically happen in the scene without them. Built on a two-pass transformer architecture with "quadmask conditioning" that separates the object, overlap regions, interaction zones, and preserved background.</p><p><strong>Who it's for:</strong> Post-production teams dealing with object removal &#8212; boom mics, crew reflections, unwanted signage, continuity errors. Requires a GPU with 40GB+ VRAM (A100 recommended), so it's a workstation tool, not a laptop tool.</p><p><strong>Pricing:</strong> Free and open-source. Available on Hugging Face with full model weights, training pipeline, Colab notebook, and interactive demo.</p><p><strong>Worth trying?</strong> Yes, if your team has the hardware. In user studies, VOID was preferred 64.8% of the time over Runway (18.4%) and other competitors. The physics-aware approach is genuinely novel &#8212; it doesn't just fill in the gap, it recalculates the scene. The 40GB VRAM requirement limits who can run it, but a Colab notebook is available for testing without local hardware.</p><p><strong>Link:</strong> <a href="https://github.com/Netflix/void-model" target="_blank" rel="noopener">github.com/Netflix/void-model</a></p><hr><h2>Sources</h2><p>1. <a href="https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/" target="_blank" rel="noopener">TechCrunch</a> &#8212; April 7, 2026 &#8212; Anthropic Mythos preview and Project Glasswing
+<p>2. <a href="https://news.bloomberglaw.com/tech-and-telecom-law/bessent-urgently-summons-bank-ceos-to-discuss-anthropics-new-ai" target="_blank" rel="noopener">Bloomberg</a> &#8212; April 9, 2026 &#8212; Treasury/Fed emergency meeting on Mythos cyber risk</p>
+<p>3. <a href="https://www.cnn.com/2026/04/07/tech/anthropic-claude-mythos-preview-cybersecurity" target="_blank" rel="noopener">CNN</a> &#8212; April 7, 2026 &#8212; Mythos cyber capabilities and government briefings</p>
+<p>4. <a href="https://arena.ai" target="_blank" rel="noopener">Arena.ai</a> &#8212; April 8, 2026 &#8212; Seedance 2.0 #1 on Video Arena leaderboard</p>
+<p>5. <a href="https://nofilmschool.com/runway-seedance-2-0" target="_blank" rel="noopener">No Film School</a> &#8212; April 2026 &#8212; Seedance 2.0 launch on Runway</p>
+<p>6. <a href="https://hf.co/netflix/void-model" target="_blank" rel="noopener">Hugging Face / Netflix</a> &#8212; April 6, 2026 &#8212; VOID open-source release</p>
+<p>7. <a href="https://www.anthropic.com/news/google-broadcom-partnership-compute" target="_blank" rel="noopener">Anthropic Blog</a> &#8212; April 6, 2026 &#8212; $30B run rate, 3.5GW TPU deal</p>
+<p>8. <a href="https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/" target="_blank" rel="noopener">TechCrunch</a> &#8212; April 7, 2026 &#8212; Anthropic-Google-Broadcom compute partnership</p>
+<p>9. <a href="https://www.anthropic.com/engineering" target="_blank" rel="noopener">Anthropic Engineering Blog</a> &#8212; April 8, 2026 &#8212; Claude Managed Agents launch</p>
+<p>10. <a href="https://www.alibabacloud.com/blog/" target="_blank" rel="noopener">Alibaba Cloud Blog</a> &#8212; April 3, 2026 &#8212; Wan2.7-Video multimodal launch</p>
+<p>11. <a href="https://www.marktechpost.com/2026/04/08/z-ai-introduces-glm-5-1/" target="_blank" rel="noopener">MarkTechPost</a> &#8212; April 8, 2026 &#8212; GLM-5.1 open-weight model</p>
+<p>12. <a href="https://time.news/microsoft-copilot-now-combines-openai-and-anthropic-for-better-research/" target="_blank" rel="noopener">Time</a> &#8212; April 2026 &#8212; Microsoft Copilot multi-model Critique</p>
+<p>13. <a href="https://longbridge.com/news/282302929" target="_blank" rel="noopener">Longbridge / Cloudflare selloff</a> &#8212; April 9, 2026 &#8212; Cybersecurity stock impact</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>

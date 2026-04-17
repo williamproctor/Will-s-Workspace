@@ -65,10 +65,39 @@ sharepoint-package/
 ├── editions/
 │   └── YYYY-MM-DD/
 │       ├── YYYY-MM-DD-full.html
-│       └── YYYY-MM-DD-summary.html
+│       └── YYYY-MM-DD-summary.html (if a simplified source exists)
 └── samples/
-    └── list-import-YYYY-MM-DD.csv  # Ready-to-import SharePoint list row
+    └── list-import-all-editions.csv  # Ready-to-import rows for every edition
 ```
+
+## Editions currently packaged
+
+All editions to date are built and ready to deploy. Media columns are left
+blank where no audio/video exists for that week yet.
+
+| Edition | Full HTML | Summary HTML | Audio (mp3) | Video (mp4) | Thumbnail |
+|---|---|---|---|---|---|
+| 2026-04-17 | yes | yes | yes | yes | yes |
+| 2026-04-10 | yes | yes | yes | yes | yes |
+| 2026-04-03 | yes | yes | yes | yes | yes |
+| 2026-03-27 | yes | — | — | — | — |
+| 2026-03-20 | yes | — | yes | yes | yes |
+| 2026-03-13 | yes | — | — | — | — |
+
+## Importing the archive into the SharePoint list
+
+`samples/list-import-all-editions.csv` contains one row per edition with hooks,
+URLs, and status. Before importing:
+
+1. Do a find/replace on `{SITE_URL}` and replace with your SharePoint site URL
+   root (e.g. `https://tenant.sharepoint.com/sites/AVSDispatch`). The CSV uses
+   that token so the file is portable across environments.
+2. In SharePoint, open the `AVS AI Dispatch Editions` list → **Integrate →
+   Power Automate → See your flows** → *or* **Quick Edit** mode → paste rows
+   directly. (SharePoint Online supports pasting tabular data into Quick Edit.)
+3. Alternatively, use `Import-SPListItems` in PowerShell or the Microsoft Lists
+   "Import from Excel" option if you save the CSV as `.xlsx` first.
+4. Confirm exactly one row has `Featured = Yes` (should be the latest edition).
 
 ## Notes on styling
 

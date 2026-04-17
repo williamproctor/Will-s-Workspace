@@ -1,0 +1,158 @@
+<!-- AVS AI Dispatch &#8212; Week of March 27, 2026 (Full Edition) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-03-27</span>
+      <span class="edition-date">Week of March 27, 2026</span>
+    </div>
+    <div class="edition-kicker">Full Edition</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>Anthropic's most powerful model leaks by accident, Adobe opens Firefly Custom Models to everyone, Idomoo ships a video AI that generates layers instead of pixels, and Jensen Huang tells Lex Fridman he thinks we've already achieved AGI &#8212; sort of.</blockquote><hr><h2>This Week in AI</h2><h3>Anthropic's "Mythos" Model Leaks &#8212; And It's a New Tier of AI</h3><p>The biggest story of the week wasn't supposed to be a story at all. A configuration error in Anthropic's content management system left nearly 3,000 unpublished assets &#8212; including draft blog posts &#8212; in a publicly accessible data store. Security researchers discovered the cache, Fortune reviewed the documents, and Anthropic was forced to confirm the existence of <strong>Claude Mythos</strong> (internally called "Capybara"): a new model that sits <em>above</em> Opus in their hierarchy, introducing an entirely new tier.</p><p>Anthropic described Mythos as <em>"a step change"</em> in capabilities and <em>"the most capable we've built to date."</em> Compared to Claude Opus 4.6, it achieves dramatically higher scores on coding, academic reasoning, and &#8212; critically &#8212; cybersecurity benchmarks. The company says Mythos is <em>"far ahead of every other AI model in cyber capabilities,"</em> which is exactly why they're holding it back. Anthropic believes a broad release could enable large-scale cyberattacks that outpace current defenses, so they're rolling it out selectively to cybersecurity organizations and early-access customers first.</p><p>For AV teams, the immediate impact is indirect but worth watching: a model this capable at code and reasoning will eventually power the next generation of creative AI tools. More immediately, the leak itself is a cautionary tale &#8212; even the company most associated with AI safety left 3,000 internal documents publicly accessible due to a CMS misconfiguration. If it can happen to Anthropic, it can happen to anyone.</p><p><strong>Source:</strong> <a href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/" target="_blank" rel="noopener">Fortune</a> &#183; March 26, 2026</p><h3>Adobe Firefly Custom Models Enter Public Beta</h3><p>This is the most directly useful launch of the week for any AV team. Adobe opened <a href="https://blog.adobe.com/en/publish/2026/03/19/adobe-firefly-expands-video-image-creation-with-new-ai-capabilities-custom-models" target="_blank" rel="noopener">Firefly Custom Models</a> to all paid individual subscribers, letting you train a personal AI model on 10&#8211;30 of your own images. Upload reference images, spend 500 generative credits, and you get a model that generates new content locked to your visual style &#8212; consistent stroke weight, color palettes, character appearance, and photographic look.</p><p>Why this matters for us: brand consistency is one of the hardest problems in AI-generated content. Until now, every image generation session started from scratch. Custom Models mean you can build a visual identity once and reuse it across campaigns, thumbnails, and assets. It's still image-only (no video yet), but the trajectory is clear. Adobe also announced that Firefly now integrates over 30 third-party models from Google, OpenAI, Runway, and Kling &#8212; making it the first major creative suite to become a multi-model hub.</p><p><strong>Source:</strong> <a href="https://blog.adobe.com/en/publish/2026/03/19/adobe-firefly-expands-video-image-creation-with-new-ai-capabilities-custom-models" target="_blank" rel="noopener">Adobe Blog</a> &#183; March 19, 2026</p><h3>Idomoo Strata: AI Video That Generates Layers, Not Pixels</h3><p>Most AI video tools generate flat, single-file output &#8212; you get a finished video you can't meaningfully edit. <a href="https://idomoo.com" target="_blank" rel="noopener">Idomoo</a> just changed the game with Strata, the first AI foundation model that generates <strong>editable layers</strong>: separate tracks for text, animation, footage, and actors, similar to an After Effects comp. Instead of generating pixels, Strata generates structure &#8212; typography, motion paths, and synchronized audio composed into a production-ready blueprint.</p><p>For AV teams, this is a significant shift. Strata's output is fully editable and personalizable at the layer level, and it enforces brand guidelines by extracting "Brand DNA" from your approved content. The initial use case is personalized video at scale &#8212; think training videos or internal communications where the template stays consistent but names, data, and messaging change per viewer. It's patent-pending and in early access with enterprise customers.</p><p><strong>Source:</strong> <a href="https://thenextweb.com/news/idomoo-strata-ai-foundation-model-layered-video" target="_blank" rel="noopener">The Next Web</a> &#183; March 2026</p><h3>Jensen Huang Says "We've Achieved AGI" &#8212; Then Immediately Walks It Back</h3><p>In a wide-ranging conversation with Lex Fridman, NVIDIA CEO Jensen Huang made headlines by declaring <em>"I think we've achieved AGI."</em> But his definition is worth unpacking: Fridman framed AGI as an AI that could start and run a billion-dollar company, and Huang agreed &#8212; with a critical qualifier: <em>"You said a billion, and you didn't say forever."</em></p><p>Huang's argument is that AI agents could create viral, short-lived billion-dollar ventures (think apps that spike and collapse), and this is <em>"happening right now"</em> in China. But he explicitly walked back broader claims: <em>"The odds of 100,000 of those agents building NVIDIA is zero percent."</em> Complex enterprises require sustained reasoning, planning, and judgment that current AI lacks. The headline generated enormous attention; the nuance matters more.</p><p><strong>Source:</strong> <a href="https://lexfridman.com/jensen-huang" target="_blank" rel="noopener">Lex Fridman &#8212; Jensen Huang interview</a> &#183; ~March 25, 2026</p><h3>The "Karpathy Loop" Goes Mainstream</h3><p>Andrej Karpathy's <a href="https://github.com/karpathy/autoresearch" target="_blank" rel="noopener">autoresearch</a> project &#8212; which we covered at launch two weeks ago &#8212; hit an inflection point this week when major company leaders started running it internally. Shopify CEO Tobias L&#252;tke let the system run overnight on Shopify's internal codebase and woke up to a <strong>53% performance improvement</strong> in parse-and-render time with 61% fewer memory allocations. The technique is being called "The Karpathy Loop": an AI agent that forms hypotheses, edits code, benchmarks, retains improvements, and repeats &#8212; hundreds of times, autonomously.</p><p>Karpathy called this <em>"the final boss battle"</em> for LLM research and predicted all frontier labs would adopt the approach. The implications for AV teams: expect the AI tools you use daily to start improving themselves this way. Faster inference, better quality, fewer artifacts &#8212; driven not by human engineers but by autonomous optimization loops.</p><p><strong>Source:</strong> <a href="http://fortune.com/2026/03/17/andrej-karpathy-loop-autonomous-ai-agents-future/" target="_blank" rel="noopener">Fortune</a> &#183; March 17, 2026</p><h3>Mistral Forge: Build Your Own AI from Scratch</h3><p>At GTC, Mistral announced <a href="https://mistral.ai/news/forge" target="_blank" rel="noopener">Forge</a>, a platform that lets enterprises train custom AI models on their own proprietary data &#8212; not fine-tuning, not RAG, but training from scratch. Early partners include ASML, the European Space Agency, and Ericsson. CEO Arthur Mensch said the company is on track to surpass $1 billion ARR in 2026.</p><p>For AV teams at large organizations, Forge represents a new category: models trained exclusively on your internal knowledge, deployed on your own infrastructure, with full ownership. Imagine a model that understands your production workflows, naming conventions, and editorial standards because it was trained on nothing else. That's what Forge enables. It's enterprise-only and early, but the direction is significant.</p><p><strong>Source:</strong> <a href="https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/" target="_blank" rel="noopener">TechCrunch</a> &#183; March 17, 2026</p><hr><h2>Voices This Week</h2><h3>Jensen Huang on What AGI Actually Means</h3><p>NVIDIA's CEO stirred debate with his claim that AGI has been achieved &#8212; but the substance was more measured than the headline: <em>"The odds of 100,000 of those agents building NVIDIA is zero percent."</em> Huang's real point is that current AI excels at narrow, time-bounded tasks but still can't sustain the long-horizon reasoning required for complex enterprises. The distinction between "momentarily valuable" and "durably intelligent" is one every AV team should internalize when evaluating AI tools.</p><h3>Vishal Misra on Why LLMs Can't Reason</h3><p>Columbia professor Vishal Misra presented research showing that LLMs operate through Bayesian updating &#8212; they refine predictions with mathematical precision as they process information. But they fail at the one thing human reasoning requires: distinguishing <strong>correlation from causation</strong>. Misra proposed "The Einstein AGI Test": train an LLM exclusively on pre-1911 physics and see if it independently derives relativity. His assessment: <em>"Deep learning performs association but cannot perform causal intervention or counterfactual reasoning."</em> For teams using AI to make editorial or creative decisions, this is a critical limitation to understand.</p><h3>Paul Kedrosky on the AI Bubble</h3><p>Venture capitalist Paul Kedrosky made a blunt assessment: <em>"Yes, AI is a bubble. There is no question."</em> He pointed out that American tech companies will spend $300&#8211;400 billion on AI this year while being <em>"not remotely close to earning that amount back."</em> The key context: roughly half of last quarter's GDP growth came from AI infrastructure spending. Whether this is a productive bubble (like the railroad boom that left useful infrastructure) or a destructive one remains the open question. For AV teams, the practical implication is that AI tools may get cheaper and more available in the short term as companies fight for market share &#8212; but some vendors won't survive the correction.</p><h3>Tobias L&#252;tke on Autonomous Code Optimization</h3><p>Shopify's CEO ran Karpathy's autoresearch on Shopify's Liquid template engine &#8212; code he originally wrote over 20 years ago &#8212; and the AI agent delivered a 53% performance gain with 61% fewer memory allocations across roughly 120 automated experiment loops. The demonstration proved that autonomous AI agents can meaningfully optimize real production systems, not just toy benchmarks.</p><hr><h2>Common Threads</h2><h3>The "Train Your Own" Era Is Here</h3><p>Adobe Firefly Custom Models, Mistral Forge, and NVIDIA's expanded Nemotron family all point to the same shift: the era of one-size-fits-all AI is ending. Organizations are moving from using generic models to training models on their own data, their own style guides, their own production standards. Adobe lets you train on your visual identity. Mistral lets you train on your internal knowledge. NVIDIA provides the hardware stack to run it all.</p><p><strong>What this means for us:</strong> Start thinking about what "our AI" looks like &#8212; not which vendor's AI we use, but what an AI trained exclusively on our production standards, our editorial voice, and our asset library could do. The tooling to build that is arriving faster than most teams realize.</p><h3>Regulation Is Accelerating Faster Than the Technology</h3><p>A GOP senator unveiled sweeping AI legislation that would explicitly classify training on copyrighted works as not fair use and restrict unauthorized deepfakes. South Dakota made deepfake creation a felony. Louisiana advanced similar legislation for minors. Sony reported removing 135,000 deepfake songs from streaming platforms. The UK announced plans for mandatory AI content labeling.</p><p><strong>What this means for us:</strong> Content provenance documentation isn't optional anymore. Every AI-assisted production needs a clear audit trail: which tools, which models, which prompts, which reference materials. The regulatory environment is moving from "guidelines" to "felonies" faster than most creative teams have adapted.</p><h3>AI Agents Are Getting Their Own Infrastructure</h3><p>Claude Code crossed $2.5 billion in annualized revenue &#8212; up from $100 million at the end of 2025 &#8212; becoming Anthropic's fastest-growing product. The MCP protocol hit 97 million monthly SDK downloads. GitHub added secret scanning to AI coding agents. Developers demonstrated the first bidirectional Claude-to-Codex bridge via MCP, enabling agent-to-agent collaboration. NVIDIA shipped Nemotron VoiceChat, a 12B-parameter model that combines speech recognition, language modeling, and voice synthesis into a single architecture &#8212; eliminating the cascaded stacks that have limited real-time AI voice applications.</p><p><strong>What this means for us:</strong> AI agents are no longer experimental add-ons. They're becoming the primary interface for technical work, with their own infrastructure, their own revenue lines, and their own security concerns. If your team hasn't evaluated agentic workflows yet, you're already behind the curve.</p><hr><h2>Novel Ideas Worth Watching</h2><h3>Layered AI Video Changes the Editing Equation</h3><p>Idomoo Strata's approach &#8212; generating editable layers instead of flat video &#8212; solves the biggest complaint about AI video tools: you can't edit the output. If this architecture becomes standard, AI video generation transforms from "take it or leave it" to "generate a starting point and refine." That's the difference between a novelty and a production tool.</p><h3>The Self-Improving Tool Belt</h3><p>The Karpathy Loop isn't just an academic exercise &#8212; it's a preview of how every AI tool will improve. Imagine your NLE's AI features running hundreds of optimization experiments overnight, discovering processing shortcuts that human engineers wouldn't think of. The tools you use on Monday could be measurably better by Friday, without any human intervention.</p><h3>Nemotron VoiceChat: One Model Does It All</h3><p>NVIDIA's Nemotron 3 VoiceChat combines ASR, LLM reasoning, and TTS into a single 12B-parameter model with full-duplex capability &#8212; the AI can speak and listen simultaneously. The significance for AV teams: real-time AI voice interaction that doesn't require stitching together three separate services. This is the architecture that will eventually power AI assistants that can discuss a rough cut while you're editing it.</p><hr><h2>Tool of the Week</h2><h3>Adobe Firefly Custom Models</h3><p><strong>What it does:</strong> Train a personal AI image model on 10&#8211;30 of your own images. The model learns your specific visual style &#8212; illustration strokes, character appearance, photographic look &#8212; and generates new content consistent with your brand identity.</p><p><strong>Who it's for:</strong> AV teams, designers, and content creators who need AI-generated assets that match an existing visual identity. Particularly useful for teams producing recurring content (thumbnails, series graphics, branded assets) where consistency matters.</p><p><strong>Pricing:</strong> Included with paid Adobe subscriptions. Training costs 500 generative credits (included in your plan). Generation uses standard credits.</p><p><strong>Worth trying?</strong> Yes. This is the first major creative tool to solve the brand consistency problem in AI image generation. The 10&#8211;30 image requirement is reasonable, the training is fast, and the output quality matches Firefly's existing standard &#8212; which is already production-viable for many use cases. The real power is reusability: train once, generate consistently across projects. The limitation is that it's image-only for now &#8212; no video model training yet.</p><p><strong>Link:</strong> <a href="https://firefly.adobe.com" target="_blank" rel="noopener">firefly.adobe.com</a></p><hr><h2>Sources</h2><p>1. <a href="https://blog.adobe.com/en/publish/2026/03/19/adobe-firefly-expands-video-image-creation-with-new-ai-capabilities-custom-models" target="_blank" rel="noopener">Adobe Blog</a> &#8212; March 19, 2026 &#8212; Firefly Custom Models public beta
+<p>2. <a href="https://thenextweb.com/news/idomoo-strata-ai-foundation-model-layered-video" target="_blank" rel="noopener">The Next Web</a> &#8212; March 2026 &#8212; Idomoo Strata layered video model</p>
+<p>3. <a href="https://lexfridman.com/jensen-huang" target="_blank" rel="noopener">Lex Fridman &#8212; Jensen Huang interview</a> &#8212; ~March 25, 2026 &#8212; Jensen Huang on AGI and NVIDIA</p>
+<p>4. <a href="http://fortune.com/2026/03/17/andrej-karpathy-loop-autonomous-ai-agents-future/" target="_blank" rel="noopener">Fortune</a> &#8212; March 17, 2026 &#8212; The Karpathy Loop: 700 experiments in 2 days</p>
+<p>5. <a href="https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/" target="_blank" rel="noopener">TechCrunch</a> &#8212; March 17, 2026 &#8212; Mistral Forge enterprise AI platform</p>
+<p>6. <a href="https://nvidianews.nvidia.com/news/nvidia-expands-open-model-families-to-power-the-next-wave-of-agentic-physical-and-healthcare-ai" target="_blank" rel="noopener">NVIDIA Newsroom</a> &#8212; March 2026 &#8212; Nemotron 3 family expansion</p>
+<p>7. <a href="https://build.nvidia.com/nvidia/nemotron-voicechat/modelcard" target="_blank" rel="noopener">NVIDIA NIM</a> &#8212; March 16, 2026 &#8212; Nemotron VoiceChat model card</p>
+<p>8. <a href="https://www.yahoo.com/news/articles/gop-senator-unveils-draft-sweeping-215938515.html" target="_blank" rel="noopener">Yahoo News / Sen. Blackburn</a> &#8212; March 18, 2026 &#8212; TRUMP AMERICA AI Act draft</p>
+<p>9. <a href="https://southdakotasearchlight.com/2026/03/17/creating-sharing-of-deepfakes-will-be-a-felony-under-south-dakota-bill-now-signed-into-law/" target="_blank" rel="noopener">South Dakota Searchlight</a> &#8212; March 17, 2026 &#8212; Deepfake felony law</p>
+<p>10. <a href="https://www.bbc.com/news/articles/cy57593gxe0o" target="_blank" rel="noopener">BBC News</a> &#8212; March 2026 &#8212; Sony removes 135,000 deepfake songs</p>
+<p>11. <a href="https://winbuzzer.com/2026/03/24/anthropic-claude-code-subagent-mcp-advanced-patterns-xcxwbn/" target="_blank" rel="noopener">WinBuzzer</a> &#8212; March 24, 2026 &#8212; Claude Code $2.5B ARR, subagent patterns</p>
+<p>12. <a href="https://github.blog/changelog/2026-03-17-secret-scanning-in-ai-coding-agents-via-the-github-mcp-server" target="_blank" rel="noopener">GitHub Blog</a> &#8212; March 17, 2026 &#8212; Secret scanning in AI coding agents</p>
+<p>13. <a href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/" target="_blank" rel="noopener">Fortune &#8212; Anthropic Mythos leak</a> &#8212; March 26, 2026 &#8212; Claude Mythos "step change" model revealed via data leak</p>
+<p>14. <a href="https://fortune.com/2026/03/26/anthropic-leaked-unreleased-model-exclusive-event-security-issues-cybersecurity-unsecured-data-store/" target="_blank" rel="noopener">Fortune &#8212; Anthropic data security</a> &#8212; March 26, 2026 &#8212; 3,000 unpublished assets in unsecured data store</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>

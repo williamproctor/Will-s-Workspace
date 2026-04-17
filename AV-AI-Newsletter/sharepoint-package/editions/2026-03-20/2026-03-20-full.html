@@ -1,0 +1,155 @@
+<!-- AVS AI Dispatch &#8212; Week of March 20, 2026 (Full Edition) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-03-20</span>
+      <span class="edition-date">Week of March 20, 2026</span>
+    </div>
+    <div class="edition-kicker">Full Edition</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>A $15 million ad campaign recreated in 40 hours for under $20K, ByteDance's video model shelved by Disney's lawyers, and a new open-source voice model that lets you direct emotional delivery word by word.</blockquote><hr><h2>This Week in AI</h2><h3>Fish Audio S2: Open-Source TTS That Lets You Direct Every Word</h3><p>Fish Audio quietly released the most interesting voice AI tool we've seen in months. <a href="https://fishaudio.ai" target="_blank" rel="noopener">S2</a> is an open-source text-to-speech model that supports word-level emotion control &#8212; meaning you can tag individual words or phrases with natural language instructions like <code>[excited]</code>, <code>[somber]</code>, or <code>[whispered]</code>, and the model adjusts its delivery at that exact moment.</p><p>It also does zero-shot voice cloning across 80 languages with sub-150ms latency. For our audio team, this is worth evaluating immediately. The word-level control changes TTS from "pick a voice and hope it works" to "direct the performance like you would with a human narrator." And it's fully open source.</p><p><strong>Source:</strong> Fish Audio S2 announcement &#183; ~March 10, 2026</p><h3>Luma Agents Turn a $15M Campaign into $20K</h3><p>Luma Labs launched <a href="https://lumalabs.ai" target="_blank" rel="noopener">Agents</a>, powered by their multi-modal model Uni-1, which handles video, audio, image, and text generation end-to-end. The headline case study: a client converted a $15 million traditional advertising campaign into localized versions across markets in 40 hours for under $20,000.</p><p>That 750x cost reduction is eye-catching, even if the output quality isn't one-to-one with traditional production. What matters is the trajectory &#8212; this is the first credible example of AI creative agents operating across the full production pipeline, not just one modality. It's a direct competitor to ElevenLabs Flows (which we covered last week) and signals that the unified AI production platform is no longer speculative.</p><p><strong>Source:</strong> Luma Labs announcement &#183; ~March 11, 2026</p><h3>ByteDance's Video Model Gets Cease-and-Desisted by Hollywood</h3><p>The biggest cautionary tale of the week: ByteDance's AI video model Seedance 2.0 was hit with cease-and-desist letters from Disney, Warner Bros., Paramount, and Sony after users generated near-perfect reproductions of copyrighted characters and scenes. ByteDance shelved the model pending review.</p><p>This is the first major legal action against an AI video tool over character reproduction, and it's a wake-up call for any AV team using these tools. If your AI video output looks too much like someone else's IP, the legal risk is real. Expect every major video AI platform to accelerate content filtering in response.</p><p><strong>Source:</strong> Tech press coverage of Seedance 2.0 takedown &#183; ~March 11, 2026</p><h3>Vidu Q3: The First AI Pipeline Built for Series Production</h3><p>At SXSW, <a href="https://vidu.ai" target="_blank" rel="noopener">Vidu</a> debuted Q3 &#8212; the first AI video pipeline designed specifically for animated series production. The key breakthrough: character consistency across episodes, automated lip-sync, and asset reuse. These are the exact problems that have kept AI video out of serialized content.</p><p>Every other AI video tool focuses on one-off generation. Q3 is built for recurring content &#8212; training series, internal communications, branded episodic content. If your team produces anything serialized, this is the tool to watch.</p><p><strong>Source:</strong> Vidu Q3 SXSW debut &#183; ~March 10, 2026</p><h3>NVIDIA GTC: Vera Rubin and 10x Cheaper Inference</h3><p>Jensen Huang's GTC keynote announced the Vera Rubin GPU architecture (successor to Blackwell), the OpenClaw robotics platform, and most importantly for us: 10x cheaper inference on current Blackwell hardware compared to Hopper. Huang positioned inference cost reduction &#8212; not raw training performance &#8212; as NVIDIA's priority.</p><p>Translation for AV teams: every AI-powered tool you use is about to get cheaper to run. Cloud rendering, voice synthesis, real-time captioning, video generation &#8212; the cost floor is dropping fast.</p><p><strong>Source:</strong> <a href="https://www.nvidia.com/gtc/" target="_blank" rel="noopener">NVIDIA GTC 2026</a> keynote &#183; March 10, 2026</p><hr><h2>Voices This Week</h2><h3>Dylan Patel on Why GPUs Are Worth More, Not Less</h3><p>Dylan Patel from SemiAnalysis laid out the three bottlenecks limiting AI compute scaling: lithography (ASML), memory (HBM), and power. The counterintuitive headline: <em>"An H100 is worth more today than it was three years ago"</em> &#8212; because newer, cheaper-to-run models like GPT-5.4 produce more value per GPU than older models ever could.</p><p>For AV teams, the practical takeaway is about vendor economics. Patel argued that Anthropic <em>"screwed the pooch"</em> compared to OpenAI on compute deals, which means Anthropic-powered tools may face capacity constraints that OpenAI-powered ones won't. If you're choosing between AI tool vendors, their compute infrastructure strategy matters. Also: $600 billion in combined Big Tech CapEx in 2026. The infrastructure build-out is real, and it will drive costs down for everyone downstream.</p><h3>Julie Bedard on "AI Brain Fry"</h3><p>BCG's Julie Bedard described a concept that should concern every team deploying AI tools at scale: "AI Brain Fry" &#8212; cognitive fatigue from overreliance on AI, where people stop thinking critically because the AI is handling so much of the cognitive load.</p><p>This isn't anti-AI sentiment. It's a human factors problem. If our team is using AI tools daily &#8212; and we should be &#8212; we need to design workflows that keep humans engaged and critical, not passive. The solution is better task design, not less AI.</p><h3>Felix Rieseberg on Claude Cowork</h3><p>Felix Rieseberg from Anthropic walked through Claude Cowork &#8212; a VM-based agent that's the user-friendly superset of Claude Code. The key quote: <em>"Don't even write a memo, just build."</em> Anthropic's internal culture has shifted to prototype-first, building all candidate products in parallel and picking winners.</p><p>What matters for AV teams: Cowork can organize files, upload videos, automate browser workflows, and handle taxes (yes, really). The "skills" system &#8212; lightweight markdown instruction files &#8212; means you can teach the agent new capabilities without writing code. Imagine a skill file that says "when a video lands in the review folder, generate a transcript and draft clips." That's where this is heading.</p><h3>Simon Last on the 1,000X Engineer</h3><p>Simon Last from Notion made a bold claim: <em>"You can be a 100 or 1,000X engineer if you use the tools right now."</em> The implication for AV teams is direct &#8212; individuals with the right AI toolchain can produce output that previously required entire teams.</p><hr><h2>Common Threads</h2><h3>The AI Production Platform Race Is On</h3><p>Three major launches this week &#8212; Fish Audio S2, Luma Agents/Uni-1, and Hume AI TADA &#8212; join last week's ElevenLabs Flows in the race to become the unified AI production environment. We've gone from zero credible multi-modal production tools to four in two weeks. None of them are ready to replace traditional production pipelines today, but the direction is unmistakable: the industry is converging on end-to-end AI creative platforms that handle video, audio, voice, and text in a single workflow.</p><p><strong>What this means for us:</strong> Start experimenting with at least one of these platforms now. The learning curve matters more than the specific tool choice &#8212; the skills transfer. We recommend Fish Audio S2 for audio teams (open source, word-level control) and keeping an eye on Luma Agents for full-pipeline experimentation.</p><h3>Copyright Is the New Frontier Risk for AI Video</h3><p>The Seedance 2.0 takedown, combined with expanding EU/US deepfake regulations and the Grammarly identity incident, makes one thing clear: intellectual property is the biggest unresolved risk in AI content generation. Studios are willing to sue. Regulators are advancing mandatory labeling. And platforms are scrambling to add content filters after the fact.</p><p><strong>What this means for us:</strong> We need an internal policy on AI-generated content provenance before we need one, not after. Any content produced with AI video tools should be documented: which tool, which prompts, which reference materials. This isn't bureaucracy &#8212; it's insurance.</p><h3>"AI Brain Fry" Should Shape Our Adoption Strategy</h3><p>Julie Bedard's concept of cognitive fatigue from AI overuse deserves attention beyond just awareness. If heavy AI users are experiencing reduced critical thinking and over-delegation, our tool rollout strategy needs to account for it. The answer isn't slowing adoption &#8212; it's designing workflows where humans remain engaged decision-makers, not just prompt writers. Pair AI tools with explicit review checkpoints. Rotate between AI-assisted and manual work. And watch for signs of over-reliance.</p><hr><h2>Novel Ideas Worth Watching</h2><h3>Vidu Q3 &#8212; AI Built for Recurring Content</h3><p>Every AI video tool optimizes for one-off generation. Vidu Q3 is the first to tackle serialized production &#8212; character consistency, lip-sync continuity, and asset reuse across episodes. If your team produces training videos, internal communications, or branded series, this is the first AI tool designed for how you actually work.</p><h3>Fish Audio S2's Word-Level Emotion Tags</h3><p>Instead of selecting a single voice style for an entire narration, S2 lets you tag individual words with emotions: <code>[excited]</code>, <code>[somber]</code>, <code>[whispered]</code>. You're directing a performance, not just generating audio. This level of granularity hasn't existed in any TTS model before &#8212; commercial or open-source.</p><h3>Claude Cowork's "Skills" System</h3><p>Anthropic's new agent uses markdown-based instruction files called "skills" to learn new capabilities &#8212; no code required. Write a plain-language instruction set, and the agent figures out the execution. For AV teams, this means you could automate complex workflows (ingest &#8594; transcribe &#8594; timestamp &#8594; clip) by writing a text file, not building an integration.</p><hr><h2>Tool of the Week</h2><h3>Fish Audio S2</h3><p><strong>What it does:</strong> Open-source text-to-speech with word-level emotion control. Tag individual words with natural language emotions like <code>[excited]</code> or <code>[whispered]</code>. Supports 80 languages, zero-shot voice cloning, and sub-150ms latency.</p><p><strong>Who it's for:</strong> Audio producers, narration teams, localization workflows. Anyone who needs more creative control over AI voice output than "pick a preset and hope for the best."</p><p><strong>Pricing:</strong> Free and open source. No usage restrictions.</p><p><strong>Worth trying?</strong> Absolutely. This is the most significant open-source TTS release since Coqui. The word-level emotion control is genuinely new &#8212; no commercial TTS offers this. The latency is production-ready. The 80-language support makes it immediately useful for localization. The only caveat: as an open-source model, you'll need some technical setup to run it locally. Cloud-hosted options are available but may have usage limits.</p><p><strong>Link:</strong> <a href="https://fishaudio.ai" target="_blank" rel="noopener">fishaudio.ai</a></p><hr><h2>Sources</h2><p>1. Fish Audio S2 announcement &#8212; ~March 10, 2026 &#8212; Open-source TTS with word-level emotion control
+<p>2. Luma Labs Agents / Uni-1 announcement &#8212; ~March 11, 2026 &#8212; End-to-end creative AI agents</p>
+<p>3. Seedance 2.0 copyright takedown coverage &#8212; ~March 11, 2026 &#8212; ByteDance model shelved after studio cease-and-desists</p>
+<p>4. Vidu Q3 SXSW debut &#8212; ~March 10, 2026 &#8212; AI pipeline for animated series production</p>
+<p>5. Grok multi-image video generation &#8212; ~March 10, 2026 &#8212; xAI API at $0.05/second</p>
+<p>6. Hume AI TADA release &#8212; ~March 9, 2026 &#8212; Hallucination-free TTS under MIT license</p>
+<p>7. <a href="https://www.nvidia.com/gtc/" target="_blank" rel="noopener">NVIDIA GTC 2026</a> &#8212; March 10, 2026 &#8212; Vera Rubin, OpenClaw, 10x cheaper inference</p>
+<p>8. MCP joins Linux Foundation &#8212; ~March 11, 2026 &#8212; Open governance + 30 CVEs in 60 days</p>
+<p>9. GPT-5.4 "28-day frontier model sprint" &#8212; ~March 5, 2026 &#8212; Native computer use, 1M context</p>
+<p>10. EU/US deepfake regulation expansion &#8212; ~March 10, 2026 &#8212; Broadcast labeling requirements advancing</p>
+<p>11. AI video model benchmark comparisons &#8212; ~March 8, 2026 &#8212; Updated Kling/Sora/Veo/Gen-4.5/Seedance rankings</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>
