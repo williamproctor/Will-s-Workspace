@@ -60,4 +60,4 @@ This was one of the most eventful weeks in AI this year. A few things worth noti
 
 ---
 
-*The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the simplified edition — switch to "Full Edition" for the complete technical breakdown.*
+*The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the quick summary — the full edition has the complete technical breakdown and sources. Curated with AI assistance. Questions or suggestions? Reply to this message.*

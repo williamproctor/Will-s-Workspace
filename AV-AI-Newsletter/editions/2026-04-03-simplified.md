@@ -70,4 +70,4 @@ The trend is clear: AI video generation is getting dramatically cheaper and more
 
 ---
 
-*The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the simplified edition — switch to "Full Edition" above for the complete version with technical details and sources.*
+*The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the quick summary — the full edition has the complete technical breakdown and sources. Curated with AI assistance. Questions or suggestions? Reply to this message.*
