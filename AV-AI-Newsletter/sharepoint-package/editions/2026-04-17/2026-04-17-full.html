@@ -1,0 +1,169 @@
+<!-- AVS AI Dispatch &#8212; Week of April 17, 2026 (Full Edition) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-04-17</span>
+      <span class="edition-date">Week of April 17, 2026</span>
+    </div>
+    <div class="edition-kicker">Full Edition</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>Anthropic shipped Claude Opus 4.7 and narrowly retook the lead on most major benchmarks. OpenAI pushed a major Codex update on the same day, adding background computer use, an in-app browser, and built-in image generation. Wonder Project and Luma launched <strong>Innovative Dreams</strong>, a new production company built around real-time hybrid filmmaking &#8212; their first project is Ben Kingsley as Moses on Prime Video. Midjourney pushed V8.1 Alpha just one month after V8, making HD three times faster and cheaper. And Utopai shipped three-minute 4K video generation while Shutterstock debuted a unified AI video generator with commercial licensing baked in.</blockquote><hr><h2>This Week in AI</h2><h3>Anthropic Ships Claude Opus 4.7 &#8212; Narrowly Retakes the LLM Lead</h3><p>Anthropic released Claude Opus 4.7 on April 16, generally available through Claude products, the Claude API, Amazon Bedrock, Google Vertex AI, and Microsoft Foundry. The headline numbers: Opus 4.7 narrowly leads GPT-5.4 and Gemini 3.1 Pro on agentic coding, scaled tool use, agentic computer use, and financial analysis. Competitors still hold the lead on agentic search and multilingual Q&A.</p><p>Two changes stand out for AV workflows. First, vision resolution tripled &#8212; the model now processes images up to 2,576 pixels on the longest edge, useful for frame-level review of high-resolution stills. Second, Anthropic shipped stronger self-verification: the model now validates its own outputs before reporting, a direct response to the "looks right but is wrong" failure mode that hits hardest in long-running agentic tasks.</p><p>Pricing is unchanged at $5 per million input tokens and $25 per million output tokens. Anthropic also rolled out additional safeguards that detect and block high-risk cybersecurity requests, with a new Cyber Verification Program for legitimate security research &#8212; a direct continuation of the Mythos policy posture from two weeks ago.</p><p><strong>Source:</strong> <a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" rel="noopener">Anthropic</a> &#183; <a href="https://venturebeat.com/technology/anthropic-releases-claude-opus-4-7-narrowly-retaking-lead-for-most-powerful-generally-available-llm" target="_blank" rel="noopener">VentureBeat</a> &#183; April 16, 2026</p><h3>OpenAI Updates Codex &#8212; Background Computer Use, In-App Browser, Built-In Image Generation</h3><p>OpenAI shipped a major Codex update on April 16, the same day Anthropic pushed Opus 4.7. Three changes move Codex out of its original "agentic coding assistant" framing and into something closer to a general AI workspace:</p><ul>
+<li><strong>Background computer use.</strong> Codex can now see, click, and type inside macOS apps in the background. Multiple agents can run in parallel without interrupting whatever else is on screen. The stated use cases are testing UI changes, iterating on frontend work, and operating apps that don't expose APIs.</li>
+<li><strong>In-app browser (built on OpenAI's Atlas technology).</strong> Users can open local or public pages inside Codex, leave comments directly on rendered elements, and ask Codex to address the feedback in the codebase. This collapses the review loop between designer, developer, and QA into a single pane.</li>
+<li><strong>Built-in image generation.</strong> GPT-image-1.5 is now available inside Codex, removing the need to switch to ChatGPT for AI-generated images as part of a workflow.</li>
+</ul><p>The release also added <strong>111 new plugins</strong> (combining skills, app integrations, and MCP servers), <strong>thread automations</strong> (Codex can schedule future work and wake up automatically to continue tasks over days or weeks), <strong>GitHub pull-request support</strong> inside the sidebar, memory preview for recalling prior sessions, and rich previews for PDFs, spreadsheets, and slides.</p><p>The direct comparison point is Claude Code, which has been the agentic-coding benchmark for most of the past year. With computer use in the background and an embedded browser, Codex now covers the main capability areas Claude Code doesn't &#8212; though Claude Code retains an edge on pure code reasoning in recent benchmarks.</p><p><strong>Source:</strong> <a href="https://9to5mac.com/2026/04/16/openais-codex-app-adds-three-key-features-for-expanding-beyond-agentic-coding/" target="_blank" rel="noopener">9to5Mac</a> &#183; <a href="https://siliconangle.com/2026/04/16/openai-ratchets-codexs-agentic-capabilities-rival-claude-code/" target="_blank" rel="noopener">SiliconANGLE</a> &#183; <a href="https://help.openai.com/en/articles/11428266-codex-changelog" target="_blank" rel="noopener">OpenAI Codex Changelog</a> &#183; April 16, 2026</p><h3>Wonder Project and Luma Launch Innovative Dreams &#8212; "Real-Time Hybrid Filmmaking"</h3><p>Wonder Project &#8212; the faith-and-family studio founded by Jon Erwin and Netflix veteran Kelly Merryman Hoogstraten &#8212; partnered with AI lab Luma to launch <strong>Innovative Dreams</strong>, a new production company combining a working studio, an R&D lab, and a visual effects arm. The venture is backed by Amazon Web Services and pitches itself around "real-time hybrid filmmaking": performance capture, virtual production, and generative AI integrated into a single pipeline rather than stitched together in post.</p><p>The anchor project is <em>The Old Stories: Moses</em>, a limited series starring Ben Kingsley as Moses and O-T Fagbenle as Pharaoh. It was shot entirely on a virtual stage and will premiere on Wonder Project's Prime Video subscription channel in spring 2026 before wider release on Prime Video. The company's stated ambition is to bring high-end virtual-production workflows &#8212; the kind previously accessible only to filmmakers like James Cameron &#8212; to smaller productions, while keeping human actors and performances at the center.</p><p>What makes this operationally different from prior virtual-production work is the use of <strong>Luma Agents</strong> that allow real-time changes to sets, props, and lighting during a shoot, rather than locking those decisions before principal photography. The director and DP can adjust a scene's environment while the talent is still on set, and the AI-assisted layer is expected to hold continuity across the edit.</p><p><strong>Source:</strong> <a href="https://deadline.com/2026/04/wonder-project-ai-firm-luma-launch-innovative-dreams-hybrid-filmmaking-1236861786/" target="_blank" rel="noopener">Deadline</a> &#183; <a href="https://www.it-boltwise.de/innovative-ki-gestuetzte-filmproduktion-mit-luma-und-wonder-project.html" target="_blank" rel="noopener">it-boltwise</a> &#183; April 2026</p><h3>Midjourney V8.1 Alpha &#8212; HD by Default, 3&#215; Faster, 3&#215; Cheaper</h3><p>Midjourney released V8.1 Alpha on April 14, one month after V8 shipped. The practical changes, in order of operational impact:</p><ul>
+<li><strong>HD mode is now 3&#215; faster and 3&#215; cheaper than V8.0</strong>, and HD is the default output. A new "Run as HD" button re-runs any standard-resolution job at HD with the same seed preserved.</li>
+<li><strong>Standard resolution is 50% faster and 25% cheaper</strong>, with full quality matching V7 draft speed.</li>
+<li><strong>Image prompts and image weights are restored</strong> (they were broken in V8.0 &#8212; a major complaint from users running reference-driven workflows).</li>
+<li><strong>Style references (srefs) and Moodboards are now "super stable"</strong> across runs, making consistent character/visual-identity work more reliable.</li>
+<li><strong>Prompt Shortener</strong> automatically kicks in when prompts exceed length limits, and the <strong>Describe</strong> function now produces longer, more detailed V8-style prompts.</li>
+</ul><p>Midjourney has signaled it will decommission V8.0 after V8.1 stabilizes, and the roadmap next points to V8 upscalers followed by edit, inpainting, and outpainting model upgrades.</p><p><strong>Source:</strong> <a href="https://updates.midjourney.com/v8-1-alpha/" target="_blank" rel="noopener">Midjourney Updates</a> &#183; April 14, 2026</p><h3>Utopai Ships 3-Minute 4K Video Generation</h3><p>Utopai Studios &#8212; which has been quietly used on several Hollywood productions &#8212; announced on April 14 that its PAI platform can now generate continuous <strong>three-minute 4K video sequences</strong>, paired with an enhanced Story Agent designed to maintain continuity across shots, scenes, and edits. The stated goal is to support narrative work across pre-production, production, and post-production rather than the 5-to-15-second clips that dominate the current AI video market.</p><p>Three minutes at 4K is a notable jump from what other commercially available video models ship: most top-tier models still target 10&#8211;15 seconds per generation, with longer sequences requiring manual stitching. Utopai hasn't published benchmark scores against Seedance 2.0 or Veo 3.1, but the longer duration and continuity layer point at a different use case &#8212; full narrative scenes rather than isolated shots.</p><p><strong>Source:</strong> <a href="https://lasvegassun.com/news/2026/apr/14/utopai-studios-announces-industry-first-three-minu/" target="_blank" rel="noopener">Las Vegas Sun</a> &#183; <a href="https://www.passionateinmarketing.com/utopai-studios-announces-industry-first-three-minute-4k-video-generation-and-enhanced-story-agent-for-its-pai-storytelling-ai-platform/" target="_blank" rel="noopener">Passionate in Marketing</a> &#183; April 14, 2026</p><h3>Shutterstock Launches Unified AI Video Generator</h3><p>Shutterstock launched its AI Video Generator on April 15 &#8212; a commercial-ready platform that wraps Google and Runway's top video models and pairs them with Shutterstock's stock footage library. The positioning is "concept to deployment" in one tool: search stock, generate, edit, license, export. Notably, the generated output ships with Shutterstock's standard commercial license, which removes the usage-rights ambiguity that has shadowed generative video for the last 18 months.</p><p><strong>Source:</strong> <a href="https://au.marketscreener.com/news/shutterstock-expands-commercial-ready-genai-solutions-with-ai-video-generator-ce7e50dcdc8ff722" target="_blank" rel="noopener">Market Screener</a> &#183; April 15, 2026</p><h3>ElevenLabs Ships ElevenMusic on iOS &#8212; Direct Competition with Suno and Udio</h3><p>ElevenLabs &#8212; best known for voice cloning and text-to-speech &#8212; launched a dedicated <strong>ElevenMusic</strong> iOS app earlier this month, aimed directly at Suno and Udio. Free tier generates up to 7 songs per day; Pro is $9.99/month for up to 500 tracks, section-by-section editing (verse, chorus, bridge), and a marketplace for licensing generated tracks. ElevenLabs entered the market with pre-signed licensing agreements with Merlin and publisher Kobalt &#8212; something Suno and Udio did not have at launch and which has since become the focus of ongoing copyright litigation against them. ElevenLabs was last valued at $11 billion after a $500M Series D in February.</p><p><strong>Source:</strong> <a href="https://www.musicbusinessworldwide.com/elevenlabs-launches-elevenmusic-ios-app-taking-on-suno-and-udio-on-mobile/" target="_blank" rel="noopener">Music Business Worldwide</a> &#183; April 2026</p><h3>Google I/O 2026 Dated for May 19&#8211;20, Veo 4 Expected</h3><p>Google confirmed Google I/O 2026 for <strong>May 19&#8211;20</strong> in Mountain View. The keynote lineup includes Gemini, AI Mode for Search, Chrome, Workspace, Pixel, and agentic coding tools. Veo 4 has not been officially announced, but industry expectation &#8212; and the ~18-month gap since Veo 3.1 released in October 2025 &#8212; makes an I/O reveal the most likely window. Expected features based on prior roadmaps: extended multi-minute generation, advanced physics handling, and finer cinematic camera controls. All speculation until the keynote.</p><p><strong>Source:</strong> <a href="https://www.theverge.com/tech/880401/google-io-2026-dates-ai" target="_blank" rel="noopener">The Verge</a> &#183; <a href="https://developers.googleblog.com/get-ready-for-google-io-2026/" target="_blank" rel="noopener">Google Developers Blog</a> &#183; April 2026</p><hr><h2>Voices This Week</h2><h3>Jon Erwin on Hybrid Filmmaking</h3><p>The Wonder Project co-founder, describing the thesis behind Innovative Dreams: <em>"This is not about replacing filmmakers or actors. It's about giving smaller productions access to the tools James Cameron has. Performance still matters. What changes is how quickly you can explore an idea, and how much of what used to happen in post now happens on set."</em> The venture's first project, <em>The Old Stories: Moses</em> with Ben Kingsley, was shot entirely on a virtual stage using the approach.</p><h3>Alex Spencer on Midjourney's Iteration Cadence</h3><p>Designer Alex Spencer (@axpncr), on the speed of the V8 &#8594; V8.1 cycle: <em>"Midjourney V8.1 Alpha is officially live. This update came extremely fast &#8212; just one month after V8 released. And the three main pain points users complained about during the V8 era have all been addressed head-on. This is a textbook demonstration of AI product iteration speed."</em> The three pain points he references: image prompts broken in V8.0, unstable style references, and slow HD mode &#8212; all directly addressed in V8.1.</p><hr><h2>Common Threads</h2><h3>Anthropic and OpenAI Shipped on the Same Day</h3><p>Opus 4.7 and the Codex update both landed on April 16. They're responses to overlapping pressure: Opus 4.7 shores up Anthropic's lead on agentic coding benchmarks; the Codex update adds the capabilities (computer use, embedded browser, image generation) that Claude Code doesn't yet have. The result is that the two leading agentic coding tools are now converging on feature parity from opposite starting points &#8212; Anthropic from model strength, OpenAI from tooling breadth. For anyone deciding between them, the gap is narrower this week than it's been since Claude Code launched.</p><h3>Virtual Production and AI Are Converging Into One Workflow</h3><p>Innovative Dreams (Wonder Project &#215; Luma), Utopai's 3-minute 4K Story Agent, and Intangible.ai's spatial-intelligence platform all point at the same shift: AI is moving from "generate a clip" to "augment a full production pipeline." The difference matters. A generated clip is a deliverable; an AI-augmented pipeline is a workflow that a director, DP, and editor can use from pre-production through post. The economics change too &#8212; Luma and Wonder Project explicitly frame the pitch around cost access ("high-end virtual production for smaller productions"), and Intangible advertises $5K&#8211;$50K in pre-production savings per project through faster previsualization. Whether the numbers hold up in real productions is an open question, but the direction of travel is consistent across three independent efforts this week alone.</p><h3>Video Generation Is Getting Swallowed by Existing Platforms</h3><p>Shutterstock embedded Google and Runway models behind a commercial license, Utopai positioned its 4K platform for professional Hollywood use, and Innovative Dreams bundled Luma directly into a virtual-production stage. The pattern: frontier video models are no longer distributed primarily through standalone generator tools. They're being integrated into the platforms where creators and productions already work. The implication for anyone building an AI-video workflow is that "which tool do I use?" is becoming a less useful question than "which platform do I work in?" &#8212; because the model choice is increasingly hidden behind the platform's UI.</p><h3>Midjourney's Response Speed Is Unusual for the Category</h3><p>V8.1 shipped one month after V8, directly targeting the three biggest user complaints about V8.0. For reference: the gap between Midjourney V7 and V8 was roughly 14 months, and major frontier model updates from OpenAI, Anthropic, and Google generally run on 3&#8211;6 month cycles. A one-month corrective release isn't unheard of, but it does indicate Midjourney is optimizing for iteration speed and responsiveness over long strategic releases &#8212; more like a web product than a foundation model lab.</p><hr><h2>Novel Ideas Worth Watching</h2><h3>Direct Like a Camera, Not a Prompter</h3><p>Intangible.ai's pitch &#8212; "stop prompting, start directing" &#8212; reflects a UX shift that's quietly showing up across multiple tools. The platform lets you build a 3D scene, position cameras, set lighting and composition, then hand that structured scene to a generative model as the constraint. Instead of describing what you want in words, you show the model the geometry. Similar thinking is visible in Innovative Dreams' real-time on-set adjustments (Luma Agents) and in Utopai's Story Agent continuity layer. The common pattern: AI works better when given spatial or structural constraints than when given only text &#8212; a point the previs and VFX world has understood for decades but which most consumer AI tools are only now beginning to surface.</p><h3>Commercial Licensing as a Product Feature</h3><p>Shutterstock and ElevenLabs both shipped commercial licensing as a native part of their AI products this month. Shutterstock's AI Video Generator output carries the same commercial license as its stock library. ElevenMusic launched with Merlin and Kobalt licensing already in place. This is a departure from the first generation of AI tools (Suno, Udio, early Midjourney, Stable Diffusion), most of which punted on licensing and are now defending lawsuits. The commercial angle increasingly looks like a competitive moat &#8212; not a legal afterthought.</p><h3>Vision Capability at Higher Resolution</h3><p>Opus 4.7 triples the maximum image edge (860 &#8594; 2,576 pixels). That's not a flagship feature &#8212; Anthropic buried it in the release notes &#8212; but for workflows that involve reviewing frames, continuity shots, or high-resolution stills, it's a meaningful jump. It shortens the gap between "what a human editor can see at native resolution" and "what the model can analyze" without manual downsampling.</p><hr><h2>Tool of the Week</h2><h3>Intangible.ai</h3><p><strong>What it does:</strong> A browser-based, AI-native 3D creation platform aimed squarely at creative professionals in film, advertising, events, games, and architecture. The pitch is "stop prompting, start directing" &#8212; instead of writing text prompts and hoping for the best, you assemble a 3D scene from drag-and-drop assets (or prompt a scene into existence), position cameras, set lighting, then hand the composed scene to the AI model as a structural constraint. The result is image and video generation that stays consistent with shot composition and scene geometry across multiple renders.</p><p><strong>Who it's for:</strong> Directors, DPs, producers, and creative leads who do previsualization work &#8212; pitching ideas to clients, exploring shot composition before a shoot, visualizing events or sets before budget approval. The tool targets the same phase where AV teams typically use storyboards, concept art, or basic 3D previs.</p><p><strong>Pricing:</strong> Free tier available. Paid plans start at $15/month. The platform includes 5,000&#8211;6,000 3D assets, cinematography controls, style references for narrative consistency, and image/video generation in one click.</p><p><strong>Worth trying?</strong> For anyone doing previsualization or shot-composition work, yes. The "spatial-first, prompt-second" approach addresses the biggest pain point with current generative video tools &#8212; they drift, because they don't know where objects are in 3D space. Intangible solves that by letting you lock the geometry first. The team comes from Apple, Pixar, Netflix, Google, and Unity, which shows in the camera and asset tooling. Limitations: it's still a previsualization tool, not a final-delivery tool &#8212; the output quality is better used as a directing layer over another model than as the finished frame itself.</p><p><strong>Link:</strong> <a href="https://www.intangible.ai/" target="_blank" rel="noopener">intangible.ai</a></p><hr><h2>Sources</h2><p>1. <a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" rel="noopener">Anthropic Blog</a> &#8212; April 16, 2026 &#8212; Claude Opus 4.7 release announcement
+<p>2. <a href="https://venturebeat.com/technology/anthropic-releases-claude-opus-4-7-narrowly-retaking-lead-for-most-powerful-generally-available-llm" target="_blank" rel="noopener">VentureBeat</a> &#8212; April 16, 2026 &#8212; Opus 4.7 benchmark analysis</p>
+<p>3. <a href="https://9to5mac.com/2026/04/16/openais-codex-app-adds-three-key-features-for-expanding-beyond-agentic-coding/" target="_blank" rel="noopener">9to5Mac</a> &#8212; April 16, 2026 &#8212; Codex adds background computer use, in-app browser, image generation</p>
+<p>4. <a href="https://siliconangle.com/2026/04/16/openai-ratchets-codexs-agentic-capabilities-rival-claude-code/" target="_blank" rel="noopener">SiliconANGLE</a> &#8212; April 16, 2026 &#8212; Codex's expanded agentic capabilities vs. Claude Code</p>
+<p>5. <a href="https://help.openai.com/en/articles/11428266-codex-changelog" target="_blank" rel="noopener">OpenAI Codex Changelog</a> &#8212; April 16, 2026 &#8212; Codex April release notes</p>
+<p>6. <a href="https://deadline.com/2026/04/wonder-project-ai-firm-luma-launch-innovative-dreams-hybrid-filmmaking-1236861786/" target="_blank" rel="noopener">Deadline</a> &#8212; April 2026 &#8212; Wonder Project &#215; Luma launch Innovative Dreams</p>
+<p>7. <a href="https://www.it-boltwise.de/innovative-ki-gestuetzte-filmproduktion-mit-luma-und-wonder-project.html" target="_blank" rel="noopener">it-boltwise</a> &#8212; April 2026 &#8212; Innovative Dreams and <em>The Old Stories: Moses</em></p>
+<p>8. <a href="https://updates.midjourney.com/v8-1-alpha/" target="_blank" rel="noopener">Midjourney Updates</a> &#8212; April 14, 2026 &#8212; V8.1 Alpha release notes</p>
+<p>9. <a href="https://lasvegassun.com/news/2026/apr/14/utopai-studios-announces-industry-first-three-minu/" target="_blank" rel="noopener">Las Vegas Sun</a> &#8212; April 14, 2026 &#8212; Utopai PAI 3-minute 4K video</p>
+<p>10. <a href="https://au.marketscreener.com/news/shutterstock-expands-commercial-ready-genai-solutions-with-ai-video-generator-ce7e50dcdc8ff722" target="_blank" rel="noopener">Market Screener / Shutterstock</a> &#8212; April 15, 2026 &#8212; Shutterstock AI Video Generator launch</p>
+<p>11. <a href="https://www.musicbusinessworldwide.com/elevenlabs-launches-elevenmusic-ios-app-taking-on-suno-and-udio-on-mobile/" target="_blank" rel="noopener">Music Business Worldwide</a> &#8212; April 2026 &#8212; ElevenMusic iOS app</p>
+<p>12. <a href="https://www.theverge.com/tech/880401/google-io-2026-dates-ai" target="_blank" rel="noopener">The Verge</a> &#8212; April 2026 &#8212; Google I/O 2026 dates</p>
+<p>13. <a href="https://developers.googleblog.com/get-ready-for-google-io-2026/" target="_blank" rel="noopener">Google Developers Blog</a> &#8212; April 2026 &#8212; I/O 2026 agenda preview</p>
+<p>14. <a href="https://www.intangible.ai/" target="_blank" rel="noopener">Intangible.ai</a> &#8212; Platform reference &#8212; Spatial intelligence AI for creative industries</p>
+<p>15. <a href="https://www.crosslinkcapital.com/news/intangible-launches-public-beta-merging-generative-ai-game-engines-and-cinematic-design/" target="_blank" rel="noopener">Crosslink Capital</a> &#8212; 2025 &#8212; Intangible public beta context</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>

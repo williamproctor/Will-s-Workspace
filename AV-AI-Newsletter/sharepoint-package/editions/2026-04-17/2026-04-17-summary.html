@@ -1,0 +1,164 @@
+<!-- AVS AI Dispatch &#8212; Week of April 17, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-04-17</span>
+      <span class="edition-date">Week of April 17, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>Quick Summary: Anthropic released a new Claude model that narrowly beats every other AI on key tests &#8212; and on the same day, OpenAI rolled out a major update to Codex that lets it operate your computer in the background. A major new film production company launched that uses AI alongside real actors &#8212; their first project stars Ben Kingsley as Moses. Midjourney made its image tool three times faster and cheaper. And the AI video space keeps consolidating, with established platforms like Shutterstock now offering commercial-ready AI video generation.</blockquote><hr><h2>The Big Stories This Week</h2><h3>Anthropic Releases Claude Opus 4.7</h3><p>Anthropic shipped a new version of Claude &#8212; <strong>Opus 4.7</strong> &#8212; that now slightly outperforms OpenAI's GPT-5.4 and Google's Gemini 3.1 on key benchmarks for coding, using tools, and running autonomous tasks. The biggest practical improvement: the model can now analyze much higher-resolution images than before (roughly three times larger), which matters for work like reviewing video frames or detailed stills.</p><p>The model also does a better job of checking its own work before reporting back &#8212; a direct response to a common failure mode where AI looks right but is actually wrong. Pricing is unchanged.</p><h3>OpenAI Updates Codex &#8212; And It Can Now Operate Your Computer</h3><p>On the same day Anthropic released Opus 4.7, OpenAI shipped a major update to <strong>Codex</strong>, its AI coding assistant. The update pushes Codex well beyond coding:</p><ul>
+<li><strong>It can now operate your computer in the background</strong> &#8212; seeing, clicking, and typing inside Mac apps while you work on something else. This lets it test changes, click through apps that don't have APIs, or run multiple agents in parallel.</li>
+<li><strong>A built-in web browser</strong> lets you open pages inside Codex, leave comments on rendered elements, and have Codex address the feedback in code.</li>
+<li><strong>Image generation is built in</strong> (using GPT-image-1.5), so you don't have to switch to ChatGPT when you need an image as part of a workflow.</li>
+</ul><p>It also added 111 new plugins, GitHub pull request support, scheduled "thread automations" that wake Codex up to continue long-running tasks over days or weeks, and memory of prior sessions. The comparison point is Claude Code &#8212; Anthropic's coding tool &#8212; and the two products are now converging on similar capabilities from opposite directions.</p><h3>Wonder Project and Luma Launch "Innovative Dreams" for AI-Assisted Filmmaking</h3><p>A new production company called <strong>Innovative Dreams</strong> launched this week &#8212; a partnership between Wonder Project (a faith-and-family studio founded by Jon Erwin) and the AI lab Luma, backed by Amazon Web Services. Their approach is called "real-time hybrid filmmaking," which combines real actors, virtual sets, and generative AI into a single workflow &#8212; instead of bolting AI onto the end of traditional production.</p><p>Their first project is <em>The Old Stories: Moses</em>, starring Ben Kingsley as Moses and O-T Fagbenle as Pharaoh. It was shot entirely on a virtual stage and is coming to Prime Video this spring.</p><p>What's different here: directors can make real-time changes to sets, props, and lighting while the actors are still on set &#8212; changes that would have required weeks of post-production in traditional workflows. The pitch is that it brings high-end virtual production (the kind James Cameron uses) within reach of smaller productions.</p><h3>Midjourney V8.1 &#8212; Faster, Cheaper, and Image Prompts Are Back</h3><p>Midjourney released <strong>V8.1 Alpha</strong> just one month after V8. The key changes:</p><ul>
+<li><strong>HD mode is now 3x faster and 3x cheaper</strong>, and HD is the default output</li>
+<li><strong>Standard resolution is 50% faster and 25% cheaper</strong></li>
+<li><strong>Image prompts and image weights work again</strong> &#8212; these were broken in V8 and are critical for anyone using reference images</li>
+<li><strong>Style references are much more stable</strong> across runs, so consistent characters and looks are easier to maintain</li>
+</ul><p>The one-month turnaround between versions is unusually fast for an AI company &#8212; most major releases happen every 3&#8211;6 months. The update directly addressed the three biggest user complaints about V8.</p><h3>Utopai Ships Three-Minute 4K Video Generation</h3><p>Utopai Studios &#8212; which has been quietly used on Hollywood productions &#8212; announced that its AI video platform can now generate <strong>continuous three-minute videos at 4K resolution</strong>. Most AI video tools today max out at 10&#8211;15 seconds before needing to be manually stitched together. Utopai also introduced a "Story Agent" that tries to keep continuity across shots and scenes &#8212; a common pain point with AI video.</p><h3>Shutterstock Launches AI Video Generator with Commercial Licensing</h3><p>Shutterstock rolled out a unified AI video generator that combines Google's and Runway's top video models with its stock footage library. The notable feature: everything generated through the platform comes with Shutterstock's standard commercial license, which removes the legal ambiguity that's followed AI-generated content for the last couple of years.</p><h3>ElevenLabs Enters AI Music with ElevenMusic iOS App</h3><p>ElevenLabs &#8212; best known for voice cloning &#8212; launched a standalone iPhone app called <strong>ElevenMusic</strong>, going head-to-head with Suno and Udio. You can generate up to 7 songs per day free, or $9.99/month for 500 tracks with the ability to edit individual sections (verse, chorus, bridge). Unlike its competitors, ElevenLabs launched with music licensing agreements already in place, which may become important as the copyright lawsuits against Suno and Udio continue.</p><h3>Google I/O Confirmed for May 19&#8211;20 &#8212; Veo 4 Likely</h3><p>Google confirmed its biggest event of the year for May 19&#8211;20 in Mountain View. Industry watchers expect the next version of Google's video AI model (Veo 4) to be announced, with rumored features including longer video generation, better physics handling, and improved cinematic camera controls.</p><hr><h2>Why This Week Matters</h2><p>A few patterns worth noting:</p><ul>
+<li><strong>The two leading AI labs shipped on the same day.</strong> Anthropic's Opus 4.7 and OpenAI's Codex update both landed on April 16, and they're converging on similar capabilities from opposite starting points. Anthropic leads on model reasoning; OpenAI leads on the surrounding tools (computer use, embedded browser, image generation). The gap between them is narrower this week than it's been in months.</li>
+</ul><ul>
+<li><strong>AI is moving into the full production pipeline.</strong> Between Innovative Dreams, Utopai, and tools like Intangible.ai, the AI video story is shifting from "generate a short clip" to "augment an entire production workflow." This is a meaningful shift for anyone working in AV.</li>
+</ul><ul>
+<li><strong>AI video tools are being absorbed into existing platforms.</strong> Shutterstock, TikTok, and similar platforms are embedding frontier AI video models directly into their existing tools. The result: you may not need to pick which AI tool to use &#8212; you'll just use whichever platform you already work in.</li>
+</ul><ul>
+<li><strong>Commercial licensing is becoming a competitive advantage.</strong> Shutterstock and ElevenLabs both shipped products this month where licensing is a built-in feature, not an afterthought. That's a direct response to the legal fights surrounding earlier AI tools.</li>
+</ul><ul>
+<li><strong>Midjourney's speed stands out.</strong> Most AI companies release major updates every few months. Midjourney went from V8 to V8.1 in 30 days &#8212; a very different operational tempo.</li>
+</ul><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the simplified edition &#8212; switch to "Full Edition" for the complete technical breakdown.</em>
+
+  </div>
+</div>
