@@ -1,0 +1,13 @@
+A minimalist editorial poster thumbnail for a weekly AI industry digest video. The aesthetic is that of a refined print publication — think Monocle magazine, The Economist chart, or a New York Times Opinion section cover. Warm cream parchment background in the color #faf8f3, with subtle, barely-visible flecks of texture like uncoated paper. A single accent color: a muted, slightly dusty editorial blue in the color #4a6da7. No other colors are used.
+
+The central visual is a clean, flat, 2D step-chart: five simple rectangular bars arranged horizontally across the lower-middle portion of the image. Each bar is slightly taller than the one before it, but the rightmost bar is dramatically taller — roughly twice the height of the second-tallest — representing a step-change. The bars are rendered as solid blocks of the #4a6da7 blue. Each bar rests on a thin horizontal baseline in a slightly darker parchment tone (#ddd5c4). The chart has generous negative space around it; the composition breathes.
+
+Directly above the tallest bar, a small upward-pointing arrow in the same blue, understated — not a dramatic explosion, just a subtle indicator of the leap.
+
+In the top-left corner, small uppercase monospace text reading "THE AVS AI DISPATCH" in a muted ink-gray color (#4a4a5e), letter-spaced wide.
+
+In the bottom-right corner, small uppercase monospace text reading "WEEK OF APR 24, 2026" in the same muted ink-gray, letter-spaced wide.
+
+A single thin horizontal hairline (#ddd5c4) runs across the top of the image, roughly 80 pixels below the top edge, like a newspaper masthead rule.
+
+Strictly flat, 2D, vector-style. No gradients. No glow effects. No neon. No 3D rendering. No sci-fi elements. No wireframes. No particles. The mood is confident, quiet, refined, intellectual — a chart that says "this was a step-change week" without shouting. Plenty of negative space. Precise alignment. Editorial typographic restraint throughout.

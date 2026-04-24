@@ -50,7 +50,7 @@ Each edition follows this structure:
 - Newsletter content is authored in Markdown (`.md`) in the `editions/` directory.
 - The markdown is JSON-escaped and injected into the HTML page's `EDITION_MD` constant via a Python script.
 - Edition dates follow a Friday publication schedule.
-- Images can be placed in the edition's site directory (e.g., `site/editions/2026-04-03/`) and referenced with relative paths in the markdown.
+- Images can be placed in the edition's site directory (e.g., `site/editions/2026-04-03/`) and referenced from the markdown using **root-relative paths** (e.g., `![alt](/editions/2026-04-03/chart.png)`). Root-relative paths work on both localhost and production, and `sharepoint-package/build_sharepoint.py` automatically rewrites them to absolute `https://avaidispatch.com/...` URLs during the SharePoint build so images still resolve when the HTML body is embedded inside a SharePoint page. Do **not** hardcode the `https://avaidispatch.com` origin in the markdown — it will break local preview.
 
 ## Audio Pipeline (required for every new edition)
 
@@ -66,3 +66,64 @@ ffmpeg -i site/audio/YYYY-MM-DD.m4a -codec:a libmp3lame -qscale:a 2 site/audio/m
 ```
 
 Create the `site/audio/mp3/` directory if it does not already exist. After conversion, verify both files exist before committing.
+
+## Thumbnail / Image Generation Pipeline
+
+All AI-generated images (video thumbnails, in-edition illustrations) go through `scripts/generate_thumbnail.py`, which calls OpenAI's **`gpt-image-2`** model. Never use the legacy Gemini/Imagen path — it's retired.
+
+- **API key location:** `../.env` at the workspace root (sibling of `AV-AI-Newsletter/`). The key is stored as `OPENAI_API_KEY=...`. The file is gitignored at the workspace level — never commit it and never print its full value.
+- **Default output path:** `site/video/thumbs/YYYY-MM-DD.png` when you pass `--slug YYYY-MM-DD`. Pass `--out <path>` for ad-hoc uses.
+- **Default params:** `model=gpt-image-2`, `size=1536x1024` (3:2, plays cleanly as a 16:9 poster), `quality=high`.
+- **Prompt files:** Keep prompts in `scripts/prompts/YYYY-MM-DD-thumb.txt` so the prompt that shipped the asset is version-controlled alongside everything else.
+
+Invoke using the workspace venv so the `openai` SDK is present:
+
+```bash
+../.venv/bin/python scripts/generate_thumbnail.py \
+  --slug YYYY-MM-DD \
+  --prompt-file scripts/prompts/YYYY-MM-DD-thumb.txt
+```
+
+**Design direction — stay on brand.** The Dispatch visual identity is editorial, not sci-fi. Prompts should bias toward: warm parchment backgrounds (`#faf8f3` / `#f5f0e8`), muted dispatch blue (`#4a6da7`) as the sole accent, flat 2D vector aesthetic, generous negative space, monospace corner typography, and a reference to magazine/newspaper design (Monocle, The Economist, NYT Opinion). Explicitly avoid: neon, glow effects, gradients, wireframes, 3D renders, particle effects, dark Tron-style backgrounds, or anything that could be described as "sci-fi."
+
+## Dual Delivery: Public Site + SharePoint Package (required for every new edition)
+
+Every edition ships to two destinations. Both MUST be built before committing.
+
+### 1. Public site (interactive, JavaScript-enabled)
+
+The site build renders markdown client-side, embeds audio/video players, and supports the Full Edition / Quick Summary reading toggle.
+
+- **Source:** `editions/YYYY-MM-DD.md` and `editions/YYYY-MM-DD-simplified.md`
+- **Output:** `site/editions/YYYY-MM-DD/index.html`
+- **How:** Author or reuse a small per-edition build script (e.g. `build_apr17.py`) that reads both markdown files, JSON-escapes them into `EDITION_MD` / `EDITION_SIMPLIFIED` JS constants, injects them into the HTML template, and sets `HAS_AUDIO` / `HAS_VIDEO` / `VIDEO_TITLE`.
+- **Also update:**
+  - `site/index.html` — prepend the new entry to the `EDITIONS` array at the top and update the `hook` on the latest-edition card.
+  - `site/sitemap.xml` — add a `<url>` entry for the new edition and bump the homepage `lastmod`.
+
+### 2. SharePoint package (body-only HTML, no JavaScript)
+
+SharePoint modern pages cannot run JavaScript, so a separate sister build renders markdown **server-side** to body-only HTML with a scoped `<style>` block. This is non-negotiable — the SharePoint team deploys from this package, not the public site.
+
+- **Source:** Same `editions/YYYY-MM-DD.md` and `editions/YYYY-MM-DD-simplified.md` files (no duplication of content).
+- **Output:**
+  - `sharepoint-package/editions/YYYY-MM-DD/YYYY-MM-DD-full.html`
+  - `sharepoint-package/editions/YYYY-MM-DD/YYYY-MM-DD-summary.html` (only if a `-simplified.md` source exists)
+- **How:**
+  ```bash
+  cd sharepoint-package
+  python3 build_sharepoint.py YYYY-MM-DD
+  ```
+  The generator has no dependencies and uses the same markdown-to-HTML rules as the site's client-side renderer.
+- **Also update:** `sharepoint-package/samples/list-import-all-editions.csv`
+  - Flip the previous edition's `Featured` column from `Yes` to `No`.
+  - Prepend a new row for this edition with `Status=Published`, `Featured=Yes`, the hook (same hook used on the site's homepage card), and URLs using the `{SITE_URL}` token.
+  - Leave `SummaryUrl` blank if no simplified source; leave media URLs blank if no media shipped this week.
+
+### Deployment summary each week
+
+1. Source markdown (full + simplified).
+2. Site build: `build_<month>.py` → archive entry → sitemap entry.
+3. Media: m4a + mp3 pair; video + thumbnail.
+4. SharePoint build: `build_sharepoint.py YYYY-MM-DD` + CSV row + feature flip.
+5. One commit, one push. Vercel deploys the site; SharePoint team pulls the package folder.

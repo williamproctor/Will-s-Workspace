@@ -1,7 +1,7 @@
 # AVS AI Dispatch — SharePoint Deployment Guide
 
 **Prepared for:** SharePoint Development / Web Team
-**From:** Audio/Video Services
+**From:** AVS AI R&D Team
 **Date:** April 2026
 
 ---
@@ -229,10 +229,10 @@ Each Friday, AVS will provide:
 4. **Video thumbnail** — `video/thumbs/YYYY-MM-DD.png`
 5. **Edition markdown** (raw) — `editions/YYYY-MM-DD.md` and `editions/YYYY-MM-DD-simplified.md` (if the team prefers to work with the source markdown directly rather than the pre-built HTML)
 
-Files are delivered via the GitHub repository at `github.com/williamproctor/Will-s-Workspace` under `AV-AI-Newsletter/`. The team can pull from the repo directly or receive the files via an agreed-upon delivery method.
+Files are delivered via a shared GitHub repository or individual file transfer, depending on your team's preference. The delivery method will be agreed upon during onboarding.
 
 ---
 
 ## Questions?
 
-Contact Audio/Video Services. This guide will be updated as the deployment path is finalized.
+Contact the AVS AI R&D Team. This guide will be updated as the deployment path is finalized.

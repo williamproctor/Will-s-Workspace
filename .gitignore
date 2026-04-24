@@ -7,3 +7,15 @@ docs/growthx/
 # Editor
 .cursor/
 .vscode/
+
+# Secrets — never commit API keys, tokens, or local env overrides
+.env
+.env.*
+!.env.example
+*.local
+secrets/
+
+# Python
+.venv/
+__pycache__/
+*.pyc

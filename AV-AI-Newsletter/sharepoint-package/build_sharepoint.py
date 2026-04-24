@@ -27,6 +27,12 @@ NEWSLETTER_ROOT = os.path.dirname(ROOT)
 EDITIONS_DIR = os.path.join(NEWSLETTER_ROOT, "editions")
 OUT_ROOT = os.path.join(ROOT, "editions")
 
+# Public site origin — used to rewrite relative asset paths (e.g.
+# /editions/2026-04-24/arena-leaderboard.png) to absolute URLs so that
+# images and cross-edition links still resolve once the HTML body is
+# embedded inside a SharePoint page (different origin, no base URL).
+PUBLIC_SITE_ORIGIN = "https://avaidispatch.com"
+
 
 # ───────────────────────────────────────────────────────────────────────────────
 # Markdown → HTML (port of shared.js markdownToHtml / convertTables / convertLists)
@@ -260,6 +266,16 @@ SCOPED_CSS = """
 # HTML wrapper — body-only, no <html>/<head>/<body>
 # ───────────────────────────────────────────────────────────────────────────────
 
+def absolutize_local_urls(html: str, origin: str = PUBLIC_SITE_ORIGIN) -> str:
+    """Rewrite root-relative src/href (e.g. "/editions/.../img.png") to absolute
+    URLs on the public site. Protocol-relative (//) and already-absolute URLs
+    (http://, https://, mailto:, data:, #fragment) are left alone."""
+    def _sub(match: re.Match) -> str:
+        attr, quote, path = match.group(1), match.group(2), match.group(3)
+        return f'{attr}={quote}{origin}{path}{quote}'
+    return re.sub(r'\b(src|href)=(["\'])(/[^/][^"\']*)\2', _sub, html)
+
+
 def ascii_safe(html: str) -> str:
     """Encode all non-ASCII characters as numeric HTML entities.
 
@@ -291,7 +307,7 @@ def build_body_html(*, slug: str, kicker: str, edition_label: str, inner_html: s
         f'  </div>\n'
         f'</div>\n'
     )
-    return ascii_safe(body)
+    return ascii_safe(absolutize_local_urls(body))
 
 
 def format_edition_label(slug: str) -> str:

@@ -1,0 +1,179 @@
+<!-- AVS AI Dispatch &#8212; Week of April 24, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-04-24</span>
+      <span class="edition-date">Week of April 24, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>Quick Summary: OpenAI shipped two step-change products in 48 hours &#8212; <strong>GPT-5.5</strong>, a new top-of-the-benchmarks AI model, and <strong>ChatGPT Images 2.0</strong>, which opened the largest launch-day lead in AI image-generation history. Kling's video AI now outputs 4K directly with no upscaling. Blackmagic released <strong>DaVinci Resolve 21</strong> with over a dozen new AI tools including voice cloning, age/de-age, and searchable clip libraries. <strong>NAB 2026</strong> confirmed that every major editing app &#8212; Premiere, Avid, Resolve &#8212; is now AI-native. And Chinese lab DeepSeek matched GPT-5.5 on benchmarks at 86% lower cost just nine hours after OpenAI's announcement.</blockquote><hr><h2>The Big Stories This Week</h2><h3>OpenAI Ships GPT-5.5 &#8212; The Biggest Single Jump Since GPT-4.5</h3><p>OpenAI released <strong>GPT-5.5</strong> on April 23, the first fully retrained base model since GPT-4.5 &#8212; not an incremental update. The benchmark gains are substantial: it tops the Artificial Analysis Intelligence Index, scores 82.7% on Terminal-Bench 2.0 (up from 75.1% on GPT-5.4), and handles a 922,000-token context window at the same per-token speed as the previous model.</p><p>Two data points that stand out from the pre-release period:</p><ul>
+<li>NVIDIA rolled Codex (powered by GPT-5.5) to more than <strong>10,000 engineers internally</strong> and reports that debugging cycles compressed from days to hours.</li>
+<li>OpenAI says the model can run <strong>independently for more than seven hours</strong> on complex coding tasks without losing the thread.</li>
+</ul><p><strong>Pricing doubled</strong> to $5 per million input tokens and $30 per million output. A new GPT-5.5 Pro tier is available for harder reasoning work. Available now to Plus, Pro, Business, and Enterprise subscribers in ChatGPT and Codex; API access coming soon.</p><p>Community reception has been mixed &#8212; developers call it "completely cracked" for coding, while heavy users burned through their weekly session limits in 15 minutes of agentic use. Claude Opus 4.7 still leads on one major benchmark (SWE-Bench Pro), and the restricted Claude Mythos Preview leads on several others.</p><h3>ChatGPT Images 2.0 Posts the Biggest Launch-Day Lead in Image AI History</h3><p>On April 21 &#8212; two days before GPT-5.5 &#8212; OpenAI shipped <strong>ChatGPT Images 2.0</strong>, the successor to GPT-image-1.5. The model is now standalone rather than a subsystem of GPT-4o, and it posted a result that required reading twice to believe: on the Arena.ai text-to-image leaderboard, it scored <strong>1,512 &#8212; 241 points above the second-place model</strong> (Google's Nano Banana Pro). For context, the entire previous top-15 spanned roughly 130 points. This is the largest launch-day lead any image model has ever held in Arena's history.</p><figure class="edition-figure"><img src="https://avaidispatch.com/editions/2026-04-24/arena-leaderboard.png" alt="Arena.ai Text-to-Image leaderboard at launch &#8212; GPT Image 2 scores 1,512, 241 points above Nano Banana 2 in second place. The rest of the top 15 are clustered within roughly 130 points of each other." loading="lazy"><figcaption>Arena.ai Text-to-Image leaderboard at launch &#8212; GPT Image 2 scores 1,512, 241 points above Nano Banana 2 in second place. The rest of the top 15 are clustered within roughly 130 points of each other.</figcaption></figure><p>What actually changed:</p><ul>
+<li><strong>Text rendering jumped from ~90&#8211;95% to 99%+ accuracy</strong>, across dozens of languages including Chinese, Japanese, Korean, Hindi, and Bengali. The long-standing weakness around menus, signs, infographics, and UI mockups is effectively solved.</li>
+<li>The model now <strong>reasons before rendering</strong> &#8212; planning composition, resolving spatial relationships, and interpreting complex multi-part instructions.</li>
+<li><strong>Up to 8 consistent images per prompt</strong>, aspect ratios from 3:1 to 1:3, native 2K with experimental 4K.</li>
+<li>Free-tier access for every ChatGPT user in Instant mode; Thinking mode (with web search and verification) for paid tiers.</li>
+</ul><p><strong>Limitations matter</strong>: no transparent PNG output, generation is slow (15&#8211;60 seconds per image), brand logo reproduction is still unreliable, and the artistic style range is narrower than Midjourney for abstract or painterly work.</p><p>Designer reception was unusual for its consistency &#8212; poster and flyer designers are saying text-in-image is finally production-ready, and several reported skipping Photoshop for first-pass marketing assets.</p><h3>Kling Video 3.0 Adds Native 4K Direct Output</h3><p>Kuaishou's Kling AI announced on April 23 that its Video 3.0 series now supports <strong>native 4K direct output</strong> &#8212; generating at full 4K resolution rather than upscaling from lower-res. The company is marketing this as the first video model to deliver native 4K without post-processing, targeting film, advertising, and professional production work.</p><p>This sits on top of Kling 3.0's existing capabilities &#8212; 15-second clips, multi-shot sequencing, native audio across multiple languages, and one unified pipeline for text-to-video, image-to-video, reference-to-video, and in-video editing. Kling 3.0 and Kling 3.0 Omni were also added to <strong>Adobe Firefly's model roster</strong> during NAB week.</p><p>Kuaishou posted a <a href="https://www.youtube.com/watch?v=I7tMTopo6xk" target="_blank" rel="noopener">4K native-output reel on YouTube</a> alongside the announcement. Worth a look less for the question of whether Kling specifically becomes the best video generation model, and more for what it signals about where the whole category is converging on image quality and motion coherence. If this is now the floor, it resets expectations for what <strong>Veo 4</strong> (expected at Google I/O on May 19&#8211;20) and the next Sora-successor will need to clear.</p><h3>DaVinci Resolve 21 Lands With a Full AI Toolkit</h3><p>Blackmagic Design released the <strong>public beta of DaVinci Resolve 21</strong> on April 13 &#8212; over 100 new features in a single release. The AI additions alone close most of the gap that had opened up against Premiere on AI tooling:</p><ul>
+<li><strong>AI IntelliSearch</strong> &#8212; natural-language search in the Media Pool by object, face, or dialogue keyword</li>
+<li><strong>AI CineFocus</strong> &#8212; synthetic depth-of-field after the fact, with keyframeable rack focus and selectable bokeh</li>
+<li><strong>AI Face Age Transformer</strong> &#8212; age or de-age a tracked subject</li>
+<li><strong>AI Face Reshaper</strong> &#8212; adjust facial features on moving subjects</li>
+<li><strong>AI Blemish Removal</strong> &#8212; skin retouching that preserves texture</li>
+<li><strong>AI Slate ID</strong> &#8212; automatic metadata extraction from clapperboards, even dark or out-of-focus</li>
+<li><strong>AI UltraSharpen</strong> and <strong>AI Motion Deblur</strong> &#8212; rescue soft or motion-blurred footage</li>
+<li><strong>AI Speech Generator</strong> &#8212; voice cloning from just 10 seconds of source audio</li>
+</ul><p>There's also a brand-new <strong>Photo page</strong> that brings DaVinci's full color grading stack to still photography, with tethered shooting support for Sony and Canon. The public beta is free.</p><h3>NAB 2026 Confirmed Every Major NLE Is Now AI-Native</h3><p>NAB Show 2026 (April 18&#8211;22 in Las Vegas) surfaced the clearest signal yet that the era of "AI as an NLE plugin" is over &#8212; it's now part of the base product:</p><ul>
+<li><strong>Avid &#215; Google Cloud</strong> announced a multi-year partnership embedding Gemini and Vertex AI directly into Media Composer. Editors can query footage using natural language ("find the emotional moment when the lead character reacts"), auto-generate B-roll, and automate metadata logging. Avid Content Core &#8212; their new cloud-native media data layer &#8212; reached general availability and won the NAB Product of the Year in Media Supply Chain.</li>
+<li><strong>Adobe</strong> debuted <strong>Premiere Color Mode</strong> (editor-first color grading, won Product of the Year in Graphics/VFX), <strong>AI Object Matte</strong> in After Effects (roto work in minutes instead of hours), <strong>Frame.io Drive</strong> (mount cloud projects like local drives), and previewed the <strong>Firefly AI Assistant</strong> &#8212; an agentic layer that orchestrates work across Premiere, Photoshop, Lightroom, and the rest of Creative Cloud from a single conversational interface. Adobe confirmed the assistant will extend to Anthropic's Claude and other third-party models.</li>
+<li><strong>DaVinci Resolve 21</strong> (above) is the third major NLE to go AI-native this month.</li>
+<li><strong>TwelveLabs</strong> showed Pegasus 1.5, a video intelligence model that extracts structured metadata against a customer-defined schema and outperforms Gemini 2.5 Pro by 30% on segmentation quality. Already in production with one major broadcast network.</li>
+<li><strong>Amplify's KAI</strong> is an AI story-building panel inside Premiere &#8212; editors search footage by story beats and moments rather than by filename.</li>
+<li><strong>MediaPET 2.1</strong> launched a fully agentic video system where you direct the project conversationally from your phone rather than working clip-by-clip in a timeline.</li>
+</ul><h3>DeepSeek V4 Matches GPT-5.5 at 86% Lower Cost &#8212; Nine Hours Later</h3><p>Roughly nine hours after OpenAI announced GPT-5.5, Chinese AI lab <strong>DeepSeek</strong> released <strong>V4</strong>, a fully open-source model with a 1-million-token context window that matches or exceeds GPT-5.5 on several benchmarks &#8212; at approximately 86% lower cost. This is now the third time in eighteen months that DeepSeek has released a frontier-competitive open model within days of a flagship US launch. The practical implication: whatever advantage a new proprietary model has at launch is now measured in days, not months.</p><hr><h2>Why This Week Matters</h2><p>A few patterns worth noting:</p><ul>
+<li><strong>"Agentic AI" is now the default frame.</strong> Every major launch this week &#8212; GPT-5.5, Firefly AI Assistant, Avid &#215; Gemini, MediaPET 2.1, Amplify KAI &#8212; led with the word "agentic." What that actually means varies, but the marketing category is converging faster than the technology. The gap between "demo that runs agentically" and "agent that works reliably in production" is still the biggest risk.</li>
+</ul><ul>
+<li><strong>Text-in-image is effectively solved.</strong> ChatGPT Images 2.0 at 99%+ accuracy, along with Flux 2 and Nano Banana Pro scoring in the 80s and 90s, closes a three-year-old weakness. The practical consequence: designers asking an AI for mocked-up posters, menus, signage, or infographics now get something usable on the first pass rather than a placeholder that has to be rebuilt with correct text composited on top.</li>
+</ul><ul>
+<li><strong>Every major NLE is now AI-native.</strong> Premiere, Avid Media Composer, and DaVinci Resolve all shipped significant AI feature drops in a 30-day window. If you've been waiting for AI to be part of your editing tool rather than a separate workflow, that happened this month.</li>
+</ul><ul>
+<li><strong>Proprietary model leads are measured in days.</strong> GPT-5.5 held the top spot on the main intelligence leaderboard for roughly nine hours before DeepSeek V4 matched it at 86% lower cost. ChatGPT Images 2.0 opened a 241-point lead on April 21; the assumption inside the industry is that Nano Banana Pro 2 is weeks away, not months.</li>
+</ul><ul>
+<li><strong>The timeline itself is being argued against.</strong> MediaPET, Amplify KAI, and the Firefly AI Assistant all argue &#8212; from different angles &#8212; that clip-by-clip editing is a legacy interface and conversational project direction is the next mental model. Whether any of them prove out at feature-length production scale is an open question, but three independent companies arguing the same thesis in one month is a signal worth tracking.</li>
+</ul><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the quick summary &#8212; the full edition has the complete technical breakdown and sources. Curated with AI assistance. Questions or suggestions? Reply to this message.</em>
+
+  </div>
+</div>
