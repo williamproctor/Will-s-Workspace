@@ -115,10 +115,12 @@ SharePoint modern pages cannot run JavaScript, so a separate sister build render
   python3 build_sharepoint.py YYYY-MM-DD
   ```
   The generator has no dependencies and uses the same markdown-to-HTML rules as the site's client-side renderer.
-- **Also update:** `sharepoint-package/samples/list-import-all-editions.csv`
-  - Flip the previous edition's `Featured` column from `Yes` to `No`.
-  - Prepend a new row for this edition with `Status=Published`, `Featured=Yes`, the hook (same hook used on the site's homepage card), and URLs using the `{SITE_URL}` token.
-  - Leave `SummaryUrl` blank if no simplified source; leave media URLs blank if no media shipped this week.
+- **Also update:**
+  - `sharepoint-package/samples/list-import-all-editions.csv`
+    - Flip the previous edition's `Featured` column from `Yes` to `No`.
+    - Prepend a new row for this edition with `Status=Published`, `Featured=Yes`, the hook (same hook used on the site's homepage card), and URLs using the `{SITE_URL}` token.
+    - Leave `SummaryUrl` blank if no simplified source; leave media URLs blank if no media shipped this week.
+  - `sharepoint-package/edition-hooks.md` — prepend a section for the new edition with the same hook used in the CSV and the homepage `EDITIONS` array. The SharePoint deployment team uses this as a copy-paste reference when entering rows manually.
 
 ### Deployment summary each week
 
