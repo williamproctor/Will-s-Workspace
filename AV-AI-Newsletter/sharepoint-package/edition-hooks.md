@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-05-01 — Week of May 1, 2026
+
+> Insta360 + Splatica's Project Eternal turns a 360 camera walk-through into a navigable Gaussian splat. Whittemore's Agent OS framework argues the model matters less than the personal infrastructure underneath it. Alibaba's HappyHorse 1.0 takes the #1 video model crown. ElevenLabs ships ElevenMusic with a style-royalty deal. Topaz rebuilds its stack. Anthropic ships persistent memory for Claude agents.
+
+---
+
 ## 2026-04-24 — Week of April 24, 2026
 
 > OpenAI ships GPT-5.5 and ChatGPT Images 2.0 in 48 hours — Images 2.0 opens the biggest Arena leaderboard lead in history. Kling adds native 4K output. DaVinci Resolve 21 lands with 10+ AI tools. NAB 2026 confirms every major NLE is now AI-native. DeepSeek V4 matches GPT-5.5 at 86% lower cost.

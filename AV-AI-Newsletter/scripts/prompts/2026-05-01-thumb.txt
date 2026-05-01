@@ -1,0 +1,13 @@
+A minimalist editorial poster thumbnail for a weekly AI industry digest video. The aesthetic is that of a refined print publication — think Monocle magazine, The Economist chart, or a New York Times Opinion section cover. Warm cream parchment background in the color #faf8f3, with subtle, barely-visible flecks of texture like uncoated paper. A single accent color: a muted, slightly dusty editorial blue in the color #4a6da7. No other colors are used.
+
+The central visual is a clean, flat, 2D stack of seven horizontal rectangular bars, arranged centered in the image, stacked vertically like the cross-section of a foundation. Each bar is the same width and height, separated by a thin parchment-colored gap (#ddd5c4). The bottom three bars are rendered as solid filled blocks of #4a6da7 blue (the foundation layers — built and stable). The middle two bars are rendered as #4a6da7 blue with a slightly faded, semi-transparent appearance (the layers being constructed). The top two bars are rendered only as outlines in #4a6da7 with empty parchment interiors (the layers yet to come). The composition has generous negative space above, below, and to the sides; the stack breathes.
+
+To the immediate right of the stack, a small vertical bracket or measurement mark in #4a6da7 with a small label in monospace text reading "AGENT OS" in the same blue, vertically oriented (rotated 90 degrees), letter-spaced wide.
+
+In the top-left corner, small uppercase monospace text reading "THE AVS AI DISPATCH" in a muted ink-gray color (#4a4a5e), letter-spaced wide.
+
+In the bottom-right corner, small uppercase monospace text reading "WEEK OF MAY 1, 2026" in the same muted ink-gray, letter-spaced wide.
+
+A single thin horizontal hairline (#ddd5c4) runs across the top of the image, roughly 80 pixels below the top edge, like a newspaper masthead rule.
+
+Strictly flat, 2D, vector-style. No gradients. No glow effects. No neon. No 3D rendering. No sci-fi elements. No wireframes. No particles. The mood is confident, quiet, refined, intellectual — a structural diagram that says "the foundation is what compounds" without shouting. Plenty of negative space. Precise alignment. Editorial typographic restraint throughout.

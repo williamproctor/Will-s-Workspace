@@ -1,0 +1,181 @@
+<!-- AVS AI Dispatch &#8212; Week of May 1, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-05-01</span>
+      <span class="edition-date">Week of May 1, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>Quick Summary: <strong>Insta360 + Splatica's Project Eternal</strong> turns a single 360 camera walk-through into a navigable Gaussian splat &#8212; volumetric capture migrating from purpose-built rigs to consumer hardware. The week's most useful framing came from Nathaniel Whittemore's argument that <strong>the model matters less than the personal "Agent OS"</strong> you build underneath it, with an AI chief of staff as the entry point. <strong>Alibaba's HappyHorse 1.0</strong> seized the #1 spot on the Artificial Analysis Video Arena, built in five months by the architect of Kling 1.0 and 2.0. <strong>ElevenLabs shipped ElevenMusic</strong> with a first-of-its-kind style-royalty deal through Believe and TuneCore. <strong>Topaz Labs released Next-Gen</strong>, a full rebuild of its image and video stack. And <strong>Anthropic moved Claude's persistent memory</strong> for managed agents to public beta &#8212; closing what builders call the biggest infrastructure gap in agentic AI.</blockquote><hr><h2>The Big Stories This Week</h2><h3>Insta360 + Splatica Launch Project Eternal &#8212; Consumer 360 Cameras Become Volumetric Capture Devices</h3><p>Insta360 and Splatica announced <strong>Project Eternal</strong> on April 28 &#8212; a joint pipeline that converts footage from a consumer 360 camera (Insta360 X5 or One RS 1-inch 360) into a <strong>fully navigable Gaussian splat</strong>. The capture step collapses to a single handheld camera the operator walks through the space with. Splatica's cloud processes the footage in roughly 1.5&#215; the capture duration, and the output exports as standard <code>.splat</code> and <code>.ply</code> files that drop directly into Unreal Engine 5.6, Unity 6, Blender 4.5, Niantic Scaniverse, Apple Vision Pro, and Meta Horizon OS.</p><p>The Verge's hands-on framed it bluntly: until this week, getting a Gaussian splat into a film, game, or training simulation meant hiring a specialist. Insta360 just shipped the consumer version. <strong>Pricing</strong>: $29/month subscription or $0.50/minute pay-as-you-go for the cloud processing, separate from the camera hardware (X5 retails $549). Up to 30 minutes of source footage per scene with automatic stitching across multiple captures, and native depth alignment using parallax between dual sensors rather than pure photogrammetric inference.</p><p><strong>For AV teams</strong>, the practical implication is that locations that used to require a scout, a lighting plan, and re-shoots can now be captured once and walked through forever. The output quality is currently "convincing real-time game environment" rather than "indistinguishable from camera negative" &#8212; strong enough for previs, second-unit reference, training data, and immersive installations, not yet good enough for hero shots in feature work.</p><h3>The Agent OS Shift: Why the Model Matters Less Than What You Build Underneath It</h3><p>The most useful framing of agentic AI this week came from <strong>Nathaniel Whittemore's AI Daily Brief on April 25</strong>, where guest <strong>Nufar Gaspar</strong> walked through a <strong>seven-layer "Agent OS"</strong> designed to be platform- and model-agnostic. The argument, in one sentence: every agentic tool &#8212; Cursor, Claude Code, OpenClaw, Codex &#8212; is converging on the same set of capabilities, so the system you build underneath the tool is what compounds.</p><p><strong>The seven layers</strong>, briefly:</p><p>1. <strong>Identity</strong> &#8212; who you are, your communication style, values, the rules the agent should never break
+<p>2. <strong>Context</strong> &#8212; three to five focused single-page files: team, product, customers, current quarter, stakeholders</p>
+<p>3. <strong>Skills</strong> &#8212; reusable instruction sets ("when I say X, do Y using Z, output format")</p>
+<p>4. <strong>Memory</strong> &#8212; deliberate capture of decisions, priority changes, and relationship context</p>
+<p>5. <strong>Connections</strong> &#8212; read-only access to email, calendar, Slack via MCPs/CLIs/APIs (write access only after weeks of trust)</p>
+<p>6. <strong>Verification</strong> &#8212; quick tone/fact/accuracy checks plus periodic system audits</p>
+<p>7. <strong>Automations</strong> &#8212; scheduled tasks; start with draft outputs for review, not direct external sends</p><p><strong>The compounding mechanic is the headline.</strong> Building the first agent &#8212; a chief of staff that reviews inbox, prepares meeting pre-reads, tracks commitments, drafts weekly updates &#8212; takes a weekend, because you're building the OS foundation along with the agent. Each subsequent specialist agent (research, post-production triage, content production) takes only an afternoon, because it inherits the layers. Gaspar's framing: people who build that foundation now have it compound; everyone else keeps starting over with new tools.</p><p><strong>For AV teams</strong>, the relevance is direct. Every new launch &#8212; Premiere's Firefly Assistant, Avid &#215; Gemini, DaVinci IntelliSearch, Topaz Astra, Sora, Veo, Kling, ChatGPT, Claude &#8212; comes with its own context window and memory model. Switch tools and accumulated context resets to zero. An Agent OS layer is the argument that the same underlying system can drive a chief-of-staff agent in Claude this quarter and a post-production-triage agent in Codex the next, with identity, skills, and memory carrying across.</p><h3>Alibaba HappyHorse 1.0 Takes the #1 Spot on the Video Arena</h3><p><strong>Alibaba shipped HappyHorse 1.0</strong> on April 27, a 15-billion-parameter video generation model that took the <strong>#1 Elo ranking on the Artificial Analysis Video Arena</strong> in both text-to-video and image-to-video categories &#8212; surpassing ByteDance's Seedance 2.0 by roughly <strong>115 Elo points</strong> in text-to-video.</p><p>What makes this an industry story rather than a benchmark story:</p><ul></p>
+<li><strong>The team is led by Zhang Di</strong>, the architect of Kling 1.0 and 2.0, who left Kuaishou in fall 2025 and joined Alibaba in November. Five months from team formation to a #1 leaderboard launch is unusual.</li>
+<li><strong>Three-channel distribution</strong>: Free consumer access via the Qwen App (300M+ MAU); enterprise API via Alibaba Cloud Bailian at 0.9 yuan/sec (720p) or 1.6 yuan/sec (1080p); international API via fal at $0.14/sec (720p) and $0.28/sec (1080p), available globally from launch.</li>
+<li><strong>Open-source base model</strong> with paid commercial premium tier &#8212; the same playbook Alibaba ran on Qwen and DeepSeek runs on V4.</li>
+</ul><p><strong>The capabilities</strong>: 15-second multi-shot sequences in a single generation, native 1080p output, aspect ratios across 16:9, 9:16, 1:1, 4:3, and 3:4 in one model. Caveats: Seedance 2.0 still leads on synchronized lip-sync and Foley audio work, and the model performs best with concise prompts rather than long, complex ones. Full commercial GA is scheduled for May 2026.</p><h3>ElevenLabs Ships ElevenMusic With a Style-Royalty Licensing Deal</h3><p><strong>ElevenLabs launched ElevenMusic</strong> on April 29 &#8212; its first dedicated music generation model &#8212; paired with a licensing arrangement through <strong>Believe</strong> and <strong>TuneCore</strong> that's structured differently from any prior AI-music release. The deal pays artists when the model references their style, not just when their sound recordings are used in training.</p><p><strong>What ElevenMusic generates</strong>: Up to four minutes of music per generation, vocals included, in 30+ genres and 20+ languages. Native stem separation produces aligned drums, bass, melody, vocals, and atmosphere as 24-bit WAV. Tempo, key, time signature, and song structure are controllable through structured prompts.</p><p><strong>The licensing structure</strong> is the interesting part. Through Believe/TuneCore, opted-in artists get paid based on style attribution &#8212; every generation is run through a similarity-scoring pipeline, and if the output draws meaningfully from an opted-in artist's catalog, that artist receives a per-generation royalty out of a pool funded by ElevenMusic subscription revenue. This contrasts with Suno and Udo's position that training is fair use and per-track licensing isn't required.</p><p><strong>Pricing</strong>: included in existing Creator ($22/mo) and Pro ($99/mo) tiers. The practical implication for AV producers: ElevenMusic is the first generative music tool with four-minute output, native stems, and licensing that survives a label-side audit. Quality is strong on stem alignment and structural coherence; genre-specific timbres in jazz, classical, and acoustic folk are still less convincing than dedicated genre models.</p><h3>Topaz Labs Ships "Next-Gen" &#8212; A Full Rebuild of the Image and Video Stack</h3><p><strong>Topaz Labs released Topaz Next-Gen</strong> on April 28 &#8212; a complete rebuild that replaces Photo AI, Gigapixel, and Video AI with a single unified application built on a new foundation model. The release closes the gap that had opened against newer competitors (Magnific, Runway Refine, Krea, Recraft).</p><p>The headline numbers:</p><ul>
+<li><strong>Up to 16K upscaling</strong> for stills (previous max: 8K from a 4K source)</li>
+<li><strong>Up to 10&#215; video upscaling</strong> with consistent temporal coherence (Proteus topped out at 4&#215;)</li>
+<li><strong>120fps frame interpolation</strong> with new frame-aware optical flow</li>
+<li><strong>Real-time preview</strong> on Apple Silicon M3 Max+ and NVIDIA RTX 50-series</li>
+<li><strong>Native Apple ProRes RAW input</strong></li>
+</ul><p><strong>Pricing</strong>: $299 one-time license with one year of updates, or $15/month for ongoing updates. Existing Photo AI / Video AI / Gigapixel customers get 50% off the upgrade. Topaz is also adding <strong>Topaz Astra</strong> (its dedicated video generation model) to <strong>Adobe Firefly's roster</strong> alongside Runway, Veo, Kling, and Sora.</p><h3>Buzzy Launches "AI Video Photoshop" With $20M From Sequoia and Ribbit</h3><p><strong>Buzzy</strong> &#8212; founded by ex-Runway and ex-Adobe engineers &#8212; exited stealth on April 30 with <strong>$20M Series A</strong> led by Sequoia. The product is positioned as <strong>"Photoshop for AI video"</strong> &#8212; direct manipulation editing on AI-generated clips at the pixel and timeline level, rather than re-prompting and re-generating.</p><p><strong>What's actually new</strong>: AI video tools have largely worked on a generate-then-replace loop. Buzzy's pitch is that this is the wrong abstraction &#8212; once a generation is "almost right," the natural next step is direct edit. Object-level masking with consistent appearance across frames, local prompt edits with brush tools (paint a region, type what should be there), camera-path retargeting on existing generations, and multi-clip continuity that enforces character/lighting/prop consistency across cuts.</p><p><strong>Founding team is notable</strong>. CEO Anya Singh was a senior PM on Runway Gen-3 and Gen-4. CTO Marcus Chen led Adobe's Project SuperSonic team and worked on the Firefly Video Editor. Their bet is that the next phase of AI video is editing tools, not better base models. Closed beta is open at $79/month with broader launch in summer 2026.</p><h3>Anthropic Moves Claude Persistent Memory for Managed Agents to Public Beta</h3><p><strong>Anthropic shipped persistent memory for Claude Managed Agents</strong> to public beta on April 27 &#8212; addressing what builders are calling the single biggest infrastructure gap in agentic AI. Agents now remember decisions, context, and accumulated knowledge across sessions, projects, and model upgrades, rather than starting from a blank slate every time.</p><p><strong>What's in the release</strong>:</p><ul>
+<li><strong>Long-term episodic memory</strong> &#8212; agents store summaries of conversations and decisions in a managed memory store</li>
+<li><strong>Cross-session continuity</strong> &#8212; an agent invoked a month after a project inherits the full context without re-priming</li>
+<li><strong>Selective forgetting</strong> &#8212; flag stale memories, delete entries, set retention policies (30/90 days/indefinite)</li>
+<li><strong>Cross-model portability</strong> &#8212; memories accumulated under Claude Opus 4.7 carry forward to future Claude releases</li>
+</ul><p><strong>Pricing</strong>: free for the first 10MB per agent per month; $0.50/GB-month thereafter. Memory queries during inference cost the same per-token rate as standard input tokens.</p><p><strong>The thread to the Agent OS feature is direct</strong>. With managed memory in the model provider's stack, the "memory" layer of Gaspar's framework moves from custom markdown files and external storage to a managed primitive &#8212; and the compounding effect (the second agent inheriting the foundation in an afternoon rather than a weekend) becomes meaningfully easier to realize.</p><h3>Quick Hits</h3><ul>
+<li><strong>AutoCut April update</strong> &#8212; the popular Premiere/Resolve/Final Cut plugin shipped a new <strong>Caption AI</strong> module ($19/mo above base) for speaker-attributed captions across mixed multi-language interviews</li>
+<li><strong>Creo + Google Cloud</strong> &#8212; Omnicom's influencer arm launched agentic content vetting using Gemini Enterprise and Veo, compressing review cycles from days to same-day</li>
+<li><strong>Sora API GA confirmed for September 24, 2026</strong> &#8212; five-month countdown</li>
+<li><strong>Google I/O 2026 &#8212; May 19&#8211;20</strong> &#8212; expectations include Veo 4, Imagen 5, Gemini 3.5</li>
+</ul><hr><h2>Why This Week Matters</h2><p>A few patterns worth noting:</p><ul>
+<li><strong>Memory is the missing infrastructure layer &#8212; and it's finally shipping.</strong> Whittemore/Gaspar's Agent OS framework and Anthropic's persistent memory release are arguing the same thing from opposite sides of the stack. From the user side: build a system that captures context, identity, and decisions in human-readable files. From the provider side: ship managed memory so users don't have to. Both arrive in the same week because both are responding to the same gap.</li>
+</ul><ul>
+<li><strong>The capture layer of AV production is migrating to consumer hardware.</strong> Volumetric capture used to require a dedicated rig. It now runs on a single 360 camera and a cloud subscription. Photogrammetry has been migrating in the same direction (Polycam, Luma's capture apps). Color and exposure science migrated from in-camera to log + post grading years ago. The pattern is consistent: capture sophistication moves from rig to device, and the post-side software gets the new complexity.</li>
+</ul><ul>
+<li><strong>The open-weights model strategy is now standard for Chinese labs releasing AV models.</strong> HappyHorse 1.0's open-source base with a paid commercial premium is the same playbook Alibaba ran on Qwen, that DeepSeek runs on V4, and that Kuaishou ran on the Kling 1.x base. The pattern is consistent enough that Western labs releasing closed models look like the exception rather than the norm.</li>
+</ul><ul>
+<li><strong>Video models compete on total workflow now, not just model quality.</strong> HappyHorse is the #1 video model, but the launch story is the Qwen + Bailian + fal three-channel distribution and the open-source play. Topaz Next-Gen rolls upscale, denoise, and frame interpolation into one model. Buzzy is positioning around editing a generation, not generating better. Adobe's Firefly Video Editor includes Kling, Veo, Sora, and Topaz Astra in one product. The unit of competition is no longer the model &#8212; it's the workflow that wraps the model, and that workflow increasingly includes multiple models from multiple vendors on one timeline.</li>
+</ul><ul>
+<li><strong>Direct manipulation is the next phase of AI video tools.</strong> Buzzy's "Photoshop for AI video" framing &#8212; and Adobe's parallel investments in the Firefly Video Editor's local-edit tools &#8212; suggest the field is entering its second phase. Phase one was generate from text. Phase two is generate something close, then edit directly. The same arc happened in still images (Stable Diffusion &#8594; ControlNet &#8594; inpainting &#8594; Photoshop integration), and there's no obvious reason video shouldn't follow.</li>
+</ul><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the quick summary &#8212; the full edition has the complete technical breakdown and sources. Curated with AI assistance. Questions or suggestions? Reply to this message.</em>
+
+  </div>
+</div>
