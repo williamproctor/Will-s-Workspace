@@ -36,7 +36,7 @@ Each edition follows this structure:
 3. **Voices This Week** — Notable quotes or threads from individuals, attributed by name.
 4. **Common Threads** — Patterns across the week's stories. Observational analysis, not strategy recommendations.
 5. **Novel Ideas Worth Watching** — Emerging tools, techniques, or shifts that are early but interesting.
-6. **Tool of the Week** — A single tool highlighted with structured fields (What it does / Who it's for / Pricing / Worth trying? / Link).
+6. **Tip of the Week** — A single practical tip designed to help AV personnel adopt AI tools in their personal workflows. Format: a clear actionable tip, why it works for AVS specifically, what to do (concrete steps), and a link or pointer if relevant. Bias toward tips that are doable in a weekend, work across multiple AI tools, and compound over time. (Earlier editions used "Tool of the Week" — that format was retired in May 2026.)
 7. **Sources** — Numbered list of all cited sources with publication, date, and brief description.
 
 ## Source Policy

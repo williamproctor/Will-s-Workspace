@@ -1,0 +1,17 @@
+A minimalist editorial poster thumbnail for a weekly AI industry digest video. The aesthetic is that of a refined print publication — think Monocle magazine, The Economist chart, or a New York Times Opinion section cover. Warm cream parchment background in the color #faf8f3, with subtle, barely-visible flecks of texture like uncoated paper. A single accent color: a muted, slightly dusty editorial blue in the color #4a6da7. No other colors are used.
+
+The central visual is a clean, flat, 2D editorial diagram of two side-by-side rectangular panels of identical proportions, arranged horizontally and centered in the image, with a thin parchment-colored gap (#ddd5c4) between them. Each panel is roughly the same size, generous in scale, and represents a position taken at a single film festival.
+
+The LEFT panel is rendered as a solid filled rectangle of #4a6da7 blue. Inside the panel, a single, small, geometrically clean shape is rendered in the parchment color (#faf8f3) as a knock-out — a stylized open clapperboard icon, simple and flat, just enough strokes to be unmistakable. Below the panel, in small uppercase monospace text in #4a6da7, letter-spaced wide, the label reads "MARCHÉ — ADMITTED".
+
+The RIGHT panel is rendered only as a thin outline in #4a6da7 with an empty parchment interior — no fill. Inside the panel, the same stylized clapperboard icon is rendered, but only as a thin outline in #4a6da7 (matching the panel's outline weight), with a single thin diagonal #4a6da7 line struck through it from upper-left to lower-right corner of the icon, representing the rejection. Below the panel, in small uppercase monospace text in #4a6da7, letter-spaced wide, the label reads "COMPETITION — DECLINED".
+
+Beneath both panels, centered, a single line of small uppercase monospace text in a muted ink-gray color (#4a4a5e), letter-spaced wide, reading "CANNES 2026 — THE SPLIT POSITION".
+
+In the top-left corner, small uppercase monospace text reading "THE AVS AI DISPATCH" in a muted ink-gray color (#4a4a5e), letter-spaced wide.
+
+In the bottom-right corner, small uppercase monospace text reading "WEEK OF MAY 8, 2026" in the same muted ink-gray, letter-spaced wide.
+
+A single thin horizontal hairline (#ddd5c4) runs across the top of the image, roughly 80 pixels below the top edge, like a newspaper masthead rule.
+
+Strictly flat, 2D, vector-style. No gradients. No glow effects. No neon. No 3D rendering. No sci-fi elements. No wireframes. No particles. No realistic film stills. No photographic elements. The mood is confident, quiet, refined, intellectual — a structural diagram that says "the festival permits the tool but declines the authorship" without shouting. Plenty of negative space above, below, and to the sides of the two panels. Precise alignment between the two panels. Editorial typographic restraint throughout.

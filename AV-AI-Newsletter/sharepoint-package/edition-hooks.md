@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-05-08 — Week of May 8, 2026
+
+> Cannes 2026 opens with the AI question split clean down the middle: AGC boards "Critterz" while the festival bans AI from Palme d'Or competition. OpenAI ships GPT-5.5 Instant as the new ChatGPT default with a 52.5% reduction in hallucinated claims. xAI's Grok 4.3 lands with strong agentic benchmarks at half the price. Topaz adds Hyperion 2 + a native Premiere panel. Twinnin raises $3M to license actor likenesses while YouTube's deepfake-detection rolls out to Hollywood.
+
+---
+
 ## 2026-05-01 — Week of May 1, 2026
 
 > Insta360 + Splatica's Project Eternal turns a 360 camera walk-through into a navigable Gaussian splat. Whittemore's Agent OS framework argues the model matters less than the personal infrastructure underneath it. Alibaba's HappyHorse 1.0 takes the #1 video model crown. ElevenLabs ships ElevenMusic with a style-royalty deal. Topaz rebuilds its stack. Anthropic ships persistent memory for Claude agents.
