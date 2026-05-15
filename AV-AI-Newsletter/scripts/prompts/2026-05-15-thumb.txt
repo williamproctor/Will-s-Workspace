@@ -1,0 +1,22 @@
+A minimalist editorial poster thumbnail for a weekly AI industry digest video. The aesthetic is that of a refined print publication — think Monocle magazine, The Economist chart, or a New York Times Opinion section cover. Warm cream parchment background in the color #faf8f3, with subtle, barely-visible flecks of texture like uncoated paper. A single accent color: a muted, slightly dusty editorial blue in the color #4a6da7. No other colors are used.
+
+The central visual is a clean, flat, 2D editorial price chart, oriented horizontally and centered in the image. The chart is composed of:
+
+A single thin vertical price-axis line on the LEFT side of the chart, rendered in #4a6da7, running from top to bottom. Along this axis, small tick marks in #4a6da7 indicate values, with small monospace labels in #4a6da7 reading from top to bottom: "$32 / HOUR" (near the top, indicating an older, higher reference price), "$8 / HOUR" (a midpoint), "$2.04 / HOUR", and "$1.02 / HOUR" (near the bottom).
+
+From this vertical axis, two horizontal solid lines in #4a6da7 extend rightward across most of the width of the chart — one line aligned at the "$2.04 / HOUR" tick, one line aligned at the "$1.02 / HOUR" tick. These two horizontal lines are bold and clearly defined. At the right end of each line, a small monospace label in #4a6da7:
+
+- The "$2.04 / HOUR" line is labeled "TRANSLATION"
+- The "$1.02 / HOUR" line is labeled "TRANSCRIPTION"
+
+Above these two solid lines, in the upper portion of the chart space, draw a single faded, semi-transparent horizontal band of #4a6da7 (rendered at low opacity, like a ghosted reference) spanning the same horizontal width. This ghosted band represents "the old floor — what voice pricing used to cost." It should appear noticeably faded, suggesting it has been superseded.
+
+Beneath the entire chart, centered, a single line of small uppercase monospace text in a muted ink-gray color (#4a4a5e), letter-spaced wide, reading "VOICE — THE NEW UNIT ECONOMICS".
+
+In the top-left corner, small uppercase monospace text reading "THE AVS AI DISPATCH" in a muted ink-gray color (#4a4a5e), letter-spaced wide.
+
+In the bottom-right corner, small uppercase monospace text reading "WEEK OF MAY 15, 2026" in the same muted ink-gray, letter-spaced wide.
+
+A single thin horizontal hairline (#ddd5c4) runs across the top of the image, roughly 80 pixels below the top edge, like a newspaper masthead rule.
+
+Strictly flat, 2D, vector-style. No gradients (except the deliberately ghosted upper band, which uses low opacity rather than a true gradient). No glow effects. No neon. No 3D rendering. No sci-fi elements. No wireframes. No particles. No photographic elements. No microphone icons or audio-wave decorations. The mood is confident, quiet, refined, intellectual — a structural chart that says "the floor has been moved" without shouting. Plenty of negative space above, below, and to the right of the chart. Precise alignment between the axis ticks and the horizontal lines. Editorial typographic restraint throughout.

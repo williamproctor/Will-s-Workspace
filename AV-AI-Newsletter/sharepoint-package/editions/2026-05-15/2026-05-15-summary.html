@@ -1,0 +1,187 @@
+<!-- AVS AI Dispatch &#8212; Week of May 15, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-05-15</span>
+      <span class="edition-date">Week of May 15, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>Quick Summary: <strong>OpenAI shipped three Realtime voice models on May 11</strong> and the pricing rewrites what's possible for AV teams that handle voice: streaming transcription at <strong>$1.02/hour</strong>, live translation across 70+ input languages at <strong>$2.04/hour</strong>, and a GPT-5-class voice agent with parallel tool calling. <strong>Anthropic locked down 300 megawatts of new compute</strong> through an exclusive SpaceX deal (220,000+ NVIDIA GPUs), <strong>doubled Claude Code rate limits</strong> for paid tiers, and made the Claude Platform on AWS generally available. At <strong>Cannes 2026</strong>, the industry launched <strong>Human Provenance in Film</strong> &#8212; the first open-license AI disclosure standard &#8212; while <strong>Steven Soderbergh</strong> premiered "John Lennon: The Last Interview" with ~10% AI-generated footage. <strong>Krea shipped Krea 2</strong>, a style-first foundation image model. <strong>Flick raised $6M</strong> for AI-native filmmaking. <strong>Vertigo Films + Federation Studios spun out amersia + Woven</strong> &#8212; the production stack that made "Critterz" is now a standalone tooling company.</blockquote><hr><h2>The Big Stories This Week</h2><h3>OpenAI Ships Three Realtime Voice Models &#8212; and the Pricing Rewrites What's Possible for AV</h3><p>OpenAI released three audio-class models to the Realtime API on May 11. None are flagship LLM releases. All three change what's <em>economically viable</em> in an AV workflow.</p><ul>
+<li><strong>GPT-Realtime-2</strong> &#8212; voice agent. GPT-5-class reasoning, 128K context, parallel tool calling. Audio: $32/M input, $64/M output. Text: $4/M input, $24/M output.</li>
+<li><strong>GPT-Realtime-Translate</strong> &#8212; streaming speech-to-speech translation across <strong>70+ input languages &#8594; 13 output languages</strong>, priced by duration: <strong>$0.034/min</strong> ($2.04/hour).</li>
+<li><strong>GPT-Realtime-Whisper</strong> &#8212; streaming low-latency speech-to-text transcription, also by duration: <strong>$0.017/min</strong> ($1.02/hour).</li>
+</ul><p><strong>Why the pricing matters more than the models do.</strong> AV teams have been doing transcription, translation, and voice work with AI for years. The block has never been capability &#8212; it's been unit economics. Real-time transcription at $1/hour, real-time translation at $2/hour, and a voice agent that can call tools mid-conversation at audio-token rates around $1&#8211;$2 per minute of intensive use mean a producer can leave transcription running over an eight-hour shoot day for <strong>$8</strong>, dub a 25-minute scratch track to twelve languages for <strong>less than a dollar per language</strong>, and prototype an on-set translator app for an international shoot for the price of two takeaway lunches per day.</p><p>The less-obvious use case is the <strong>voice agent as a workflow surface</strong>: an editor can talk to an agent with tool access to Premiere, Frame.io, and project metadata, in actual conversation, with sub-2-second response latency. The prototype that's been "six months from shippable" is now an afternoon of integration work.</p><h3>The Compute Capacity Wars: Anthropic Locks Down 220K GPUs via SpaceX</h3><p>Anthropic announced an exclusive compute deal with SpaceX on May 6 that flipped a real capacity switch for anyone whose workflow runs through Claude.</p><p><strong>The deal</strong>: exclusive use of all compute from SpaceX's <strong>Colossus 1</strong> data center in Memphis &#8212; <strong>300+ megawatts</strong>, <strong>220,000+ NVIDIA GPUs</strong> (H100, H200, GB200), online within one month. SpaceX operates the facility; Anthropic gets exclusive output. Separately, both companies have expressed interest in developing "multiple gigawatts of orbital AI compute capacity" &#8212; still exploratory.</p><p><strong>Same-day user impact</strong> (effective May 6):</p><ul>
+<li><strong>Claude Code five-hour rate limits doubled</strong> for Pro, Max, Team, and Enterprise seats</li>
+<li><strong>Peak-hours throttling removed</strong> for Pro and Max accounts</li>
+<li><strong>Opus API rate limits substantially raised</strong></li>
+</ul><p>A May 11 follow-up made <strong>Claude Platform on AWS generally available</strong> &#8212; Managed Agents, code execution, skills, web search, and Files API natively on AWS with AWS authentication and billing. The two announcements stack: Anthropic now has meaningfully more direct compute <em>and</em> a distribution channel through every existing AWS enterprise account.</p><p><strong>The structural story.</strong> Model providers are increasingly betting on <strong>physical-infrastructure deals</strong> (Anthropic &#8596; SpaceX, OpenAI &#8596; Stargate, Google's TPU verticalization) rather than commodity cloud GPU rentals. For AV teams whose workflows depend on a particular model being responsive on a deadline, the provider-to-power-grid line is now a relevant lens.</p><h3>Cannes Pulse: An Open-License AI Disclosure Standard, and Soderbergh's AI-Assisted Lennon Doc</h3><p>Two threads from Cannes 2026 worth flagging together &#8212; they're answering the same question (<em>how does AI sit inside a mainstream production?</em>) from opposite ends of the stack.</p><p><strong>Human Provenance in Film</strong> launched May 13 at the March&#233; du Film. The Mise En Sc&#232;ne Company released the standard as a <strong>free, open-license disclosure framework</strong> any producer, distributor, or platform can adopt without negotiation. Three designations:</p><ul>
+<li><strong>No AI Used</strong> &#8212; no generative AI in the production pipeline at all</li>
+<li><strong>Assistive AI</strong> &#8212; AI used for non-creative tasks (transcription, captioning, color correction assist, metadata, search)</li>
+<li><strong>Generative AI</strong> &#8212; generative AI used in creative output</li>
+</ul><p>The framework is the first industry-led, voluntary disclosure standard to ship with a license that lets any platform adopt it without negotiation. Expectation in the room at Cannes: a major streamer or distributor will require disclosure to this standard within 18 months.</p><p><strong>Steven Soderbergh premiered "John Lennon: The Last Interview"</strong> at the festival with <strong>approximately 10% AI-generated footage</strong> of Lennon and Yoko Ono. Soderbergh's framing: sequences "that couldn't have been filmed in real life." The film uses AI to fill historical gaps where source material doesn't exist, rather than to extend or replace performances. It's the first documentary from a top-tier American director to ship with a disclosed generative-AI segment of meaningful size.</p><p><strong>The two together are the story.</strong> Disclosure standard <em>and</em> marquee-director use case landing the same week at the same festival. The industry that spent 2023&#8211;2025 litigating whether AI belongs in production is, at Cannes 2026, building the conventions that will govern <em>how</em> it does.</p><h3>Krea 2 Ships a Style-First Foundation Image Model</h3><p>Krea released <strong>Krea 2</strong> on May 12 &#8212; its first foundation image model built from scratch, with an explicit design bet on <strong>style transfer and aesthetic control</strong> rather than open-ended generation.</p><ul>
+<li><strong>Style transfer system</strong> &#8212; pass in reference images; the model decomposes aesthetic features and reapplies them</li>
+<li><strong>Moodboards</strong> &#8212; multi-style mixing with slider-adjustable influence per reference</li>
+<li><strong>Style-strength control</strong> &#8212; generate across a spectrum from "loose interpretation" to "near-mimicry"</li>
+<li><strong>~15-second generation</strong></li>
+<li>Ranked <strong>#2</strong> on Contra Labs' style-fidelity benchmark (0.14 pts behind GPT Image 2)</li>
+</ul><p><strong>For AV teams</strong>: storyboarding to a director's reference deck, mood-board-driven previs, brand-style work where the client comes with existing visual language. Open-ended generation models produce a striking image; Krea 2's bet is that producing <em>the specific image you already see in your head</em> is the more valuable problem.</p><h3>Flick Raises $6M for AI-Native Filmmaking &#8212; With an Explicit "Cinematic Control" Pitch</h3><p><strong>Flick</strong> announced a $6M seed round on May 11, led by True Ventures, with <strong>GV, Y Combinator, Lightspeed, Formosa Capital, Pioneer Fund, Olive Tree Capital, and N1</strong>. Founded by <strong>Zoey Zhang</strong> (filmmaker) and <strong>Ray Wang</strong> (founding engineer on Instagram Stories).</p><p>The pitch: the gap in AI filmmaking isn't quality, it's <em>direction</em>. Most generative video produces striking 8-second clips but provides little affordance for the working filmmaker's actual job &#8212; making decisions about framing, pacing, performance, and continuity, and iterating on each one until the cut works. Flick is building the iteration surface.</p><p><strong>Filmmaker Residency</strong>: <strong>10+ short AI-native films</strong> by emerging filmmakers, with showcase slots at <strong>Cinequest, MIT, and Omni AI Film Festival</strong>.</p><p>Flick is the third high-profile bet in six weeks (alongside Buzzy's "Photoshop for AI video" and amersia's Woven) on the thesis that <strong>the next phase of AI video is direction and editing tooling, not better base models.</strong></p><h3>amersia + Woven Launch Out of "Critterz"</h3><p><strong>Vertigo Films and Federation Studios</strong> announced <strong>amersia</strong>, a new AI entertainment company, on May 14, alongside its first technology product: <strong>Woven</strong>.</p><p>Critterz was made with a proprietary production stack &#8212; image generation, GPT-5 for structural work, custom pipeline tooling, human-led creative direction. Vertigo and Federation have now spun the underlying technology into a standalone company. Woven is positioned to automate <strong>repetitive production tasks</strong> (asset passes, continuity checks, version control, technical handoffs) rather than replace artistic judgment. Director Nik Kleverov: "Woven is built around human-led creativity."</p><p><strong>The pattern</strong>: marquee AI-assisted project ships &#8594; underlying tech gets spun out &#8594; spun-out product becomes the playbook for the next 4&#8211;6 projects. amersia is the first cleanly executed example at scale. Expect 4&#8211;6 more of these in the next two quarters.</p><h3>Quick Hits</h3><ul>
+<li><strong>Doug Liman's "Bitcoin: Killing Satoshi"</strong> ($70M; Gal Gadot, Casey Affleck, Pete Davidson, Isla Fisher) selling at Cannes via Patrick Wachsberger's 193. AI-generated backgrounds/lighting; performances captured normally. 20-day soundstage + 30 weeks post with <strong>55 AI artists</strong>. Comparable traditional production: ~$300M.</li>
+<li><strong>Stephen Kay's "Answr"</strong> &#8212; Iceland-shot AI thriller about human-AI relationships. Moises Arias + Rain Spencer, scored by Tyler Bates. Gersh + Radiant selling at Cannes.</li>
+<li><strong>Storyverse AI Studio</strong> debuts at Cannes with a "Director-level AI System" that takes projects script-to-screen in as few as 5 days.</li>
+<li><strong>Baidu ERNIE 5.1</strong> (May 8&#8211;9) &#8212; roughly one-third the parameters of ERNIE 5.0 at ~6% of comparable training cost, ranked #4 globally (#1 among Chinese models) on Arena Search.</li>
+<li><strong>Anthropic Claude Platform on AWS</strong> GA May 11 &#8212; Managed Agents, code execution, skills, web search, Files API native on AWS.</li>
+</ul><hr><h2>Tip of the Week</h2><h3>Build Your First Reusable AI Skill This Weekend</h3><p>Last week's tip was the personal context file &#8212; the foundation layer of the Agent OS framework. This week's tip is the natural next step: <strong>turn one recurring task you do every week into a reusable "skill."</strong></p><p><strong>The problem it solves.</strong> Even with a strong context file, every individual prompt still re-explains the task. <em>"Summarize this call into action items, decisions, and follow-up owners &#8212; under 200 words, bullet points, flag anything that needs my approval."</em> You write that every Friday. A skill is the same instruction, but written once and named &#8212; so next Friday you just say "use my call-summary skill."</p><p><strong>What goes in a skill</strong> (one page per skill, three sections):</p><p>1. <strong>When to use it</strong> &#8212; the trigger condition
+<p>2. <strong>The steps</strong> &#8212; the actual instructions, the clearer the better</p>
+<p>3. <strong>The output format</strong> &#8212; the literal template the output should match</p><p><strong>Five starter skills every AV professional should write first</strong>:</p><ul></p>
+<li><strong>Call summary</strong> &#8212; meeting/client/vendor calls &#8594; structured action items</li>
+<li><strong>Status update draft</strong> &#8212; your weekly week-in-review format</li>
+<li><strong>Email triage</strong> &#8212; thread in, one-line summary + draft reply out</li>
+<li><strong>Shot list scaffold</strong> &#8212; script or scene description in, structured shot list out</li>
+<li><strong>Asset metadata pass</strong> &#8212; clip file or thumbnail in, suggested keywords/tags/description out</li>
+</ul><p><strong>Where to drop them</strong>: ChatGPT Custom Instructions, a Claude Project, an <code>AGENTS.md</code>, or just a markdown file you paste from. Build one this weekend. Build the second next weekend. By the end of a quarter you have a dozen skills running and you've stopped re-explaining the same task forever.</p><p>This is Step 2 of the Agent OS framework. Last week was <strong>Identity + Context</strong>. This week is <strong>Skills</strong>. Next week we'll cover <strong>Memory</strong>.</p><hr><h2>Why This Week Matters</h2><p>A few patterns worth noting:</p><ul>
+<li><strong>The pricing of voice just collapsed.</strong> $1.02/hour transcription and $2.04/hour translation aren't a technical breakthrough &#8212; they're a unit-economics breakthrough. The capability has been ambient for 18+ months. What changed this week is that an AV team can leave transcription running across a shoot day for the cost of a coffee. When the price of a capability drops below the justification threshold, the capability stops being an experiment and becomes the default. That transition happened to voice this week.</li>
+</ul><ul>
+<li><strong>Cannes 2026 is the first festival where AI is being normalized rather than litigated.</strong> The conversation has moved from <em>should</em> AI be in films to <em>how</em> do we disclose it, credit it, contract for it, and let buyers and audiences differentiate. The Human Provenance standard, Soderbergh's documentary, the proliferation of AI-assisted features at the March&#233;, the doubled AI for Talent Summit, the spun-out tooling companies &#8212; these are all answers to the <em>how</em> question, not the <em>should</em> one.</li>
+</ul><ul>
+<li><strong>The compute layer is consolidating.</strong> Anthropic + SpaceX, OpenAI + Stargate, Google's vertical TPU strategy, Meta's in-house silicon &#8212; model providers are signing physical-infrastructure deals, not just chip orders. For AV teams whose workflows depend on a specific model's reliability at a particular moment, the provider-to-power-grid line is now a relevant operating concern.</li>
+</ul><ul>
+<li><strong>The "Critterz precedent" becomes a stack.</strong> amersia is the first cleanly executed example of a pattern about to repeat: a marquee project ships, the production tooling that made it ships, the tooling becomes the playbook for the next 4&#8211;6 projects. Bitcoin: Killing Satoshi, Answr, and the Storyverse slate are the watch-items for what spinouts come next.</li>
+</ul><ul>
+<li><strong>"Cinematic control" emerges as a distinct product category.</strong> Flick, Buzzy, Krea 2, and amersia/Woven are all pointing at the same product category &#8212; distinct from base-model generation. The base-model leaderboard race is approaching diminishing returns; the iteration-layer race is just starting. AV teams that move first on direction-focused workflows get a 12&#8211;18-month head start.</li>
+</ul><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the quick summary &#8212; the full edition has the complete technical breakdown and sources. Curated with AI assistance. Questions or suggestions? Reply to this message.</em>
+
+  </div>
+</div>
