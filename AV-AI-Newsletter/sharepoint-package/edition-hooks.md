@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-05-22 — Week of May 22, 2026
+
+> Google I/O 2026: Gemini Omni Flash ships a multimodal video model with conversational editing to the Gemini app, Flow, and free to YouTube Shorts. Gemini 3.5 Flash claims 4× speed and < ½ cost vs Claude Opus 4.7 and GPT-5.5. Flow becomes a creative copilot with Flow Agent and vibe-coded Flow Tools. Lyria 3 + Pro ship for developers. Karpathy joins Anthropic to accelerate pre-training research. OpenAI disproves an 80-year-old Erdős conjecture. Cannes 2026 wraps: AI "came out of the closet."
+
+---
+
 ## 2026-05-15 — Week of May 15, 2026
 
 > OpenAI ships three Realtime voice models — streaming transcription at $1.02/hour, live translation at $2.04/hour, and a GPT-5-class voice agent with parallel tool calling. Anthropic locks down 220K GPUs via SpaceX and doubles Claude Code rate limits. Cannes 2026 launches Human Provenance — the first open-license AI disclosure standard — while Soderbergh premieres an AI-assisted Lennon documentary. Krea 2 ships a style-first foundation image model. Flick raises $6M. Vertigo + Federation spin out amersia + Woven from "Critterz."

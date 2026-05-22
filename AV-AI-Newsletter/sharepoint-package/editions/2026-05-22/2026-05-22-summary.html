@@ -1,0 +1,203 @@
+<!-- AVS AI Dispatch &#8212; Week of May 22, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-05-22</span>
+      <span class="edition-date">Week of May 22, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>Quick Summary: <strong>Google I/O 2026 happened this week.</strong> <strong>Gemini Omni Flash</strong> &#8212; a new multimodal video model with conversational editing &#8212; ships to the Gemini app, <strong>Google Flow</strong>, and free to <strong>YouTube Shorts Remix</strong> and <strong>YouTube Create</strong>. <strong>Gemini 3.5 Flash</strong> ships as a frontier model claiming <strong>4&#215; the speed and < &#189; the cost</strong> of comparable models &#8212; Google demoed it building a functional OS in 12 hours with 93 parallel agents under $1,000 in API cost. <strong>Google Flow becomes a creative copilot</strong> with project-spanning Flow Agent, vibe-coded Flow Tools, and mobile apps. <strong>Lyria 3 + Lyria 3 Pro</strong> ship for developers &#8212; up to three-minute songs with vocals, lyrics, and multimodal input. <strong>Andrej Karpathy joined Anthropic</strong> to build a team using Claude to accelerate Claude pre-training itself; Anthropic also shipped MCP tunnels and self-hosted sandboxes. <strong>OpenAI's reasoning model disproved an 80-year-old Erd&#337;s math conjecture</strong> &#8212; Fields Medalist Tim Gowers verified. <strong>Cannes 2026</strong> closes tomorrow; the press has converged on the framing that AI "came out of the closet" this year, with Demi Moore's <em>"AI is here, the fight against it is one we will lose"</em> as the defining quote.</blockquote><hr><h2>The Big Stories This Week</h2><h3>Gemini Omni Flash &#8212; Google's New Multimodal Video Model Ships to Every Surface</h3><p>Google's I/O 2026 introduced <strong>Gemini Omni</strong> &#8212; the first model in a new family Google says can "create anything from any input." The first available model is <strong>Gemini Omni Flash</strong>, targeting video first; image and audio outputs are on the roadmap.</p><p><strong>What's new versus Veo and Nano Banana</strong>:</p><ul>
+<li><strong>Multimodal input in one prompt</strong> &#8212; combine text, images, video clips, audio references in a single request</li>
+<li><strong>Conversational editing</strong> &#8212; swap backgrounds, characters, wardrobes, voices, add cinematic zooms via chat</li>
+<li><strong>Character consistency</strong> &#8212; identity, voice, and lens look preserved across cuts automatically</li>
+<li><strong>Real-world physics + scene continuity</strong> &#8212; Google's stated focus area on the new model</li>
+</ul><p><strong>Availability + pricing</strong>:</p><ul>
+<li><strong>Gemini app + Google Flow</strong> &#8212; global, Google AI Plus ($7.99/mo), Pro ($19.99/mo), Ultra ($249.99/mo)</li>
+<li><strong>YouTube Shorts Remix + YouTube Create app</strong> &#8212; free, 18+, with watermarking, source video links, and creator opt-outs</li>
+<li><strong>10-second clip cap</strong> &#8212; a product decision, not a technical limitation; cap will rise</li>
+<li><strong>Developer/enterprise API</strong> &#8212; Gemini API + Agent Platform API, "coming weeks following launch," with SynthID + C2PA on all outputs</li>
+</ul><p>The honest assessment: raw video quality still trails Seedance 2.0 and Kling, but the conversational editing surface is best-in-class, and Flow + Omni Flash + Lyria 3 inside the same platform is a different proposition than any previous Google video release.</p><h3>Gemini 3.5 Flash &#8212; Frontier-Class, 4&#215; Speed, < &#189; Cost</h3><p>Google's headline I/O model launch. The first in a "Gemini 3.5" family positioned as "frontier intelligence with action." Gemini 3.5 Pro coming next month.</p><p><strong>Per Google's internal benchmarks</strong>, 3.5 Flash beats <strong>Claude Sonnet 4.6, Claude Opus 4.7, and GPT-5.5</strong> on:</p><ul>
+<li><strong>MCP Atlas + Toolathlon</strong> &#8212; agentic tool-use</li>
+<li><strong>Finance agent v2</strong> &#8212; multi-step analysis</li>
+<li><strong>MMMU Pro</strong> &#8212; multimodal understanding</li>
+<li><strong>MRCR v2 (1M pointwise)</strong> &#8212; long-context</li>
+</ul><p><strong>Marquee demo</strong>: Antigravity (Google's agent dev platform) used 3.5 Flash to build <strong>a fully functional OS in 12 hours, with 93 agents in parallel, under $1,000 in API cost</strong>.</p><p><strong>Internal traction</strong>: Gemini 3.5 Flash now driving <strong>3 trillion-plus tokens/day</strong> of internal Google usage, up from 500B/day in March.</p><p><strong>For AV teams</strong>, the question is whether 3.5 Flash is now the best agentic model for AV workflows. Worth A/B testing against your current stack this week. Anthropic and OpenAI will ship counter-positioning in the next 4&#8211;6 weeks.</p><h3>Google Flow Becomes a Creative Copilot</h3><p>The most AV-relevant I/O update. Flow shipped its V2 platform release with three additions:</p><ul>
+<li><strong>Flow Agent</strong> &#8212; project-spanning planning + execution. Brainstorming, storyboarding, scene generation, dialogue, multi-variation generation, <strong>batch editing across an entire project</strong>. Rolling out to all Flow users globally.</li>
+<li><strong>Flow Tools</strong> &#8212; vibe-code your own utilities (image editors, video resizers, custom shaders, hand-drawn animation passes) in natural language; share them with other Flow users who can remix them. All users can use existing Tools; Google AI subscribers can create and remix.</li>
+<li><strong>Flow Music</strong> &#8212; section-by-section song editing, full-track covers, music video creation. Pairs Lyria 3 Pro (audio) with Omni Flash (video) inside one project.</li>
+<li><strong>Mobile</strong> &#8212; native iOS + Android apps shipped for Flow and Flow Music.</li>
+</ul><p><strong>The numbers</strong>: 140+ countries, 1.5B+ images/videos created since 2025 launch, 50B+ images created with Nano Banana since summer 2025.</p><p>For AV teams Flow now reads as "credible production tool" rather than "interesting consumer demo" &#8212; especially for rapid prototyping, social-first content, pre-vis, mood-board work, and music-video work for branded content.</p><h3>Lyria 3 + Lyria 3 Pro Ship for Developers</h3><p>Google's music gen play, in public preview through the Gemini API + Vertex AI.</p><ul>
+<li><strong>Lyria 3 Clip</strong> &#8212; 30-second clips, 44.1 kHz stereo, MP3, optimized for speed and high-volume requests</li>
+<li><strong>Lyria 3 Pro</strong> &#8212; up to ~3-minute songs with full structural awareness (intros, verses, choruses, bridges), MP3 or WAV</li>
+<li><strong>Vocals + timed lyrics</strong>, or pass your own lyrics</li>
+<li><strong>Multimodal input</strong> &#8212; text prompt + up to 10 reference images</li>
+<li><strong>8 languages</strong> (English, German, Spanish, French, Hindi, Japanese, Korean, Portuguese)</li>
+<li><strong>SynthID watermarking + C2PA</strong></li>
+</ul><p><strong>Lyria 2 reference pricing</strong>: $0.06 per 30 seconds. Lyria 3 specific pricing not yet published.</p><p><strong>Workspace integration</strong>: Lyria 3 is wired into <strong>Google Vids</strong> for custom branded soundtrack generation inside corporate-video workflows.</p><p>Lyria 3 + ElevenLabs Expressive (May 8) + OpenAI Realtime (May 15) = every audio surface an AV team touches now has a strong AI-native foundation option.</p><h3>Karpathy Joins Anthropic, Plus Anthropic's Other Big Week</h3><p><strong>Andrej Karpathy joined Anthropic on May 19</strong> &#8212; one of the most consequential individual AI hires of the year. He reports to pre-training lead Nick Joseph and is building a brand-new team focused on <strong>using Claude to accelerate Claude pre-training research itself</strong>. The bet: AI-assisted research velocity is how Anthropic stays competitive structurally, not just compute capacity.</p><p>Karpathy was an original OpenAI co-founder (one of the original 11), led AI at Tesla, then ran Eureka Labs before joining this week.</p><p>Anthropic also brought on <strong>Chris Rohlf</strong> (20-year cyber vet, Meta + Yahoo) to the frontier red team.</p><p><strong>Product-side updates</strong>:</p><ul>
+<li><strong>MCP tunnels in research preview</strong> (May 19) &#8212; connect Managed Agents to MCP servers in private networks</li>
+<li><strong>Self-hosted sandboxes for Managed Agents</strong> (May 19) &#8212; run tool execution outside Anthropic infrastructure</li>
+<li><strong>Compliance API integrations</strong> (May 21) &#8212; security/compliance tools for platform governance</li>
+<li>Claude Code v2.1.143 &#8594; v2.1.146 shipped through the week</li>
+</ul><p><strong>For AV teams</strong>, the MCP tunnels release is the one to track. Production AV networks often have private infrastructure (enterprise Frame.io, on-prem asset libraries, internal review platforms). MCP tunnels mean a Claude Managed Agent can now reach them without exposing them publicly.</p><p>Broader context: Anthropic is reportedly valued at ~$800B with an IPO target as early as late 2026.</p><h3>OpenAI's Reasoning Model Disproves an 80-Year-Old Math Conjecture</h3><p>On May 20, OpenAI announced an internal general-purpose reasoning model disproved Erd&#337;s's 1946 <strong>planar unit distance conjecture</strong> &#8212; an 80-year-old open problem. The proof was verified by <strong>Fields Medalist Tim Gowers</strong> and mathematicians including Noga Alon, Melanie Wood, Thomas Bloom, and others.</p><p>For 80 years, mathematicians believed square-grid constructions were essentially optimal. OpenAI's model produced a fundamentally new family of constructions yielding <strong>n^(1+0.014) unit distances</strong> &#8212; the first polynomial improvement in 80 years. The construction draws on <strong>algebraic number theory</strong> (infinite class field towers) applied to discrete geometry &#8212; a cross-field connection no human mathematician had made.</p><p>OpenAI's framing: <strong>"the first time AI has autonomously solved a prominent open problem central to a field of mathematics."</strong></p><p><strong>Why this matters for AV teams indirectly</strong>: the same capability &#8212; <em>"hold together long, difficult chains of reasoning, connect ideas across fields"</em> &#8212; is the primitive behind the agentic workflow tools production AV teams are increasingly relying on. A model that can autonomously disprove an 80-year-old conjecture is the same model class that can autonomously hold together a 30-step production pipeline.</p><h3>Cannes 2026 Wrap: "AI Came Out of the Closet"</h3><p>Cannes 2026 closes May 23. The press wrap has converged on a single framing: <strong>AI "came out of the closet"</strong> this year.</p><p><strong>The numbers</strong>: 40,000 professionals, 16,000 March&#233; registrants, 140 countries, 250 events at the March&#233; (45+ AI-focused), "AI on the Lot" growing 600 &#8594; 1,200 &#8594; expected 2,000 in June, World AI Film Festival drawing 5,500 submissions from 80 countries.</p><p><strong>The defining quote</strong>: <strong>Demi Moore</strong> at the jury press conference (May 12): <em>"AI is here. Against-ness breeds against-ness. To fight it is to fight a battle that we will lose. To find ways in which we can work with it is a more valuable path to take."</em> And the more important second half: <em>"Are we doing enough to protect ourselves? I don't know. My inclination would be to say probably not."</em></p><p><strong>Stephen Follows</strong> in his March&#233; wrap: <em>"AI is regarded as an analyst, not an author."</em> Using AI for project analysis, audience simulation, storyboarding, and marketing copy is openly discussed. AI as creative author remains contested, with Soderbergh's Lennon doc the most prominent test case.</p><p><strong>Hollywood stayed home</strong> &#8212; Nolan and Spielberg declined invitations. The withdrawal created a gap that independent AI-assisted productions filled. The official competition continued its formal ban on AI-generated work; the March&#233;'s openness was the visible counterpoint.</p><p><strong>The leading indicator</strong>: <strong>Gossip Goblin</strong> (Zack London, Stockholm) &#8212; eight-person AI film outfit, off-the-shelf tools, <strong>500M+ views</strong> on satirical AI shorts. LA talent agents flying to Stockholm to meet him. Expect 10&#8211;20 more visible kitchen-table AI studios by year-end.</p><p>The framing has fully settled: the festival closed the door on the <em>should</em> question. The remaining questions are procedural &#8212; disclosure, credits, contracts, talent rights. SAG-AFTRA's next negotiating cycle is the watch-item.</p><h3>Quick Hits</h3><ul>
+<li><strong>Google Pics</strong> &#8212; new AI image creation + editing tool (Nano Banana model), object-level segmentation, text editing + translation, Workspace integration. Trusted testers today; AI Pro/Ultra + Workspace business preview this summer.</li>
+<li><strong>Gemini Spark</strong> &#8212; 24/7 personal AI agent powered by 3.5 Flash, cloud VMs, MCP support, confirmation gates before high-stakes actions. Trusted testers this week; beta for US AI Ultra next week.</li>
+<li><strong>Antigravity 2.0 + Managed Agents in Gemini API</strong> &#8212; single API call provisions a Linux sandbox + agent harness; pay-as-you-go (100K&#8211;3M tokens typical); Antigravity SDK for self-hosting.</li>
+<li><strong>$100/month Google AI Ultra dev plan</strong> &#8212; 5&#215; higher limits than AI Pro, 20TB storage, YouTube Premium Lite included (also added free to AI Pro).</li>
+<li><strong>WebMCP proposed as open web standard</strong> &#8212; Chrome 149 origin trial; browser-based agents call structured tools via JS functions and HTML forms.</li>
+</ul><hr><h2>Tip of the Week</h2><h3>Build Your Memory Layer This Weekend &#8212; Start a Decisions Log</h3><p>Two weeks ago we built a one-page personal context file. Last week we built a reusable AI skill. This week's tip: <strong>start a decisions log.</strong></p><p><strong>The problem it solves.</strong> Without memory, the AI you work with re-litigates settled questions every session. You and the model worked through the right way to handle a tricky vendor handoff three weeks ago &#8212; you documented the choice nowhere &#8212; this week's prompt re-asks the same question and you re-argue your way back to the same answer.</p><p><strong>What goes in a decisions log</strong> &#8212; one row per decision, five fields:</p><p>1. <strong>Date</strong> &#8212; when you decided
+<p>2. <strong>Decision</strong> &#8212; one sentence</p>
+<p>3. <strong>Context</strong> &#8212; the situation (2&#8211;3 sentences)</p>
+<p>4. <strong>Reasoning</strong> &#8212; why this option over alternatives</p>
+<p>5. <strong>Status</strong> &#8212; <em>active</em> / <em>superseded</em> / <em>abandoned</em></p><p><strong>Five categories every AV pro should be logging from week one</strong>:</p><ul></p>
+<li><strong>Tool choices</strong> &#8212; "we use Frame.io because the SSO integration is cleaner"</li>
+<li><strong>Workflow norms</strong> &#8212; "we cut at 24p for client review because feedback is more honest"</li>
+<li><strong>Client and stakeholder preferences</strong> &#8212; Director X hates yellow casts; Producer Y wants captions burned in</li>
+<li><strong>Format and deliverable specs</strong> &#8212; standard SDR master is BT.1886 + 16-235; HDR is HDR10 P3-D65</li>
+<li><strong>Vendor relationships</strong> &#8212; Vendor X is reliable but slow; Vendor Y is fast but inconsistent above 4K</li>
+</ul><p><strong>Where to drop it</strong>: a <code>DECISIONS.md</code> next to your <code>AGENTS.md</code>, a Claude Project file, a Notion database, or a Google Doc you can paste from. Reference it from prompts: <em>"check my decisions log before suggesting changes."</em></p><p><strong>Why it compounds</strong>: skills tell AI <em>how</em> to do recurring work. Memory tells AI <em>what's already been decided</em>. Six months in, the AI you work with starts agreeing with you about how your work is supposed to run &#8212; because it has the receipts.</p><p>This is Step 3 of the Agent OS framework. Week 1 = <strong>Identity + Context</strong>. Week 2 = <strong>Skills</strong>. Week 3 (this week) = <strong>Memory</strong>. Next week = <strong>Connections</strong>.</p><hr><h2>Why This Week Matters</h2><p>A few patterns worth noting:</p><ul>
+<li><strong>The agentic frame is now the industry frame.</strong> Three years ago the industry talked about AI assistants. This I/O codified the move to <strong>agents</strong> as the primary frame. Spark, Flow Agent, Antigravity, WebMCP, Anthropic's Karpathy hire (AI-accelerated research agents), OpenAI's Erd&#337;s announcement (autonomous reasoning agent disproving a conjecture). The "assistant" framing has retired; the agent framing has won.</li>
+</ul><ul>
+<li><strong>The audio + video generation stack just collapsed into one surface.</strong> Gemini Omni Flash + Lyria 3 Pro + Flow Music + Flow Agent + Flow Tools = one platform, one subscription, multi-modal production. The era of <em>"one specialty tool per modality"</em> is ending; the era of <em>"one integrated production surface across modalities"</em> has begun. Strategic implication: evaluate platforms holistically, not as a video tool versus a music tool versus a voice tool.</li>
+</ul><ul>
+<li><strong>The compute-versus-research bet is splitting publicly.</strong> Anthropic put Karpathy on Claude-accelerating-Claude-pre-training-research. Google's 3.5 Flash demo of building an OS in 12 hours with 93 parallel agents under $1,000 is the same argument from the other direction. The Erd&#337;s proof is OpenAI's contribution. Whoever wins the meta-research-acceleration race compounds faster on the long run.</li>
+</ul><ul>
+<li><strong>Cannes 2026 retired the AI debate.</strong> The festival closed the door on the <em>should</em> question. Soderbergh, Liman, the World AI Film Festival's 5,500 submissions, Gossip Goblin's 500M views from a Stockholm apartment, Demi Moore's quote, the March&#233;'s 45+ AI panels, the Human Provenance disclosure standard. The remaining questions are procedural &#8212; credits, disclosure, contracts, talent rights, training-data licensing &#8212; and consequential, but not philosophical anymore.</li>
+</ul><ul>
+<li><strong>Vibe-code-your-own-tool surfaces are coming to creative software.</strong> Flow Tools is the first major creative app to let users build custom utilities in natural language and share them with other users. Adobe, Avid, Resolve, Premiere will all ship analogous surfaces within 4&#8211;6 quarters. AV teams that invest now in building and sharing custom Flow tools build community-leverage that compounds across 18 months.</li>
+</ul><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the quick summary &#8212; the full edition has the complete technical breakdown and sources. Curated with AI assistance. Questions or suggestions? Reply to this message.</em>
+
+  </div>
+</div>

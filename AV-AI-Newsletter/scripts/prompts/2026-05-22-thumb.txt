@@ -1,0 +1,26 @@
+A minimalist editorial poster thumbnail for a weekly AI industry digest video. The aesthetic is that of a refined print publication — think Monocle magazine, The Economist chart, or a New York Times Opinion section cover. Warm cream parchment background in the color #faf8f3, with subtle, barely-visible flecks of texture like uncoated paper. A single accent color: a muted, slightly dusty editorial blue in the color #4a6da7. No other colors are used.
+
+The central visual is a clean, flat, 2D editorial schematic diagram, oriented horizontally and centered in the image, illustrating the consolidation of five separate AI production tools into a single integrated platform. The diagram is composed of two halves separated by a thin horizontal hairline in #4a6da7 with a small label "→" in the center, indicating a transition from left to right.
+
+On the LEFT half of the diagram (representing "before"), draw five small, separate square boxes arranged in a tidy vertical stack, each outlined in #4a6da7 with a subtle uncolored interior. Inside each box, small uppercase monospace text in #4a6da7 reads (top to bottom):
+- "VIDEO GEN"
+- "MUSIC GEN"
+- "IMAGE GEN"
+- "VOICE / VO"
+- "ORCHESTRATION"
+
+Below the stack of five separate boxes, in tiny monospace text in a muted ink-gray (#4a4a5e), letter-spaced wide: "FIVE TOOLS, FIVE BILLS"
+
+On the RIGHT half of the diagram (representing "after"), draw a single larger rectangular box outlined in #4a6da7 with a slightly thicker stroke. Inside the box, the five labels appear stacked in monospace text in #4a6da7 — VIDEO GEN, MUSIC GEN, IMAGE GEN, VOICE / VO, ORCHESTRATION — but now grouped within a single container. Below this single box, in tiny monospace text in a muted ink-gray (#4a4a5e), letter-spaced wide: "ONE PLATFORM"
+
+The thin horizontal hairline rule between the two halves runs across the full width of the image, roughly through the middle of the diagram. A small arrow "→" rendered in #4a6da7 sits at the visual center of the diagram, indicating the directional transition from the left (fragmented) state to the right (consolidated) state.
+
+Beneath the entire diagram, centered, a single line of small uppercase monospace text in a muted ink-gray color (#4a4a5e), letter-spaced wide, reading "THE MULTIMODAL COLLAPSE".
+
+In the top-left corner, small uppercase monospace text reading "THE AVS AI DISPATCH" in a muted ink-gray color (#4a4a5e), letter-spaced wide.
+
+In the bottom-right corner, small uppercase monospace text reading "WEEK OF MAY 22, 2026" in the same muted ink-gray, letter-spaced wide.
+
+A single thin horizontal hairline (#ddd5c4) runs across the top of the image, roughly 80 pixels below the top edge, like a newspaper masthead rule.
+
+Strictly flat, 2D, vector-style. No gradients. No glow effects. No neon. No 3D rendering. No sci-fi elements. No wireframes. No particles. No photographic elements. No microphone icons, no robot icons, no AI brain icons, no Google logos. The mood is confident, quiet, refined, intellectual — a structural diagram that says "the production stack just consolidated" without shouting. Plenty of negative space above, below, between, and around both halves of the diagram. Precise alignment between the five boxes on the left and the consolidated single box on the right. Editorial typographic restraint throughout.
