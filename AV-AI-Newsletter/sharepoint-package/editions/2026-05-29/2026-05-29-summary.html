@@ -1,0 +1,210 @@
+<!-- AVS AI Dispatch &#8212; Week of May 29, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-05-29</span>
+      <span class="edition-date">Week of May 29, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>Quick Summary: <strong>The video editing model came of age.</strong> <strong>Runway shipped Aleph 2.0 + Edit Studio</strong> &#8212; edit one frame and the change propagates across your whole video, preserving everything you didn't ask to change, 30 seconds at 1080p with multi-shot consistency. <strong>Amazon MGM + AWS announced the GenAI Creators' Fund at AI on the Lot</strong> in Culver City, greenlit three Prime Video animated series, and revealed <strong>Project Nara</strong> &#8212; a proprietary AI production platform plugged into Maya, Blender, Nuke, Unreal, and Adobe. AWS's Bakhtiar called it <em>"the only end-to-end AI content creation ecosystem in the industry."</em> <strong>Stability AI shipped Stable Audio 3</strong> &#8212; open weights, up to 6m 20s, trained on licensed + Creative Commons data, running on a MacBook Pro M4 in under 6 seconds for 120 seconds of audio. <strong>Threadline launched</strong> &#8212; the first AI editor that cuts on <strong>intonation and emphasis</strong>, not silence, with native XML to Premiere/Resolve/FCP. <strong>Avaturn released AVTR-1</strong> &#8212; first open-weight real-time AI avatar duplex model, sub-200ms latency, free under $10M ARR. <strong>Microsoft Build (June 2&#8211;3) and Apple WWDC (June 8&#8211;12) land in the next two weeks.</strong></blockquote><hr><h2>The Big Stories This Week</h2><h3>Runway Aleph 2.0 + Edit Studio &#8212; In-Context Video Editing Goes Production-Grade</h3><p>Runway's May 21 release is the most consequential AV-side tool ship of the month. <strong>Aleph 2.0 is an editing model, not a generation model</strong> &#8212; it takes the footage you already have and changes <em>only what you ask it to change</em>, preserving everything else.</p><p><strong>Four headline capabilities</strong>:</p><ul>
+<li><strong>30 seconds at 1080p</strong> &#8212; up from 5 seconds. Long enough for ads, social, short-form, pre-vis blocks.</li>
+<li><strong>Single-keyframe &#8594; whole-video propagation</strong> &#8212; edit one frame, the model carries the look through the rest of the clip. Preview as an image first, fewer wasted generations.</li>
+<li><strong>Multi-shot consistency</strong> &#8212; change a product colorway in shot 1, propagates to shots 3, 5, 7 with continuity preserved.</li>
+<li><strong>"Change what you asked for; preserve what you didn't"</strong> &#8212; the differentiator that makes it usable on client work.</li>
+</ul><p><strong>The use cases that land</strong>: swap a product variant, change the background, make the seasonal version of a campaign, change the lighting (golden hour from midday), remove a distraction (logos, items, stray people in frame), restyle the whole video, fix what you wished you'd caught during the shoot.</p><p><strong>Pricing</strong>: 28 credits/second (56-credit minimum). Available on all paid Runway plans (Standard $15/mo through Unlimited $95/mo), desktop web app, via the new Edit Studio surface.</p><p>This is the first model from any vendor that lets a producer take an existing 25-second product video and deliver three lighting variations + two background swaps in 30 minutes as polished deliverables, not concepts.</p><h3>AI on the Lot 2026: Amazon's Project Nara + GenAI Creators' Fund</h3><p>The fourth annual <strong>AI on the Lot</strong> (~2,000 attendees, May 27&#8211;28 at Culver Studios) became the Amazon MGM show. Paul Schrader (<em>Taxi Driver</em>) keynoted Thursday.</p><p><strong>The headline</strong>: <strong>Amazon MGM + AWS announced the GenAI Creators' Fund</strong> on May 27 &#8212; funding + exclusive access to a purpose-built AI production platform for filmmakers, digital creators, and tech startups. Grant amounts undisclosed. Grants fund proof-of-concept pilots/shorts; studio decides what to greenlight into full development.</p><p><strong>Three greenlit Prime Video animated series</strong> from the first round:</p><ul>
+<li><strong>Punky Duck</strong> &#8212; Jorge R. Gutierrez (<em>The Book of Life</em>). His take on AI: <em>"It's like having sex and then the baby comes."</em></li>
+<li><strong>Love, Diana Music Hunters</strong> &#8212; Albie Hecht (former Nickelodeon, developed <em>SpongeBob</em>; current pocket.watch CCO)</li>
+<li><strong>Cupcake & Friends</strong> &#8212; BuzzFeed Studios</li>
+</ul><p>Each team had <strong>five weeks</strong> to deliver its pilot &#8212; the new production-velocity benchmark.</p><p><strong>Project Nara</strong> is the technical backbone:</p><ul>
+<li>Built on AWS, exclusive to Amazon MGM + Fund creators</li>
+<li>Tool integration: Maya, Blender, Nuke, Unreal Engine, Adobe Suite</li>
+<li><strong>Model-agnostic</strong> &#8212; combines third-party models (Kling named) with proprietary Amazon MGM models trained on its IP</li>
+<li>Provenance tracking for IP protection</li>
+<li>Supports both live-action and animation pipelines</li>
+</ul><p><strong>Samira Bakhtiar (AWS GM, M&E)</strong> on the strategic positioning: <em>"Amazon has quietly and methodically assembled the only end-to-end AI content creation ecosystem in the industry, spanning from infrastructure to creative tools to distribution and funding of creative content."</em></p><p>The "only" is the bet. Disney, Warner Bros, Netflix, Paramount, and Sony now have to either contest this publicly with comparable announcements or implicitly concede Amazon's lead. Competitive responses land Q3&#8211;Q4 2026.</p><h3>Stable Audio 3 &#8212; Open-Weight Audio Generation That Runs on a MacBook</h3><p>Stability AI released <strong>Stable Audio 3</strong> on May 26 &#8212; the credible open-weight counterweight to Lyria 3 (covered May 22).</p><ul>
+<li><strong>SA3 small + medium = open weights</strong> (large is enterprise-only)</li>
+<li><strong>Up to 6m 20s of audio</strong>, 44.1 kHz stereo</li>
+<li><strong>Inpainting support</strong> &#8212; regenerate just a portion of a clip</li>
+<li><strong>SA3 small runs on a MacBook Pro M4</strong> &#8212; 120 seconds of audio in <strong>5.92 seconds</strong> (3 seconds with CoreML)</li>
+<li><strong>SA3 medium fits on a consumer RTX 4060/3060/4070</strong> at ~6.5 GB VRAM</li>
+<li><strong>Trained only on licensed and Creative Commons data</strong> &#8212; legally clean for commercial use</li>
+</ul><p>The legal-clean argument is the one that ships in studio meetings. For AVS teams that need to defensibly explain music provenance in client deliverables, this is the first frontier-class audio model where the answer to "where did this music come from?" doesn't require legal review.</p><p>Lyria 3 + ElevenLabs Expressive + OpenAI Realtime + Stable Audio 3 = every audio surface an AVS team touches now has both a strong proprietary option and a credible open-weight alternative.</p><h3>Threadline &#8212; AI Editing That Cuts on Intonation, Not Silence</h3><p>San Francisco's <strong>Threadline Studio</strong> launched publicly this week. The differentiator: an <strong>intonation analysis engine</strong> that evaluates <strong>speech rhythm, cadence, pacing, and emphasis</strong> to make narrative cuts &#8212; not just silence detection or word boundaries.</p><p><strong>Three tiers</strong>:</p><ul>
+<li><strong>Free</strong> &#8212; entry tier, live now</li>
+<li><strong>PRO</strong> &#8212; $24/mo annual ($29 monthly) + $35 top-up credit packs (50 credits)</li>
+<li><strong>STUDIO</strong> &#8212; $95/mo annual ($114 monthly), <strong>coming soon</strong>, for pro post houses</li>
+</ul><p><strong>Native XML hand-off</strong> to Premiere, Resolve, and Final Cut from day one.</p><p><strong>STUDIO tier features</strong> worth watching for AVS teams:
+<ul>
+<li>150 credits/month with rollover</li>
+<li>4 TB storage, no per-file limit</li>
+<li><strong>Full ProRes, DNxHR, MXF, RAW support &#8212; no transcode-before-upload</strong> (the practical barrier that keeps most AVS teams off cloud AI editors)</li>
+<li>Multi-cam sync, B-roll analysis, local processing, macOS desktop app</li>
+</ul><p>For interview-heavy work (executive interviews, training videos, internal comms), Threadline reads as a probable yes for a pilot. For motion-graphics or VFX-heavy work, your existing Premiere/Resolve workflows remain canonical.</p><h3>Avaturn AVTR-1 &#8212; Open-Weight Real-Time AI Avatar with Native Duplex Listening</h3><p>Avaturn released <strong>AVTR-1</strong> on May 26 &#8212; the first open-weight real-time AI avatar model with native duplex listening (listens <em>and</em> generates simultaneously, not turn-taking).</p><ul>
+<li><strong>Sub-200ms end-to-end latency</strong></li>
+<li><strong>Runs on one A100 per session</strong> &#8212; laptop, datacenter, cloud</li>
+<li><strong>Open weights, training code, architecture paper, evaluation methodology</strong> &#8212; all public on GitHub + Hugging Face</li>
+<li><strong>License</strong>: free for personal/research/commercial use <strong>under $10M ARR</strong>; commercial licensing above</li>
+<li><strong>12 production-ready reference avatars</strong> ship with the model</li>
+<li><strong>Launch partners</strong>: Cartesia (voice), Pipecat (real-time agents) &#8212; working examples ship in the repo on day one</li>
+</ul><p>Avaturn also open-sourced a real-time streamer that accepts any open-weight video model as a drop-in. The infrastructure layer for the open-weight real-time avatar category just landed.</p><p>For AVS teams: real-time virtual hosts, live-event interactive characters, real-time interview surrogates, and on-screen AI guides are now buildable by small teams. Pair AVTR-1 + Stable Audio 3 + Aleph 2.0 and a five-person AV team has the credible-quality real-time avatar stack at workstation cost.</p><h3>Quick Hits</h3><ul>
+<li><strong>Microsoft Build 2026</strong> lands <strong>June 2&#8211;3</strong> (San Francisco). Satya Nadella opens. Watch for agentic AI (GitHub Copilot Workspace, Copilot Studio multi-agent orchestration), Microsoft 365 Copilot Tuning, Azure AI Foundry updates.</li>
+<li><strong>Apple WWDC 2026</strong> keynote <strong>June 8 at 10am PT</strong> (conference runs through June 12). Apple Intelligence + new Siri is the central reveal. Rumored: user-selectable AI models (Claude, ChatGPT, Gemini) in iOS 27/macOS 27.</li>
+<li><strong>Microsoft MAI-Image-2.5</strong> launched at <strong>#3 on Arena</strong> text-to-image leaderboard (May 26). Strong text rendering, commercial imagery focus. Microsoft de-risking on its OpenAI dependency.</li>
+<li><strong>Anthropic Project Glasswing update</strong> (May 22) &#8212; Mythos Preview identified <strong>10,000+ critical vulnerabilities</strong>; Anthropic publicly committed to making Mythos-class models generally available "once we've developed the far stronger safeguards we need." <strong>Claude Security launched in public beta</strong> &#8212; 2,100+ vulnerabilities patched in 3 weeks via Claude Opus 4.7.</li>
+<li><strong>Gemini 3.5 Pro slips to June</strong> &#8212; currently in internal use only at Google.</li>
+<li><strong>Karpathy at Anthropic, focus clarified</strong> &#8212; recursive self-improvement / pre-training acceleration, not safety. Public framing: discomfort with a future where "five mega corporations" dominate AI.</li>
+<li><strong>Cognition raises $1B at $26B valuation</strong> &#8212; Devin maker hits $492M ARR, 50% MoM growth for 6 months, 90% of Cognition's own code now AI-written. Agentic coding is now a $50B+ category.</li>
+<li><strong>Dust raises $40M Series B</strong> for multiplayer enterprise AI (Abstract + Sequoia lead).</li>
+<li><strong>Tensormesh raises $20M</strong> from Nvidia, AMD, and CoreWeave for LLM memory/KV-cache efficiency.</li>
+<li><strong>iQIYI Nadou Pro</strong> crosses <strong>10,000 active creators</strong> in one month; 100+ iQIYI originals supported; international rollout to Singapore, Canada, Brazil.</li>
+<li><strong>Adobe Premiere 26.2.2</strong> ships stability fix for the freeze/hang regression. Update through Creative Cloud.</li>
+<li><strong>DaVinci Resolve 21 Public Beta 4</strong> (May 28) &#8212; Fusion motion paths in keyframe editor, Canon CR2/CR3 RAW highlight fix, refined AI CineFocus + AI beauty tools, Insta360 native colorspace support.</li>
+</ul><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 1: Context Is the Lever, Not the Model</h3><p>Starting this week we're running a new series &#8212; <strong>Back to Basics</strong> &#8212; covering principled fundamentals of good LLM use, model-agnostic. The principles work equally on Claude Opus 4.7, GPT-5.5, Gemini 3.5 Flash, Grok 4, and whatever ships at Microsoft Build next week and Apple's WWDC the week after.</p><p><strong>Week 1's principle</strong>: <strong>The gap between a strong prompt with rich context and a weak prompt with no context is much larger than the gap between any two top-tier models.</strong> Model selection is a 10&#8211;20% lever. Context is a 5&#8211;10&#215; lever.</p><p><strong>Why most AVS folks are getting mediocre output</strong>: not because they're picking the wrong model. Because they're typing a one-liner into a chat window, getting a generic answer, and concluding "AI isn't ready for our work." What they actually proved is that <em>AI with no context</em> isn't ready for their work. The fix is upstream of the prompt.</p><p><strong>The exercise this weekend &#8212; three concrete actions</strong>:</p><p>1. <strong>Before you write your next prompt, gather three pieces of context first</strong>:
+<p>   - <strong>The brief</strong> &#8212; the one-pager, the SOW, the email thread, the meeting notes</p>
+<p>   - <strong>An example of what "good" looks like</strong> &#8212; a past script, a past video, a reference deliverable</p>
+<p>   - <strong>The constraints</strong> &#8212; length, audience, deadline, brand rules, technical specs</p><p>   Paste all three in <em>before</em> you ask the question.</p><p>2. <strong>Stop starting new chats.</strong> Keep a single long-running chat per project. Each turn adds context the model carries forward. A 40-turn chat with rich project context beats 40 separate one-shot prompts every time.</p><p>3. <strong>Save your best context bundles</strong>. The "brief + example + constraints" trio is reusable. Save it in a <code>context/</code> folder, a Notion page, a Google Doc, or a Claude Project file. Paste it in first whenever you return to the project.</p><p><strong>Why this is model-agnostic</strong>: every frontier model gets dramatically better with more context. New models change the ceiling. Context discipline changes how often you hit the ceiling. The latter is the larger lever, every time.</p><p>Next week (June 5), Back to Basics Week 2: <strong>Specificity Over Flattery</strong> &#8212; why "your task is to..." beats "you are an expert..." on every modern model.</p><hr><h2>Why This Week Matters</h2><ul></p>
+<li><strong>The "platform + studio + distribution + fund" stack is the new defensive minimum.</strong> Amazon (Project Nara + Creators' Fund + Prime Video + AWS), Google (Flow + Workspace + YouTube + Veo + Lyria), Adobe (Firefly + Creative Cloud + Premiere + Substance), Apple (Final Cut + Logic + Vision Pro + App Store + Apple Intelligence &#8212; landing at WWDC). The single-tool era of AI in production is over. Everyone serious is building integrated stacks. AVS teams should expect their incumbent vendors (Avid, Frame.io, Adobe) to consolidate similarly within 12&#8211;18 months.</li>
+</ul><ul>
+<li><strong>The editing model is now its own category.</strong> Aleph 2.0 is the visual example; Threadline's intonation engine is the audio-cut example. Generation models compete on what they can create. Editing models compete on what they leave alone. Different problems, different vendors will specialize on each.</li>
+</ul><ul>
+<li><strong>Open-weight is becoming the credible counterweight to API-only.</strong> Stable Audio 3 runs on a MacBook. AVTR-1 runs on a single A100. For every cloud-only dependency you currently have, an open-weight alternative now exists or is months away. The question stops being "can we afford the API?" and starts being "for which workflows do we actually need the API?"</li>
+</ul><ul>
+<li><strong>Five-week pilot is the new production-velocity benchmark.</strong> Amazon MGM gave each pilot team five weeks. Anything slower than that and the AI value proposition gets harder to defend in the budget conversation. The strategic reframe: not "can AI tools help us deliver our current work faster?" but "what could we deliver in five weeks that would have taken six months?"</li>
+</ul><ul>
+<li><strong>Microsoft Build and Apple WWDC land in the next two weeks</strong> &#8212; June 2&#8211;3 and June 8&#8211;12. Both will materially reshape what's available on the agentic, multimodal, and Apple Intelligence sides. The May 29 edition is the calm-before-the-storm reading; June 5 and June 12 will be the cycle's biggest stories so far.</li>
+</ul><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the quick summary &#8212; the full edition has the complete technical breakdown and sources. Curated with AI assistance. Questions or suggestions? Reply to this message.</em>
+
+  </div>
+</div>

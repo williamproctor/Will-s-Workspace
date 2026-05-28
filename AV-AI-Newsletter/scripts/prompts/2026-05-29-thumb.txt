@@ -1,0 +1,9 @@
+Minimalist editorial design illustration for an AI-industry newsletter cover. Subject: a single 16:9 video frame at the center of the composition, lit from within. Around that one frame, four ghosted, semi-transparent variations of the same scene radiate outward like petals — each variation showing a subtle, targeted edit: a different background, a different lighting setup (golden hour vs daylight), a different product color, a different prop removed. Visual story: one source frame becoming many polished variants without re-shooting. Connecting the center frame to each ghost variant: a single thin glowing line, suggesting "edit propagates from one keyframe."
+
+Style: clean editorial illustration, schematic-meets-cinematic. Tasteful flat shapes with subtle depth and a faint film-grain texture. Plenty of negative space. No human faces; no readable logos or brand marks; no text or typography in the image. Composition is centered with a calm, premium feel — closer to a New Yorker tech-issue cover than a tech-blog hero.
+
+Palette: deep parchment cream background (#f5f0e8), with dispatch blue accents (#4a6da7) on the connecting lines and frame borders, soft warm highlights (#e8c878) for the lit-from-within center frame, and muted ink (#2d2d42) for the ghost-variant outlines. Lighting feels editorial, not glossy.
+
+Mood: confident, considered, post-production-savvy. The image should communicate at-a-glance: "AI video editing came of age this week — one keyframe, many polished variants, everything else preserved."
+
+Format: 16:9 landscape, edge-to-edge composition, suitable for a newsletter banner. No watermarks, no signatures, no text of any kind.

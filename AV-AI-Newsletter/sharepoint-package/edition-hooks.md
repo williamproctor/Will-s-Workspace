@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-05-29 — Week of May 29, 2026
+
+> Runway ships Aleph 2.0 + Edit Studio — in-context video editing, 30s at 1080p, multi-shot consistency. Amazon MGM + AWS announce the GenAI Creators' Fund at AI on the Lot in Culver City, greenlight three Prime Video animated series, and unveil Project Nara — "the only end-to-end AI content creation ecosystem in the industry." Stable Audio 3 ships open-weight, runs on a MacBook Pro M4. Threadline launches as the first AI editor cutting on intonation, not silence. Avaturn open-sources AVTR-1 with sub-200ms real-time avatar duplex. Microsoft Build (June 2–3) and Apple WWDC (June 8–12) up next.
+
+---
+
 ## 2026-05-22 — Week of May 22, 2026
 
 > Google I/O 2026: Gemini Omni Flash ships a multimodal video model with conversational editing to the Gemini app, Flow, and free to YouTube Shorts. Gemini 3.5 Flash claims 4× speed and < ½ cost vs Claude Opus 4.7 and GPT-5.5. Flow becomes a creative copilot with Flow Agent and vibe-coded Flow Tools. Lyria 3 + Pro ship for developers. Karpathy joins Anthropic to accelerate pre-training research. OpenAI disproves an 80-year-old Erdős conjecture. Cannes 2026 wraps: AI "came out of the closet."
