@@ -31,7 +31,7 @@ The fourth annual **AI on the Lot** (~2,000 attendees, May 27–28 at Culver Stu
 
 **Three greenlit Prime Video animated series** from the first round:
 
-- **Punky Duck** — Jorge R. Gutierrez (*The Book of Life*). His take on AI: *"It's like having sex and then the baby comes."*
+- **Punky Duck** — Jorge R. Gutierrez (*The Book of Life*), who described the AI workflow as guiding the tools and then discovering what they produce
 - **Love, Diana Music Hunters** — Albie Hecht (former Nickelodeon, developed *SpongeBob*; current pocket.watch CCO)
 - **Cupcake & Friends** — BuzzFeed Studios
 

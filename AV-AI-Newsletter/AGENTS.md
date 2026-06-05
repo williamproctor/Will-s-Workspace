@@ -19,6 +19,25 @@ The AVS AI Dispatch is a weekly awareness newsletter for the Audio/Video Service
 - Forward-looking context where grounded in evidence — e.g., confirmed event dates, announced product roadmaps, credible industry speculation. Label speculation clearly.
 - Tool and model comparisons when multiple options launched in the same window.
 
+## Content Standards & Audience Sensitivity (non-negotiable)
+
+The Dispatch is produced for an Audio/Video Services department inside a faith-based / religious organization. All content must be **PG at most** — appropriate for every member of that audience, including the most conservative reader.
+
+- **Quotes must be clean.** Never include a quote — even a verbatim, well-sourced, "best quote of the year" one — that is sexual, profane, crude, violent, blasphemous, or otherwise potentially offensive. When a notable figure's only memorable quote is inappropriate, either paraphrase the underlying point in neutral language or omit the quote entirely. Do not fabricate a clean substitute quote and attribute it to the person.
+- **No R-rated films or filmmakers known for that body of work.** Do not feature, profile, or build stories around R-rated/explicit films, or directors/creators primarily known for explicit, violent, or sexual content. Family-friendly work by an otherwise family-friendly creator is fine (e.g., a kids' animated series). Use judgment: the test is whether highlighting the person/work could reasonably make a conservative religious reader uncomfortable.
+- **Topics to handle carefully or avoid:** sexual content, graphic violence, profanity, drugs, gambling, religion/politics framed provocatively, and anything that mocks faith or values. Report adjacent industry news factually and neutrally; do not dwell on or quote the objectionable parts.
+- **When in doubt, leave it out** and surface it in the content-review flag (below) so a human can decide.
+
+## Mandatory Content-Review Step (every edition)
+
+After completing the **initial draft pass** of the full and simplified editions — and **before** building the site/SharePoint outputs or committing — perform an explicit content-sensitivity review:
+
+1. Re-read both drafts specifically hunting for anything that could be deemed offensive, sexual, profane, crude, violent, blasphemous, or otherwise inappropriate for a PG, faith-based audience — including quotes, film/filmmaker references, jokes, idioms, and double entendres.
+2. **Produce a content-review flag list** for the user: each potentially sensitive item, where it appears, why it's flagged, and a proposed fix (paraphrase, soften, or cut).
+3. **Stop and get the user's review/approval** on the flagged items before proceeding to build and deploy. If nothing is flagged, state that explicitly ("Content review: no sensitivity issues found") and proceed.
+
+This step is required even when the week's news seems benign. Last-mile review is cheaper than a published faux pas.
+
 ## What to Avoid
 
 - **Directives or calls to action.** Never tell the reader to adopt, migrate, benchmark, evaluate, or stop using a tool. The newsletter informs; the reader decides.
@@ -125,7 +144,8 @@ SharePoint modern pages cannot run JavaScript, so a separate sister build render
 ### Deployment summary each week
 
 1. Source markdown (full + simplified).
-2. Site build: `build_<month>.py` → archive entry → sitemap entry.
-3. Media: m4a + mp3 pair; video + thumbnail.
-4. SharePoint build: `build_sharepoint.py YYYY-MM-DD` + CSV row + feature flip.
-5. One commit, one push. Vercel deploys the site; SharePoint team pulls the package folder.
+2. **Content-review step** (see "Mandatory Content-Review Step"): flag potentially sensitive content and get user sign-off before building.
+3. Site build: `build_<month>.py` → archive entry → sitemap entry.
+4. Media: m4a + mp3 pair; video + thumbnail.
+5. SharePoint build: `build_sharepoint.py YYYY-MM-DD` + CSV row + feature flip.
+6. One commit, one push. Vercel deploys the site; SharePoint team pulls the package folder.
