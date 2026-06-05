@@ -1,0 +1,9 @@
+Minimalist editorial illustration for an AI newsletter video cover. Subject: a calm office work surface seen from above, with four clean paper cards arranged in a neat path from left to right. Card 1 is labeled visually by simple abstract chat bubbles (no readable text). Card 2 shows two overlapping collaboration cards. Card 3 shows a tidy code window represented only by abstract lines. Card 4 shows a small autonomous agent card with a simple checkmark and calendar icon. The cards suggest a progression from chat to collaborative work to code to an always-on workplace agent, without using any words.
+
+Add subtle visual references to Microsoft 365-style work context without using logos: a calendar grid, a document sheet, a folder, and a meeting-note page connected by thin dispatch-blue lines. The final card should feel active and organized, but not futuristic or sci-fi.
+
+Style: premium editorial illustration, flat 2D with soft paper texture, clean schematic layout, generous negative space. Warm parchment background (#f5f0e8), muted dispatch blue (#4a6da7) as the main accent, dark ink details (#2d2d42), soft neutral shadows. No people, no faces, no brand logos, no readable text, no unrelated symbolic imagery.
+
+Mood: calm, practical, professional, enterprise workflow focused. The image should communicate: "AI is moving from chat assistants into governed workplace agents."
+
+Format: 16:9 landscape composition suitable for a newsletter video thumbnail. No watermark, no signature, no text.

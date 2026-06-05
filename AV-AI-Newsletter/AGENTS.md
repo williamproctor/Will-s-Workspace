@@ -25,6 +25,7 @@ The Dispatch is produced for an Audio/Video Services department inside a faith-b
 
 - **Quotes must be clean.** Never include a quote — even a verbatim, well-sourced, "best quote of the year" one — that is sexual, profane, crude, violent, blasphemous, or otherwise potentially offensive. When a notable figure's only memorable quote is inappropriate, either paraphrase the underlying point in neutral language or omit the quote entirely. Do not fabricate a clean substitute quote and attribute it to the person.
 - **No R-rated films or filmmakers known for that body of work.** Do not feature, profile, or build stories around R-rated/explicit films, or directors/creators primarily known for explicit, violent, or sexual content. Family-friendly work by an otherwise family-friendly creator is fine (e.g., a kids' animated series). Use judgment: the test is whether highlighting the person/work could reasonably make a conservative religious reader uncomfortable.
+- **No magic language, even metaphorically.** Avoid references to magic, magical, spells, wizards, sorcery, witchcraft, occult, alchemy, enchanted, or similar concepts. Some readers hold strictly to the Bible's forbiddance against the use of magic, so do not use these terms as metaphors for AI or creativity. If a company/product name itself contains one of these terms, avoid repeating the name in reader-facing copy when a neutral alternative is available (for example, "the Resolve team" instead of repeating the vendor name).
 - **Topics to handle carefully or avoid:** sexual content, graphic violence, profanity, drugs, gambling, religion/politics framed provocatively, and anything that mocks faith or values. Report adjacent industry news factually and neutrally; do not dwell on or quote the objectionable parts.
 - **When in doubt, leave it out** and surface it in the content-review flag (below) so a human can decide.
 
@@ -32,7 +33,7 @@ The Dispatch is produced for an Audio/Video Services department inside a faith-b
 
 After completing the **initial draft pass** of the full and simplified editions — and **before** building the site/SharePoint outputs or committing — perform an explicit content-sensitivity review:
 
-1. Re-read both drafts specifically hunting for anything that could be deemed offensive, sexual, profane, crude, violent, blasphemous, or otherwise inappropriate for a PG, faith-based audience — including quotes, film/filmmaker references, jokes, idioms, and double entendres.
+1. Re-read both drafts specifically hunting for anything that could be deemed offensive, sexual, profane, crude, violent, blasphemous, magic-related, occult-adjacent, or otherwise inappropriate for a PG, faith-based audience — including quotes, film/filmmaker references, jokes, idioms, metaphors, company/product names, and double entendres.
 2. **Produce a content-review flag list** for the user: each potentially sensitive item, where it appears, why it's flagged, and a proposed fix (paraphrase, soften, or cut).
 3. **Stop and get the user's review/approval** on the flagged items before proceeding to build and deploy. If nothing is flagged, state that explicitly ("Content review: no sensitivity issues found") and proceed.
 

@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-06-05 — Week of June 5, 2026
+
+> Microsoft Build 2026 moves from Copilot to Autopilot with Scout, Work IQ APIs, Web IQ, Windows Agent Framework, Execution Containers, and Aion on-device models. DaVinci Resolve 21 officially ships with a new Photo page, IntelliSearch, CineFocus, and Final Cut Pro 12 XML. Grok Imagine 1.5 Preview adds an initial image-to-video API with native audio capabilities. PAI 2.0, VidMuse 2.0, OttoBox, and Adobe Firefly partner models show AI video tools becoming production workspaces rather than prompt boxes.
+
+---
+
 ## 2026-05-29 — Week of May 29, 2026
 
 > Runway ships Aleph 2.0 + Edit Studio — in-context video editing, 30s at 1080p, multi-shot consistency. Amazon MGM + AWS announce the GenAI Creators' Fund at AI on the Lot in Culver City, greenlight three Prime Video animated series, and unveil Project Nara — "the only end-to-end AI content creation ecosystem in the industry." Stable Audio 3 ships open-weight, runs on a MacBook Pro M4. Threadline launches as the first AI editor cutting on intonation, not silence. Avaturn open-sources AVTR-1 with sub-200ms real-time avatar duplex. Microsoft Build (June 2–3) and Apple WWDC (June 8–12) up next.

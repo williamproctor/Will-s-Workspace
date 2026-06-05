@@ -1,0 +1,230 @@
+<!-- AVS AI Dispatch &#8212; Week of June 5, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-06-05</span>
+      <span class="edition-date">Week of June 5, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote>Quick Summary: <strong>Microsoft Build 2026 moved the frame from Copilot to Autopilot.</strong> Microsoft announced <strong>Scout</strong>, an experimental always-on agent for selected Frontier customers that can work across Teams, Outlook, OneDrive, SharePoint, Windows, and Microsoft 365 context with governance controls. <strong>DaVinci Resolve 21 officially shipped</strong> with a new Photo page, IntelliSearch, CineFocus, expanded AI tools, Final Cut Pro 12 XML support, and broad workflow updates. <strong>xAI released Grok Imagine 1.5 Preview</strong> as an initial image-to-video API: source image in, natural-language shot direction, up to 720p, native audio support, currently image-to-video only on the API. The broader AI video stack kept filling in with <strong>PAI 2.0</strong>, <strong>VidMuse 2.0</strong>, <strong>OttoBox</strong>, and <strong>Adobe Firefly partner-model integrations</strong> &#8212; all pointing toward AI video tools becoming production workspaces, not just prompt boxes.</blockquote><hr><h2>The Big Stories This Week</h2><h3>Microsoft Build 2026: From Copilot to Autopilot</h3><p>Microsoft Build ran June 2-3, and the main story was a category shift: <strong>Chat -> Cowork -> Code -> Autopilots</strong>.</p><p>The headline product is <strong>Microsoft Scout</strong>, the first agent in Microsoft's new Autopilot category. Scout is designed to work across:</p><ul>
+<li>Teams</li>
+<li>Outlook</li>
+<li>OneDrive</li>
+<li>SharePoint</li>
+<li>calendars and email</li>
+<li>browser work</li>
+<li>local device actions</li>
+<li>Microsoft 365 context</li>
+</ul><p>The difference from a normal Copilot is persistence. Copilot waits for a prompt inside an app. Scout is positioned as an always-on work agent that tracks priorities, monitors open loops, and takes multi-step action inside organizational guardrails.</p><p>Scout is not broadly available yet. It is an experimental Frontier / private-preview release with Entra identity, Intune policy, opt-in attestation, audit trails, and admin controls. That governance layer matters: Microsoft is showing how always-on agents might be deployed in real organizations rather than treated as consumer chatbots with extra permissions.</p><p>Supporting Build announcements:</p><ul>
+<li><strong>Work IQ APIs</strong> &#8212; opens the Microsoft 365 context layer to agents; GA expected June 16.</li>
+<li><strong>Web IQ</strong> &#8212; model-agnostic, MCP-native web grounding layer for agents.</li>
+<li><strong>Windows Agent Framework</strong> &#8212; open-source runtime for agent registration, memory, and cross-agent communication.</li>
+<li><strong>Microsoft Execution Containers</strong> &#8212; sandboxed runtime for running agents more safely on Windows.</li>
+<li><strong>Aion 1.0 Instruct / Aion 1.0 Plan</strong> &#8212; on-device Windows AI models, including a 14B reasoning/tool-calling model.</li>
+<li><strong>Project Solara</strong> &#8212; platform for agent-first desk and wearable device concepts.</li>
+</ul><p>For AVS, the Microsoft 365 surface is the point. Our work already lives in Teams, Outlook, SharePoint, OneDrive, calendars, and review documents. Microsoft is moving agents into that exact context.</p><h3>DaVinci Resolve 21 Officially Ships</h3><p>DaVinci Resolve's developer officially released <strong>DaVinci Resolve 21</strong> on June 3 after the public beta cycle.</p><p>Major updates:</p><ul>
+<li>New <strong>Photo page</strong> for still-image work inside Resolve</li>
+<li><strong>IntelliSearch</strong> for faster clip and project search</li>
+<li><strong>CineFocus</strong> for AI-assisted focal emphasis after capture</li>
+<li>Expanded AI-assisted tools across finishing workflows</li>
+<li>Final Cut Pro 12 XML import/export</li>
+<li>Dynamic project switching for multi-user projects</li>
+<li>Broad updates across edit, color, audio, VFX, collaboration, formats, and stability</li>
+</ul><p>The practical point: Resolve 21 is not a speculative AI-video platform. It is a production application shipping AI into the real edit/color/audio/VFX stack.</p><p>The pattern is also important. The most useful AI in professional tools often appears as workflow compression: search gets faster, focus adjustments get easier, still-image and video finishing live closer together, and handoffs improve.</p><p>Resolve 21 is available as a free download. Resolve Studio remains a $295 one-time purchase.</p><h3>Grok Imagine 1.5 Preview</h3><p>xAI released <strong>Grok Imagine 1.5 Preview</strong> through the API on June 3 under the model name <code>grok-imagine-video-1.5-preview</code>.</p><p>Keep this one in the "early preview" category. The current API endpoint is <strong>image-to-video</strong>:</p><ul>
+<li>Input: a still image</li>
+<li>Prompt: natural-language shot direction</li>
+<li>Output: animated video up to 720p</li>
+<li>Pricing: $0.080 per second</li>
+<li>Rate limit: 60 requests per minute</li>
+<li>Regions: <code>us-east-1</code>, <code>us-west-2</code>, <code>eu-west-1</code></li>
+</ul><p>Important clarification: the API endpoint is not a general text-to-video endpoint. Some app and web surfaces may expose text-to-video experiences, but the documented developer endpoint is image in, video out.</p><p>The broader Grok Imagine 1.5 line also supports native audio generation. The cautious read: this is an initial image-to-video preview with native-audio capabilities, not yet a settled production standard.</p><p>For AVS, the pattern matters more than the brand. Like last week's Aleph 2.0 story, Grok Imagine reinforces that the source frame or keyframe is becoming the control surface for video generation. Text describes intent; the image anchors the visual result.</p><h3>The AI Video Platform Stack Keeps Filling In</h3><p>Several smaller video-platform updates landed this week. None needs to be the lead by itself. Together, they show where AI video tools are going: away from single-prompt generation and toward production workspaces with timelines, memory, keyframes, local search, upscaling, voice, and agentic assistance.</p><p><strong>PAI 2.0</strong>:
+<ul>
+<li>Rapid variant generation</li>
+<li>2x2 keyframes for each 15-second segment</li>
+<li>Native cinematic 4K generation</li>
+<li>Easy Mode for guided creation</li>
+<li>Pro Mode with a Canvas workspace for organizing, editing, and regenerating details</li>
+</ul><p><strong>VidMuse 2.0</strong>:
+<ul>
+<li><strong>Shot Refine by Quoting</strong> &#8212; select a shot and ask the agent to revise only that shot</li>
+<li>Built-in Timeline Editor</li>
+<li>Asset Library with Memory for persistent images, video, audio, character references, and product references</li>
+<li>Rebuilt Agent framework</li>
+</ul><p><strong>OttoBox by OmAI</strong>:
+<ul>
+<li>Local media ingestion with OCR, ASR, shot segmentation, and vector tagging</li>
+<li>Natural-language video search</li>
+<li>Rough-cut generation, highlight extraction, scripts, and narration</li>
+<li>Local/on-device angle for sensitive footage</li>
+</ul><p><strong>Adobe Firefly partner-model ecosystem</strong>:
+<ul>
+<li>ElevenLabs Multilingual v2 for generated speech inside Firefly</li>
+<li>Topaz Astra for video upscaling inside Firefly Boards</li>
+<li>Firefly continuing to act as a hub where Adobe and partner models sit inside one creative workspace</li>
+</ul><p>The common thread: the useful question is no longer "can it make a clip?" It is "can it help manage the whole revision loop?"</p><h3>Quick Hits</h3><ul>
+<li><strong>Gemini 3.5 Pro is still pending</strong> &#8212; Google committed to a June rollout, but there is still no public model card, pricing row, API model string, or general availability announcement.</li>
+<li><strong>GitHub Copilot AI-credit billing began June 1</strong> &#8212; agentic work is increasingly priced as metered model usage, not just a seat license.</li>
+<li><strong>Adobe Firefly AI Assistant remains a watch item</strong> &#8212; Adobe has previewed an agentic assistant for Firefly Video Editor that can orchestrate multi-step work across Creative Cloud apps.</li>
+</ul><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 2: Specificity Over Flattery</h3><p>Last week, we started the <strong>Back to Basics</strong> series with a simple principle: <strong>context is the lever, not the model</strong>. This week is about the next common prompting mistake: opening with flattery instead of instruction.</p><p>Most weak prompts start like this:</p><p>``<code>text
+<p>You are an expert video producer. Help me make this script better.</p>
+</code>`<code></p><p>That sounds natural, but it gives the model almost nothing useful. "Expert" is vague. "Better" is vague. The output format is unspecified. The audience is missing. The constraints are missing.</p><p>Use this instead:</p><p></code>`<code>text
+<p>Your task is to revise this 90-second internal training script for clarity.</p><p>Audience: non-technical staff.</p>
+<p>Tone: calm, plainspoken, professional.</p>
+<p>Constraints: keep it under 220 words, keep all safety instructions intact,</p>
+<p>remove jargon, and preserve the three-step structure.</p>
+<p>Output: return only the revised script, then a 3-bullet explanation of what changed.</p>
+</code>``</p><p>The principle is <strong>specificity over flattery</strong>. Modern models do not need to be complimented into competence. They need a clear task, audience, constraints, examples, and success criteria.</p><p>For AV work, this matters because the work has real constraints:</p><ul>
+<li>A script has a runtime.</li>
+<li>A caption set has a reading-speed limit.</li>
+<li>A stakeholder email has a tone.</li>
+<li>A training video has safety instructions that cannot be changed.</li>
+<li>Review notes need to be organized by timecode.</li>
+</ul><p>The weekend exercise: rewrite one prompt you actually use in five fields:</p><p>1. <strong>Task</strong> &#8212; what the model should do.
+<p>2. <strong>Audience</strong> &#8212; who the output is for.</p>
+<p>3. <strong>Constraints</strong> &#8212; what must be preserved, avoided, shortened, or emphasized.</p>
+<p>4. <strong>Input</strong> &#8212; the source material or context.</p>
+<p>5. <strong>Output format</strong> &#8212; exactly what you want back.</p><p>This works in Claude, ChatGPT, Gemini, Copilot, Grok, and whatever ships next. The model changes. The principle does not.</p><p>Next week: <strong>Show, Don't Tell</strong> &#8212; why 2-3 examples of good output often outperform a page of abstract instructions.</p><hr><h2>Why This Week Matters</h2><ul></p>
+<li><strong>Agents are moving into governed work context.</strong> Scout is interesting because it is always-on, but it is deployable because it has Entra identity, admin controls, Intune setup, and audit trails. Context only becomes usable in organizations when permissions, logging, and policy are built in.</li>
+</ul><ul>
+<li><strong>Video tools are becoming workspaces, not prompt boxes.</strong> PAI 2.0, VidMuse 2.0, OttoBox, Adobe Firefly, Grok Imagine 1.5, and last week's Aleph 2.0 all point in the same direction: timelines, references, memory, keyframes, local search, upscaling, speech, audio, and shot-specific revision.</li>
+</ul><ul>
+<li><strong>The frame is becoming the control surface.</strong> Grok Imagine animates a source image. Aleph 2.0 propagates a keyframe edit. VidMuse revises quoted shots. PAI uses keyframes per segment. Text describes intent; the image or shot carries the visual contract.</li>
+</ul><ul>
+<li><strong>Local media intelligence matters for sensitive footage.</strong> OttoBox's local-ingestion approach is early, but the idea is important: transcription, OCR, shot segmentation, vector search, and rough-cut assistance without moving raw media off device.</li>
+</ul><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. This is the quick summary &#8212; the full edition has the complete technical breakdown and sources. Curated with AI assistance. Questions or suggestions? Reply to this message.</em>
+
+  </div>
+</div>
