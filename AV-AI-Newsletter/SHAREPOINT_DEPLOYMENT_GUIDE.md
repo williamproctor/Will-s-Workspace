@@ -36,6 +36,8 @@ Each week, AVS will deliver a **self-contained newsletter package** for the AVS 
 | `brand-guidelines.html` | Brand reference page |
 | `reports/ai-av-production-capability-assessment/index.html` | Research report page |
 | `reports/ai-av-production-capability-assessment/slide-deck.html` | Slide deck version of the research report |
+| `reports/ai-production-index-q2-2026/index.html` | Q2 2026 Production Index report page |
+| `reports/ai-production-index-q2-2026/slide-deck.html` | Q2 2026 Production Index slide deck |
 
 ---
 
@@ -90,9 +92,12 @@ Each edition is a **single HTML file** that:
    │   ├── 2026-04-03/index.html
    │   └── 2026-04-10/index.html
    └── reports/
-       └── ai-av-production-capability-assessment/
-           ├── index.html
-           └── slide-deck.html
+        ├── ai-av-production-capability-assessment/
+        │   ├── index.html
+        │   └── slide-deck.html
+        └── ai-production-index-q2-2026/
+            ├── index.html
+            └── slide-deck.html
    ```
 3. **Critical:** Update the `<link>` and `<script>` paths in each HTML file from absolute (`/shared.css`) to relative paths that resolve within your Document Library. For example:
    - In `editions/2026-04-10/index.html`, change `/shared.css` → `../../shared.css`

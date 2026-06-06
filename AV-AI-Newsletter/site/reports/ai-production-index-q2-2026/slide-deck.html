@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AVS AI Production Index — Q2 2026 | Slide Deck</title>
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #4a6da7;
+      --blue-pale: #e8eef6;
+      --ink: #1a1a2e;
+      --ink-soft: #2d2d42;
+      --ink-muted: #66667a;
+      --ink-faint: #9e9eb0;
+      --parchment: #faf8f3;
+      --white: #ffffff;
+      --green: #3a9e6e;
+      --amber: #d4953a;
+      --red: #c0392b;
+      --font: 'Plus Jakarta Sans', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+    @page { size: 1280px 720px; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: var(--font); background: #e0ddd6; color: var(--ink); }
+    body { padding: 24px 0; }
+    .slide {
+      width: 1280px;
+      height: 720px;
+      margin: 0 auto 24px;
+      padding: 56px 72px;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      background: var(--white);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    }
+    @media print {
+      body { padding: 0; background: white; }
+      .slide { margin: 0; box-shadow: none; }
+      .print-hint { display: none; }
+    }
+    .print-hint {
+      width: 1280px;
+      margin: 0 auto 18px;
+      font: 12px var(--mono);
+      color: var(--ink-muted);
+    }
+    .kicker {
+      font: 11px var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--blue);
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+    h1 {
+      font-size: 64px;
+      line-height: 1.02;
+      letter-spacing: -2.5px;
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+    h2 {
+      font-size: 44px;
+      line-height: 1.08;
+      letter-spacing: -1.4px;
+      margin-bottom: 26px;
+      max-width: 960px;
+    }
+    h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--ink-soft);
+    }
+    p {
+      font-size: 22px;
+      line-height: 1.45;
+      color: var(--ink-muted);
+      max-width: 900px;
+    }
+    .big-stat {
+      font-size: 92px;
+      line-height: 0.95;
+      letter-spacing: -4px;
+      font-weight: 800;
+      color: var(--blue);
+      margin: 20px 0 8px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+    .card {
+      background: var(--parchment);
+      border: 1px solid #e5dfd4;
+      border-radius: 18px;
+      padding: 22px;
+      min-height: 132px;
+    }
+    .card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--ink-soft);
+    }
+    .card span {
+      font-size: 15px;
+      line-height: 1.45;
+      color: var(--ink-muted);
+    }
+    .status {
+      display: inline-block;
+      font: 10px var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      color: white;
+    }
+    .ready { background: var(--green); }
+    .close { background: var(--amber); }
+    .notyet { background: var(--red); }
+    .footer {
+      position: absolute;
+      bottom: 28px;
+      left: 72px;
+      right: 72px;
+      display: flex;
+      justify-content: space-between;
+      font: 9px var(--mono);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .bars { display: grid; gap: 14px; margin-top: 30px; width: 880px; }
+    .bar { display: grid; grid-template-columns: 220px 1fr 80px; align-items: center; gap: 14px; }
+    .bar-label { font-weight: 700; color: var(--ink-soft); }
+    .track { height: 18px; background: var(--blue-pale); border-radius: 999px; overflow: hidden; }
+    .fill { height: 100%; background: var(--blue); border-radius: 999px; }
+    .bar-note { font: 12px var(--mono); color: var(--ink-muted); }
+    .quote {
+      font-size: 34px;
+      line-height: 1.18;
+      font-weight: 700;
+      max-width: 940px;
+      color: var(--ink-soft);
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="print-hint">Print to PDF at 1280 x 720 landscape for a slide deck export.</div>
+
+  <section class="slide">
+    <div class="kicker">Research Report · Q2 2026</div>
+    <h1>The AVS AI Production Index</h1>
+    <p>A quarterly assessment of what AI can and cannot do in audio/video production. No hype. Just what works, what is close, and what is still a demo.</p>
+    <div class="footer"><span>AVS AI Dispatch</span><span>1 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Q2 Summary</div>
+    <h2>The quarter moved from generators to production workspaces.</h2>
+    <div class="grid">
+      <div class="card"><strong>Video</strong><span>Editing and revision became more important than one-shot generation.</span></div>
+      <div class="card"><strong>Audio</strong><span>Realtime voice and open-weight music both became practical categories.</span></div>
+      <div class="card"><strong>Agents</strong><span>AI moved into Microsoft 365, codebases, local runtimes, and governed workflows.</span></div>
+    </div>
+    <div class="footer"><span>AVS AI Dispatch</span><span>2 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">The One-Line Finding</div>
+    <div class="big-stat">70-90%</div>
+    <p>AI can now compress the middle of many AV workflows. The final quality, taste, trust, and approval layer still belongs to people.</p>
+    <div class="footer"><span>AVS AI Dispatch</span><span>3 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Video Generation & Editing</div>
+    <h2>Q2 made AI video more useful by making it more editable.</h2>
+    <div class="grid">
+      <div class="card"><span class="status ready">Ready</span><strong>Controlled revisions</strong><span>Keyframe and source-image workflows are now the best path to useful video output.</span></div>
+      <div class="card"><span class="status close">Close</span><strong>Longer continuity</strong><span>Multi-shot work is improving, but consistency still fades as sequences grow.</span></div>
+      <div class="card"><span class="status notyet">Not yet</span><strong>Prompt-only final video</strong><span>Long-form polished outputs still require human direction and finishing.</span></div>
+    </div>
+    <div class="footer"><span>AVS AI Dispatch</span><span>4 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Post-Production</div>
+    <h2>The strongest current ROI is still inside the edit and finishing stack.</h2>
+    <div class="bars">
+      <div class="bar"><div class="bar-label">Transcription</div><div class="track"><div class="fill" style="width: 92%"></div></div><div class="bar-note">Ready</div></div>
+      <div class="bar"><div class="bar-label">Audio cleanup</div><div class="track"><div class="fill" style="width: 88%"></div></div><div class="bar-note">Ready</div></div>
+      <div class="bar"><div class="bar-label">Subject isolation</div><div class="track"><div class="fill" style="width: 82%"></div></div><div class="bar-note">Ready</div></div>
+      <div class="bar"><div class="bar-label">AI rough cuts</div><div class="track"><div class="fill" style="width: 58%"></div></div><div class="bar-note">Close</div></div>
+      <div class="bar"><div class="bar-label">Creative judgment</div><div class="track"><div class="fill" style="width: 25%"></div></div><div class="bar-note">Human</div></div>
+    </div>
+    <div class="footer"><span>AVS AI Dispatch</span><span>5 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Audio</div>
+    <h2>Realtime voice and open-weight audio moved from experiments to useful tools.</h2>
+    <div class="grid two">
+      <div class="card"><strong>Realtime voice</strong><span>Streaming transcription, translation, and voice agents are now practical with human boundaries.</span></div>
+      <div class="card"><strong>Open-weight music</strong><span>Stable Audio 3 makes local or self-hosted generation credible for drafts and controlled uses.</span></div>
+    </div>
+    <div class="footer"><span>AVS AI Dispatch</span><span>6 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Agents</div>
+    <h2>Agents became a governance problem, not just a capability story.</h2>
+    <p>Microsoft Scout, Work IQ, Windows Agent Framework, and Execution Containers show the enterprise pattern: context, tools, identity, logs, and policy controls.</p>
+    <div class="footer"><span>AVS AI Dispatch</span><span>7 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Coding Agents</div>
+    <h2>Internal tools are now cheaper to build.</h2>
+    <div class="grid">
+      <div class="card"><strong>Cursor / Windsurf</strong><span>Best for IDE-native development and multi-file edits.</span></div>
+      <div class="card"><strong>Claude Code / Codex</strong><span>Best for interactive codebase work and well-scoped implementation.</span></div>
+      <div class="card"><strong>Antigravity / Jules</strong><span>Best for parallel or asynchronous task workflows.</span></div>
+    </div>
+    <div class="footer"><span>AVS AI Dispatch</span><span>8 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Production Workspaces</div>
+    <h2>The next tools manage the revision loop.</h2>
+    <div class="grid">
+      <div class="card"><strong>Memory</strong><span>Assets and references persist across projects.</span></div>
+      <div class="card"><strong>Timelines</strong><span>Generated clips move into edit structures sooner.</span></div>
+      <div class="card"><strong>Shot revision</strong><span>Change one shot or keyframe without starting over.</span></div>
+    </div>
+    <div class="footer"><span>AVS AI Dispatch</span><span>9 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Use Now</div>
+    <h2>Clear ROI categories</h2>
+    <div class="grid">
+      <div class="card"><strong>Transcription & captions</strong><span>Mature, fast, and reviewable.</span></div>
+      <div class="card"><strong>Audio cleanup</strong><span>High confidence for common production problems.</span></div>
+      <div class="card"><strong>Controlled video revision</strong><span>Useful when the input frame or footage is clear.</span></div>
+      <div class="card"><strong>Internal tools</strong><span>Coding agents make small software cheaper.</span></div>
+      <div class="card"><strong>Production docs</strong><span>Reports, summaries, and structured handoffs benefit from context.</span></div>
+      <div class="card"><strong>Draft voice/music</strong><span>Useful with review and clear rights records.</span></div>
+    </div>
+    <div class="footer"><span>AVS AI Dispatch</span><span>10 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Do Not Count On Yet</div>
+    <h2>Still human-owned</h2>
+    <div class="grid">
+      <div class="card"><strong>Creative direction</strong><span>AI can propose options; people decide.</span></div>
+      <div class="card"><strong>Final QC</strong><span>Captions, outputs, sync, rights, and trust need review.</span></div>
+      <div class="card"><strong>Autonomous production</strong><span>Agents need scoped permissions and approval points.</span></div>
+    </div>
+    <div class="footer"><span>AVS AI Dispatch</span><span>11 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Q2 Bottom Line</div>
+    <div class="quote">Use AI to make the first version faster. Use people to make the final version worthy.</div>
+    <div class="footer"><span>AVS AI Dispatch</span><span>12 / 12</span></div>
+  </section>
+</body>
+</html>
