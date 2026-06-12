@@ -1,0 +1,9 @@
+Minimalist editorial illustration for an AI newsletter video cover. Subject: a calm post-production desk seen from above, with three clean visual layers arranged left to right: a strip of abstract video frames, a row of keyframe cards with small blue anchor dots, and a neat stack of finishing-output sheets represented by abstract color bars and frame outlines. The composition should suggest AI video moving from rough generation into controlled finishing, color, and handoff workflows, without using any readable text.
+
+Include subtle production cues: a timeline strip, frame guides, a color-grading panel represented by simple sliders, and a small export tray with layered frame sheets. Use only abstract marks and icons; no brand logos, no software UI copies, no readable words, no file extensions or labels.
+
+Style: premium editorial illustration, flat 2D with soft paper texture, clean schematic layout, generous negative space. Warm parchment background (#f5f0e8), muted dispatch blue (#4a6da7) as the main accent, dark ink details (#2d2d42), soft neutral shadows. No people, no faces, no brand logos, no readable text, no sci-fi genre imagery, no unrelated symbolic imagery, no glow effects, no neon, no 3D render.
+
+Mood: calm, practical, professional, production-focused. The image should communicate: "AI video is becoming easier to direct, revise, and hand off for finishing."
+
+Format: 16:9 landscape composition suitable for a newsletter video thumbnail. No watermark, no signature, no text.

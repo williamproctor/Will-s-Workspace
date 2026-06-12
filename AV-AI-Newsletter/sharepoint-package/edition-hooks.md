@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-06-12 — Week of June 12, 2026
+
+> Luma Ray 3.2 brings AI video closer to production finishing with frame-level control, HDR, EXR export, and API access. PixVerse Canvas turns AI video into a node-based workspace with Seedance 2.0 support. Claude Fable 5 draws strong reaction for hard coding and long-horizon agent work. ElevenLabs Avatars combines voice and lip-sync video in one flow, while Apple Music Understanding and Google Magenta RealTime 2 move audio intelligence closer to local creative tools.
+
+---
+
 ## 2026-06-05 — Week of June 5, 2026
 
 > Microsoft Build 2026 moves from Copilot to Autopilot with Scout, Work IQ APIs, Web IQ, Windows Agent Framework, Execution Containers, and Aion on-device models. DaVinci Resolve 21 officially ships with a new Photo page, IntelliSearch, CineFocus, and Final Cut Pro 12 XML. Grok Imagine 1.5 Preview adds an initial image-to-video API with native audio capabilities. PAI 2.0, VidMuse 2.0, OttoBox, and Adobe Firefly partner models show AI video tools becoming production workspaces rather than prompt boxes.
