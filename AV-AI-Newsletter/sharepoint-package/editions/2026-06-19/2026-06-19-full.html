@@ -1,0 +1,222 @@
+<!-- AVS AI Dispatch &#8212; Week of June 19, 2026 (Full Edition) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-06-19</span>
+      <span class="edition-date">Week of June 19, 2026</span>
+    </div>
+    <div class="edition-kicker">Full Edition</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote><strong>AI assistants moved deeper into the creative apps this week.</strong> Adobe expanded <strong>Firefly AI Assistant</strong> into public beta across Premiere, Photoshop, Illustrator, InDesign, and Frame.io, while previewing an upgraded Firefly studio with Projects, Elements, storyboard-to-video, and Quick Cut. <strong>Google Vids added longer Veo clips and parallel generation</strong>, giving users a way to extend generated clips into more continuous sequences and test multiple prompts at once. <strong>Palmier Pro launched as an open-source Mac video editor built around AI agents</strong>, with an MCP server that lets Claude, Codex, or Cursor operate directly on a timeline. <strong>Claude Fable 5 reaction remained strong around hard coding and long-horizon agent work</strong>, while <strong>Lightricks released the LTX Trainer</strong> for LTX-2, making open audio-video models more customizable through LoRA, IC-LoRA, full fine-tuning, and audio-video training modes. And <strong>Mistral's Voxtral TTS</strong> entered the voice stack with a compact multilingual TTS model, low latency, API pricing at $0.016 per 1,000 characters, and open weights for non-commercial use.</blockquote><hr><h2>This Week in AI</h2><h3>Adobe Firefly AI Assistant Moves Into the Creative Apps</h3><p>Adobe's June 18 update is one of the clearest examples yet of AI assistants moving from standalone prompt surfaces into the applications where creative work already happens.</p><p>Adobe announced that <strong>AI Assistant, powered by its creative agent, is now in public beta across Premiere, Photoshop, Illustrator, InDesign, and Frame.io</strong>. The assistant had already existed in Firefly, but this expansion changes the context. Instead of asking an AI tool to generate an isolated asset, users can now interact with an assistant inside the working app, next to the files, bins, layouts, and review surfaces that already hold production context.</p><p>For Premiere, Adobe and coverage around the launch describe tasks such as:</p><ul>
+<li>Sorting assets into bins.</li>
+<li>Batch-renaming clips.</li>
+<li>Identifying interview questions.</li>
+<li>Adding markers.</li>
+<li>Helping move raw footage toward a structured first cut.</li>
+</ul><p>That is not the same as a model generating an entire finished video. It is more practical and more important: AI is being pointed at the repetitive organizing and first-pass work that surrounds editing. In Frame.io, the relevance is also obvious. Review, comments, versions, approvals, and project context are already there. Adding an assistant to that environment signals Adobe's intent to make agentic help part of the review and production layer, not only the generation layer.</p><p>Adobe also previewed an upgraded <strong>Firefly creative AI studio</strong> in private beta. The new studio is meant to connect generation and editing in one place, with <strong>Projects</strong> for storing context and assets, and <strong>Elements</strong> for reusing generated characters, objects, and locations across work. Adobe also described new skills including storyboard-to-video, product-video creation, and <strong>Quick Cut</strong>, which can assemble raw footage into a structured first cut that a person can refine.</p><p>The pattern is consistent with the past month of AI video news: the market is moving away from "type a prompt, get a clip" and toward persistent creative workspaces. Adobe's advantage is that its workspace is already where many production files live. The open question is how well the assistant handles real project complexity, but the direction is clear. AI assistance is becoming an operating layer inside creative software.</p><p><strong>Source:</strong> <a href="https://blog.adobe.com/en/publish/2026/06/18/adobe-firefly-introduces-new-agentic-capabilities-and-an-upgraded-creative-ai-studio-built-for-the-way-you-work" target="_blank" rel="noopener">Adobe &#8212; Firefly introduces new agentic capabilities</a> &#183; <a href="https://www.morningstar.com/news/business-wire/20260618386522/adobe-unveils-major-expansion-of-creative-agent-across-firefly-and-creative-cloud-apps-including-photoshop-and-premiere" target="_blank" rel="noopener">Adobe Business Wire / Morningstar &#8212; creative agent expansion</a> &#183; <a href="https://techcrunch.com/2026/06/18/adobe-adds-its-ai-assistant-to-premiere-illustrator-and-indesign/" target="_blank" rel="noopener">TechCrunch &#8212; Adobe adds AI assistant to Premiere, Illustrator, and InDesign</a> &#183; June 18, 2026</p><h3>Google Vids Adds Longer Veo Clips and Parallel Generation</h3><p>Google updated <strong>Google Vids</strong> on June 17 with two Veo-related features: longer generated clips and parallel generation.</p><p>The first update lets users <strong>extend existing Veo clips</strong> into longer videos while preserving storytelling continuity and character consistency. The second lets users <strong>start multiple video-generation requests at the same time</strong>, which makes prompt and style comparison faster than waiting for one generation to finish before starting the next.</p><p>Google says the rollout applies across a broad set of Google Vids users, including Workspace Business and Enterprise editions, Education Plus, nonprofits, personal Google accounts, Google AI Pro and Ultra users, and several add-on categories. The rollout began June 17 for both Rapid Release and Scheduled Release domains, with feature visibility expected within one to three days.</p><p>The AV relevance is not that Google Vids suddenly replaces an NLE. It does not. The point is that lightweight workplace video tools are absorbing more of the AI video workflow: generate a clip, extend it, compare variants, add music, record a screen, assemble a presentation-style video, and share it inside the same ecosystem.</p><p>That matters because not every AV-adjacent video is a full production. Some work is internal explanation, training support, project communication, or rough visualization. Google Vids is moving into that middle layer: more capable than a slide deck, less specialized than Premiere or Resolve.</p><p><strong>Source:</strong> <a href="https://workspaceupdates.googleblog.com/2026/06/create-longer-veo-videos-and-generate-multiple-at-once-in-Google-Vids.html" target="_blank" rel="noopener">Google Workspace Updates &#8212; Create longer Veo videos and generate multiple at once in Google Vids</a> &#183; June 17, 2026</p><h3>Palmier Pro: A Video Editor Built for Agents</h3><p>Palmier Pro launched through Y Combinator as an <strong>open-source, Mac-native video editor built for AI agents</strong>. The pitch is direct: Claude, Codex, Cursor, or an in-app assistant can operate the project timeline through a local MCP server.</p><p>Palmier's own README describes the app as a video editor where "you and your agent can generate and edit videos together inside the timeline." When the app is open, it exposes an MCP server at:</p><p>``<code>text
+<p>http://127.0.0.1:19789/mcp</p>
+</code>`<code></p><p>Agents can connect to that local endpoint and interact with the project. The workflow is different from sending a prompt to a remote generator. The agent can see the timeline, understand tracks and clips, and make edits in the working project.</p><p>The core idea has two parts:</p><ul>
+<li><strong>AI video as a timeline primitive.</strong> Generated images, video, audio, prompts, models, and references are tracked inside the project rather than handled as separate downloads.</li>
+<li><strong>Timeline access through MCP.</strong> External agents can trim, reorder, organize, generate, and edit with project context.</li>
+</ul><p>Palmier Pro is currently macOS-only, requires macOS 26 on Apple Silicon, and the editor plus MCP server are open source under GPLv3. Generative processing is the closed component. That split is interesting: the app and agent interface are inspectable, while the generation backend remains a service.</p><p>For AV workflows, Palmier is important less because it is a mature replacement for existing editors and more because it shows a new interface pattern. Instead of AI sitting beside the editor, AI is given structured access to the editor. That is the same MCP pattern showing up across development tools, now applied to a timeline.</p><p><strong>Source:</strong> <a href="https://www.ycombinator.com/launches/QtT-palmier-pro-an-open-source-video-editor-your-agents-can-operate" target="_blank" rel="noopener">Y Combinator &#8212; Palmier Pro launch</a> &#183; <a href="https://github.com/palmier-io/palmier-pro/blob/main/README.md" target="_blank" rel="noopener">Palmier Pro GitHub README</a> &#183; <a href="https://www.digitaltrends.com/cool-tech/this-new-video-editor-lets-claude-work-directly-on-your-timeline/" target="_blank" rel="noopener">Digital Trends &#8212; Palmier Pro overview</a> &#183; June 17-22, 2026</p><h3>LTX Trainer Makes Open Audio-Video Models More Customizable</h3><p>Lightricks followed last week's LTX-2 open audio-video story with a more technical but important update: <strong>LTX Trainer</strong>, a unified training framework for LTX-2.</p><p>The trainer supports several modes from a shared framework:</p><ul>
+<li>Standard LoRA training.</li>
+<li>Audio-video LoRA training.</li>
+<li>IC-LoRA for video-to-video transformations.</li>
+<li>Full model fine-tuning.</li>
+</ul><p>LTX's announcement frames the trainer as one framework for every training mode, covering video, audio, and cross-modal conditioning. The GitHub documentation is more specific: the trainer package provides tools and scripts for LoRA training, full fine-tuning, and video-to-video transformations on custom datasets. Audio-video LoRA can be enabled by setting </code>with_audio: true<code> in the training strategy.</p><p>The practical meaning is that LTX-2 is not only open as a model. It is becoming open as a customization stack. That is the difference between an open model people can run and an open model people can adapt.</p><p>There are real constraints. The standard LTX-2 trainer documentation recommends Linux with CUDA and an Nvidia GPU with 80GB+ VRAM for standard configs, with lower-VRAM options available through memory optimizations. Full fine-tuning can require multiple high-end GPUs and distributed training. This is not casual desktop editing.</p><p>Still, for the direction of the market, the update matters. Closed models compete on immediate quality and convenience. Open models compete on control, local operation, customization, and pipeline ownership. LTX Trainer pushes the open side further toward serious production and research workflows.</p><p><strong>Source:</strong> <a href="https://ltx.io/newsroom/introducing-the-new-ltx-trainer-one-framework-every-training-mode" target="_blank" rel="noopener">LTX &#8212; Introducing the new LTX Trainer</a> &#183; <a href="https://github.com/Lightricks/LTX-2/tree/main/packages/ltx-trainer" target="_blank" rel="noopener">Lightricks LTX-2 Trainer GitHub</a> &#183; <a href="https://huggingface.co/spaces/Lightricks/ltx-2/blob/main/packages/ltx-trainer/docs/training-modes.md" target="_blank" rel="noopener">LTX-2 training modes documentation</a> &#183; June 17, 2026</p><h3>Mistral Voxtral TTS Adds Another Voice Model to the Stack</h3><p>Mistral's <strong>Voxtral TTS</strong> is not brand new this week in the strictest sense &#8212; Mistral's official post dates to March &#8212; but it re-entered the news cycle this week through broader coverage of voice models and Mistral's audio stack. It is worth including because the details are directly relevant to the voice-agent and narration landscape.</p><p>Voxtral TTS is a <strong>4B-parameter multilingual text-to-speech model</strong> supporting nine languages:</p><ul>
+<li>English</li>
+<li>French</li>
+<li>German</li>
+<li>Spanish</li>
+<li>Dutch</li>
+<li>Portuguese</li>
+<li>Italian</li>
+<li>Hindi</li>
+<li>Arabic</li>
+</ul><p>Mistral positions Voxtral TTS for low-latency voice-agent applications. The official post lists <strong>70ms model latency</strong> for a typical input with a 10-second voice sample and 500 characters, and an API price of <strong>$0.016 per 1,000 characters</strong> through </code>/v1/audio/speech<code>. The model natively generates up to two minutes of audio, with longer output handled through API interleaving.</p><p>The research paper and Hugging Face page add another important detail: Voxtral TTS can adapt to a voice from as little as <strong>3 seconds of reference audio</strong>. The open-weight Hugging Face release includes preset reference voices under a non-commercial license, while broader custom voice cloning remains tied to the API.</p><p>For AV teams, the model adds another option to the already crowded voice stack. ElevenLabs remains a major incumbent. OpenAI has the realtime voice layer. Mistral is positioning Voxtral as a compact, multilingual, low-latency TTS option with both API and open-weight paths.</p><p>The bigger pattern: voice generation is splitting the same way video generation is splitting. Some tools optimize for studio-quality narration, some for realtime agents, some for multilingual cloning, and some for local/open-weight experimentation.</p><p><strong>Source:</strong> <a href="https://mistral.ai/news/voxtral-tts" target="_blank" rel="noopener">Mistral &#8212; Speaking of Voxtral</a> &#183; <a href="https://huggingface.co/mistralai/Voxtral-4B-TTS-2603" target="_blank" rel="noopener">Hugging Face &#8212; Voxtral 4B TTS</a> &#183; <a href="https://mistral.ai/static/research/voxtral-tts.pdf" target="_blank" rel="noopener">Voxtral TTS research paper</a> &#183; March/June 2026</p><h3>Quick Hits</h3><ul>
+<li><strong>Premiere Pro 26.3 shipped</strong> &#8212; Adobe's June Premiere update includes just-in-time upgrades for Productions, which can reduce large Production upgrade workflows from hours to minutes, plus object masking and fixes around captions, media relinking, and Production workflows.</li>
+<li><strong>Claude Fable 5 reaction stayed focused on hard work</strong> &#8212; developer and analyst commentary continues to treat Fable 5 less like a cheaper everyday model and more like a high-ceiling model for difficult coding, long-running agents, automation, and workflow tasks. The tradeoff remains the same: stronger capability for hard problems, with slower response time, higher cost, and stricter safeguards than daily-use models.</li>
+<li><strong>IK Multimedia released ReSing Doubling</strong> &#8212; the ReSing add-on generates realistic double-tracked vocals, three-voice stacks, and ensemble-style arrangements from a single vocal performance. The AV angle is local AI-assisted vocal production, with timing variation, pitch detuning, stereo width, levels, and panning controls.</li>
+<li><strong>Gemini 3.5 Pro remains one to watch</strong> &#8212; Google committed to a June release window, but as of this research pass broad public access still appears pending. The credible story is the waiting pattern, not a confirmed launch.</li>
+</ul><hr><h2>Voices This Week</h2><h3>Adobe on the Human Role in Agentic Creative Work</h3><p>Adobe's June 18 announcement framed its creative agent as a tool that handles multi-step execution while the person keeps creative direction:</p><blockquote>"choosing what to hand off to the assistant, what to own and how best to apply their taste, expertise and judgment to shape every editable outcome."</blockquote><p>That is a useful sentence because it avoids the common "AI replaces the artist" framing. Adobe is describing a division of labor: the assistant can organize, rename, assemble, and prepare; the human still owns taste, judgment, and the final editable outcome.</p><h3>Palmier on Letting Agents Operate the Timeline</h3><p>Palmier's launch framed the product around a simple idea:</p><blockquote>"Palmier Pro is a video editor built for AI, where Claude and Codex can edit your timeline directly."</blockquote><p>The significance is not the specific app alone. It is the interface model. The timeline becomes something an agent can read and manipulate through a structured protocol, rather than a black box that only a person can operate manually.</p><h3>Zeev Farbman on Open Audio-Video Models</h3><p>Lightricks co-founder and CEO Zeev Farbman framed <strong>LTX-2</strong> as an openness and control story:</p><blockquote>"LTX-2 is the first truly open audio-video model, released with open weights and training code, and designed to run locally on consumer GPUs."</blockquote><p>He also said:</p><blockquote>"It delivers the kind of quality and performance teams usually associate with closed systems, without giving up control, transparency, or the ability to customize."</blockquote><p>That is the same reason LTX Trainer matters this week. Open weights are useful, but training code and customization paths are what turn an open model into a production pipeline candidate.</p><h3>Simon Willison on Fable 5's Early Feel</h3><p>Developer Simon Willison described Claude Fable 5 as "slow, expensive" while also saying it was capable enough that the challenge was finding tasks it could not handle.</p><p>That matches the broader reaction: Fable 5 is not being treated as a cheap everyday model. It is being treated as a high-ceiling model for hard, long-running work where the added cost and latency can make sense.</p><hr><h2>Common Threads</h2><h3>The Assistant Is Moving Into the Working File</h3><p>Adobe's assistant in Premiere and Frame.io, Palmier's MCP-accessible timeline, and Mosaic-style agentic editing tools all point to the same shift. AI assistance is moving closer to the file where work actually happens. The model does not just answer a question; it sees the project, the bins, the clips, the comments, or the timeline.</p><h3>First Cuts Are Becoming a Software Layer</h3><p>Adobe's Quick Cut, Google Vids' clip extension, Mosaic's agentic editing, and Palmier's timeline agent all touch the same middle layer of production: rough assembly, ordering, finding, trimming, marker placement, and first-pass structure. None of these replaces a finished edit. But the rough-cut layer is clearly becoming a target for automation.</p><h3>Open Models Need Open Tooling</h3><p>LTX-2 was already notable because it paired audio and video generation with open weights. LTX Trainer makes the point sharper: open models matter more when teams can adapt them. Training tools, LoRA paths, and documented customization pipelines are part of the capability, not just extras around it.</p><h3>Frontier Models Are Splitting by Workload</h3><p>Claude Fable 5 shows the split between daily models and hard-task models. Faster, cheaper models are still better for summaries, drafts, and routine transformations. More capable models earn their place when the task is long, complicated, and likely to compound errors if the first few steps go wrong.</p><hr><h2>Novel Ideas Worth Watching</h2><h3>MCP for Media Timelines</h3><p>MCP has already become familiar in coding and agent workflows. Palmier Pro shows what happens when the same concept is applied to media editing. A timeline can expose actions and state to an agent: read tracks, inspect clips, trim, reorder, add generated assets, or place markers. If that pattern spreads, "agent-compatible editor" could become a real category.</p><h3>Persistent Creative Context</h3><p>Adobe's Projects and Elements preview is another sign that creative AI systems are trying to remember project context across generations. A reusable character, object, location, brand style, or project context is more useful than a one-time generation. Continuity is becoming a product feature.</p><h3>Audio Models as Infrastructure, Not Just Narrators</h3><p>Voxtral TTS, ReSing Doubling, ElevenLabs Avatars, and OpenAI Realtime all point to audio models becoming infrastructure layers. Voice is not only narration. It can be a realtime interface, a localization layer, a draft-performance layer, or a production effect.</p><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 4: Tell It What Not to Change</h3><p>Last week, the Back to Basics series covered <strong>show, don't tell</strong>: examples often work better than abstract instructions.</p><p>This week is about the other half of reliable prompting: <strong>tell the model what not to change</strong>.</p><p>Most people give AI the revision task but forget the preservation rules. That creates a common problem: the output looks cleaner, but something important changed. A timecode disappears. A name is altered. A safety instruction gets softened. A Scripture reference, if present in source material, is paraphrased when it needed to stay exact. A caption correction gets rewritten as a summary instead of staying tied to the original line.</p><p>The model is trying to be helpful. If the instruction is "make this better," it may assume everything is negotiable.</p><p>Add a preservation block:</p><p></code>`<code>text
+<p>Your task: revise this script for clarity and pacing.</p><p>Preserve exactly:</p>
+<ul>
+<li>All names and titles.</li>
+<li>All timecodes.</li>
+<li>Any safety instructions.</li>
+<li>Any quoted language.</li>
+<li>The three-section structure.</li>
+<li>The target runtime of 90 seconds.</li>
+</ul><p>You may change:
+<ul>
+<li>Sentence length.</li>
+<li>Transitions.</li>
+<li>Repeated wording.</li>
+<li>Jargon that can be simplified.</li>
+</ul><p>Return:
+<p>1. Revised script.</p>
+<p>2. Brief list of what changed.</p>
+</code>``</p><p>For AV work, preservation rules are especially useful because the source material often contains constraints:</p><ul>
+<li>Timecodes</li>
+<li>Speaker names</li>
+<li>Caption wording</li>
+<li>Runtime limits</li>
+<li>Technical terms</li>
+<li>File names</li>
+<li>Review-note categories</li>
+<li>Safety or compliance language</li>
+<li>Stakeholder-approved wording</li>
+</ul><p>The weekend exercise: take one prompt you already use for revision and add two blocks: <strong>Preserve exactly</strong> and <strong>You may change</strong>. The model will usually become more careful because it knows which parts of the task are fixed and which parts are flexible.</p><p>Next week, Back to Basics Week 5: <strong>Ask for a Delta</strong> &#8212; why a short list of changes can be as useful as the revised output itself.</p><hr><h2>Sources</h2><p>1. <a href="https://blog.adobe.com/en/publish/2026/06/18/adobe-firefly-introduces-new-agentic-capabilities-and-an-upgraded-creative-ai-studio-built-for-the-way-you-work" target="_blank" rel="noopener">Adobe &#8212; Firefly introduces new agentic capabilities</a> &#8212; June 18, 2026 &#8212; Firefly AI Assistant, upgraded studio, Projects, Elements, Quick Cut
+<p>2. <a href="https://www.morningstar.com/news/business-wire/20260618386522/adobe-unveils-major-expansion-of-creative-agent-across-firefly-and-creative-cloud-apps-including-photoshop-and-premiere" target="_blank" rel="noopener">Adobe Business Wire / Morningstar &#8212; creative agent expansion</a> &#8212; June 18, 2026 &#8212; Creative Cloud app public beta details</p>
+<p>3. <a href="https://techcrunch.com/2026/06/18/adobe-adds-its-ai-assistant-to-premiere-illustrator-and-indesign/" target="_blank" rel="noopener">TechCrunch &#8212; Adobe adds AI assistant to Premiere, Illustrator, and InDesign</a> &#8212; June 18, 2026 &#8212; Premiere examples and Firefly Elements/Projects context</p>
+<p>4. <a href="https://workspaceupdates.googleblog.com/2026/06/create-longer-veo-videos-and-generate-multiple-at-once-in-Google-Vids.html" target="_blank" rel="noopener">Google Workspace Updates &#8212; Create longer Veo videos and generate multiple at once in Google Vids</a> &#8212; June 17, 2026 &#8212; Google Vids Veo extension and parallel generation</p>
+<p>5. <a href="https://www.ycombinator.com/launches/QtT-palmier-pro-an-open-source-video-editor-your-agents-can-operate" target="_blank" rel="noopener">Y Combinator &#8212; Palmier Pro launch</a> &#8212; June 2026 &#8212; Palmier Pro launch and agent-editing framing</p>
+<p>6. <a href="https://github.com/palmier-io/palmier-pro/blob/main/README.md" target="_blank" rel="noopener">Palmier Pro GitHub README</a> &#8212; June 2026 &#8212; MCP server, platform support, open-source details</p>
+<p>7. <a href="https://www.digitaltrends.com/cool-tech/this-new-video-editor-lets-claude-work-directly-on-your-timeline/" target="_blank" rel="noopener">Digital Trends &#8212; Palmier Pro overview</a> &#8212; June 2026 &#8212; Timeline-agent explanation</p>
+<p>8. <a href="https://ltx.io/newsroom/introducing-the-new-ltx-trainer-one-framework-every-training-mode" target="_blank" rel="noopener">LTX &#8212; Introducing the new LTX Trainer</a> &#8212; June 17, 2026 &#8212; LTX Trainer announcement</p>
+<p>9. <a href="https://github.com/Lightricks/LTX-2/tree/main/packages/ltx-trainer" target="_blank" rel="noopener">Lightricks LTX-2 Trainer GitHub</a> &#8212; June 2026 &#8212; Trainer package documentation</p>
+<p>10. <a href="https://huggingface.co/spaces/Lightricks/ltx-2/blob/main/packages/ltx-trainer/docs/training-modes.md" target="_blank" rel="noopener">LTX-2 training modes documentation</a> &#8212; June 2026 &#8212; LoRA, audio-video LoRA, IC-LoRA, full fine-tuning details</p>
+<p>11. <a href="https://mistral.ai/news/voxtral-tts" target="_blank" rel="noopener">Mistral &#8212; Speaking of Voxtral</a> &#8212; March 23, 2026 &#8212; Voxtral TTS model, pricing, latency, languages</p>
+<p>12. <a href="https://huggingface.co/mistralai/Voxtral-4B-TTS-2603" target="_blank" rel="noopener">Hugging Face &#8212; Voxtral 4B TTS</a> &#8212; 2026 &#8212; open-weight release and reference voice details</p>
+<p>13. <a href="https://mistral.ai/static/research/voxtral-tts.pdf" target="_blank" rel="noopener">Voxtral TTS research paper</a> &#8212; 2026 &#8212; architecture and 3-second reference audio claims</p>
+<p>14. <a href="https://community.adobe.com/announcements-727/what-s-new-in-adobe-premiere-26-3-june-2026-1628369" target="_blank" rel="noopener">Adobe Community &#8212; Premiere Pro 26.3</a> &#8212; June 2026 &#8212; Production upgrades, object masking, caption/export fixes</p>
+<p>15. <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank" rel="noopener">Anthropic &#8212; Claude Fable 5 and Claude Mythos 5</a> &#8212; June 9, 2026 &#8212; Fable 5 announcement, pricing, access</p>
+<p>16. <a href="https://simonwillison.net/2026/Jun/9/claude-fable-5/" target="_blank" rel="noopener">Simon Willison &#8212; Initial impressions of Claude Fable 5</a> &#8212; June 9, 2026 &#8212; early developer reaction</p>
+<p>17. <a href="https://gamesbeat.com/lightricks-open-sources-ltx-2-ai-audio-and-video-generation-model/" target="_blank" rel="noopener">GamesBeat &#8212; Lightricks open-sources LTX-2</a> &#8212; June 2026 &#8212; LTX-2 release and Zeev Farbman quotes</p>
+<p>18. <a href="https://sonicstate.com/news/2026/06/19/instantly-create-double-tracked-vocals/" target="_blank" rel="noopener">Sonic State &#8212; IK Multimedia ReSing Doubling</a> &#8212; June 19, 2026 &#8212; ReSing Doubling release</p>
+<p>19. <a href="https://rekkerd.org/ik-multimedia-launches-resing-doubling/" target="_blank" rel="noopener">Rekkerd &#8212; IK Multimedia launches ReSing Doubling</a> &#8212; June 2026 &#8212; pricing and workflow details</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>

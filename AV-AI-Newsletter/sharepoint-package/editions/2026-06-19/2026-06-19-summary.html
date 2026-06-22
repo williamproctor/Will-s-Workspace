@@ -1,0 +1,168 @@
+<!-- AVS AI Dispatch &#8212; Week of June 19, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-06-19</span>
+      <span class="edition-date">Week of June 19, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote><strong>This week, AI moved closer to the actual creative workspace.</strong> Adobe is putting Firefly AI Assistant inside Premiere, Photoshop, Illustrator, InDesign, and Frame.io. Google Vids can now make longer Veo clips and generate multiple clips at once. Palmier Pro is a new open-source Mac video editor that lets AI agents operate the timeline through MCP. Claude Fable 5 reaction remains focused on hard coding and long-running agent work. LTX Trainer gives teams a way to customize the open LTX-2 audio-video model. Mistral's Voxtral TTS adds another multilingual voice model to the growing audio stack.</blockquote><hr><h2>The Big Story</h2><h3>Adobe Puts AI Assistant Inside Creative Cloud Apps</h3><p>Adobe announced that <strong>Firefly AI Assistant</strong> is now in public beta across major creative apps, including Premiere, Photoshop, Illustrator, InDesign, and Frame.io.</p><p>For AV work, Premiere and Frame.io are the most important pieces. Adobe describes assistant tasks like sorting assets into bins, batch-renaming clips, identifying interview questions, adding markers, and helping prepare raw footage for a first cut.</p><p>The important shift is context. The assistant is not just a separate prompt box. It is moving into the app where the production work already lives.</p><p>Adobe also previewed an upgraded Firefly studio with <strong>Projects</strong>, <strong>Elements</strong>, storyboard-to-video, product-video tools, and <strong>Quick Cut</strong>, which can assemble raw footage into a structured first cut for a person to refine.</p><p>The takeaway: Adobe is trying to make AI part of the production layer, not just the generation layer.</p><p><strong>Source:</strong> <a href="https://blog.adobe.com/en/publish/2026/06/18/adobe-firefly-introduces-new-agentic-capabilities-and-an-upgraded-creative-ai-studio-built-for-the-way-you-work" target="_blank" rel="noopener">Adobe</a> &#183; <a href="https://techcrunch.com/2026/06/18/adobe-adds-its-ai-assistant-to-premiere-illustrator-and-indesign/" target="_blank" rel="noopener">TechCrunch</a> &#183; June 18, 2026</p><hr><h2>Other Stories</h2><h3>Google Vids Adds Longer Veo Clips</h3><p>Google Vids now supports longer Veo clips and parallel generation.</p><p>That means users can extend an existing AI-generated clip and start multiple video generations at the same time. This is useful for comparing prompt options and building short internal videos more quickly.</p><p>Google Vids is not replacing a professional editor. But it is becoming more useful for internal communication, training support, project updates, and rough video explainers.</p><p><strong>Source:</strong> <a href="https://workspaceupdates.googleblog.com/2026/06/create-longer-veo-videos-and-generate-multiple-at-once-in-Google-Vids.html" target="_blank" rel="noopener">Google Workspace Updates</a> &#183; June 17, 2026</p><h3>Palmier Pro Lets Agents Edit a Timeline</h3><p>Palmier Pro is an open-source Mac video editor designed for AI agents.</p><p>The app exposes a local MCP server, which means tools like Claude, Codex, or Cursor can connect to the project and operate the timeline. An agent can work with clips, tracks, and project context instead of only responding to a prompt outside the editor.</p><p>Palmier is still early, macOS-only, and not a replacement for mature editing software. But it shows an important idea: media tools can become agent-accessible.</p><p><strong>Source:</strong> <a href="https://www.ycombinator.com/launches/QtT-palmier-pro-an-open-source-video-editor-your-agents-can-operate" target="_blank" rel="noopener">Y Combinator</a> &#183; <a href="https://github.com/palmier-io/palmier-pro/blob/main/README.md" target="_blank" rel="noopener">Palmier Pro GitHub</a> &#183; June 2026</p><h3>LTX Trainer Makes Open Video Models Easier to Customize</h3><p>Lightricks released <strong>LTX Trainer</strong>, a training framework for LTX-2.</p><p>It supports LoRA training, audio-video LoRA, IC-LoRA for video-to-video work, and full fine-tuning. In plain terms, it gives technical teams more ways to adapt LTX-2 to specific needs.</p><p>The requirements are still serious. Many workflows need Linux, CUDA, and high-end Nvidia GPUs. But the direction matters: open video models are becoming more customizable, not just downloadable.</p><p><strong>Source:</strong> <a href="https://ltx.io/newsroom/introducing-the-new-ltx-trainer-one-framework-every-training-mode" target="_blank" rel="noopener">LTX</a> &#183; <a href="https://github.com/Lightricks/LTX-2/tree/main/packages/ltx-trainer" target="_blank" rel="noopener">GitHub</a> &#183; June 17, 2026</p><h3>Mistral Voxtral TTS Adds Another Voice Option</h3><p>Mistral's <strong>Voxtral TTS</strong> is a 4B-parameter text-to-speech model that supports nine languages.</p><p>It is designed for low-latency voice applications, with Mistral listing 70ms model latency for a typical request and API pricing at $0.016 per 1,000 characters. The open-weight version is available for non-commercial use.</p><p>For AV teams, this adds another option to the voice stack alongside ElevenLabs, OpenAI, and other audio tools. Voice AI is splitting into several categories: narration, realtime assistants, localization, cloning, and local experimentation.</p><p><strong>Source:</strong> <a href="https://mistral.ai/news/voxtral-tts" target="_blank" rel="noopener">Mistral</a> &#183; <a href="https://huggingface.co/mistralai/Voxtral-4B-TTS-2603" target="_blank" rel="noopener">Hugging Face</a> &#183; 2026</p><hr><h2>Quick Hits</h2><ul>
+<li><strong>Premiere Pro 26.3 shipped</strong> with just-in-time upgrades for Productions, object masking, and fixes around captions, relinking, and exports.</li>
+<li><strong>Claude Fable 5 reaction remains strong</strong> around hard coding, long-running agent work, and difficult automation. The tradeoff is that it is slower, more expensive, and more tightly guarded than everyday models.</li>
+<li><strong>IK Multimedia released ReSing Doubling</strong>, an add-on that creates doubled vocals and ensemble-style vocal layers from one performance.</li>
+<li><strong>Gemini 3.5 Pro is still worth watching</strong>, but broad public access still appears pending as of this research pass.</li>
+</ul><hr><h2>Common Threads</h2><h3>AI Is Moving Into the File</h3><p>Adobe's assistant in Premiere and Frame.io, and Palmier's agent-accessible timeline, point in the same direction. AI tools are moving closer to the actual project files, clips, comments, and timelines.</p><h3>First Cuts Are Becoming Automatable</h3><p>Quick Cut, Google Vids clip extension, and agentic timeline tools all focus on rough assembly and early structure. The final edit still needs human judgment, but the first-pass layer is becoming more automated.</p><h3>Open Models Need Training Tools</h3><p>Open video models are more useful when teams can adapt them. LTX Trainer matters because it gives technical users a clearer path to customize LTX-2 instead of only running it as-is.</p><hr><h2>Voices This Week</h2><h3>Zeev Farbman on Open Audio-Video Models</h3><p>Lightricks co-founder and CEO Zeev Farbman said:</p><blockquote>"LTX-2 is the first truly open audio-video model, released with open weights and training code, and designed to run locally on consumer GPUs."</blockquote><p>He also said:</p><blockquote>"It delivers the kind of quality and performance teams usually associate with closed systems, without giving up control, transparency, or the ability to customize."</blockquote><p>The important idea: open-weight audio-video models become more useful when teams also get training code and customization paths.</p><h3>Simon Willison on Claude Fable 5</h3><p>Developer Simon Willison described Fable 5 as "slow, expensive" while also saying it was capable enough that the challenge was finding tasks it could not handle.</p><p>That matches the broader reaction: Fable 5 is not being treated as a cheap everyday model. It is being treated as a high-ceiling model for hard, long-running work.</p><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 4: Tell It What Not to Change</h3><p>When asking AI to revise something, most people explain what they want changed. They forget to explain what must stay the same.</p><p>That can create problems. A model may clean up the writing but change a timecode, paraphrase a quote, remove a safety note, or alter an approved phrase.</p><p>Add a preservation block to your prompt:</p><p>``<code>text
+<p>Your task: revise this script for clarity and pacing.</p><p>Preserve exactly:</p>
+<ul>
+<li>All names and titles.</li>
+<li>All timecodes.</li>
+<li>Any safety instructions.</li>
+<li>Any quoted language.</li>
+<li>The three-section structure.</li>
+<li>The target runtime of 90 seconds.</li>
+</ul><p>You may change:
+<ul>
+<li>Sentence length.</li>
+<li>Transitions.</li>
+<li>Repeated wording.</li>
+<li>Jargon that can be simplified.</li>
+</ul><p>Return:
+<p>1. Revised script.</p>
+<p>2. Brief list of what changed.</p>
+</code>``</p><p>For AV work, this is useful with timecodes, speaker names, captions, technical terms, runtime limits, file names, and stakeholder-approved wording.</p><p>The exercise: take one revision prompt you already use and add two blocks: <strong>Preserve exactly</strong> and <strong>You may change</strong>.</p><p>Next week: <strong>Ask for a Delta</strong> &#8212; why a short list of changes can be as useful as the revised output itself.</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em>
+
+  </div>
+</div>

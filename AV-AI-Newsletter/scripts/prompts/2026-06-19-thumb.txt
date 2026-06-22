@@ -1,0 +1,9 @@
+Minimalist editorial illustration for an AI newsletter video cover. Subject: a calm creative editing workspace seen from above, where a small assistant panel is connected to a clean video timeline, organized media bins, review comments, and a stack of export cards. The composition should suggest AI assistants moving into real production tools and helping organize, revise, and prepare creative work, without using any readable text.
+
+Include subtle production cues: a timeline strip with simple clip blocks, folder/bin cards, marker dots, review-note bubbles represented only by abstract shapes, and a small connected-node motif that suggests agent access to the project. Use only abstract marks and icons; no brand logos, no software UI copies, no readable words, no file extensions or labels.
+
+Style: premium editorial illustration, flat 2D with soft paper texture, clean schematic layout, generous negative space. Warm parchment background (#f5f0e8), muted dispatch blue (#4a6da7) as the main accent, dark ink details (#2d2d42), soft neutral shadows. No people, no faces, no brand logos, no readable text, no sci-fi genre imagery, no unrelated symbolic imagery, no glow effects, no neon, no 3D render.
+
+Mood: calm, practical, professional, production-focused. The image should communicate: "AI assistants are becoming part of the creative workspace."
+
+Format: 16:9 landscape composition suitable for a newsletter video thumbnail. No watermark, no signature, no text.
