@@ -132,6 +132,15 @@ function initReadingToggle(standardMd, simplifiedMd) {
 }
 
 function markdownToHtml(md) {
+  const codeBlocks = [];
+  md = md.replace(/```[^\n]*\n([\s\S]*?)```/g, (_, code) => {
+    const idx = codeBlocks.length;
+    codeBlocks.push(
+      `<pre><code>${escapeHtml(code.replace(/\n$/, ''))}</code></pre>`
+    );
+    return `\n@@CODEBLOCK_${idx}@@\n`;
+  });
+
   md = convertTables(md);
   md = convertLists(md);
   return md
@@ -158,7 +167,16 @@ function markdownToHtml(md) {
     .replace(/<p>(<ul)/g, '$1')
     .replace(/(<\/ul>)<\/p>/g, '$1')
     .replace(/<p>(<figure)/g, '$1')
-    .replace(/(<\/figure>)<\/p>/g, '$1');
+    .replace(/(<\/figure>)<\/p>/g, '$1')
+    .replace(/<p>@@CODEBLOCK_(\d+)@@<\/p>/g, (_, idx) => codeBlocks[Number(idx)] || '')
+    .replace(/@@CODEBLOCK_(\d+)@@/g, (_, idx) => codeBlocks[Number(idx)] || '');
+}
+
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 function convertTables(md) {

@@ -262,6 +262,24 @@ body {
   background: var(--dispatch-blue-05);
   padding: 2px 6px; border-radius: 4px;
 }
+.edition-body pre {
+  margin: 18px 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 109, 167, 0.14);
+  border-radius: var(--radius);
+  background: var(--dispatch-blue-05);
+}
+.edition-body pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
+}
 .edition-body blockquote {
   border-left: 3px solid var(--dispatch-blue);
   padding: 14px 20px; margin: 20px 0;
