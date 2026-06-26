@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Grey Box to Ground Truth | The AVS AI Dispatch</title>
+  <meta name="description" content="A practical AVS AI Dispatch research article on using Blender layouts, reference images, and prompt constraints to guide AI image and video generation.">
+  <meta property="og:title" content="From Grey Box to Ground Truth">
+  <meta property="og:description" content="How a Blender layout, texture references, and preservation rules turned a game-like AI output into a believable production reference.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://avaidispatch.com/reports/blender-reference-control">
+  <meta property="og:site_name" content="The AVS AI Dispatch">
+  <meta property="og:image" content="https://avaidispatch.com/reports/blender-reference-control/assets/06-gemini-output.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://avaidispatch.com/reports/blender-reference-control/assets/06-gemini-output.png">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://avaidispatch.com/reports/blender-reference-control">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared.css?v=20260622">
+  <style>
+    .research-article {
+      background:
+        radial-gradient(circle at 10% 0%, rgba(74, 109, 167, 0.10), transparent 34rem),
+        linear-gradient(180deg, var(--parchment-light) 0%, var(--parchment) 100%);
+    }
+    .article-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 112px 28px 80px;
+    }
+    .article-card {
+      overflow: hidden;
+      border: 1px solid var(--parchment-dark);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 24px 80px rgba(26, 26, 46, 0.10);
+    }
+    .article-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+      gap: 0;
+      border-bottom: 1px solid var(--parchment-dark);
+    }
+    .article-hero-copy {
+      padding: 54px;
+    }
+    .article-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--dispatch-blue);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+    .article-kicker::before {
+      content: "";
+      width: 20px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--dispatch-blue);
+    }
+    .article-hero h1 {
+      max-width: 720px;
+      margin: 0 0 20px;
+      color: var(--ink);
+      font-size: clamp(38px, 6vw, 76px);
+      font-weight: 800;
+      letter-spacing: -3px;
+      line-height: 0.98;
+    }
+    .article-hero h1 em {
+      color: var(--dispatch-blue);
+      font-style: normal;
+    }
+    .article-deck {
+      max-width: 660px;
+      color: var(--ink-muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .article-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .article-pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(74, 109, 167, 0.18);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: var(--ink-muted);
+      background: var(--dispatch-blue-05);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .article-hero-image {
+      position: relative;
+      min-height: 480px;
+      background: var(--ink);
+    }
+    .article-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.94;
+    }
+    .article-hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 52%, rgba(26, 26, 46, 0.72));
+      pointer-events: none;
+    }
+    .hero-caption {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.82);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .article-body {
+      padding: 52px 54px 64px;
+    }
+    .article-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 36px;
+      align-items: start;
+      margin: 42px 0;
+    }
+    .article-section {
+      max-width: 800px;
+      margin: 0 auto 44px;
+    }
+    .article-section.wide {
+      max-width: none;
+    }
+    .section-label-mini {
+      margin-bottom: 10px;
+      color: var(--dispatch-blue);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+    .article-section h2 {
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-size: clamp(26px, 3vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1.4px;
+      line-height: 1.08;
+    }
+    .article-section h3 {
+      margin: 28px 0 10px;
+      color: var(--ink-soft);
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .article-section p,
+    .article-section li {
+      color: var(--ink-muted);
+      font-size: 16px;
+      line-height: 1.78;
+    }
+    .article-section p {
+      margin: 0 0 16px;
+    }
+    .article-section ul,
+    .article-section ol {
+      margin: 14px 0 18px;
+      padding-left: 22px;
+    }
+    .article-section strong {
+      color: var(--ink-soft);
+    }
+    .pull-quote {
+      margin: 28px 0;
+      padding: 24px 26px;
+      border-left: 4px solid var(--dispatch-blue);
+      border-radius: 0 16px 16px 0;
+      background: var(--dispatch-blue-05);
+      color: var(--ink-soft);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.45;
+    }
+    .evidence-frame {
+      overflow: hidden;
+      border: 1px solid rgba(74, 109, 167, 0.16);
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: 0 14px 36px rgba(26, 26, 46, 0.08);
+    }
+    .evidence-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .evidence-caption {
+      padding: 12px 14px 14px;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.55;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      background: var(--parchment-light);
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .comparison-card {
+      overflow: hidden;
+      border: 1px solid rgba(74, 109, 167, 0.16);
+      border-radius: 18px;
+      background: var(--white);
+    }
+    .comparison-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .comparison-card h3 {
+      margin: 0;
+      padding: 14px 16px 4px;
+      color: var(--ink);
+      font-size: 16px;
+    }
+    .comparison-card p {
+      padding: 0 16px 16px;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .principle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+    .principle-card {
+      border: 1px solid rgba(74, 109, 167, 0.16);
+      border-radius: 18px;
+      padding: 22px;
+      background: var(--white);
+    }
+    .principle-number {
+      margin-bottom: 16px;
+      color: var(--dispatch-blue);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    .principle-card h3 {
+      margin-top: 0;
+      font-size: 17px;
+    }
+    .principle-card p {
+      margin-bottom: 0;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin: 24px 0;
+    }
+    .workflow-step {
+      position: relative;
+      min-height: 150px;
+      border: 1px solid rgba(74, 109, 167, 0.18);
+      border-radius: 16px;
+      padding: 18px;
+      background: var(--parchment-light);
+    }
+    .workflow-step span {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--dispatch-blue);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .workflow-step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.35;
+    }
+    .workflow-step p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .prompt-box {
+      margin: 22px 0;
+      border-radius: 18px;
+      border: 1px solid rgba(74, 109, 167, 0.18);
+      background: #f8f5ef;
+      overflow: hidden;
+    }
+    .prompt-box-header {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(74, 109, 167, 0.14);
+      color: var(--dispatch-blue);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+    .prompt-box pre {
+      margin: 0;
+      padding: 18px;
+      overflow-x: auto;
+      color: var(--ink-soft);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+    }
+    .callout {
+      margin: 34px 0;
+      padding: 24px;
+      border: 1px solid rgba(74, 109, 167, 0.18);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(74, 109, 167, 0.08), rgba(255, 255, 255, 0.80));
+    }
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+    .article-footer-note {
+      margin-top: 58px;
+      padding-top: 24px;
+      border-top: 1px solid var(--parchment-dark);
+      color: var(--ink-faint);
+      font-size: 13px;
+    }
+    @media (max-width: 920px) {
+      .article-hero,
+      .article-grid,
+      .comparison-grid,
+      .principle-grid,
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+      .article-hero-copy,
+      .article-body {
+        padding: 34px 24px;
+      }
+      .article-hero-image {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body class="research-article">
+  <header class="site-header scrolled" id="siteHeader">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <div class="logo-icon">AVS</div>
+        <span class="logo-text">The AVS <em>AI</em> Dispatch</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#archive">Archive</a>
+        <a href="/reports/ai-production-index-q2-2026">Research</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-shell">
+    <article class="article-card">
+      <section class="article-hero">
+        <div class="article-hero-copy">
+          <div class="article-kicker">Research Article &middot; AI Video Control</div>
+          <h1>From <em>Grey Box</em> to Ground Truth</h1>
+          <p class="article-deck">A small AVS experiment revealed a larger principle for AI video: Blender is strongest when it supplies the camera and geometry, while references supply the material truth the model needs to escape the video-game look.</p>
+          <div class="article-meta-row">
+            <span class="article-pill">Case Study</span>
+            <span class="article-pill">Blender References</span>
+            <span class="article-pill">AI Image & Video</span>
+            <span class="article-pill">June 2026</span>
+          </div>
+        </div>
+        <figure class="article-hero-image">
+          <img src="assets/06-gemini-output.png" alt="AI-generated narrow stone street with period architectural details">
+          <figcaption class="hero-caption">Final reference direction: camera geometry from a rough layout, material realism from texture and period references.</figcaption>
+        </figure>
+      </section>
+
+      <div class="article-body">
+        <section class="article-section">
+          <div class="section-label-mini">The Problem</div>
+          <h2>The camera was right. The world was wrong.</h2>
+          <p>An AVS colleague had been experimenting with Blender as a reference source for AI-generated imagery and video. The camera angle and street layout were working, but the output still looked like a clean game environment rather than a believable photographic scene.</p>
+          <p>That distinction matters. A Blender blockout can define space, camera, and object placement, but it does not automatically carry material age, lens behavior, lighting logic, surface wear, local architecture, or photographic texture. The AI model sees the geometry. It still needs a separate explanation of what the world is made of.</p>
+          <div class="pull-quote">The breakthrough was to stop asking Blender to be the image. Blender became the camera and geometry reference. The other references became the material truth.</div>
+        </section>
+
+        <section class="article-grid">
+          <div class="article-section">
+            <div class="section-label-mini">Evidence 01</div>
+            <h2>The original failure mode</h2>
+            <p>The conversation began with a familiar AI-production issue: even with cinematic prompting, the Blender-driven output stayed visually synthetic. The blockout supplied useful camera movement and street geometry, but the model interpreted the simplified surfaces too literally.</p>
+            <p>This is the core lesson: <strong>a geometry reference is not a texture reference</strong>. If the input is mostly clean forms and smooth grey walls, the model needs additional evidence to understand stone, plaster, dust, age, period construction, and photographic capture.</p>
+          </div>
+          <figure class="evidence-frame">
+            <img src="assets/01-colleague-problem.png" alt="Screenshot of colleague describing Blender output that still looked like a video game">
+            <figcaption class="evidence-caption">The problem statement: Blender helped the camera, but the visual result remained too game-like.</figcaption>
+          </figure>
+        </section>
+
+        <section class="article-grid">
+          <figure class="evidence-frame">
+            <img src="assets/03-iteration-prompt-references.png" alt="Screenshot showing the improved prompt and reference images">
+            <figcaption class="evidence-caption">The revised approach paired the 3D layout with separate texture, stone, paving, wall, object, lighting, and lens references.</figcaption>
+          </figure>
+          <div class="article-section">
+            <div class="section-label-mini">Evidence 02</div>
+            <h2>The revised prompt changed the role of each input.</h2>
+            <p>The improved prompt did something subtle but important: it told the model to use the 3D layout only as a guide for <strong>camera angle, street geometry, and placement</strong>. Everything else was to be reinterpreted as a real photograph.</p>
+            <p>That one instruction prevented the model from copying the grey-box aesthetic. Then the prompt filled in the missing layers: limestone, plaster, chisel marks, weathering, flat roofs, plain openings, worn paving, sparse period-correct objects, dry air, harsh sun, and documentary photo texture.</p>
+          </div>
+        </section>
+
+        <section class="article-section wide">
+          <div class="section-label-mini">The Outputs</div>
+          <h2>Two models, same principle: separate layout from material evidence.</h2>
+          <p>The final outputs are not identical, but both are materially more convincing than the grey-box-derived result. The street reads as a lived-in place because the model was given visual and textual evidence for stone, surface wear, lighting, architectural constraints, and photographic capture.</p>
+          <div class="comparison-grid">
+            <div class="comparison-card">
+              <img src="assets/05-chatgpt-output.png" alt="ChatGPT generated output of narrow ancient stone street">
+              <h3>ChatGPT output</h3>
+              <p>Stronger grit, deeper contrast, and more documentary texture. The scene feels heavier and less polished, with convincing surface wear and shadow falloff.</p>
+            </div>
+            <div class="comparison-card">
+              <img src="assets/06-gemini-output.png" alt="Gemini generated output of narrow ancient stone street">
+              <h3>Gemini output</h3>
+              <p>Cleaner architectural rhythm, brighter exposure, and more readable street geometry. The output keeps the layout while adding plausible stonework and props.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <div class="section-label-mini">Extracted Principle</div>
+          <h2>Inputs should have jobs.</h2>
+          <p>The mistake in many AI-image and AI-video workflows is giving the model several references without explaining what each one is responsible for. In this case, the successful pattern was job assignment.</p>
+          <div class="principle-grid">
+            <div class="principle-card">
+              <div class="principle-number">01</div>
+              <h3>Geometry reference</h3>
+              <p>Use Blender for camera angle, focal direction, path, spatial layout, object placement, and scene scale.</p>
+            </div>
+            <div class="principle-card">
+              <div class="principle-number">02</div>
+              <h3>Material references</h3>
+              <p>Use texture swatches and real-world photos for stone, plaster, road surface, weathering, fabric, props, and construction detail.</p>
+            </div>
+            <div class="principle-card">
+              <div class="principle-number">03</div>
+              <h3>Capture instructions</h3>
+              <p>Use lens, film stock, light direction, depth of field, exposure, and documentary style to define how the scene should be photographed.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-section wide">
+          <div class="section-label-mini">Reusable Workflow</div>
+          <h2>The Ingredients-to-Video Pattern</h2>
+          <p>The strongest phrasing from the conversation was that Blender's real help may be in "ingredients to video." That is the repeatable workflow: treat every input as an ingredient with a defined responsibility.</p>
+          <div class="workflow">
+            <div class="workflow-step">
+              <span>Step 01</span>
+              <strong>Block the camera.</strong>
+              <p>Build a simple Blender layout for camera path, perspective, scale, and major object placement.</p>
+            </div>
+            <div class="workflow-step">
+              <span>Step 02</span>
+              <strong>Render the guide.</strong>
+              <p>Export stills, a short animation, depth, normals, outlines, or pose passes depending on the model workflow.</p>
+            </div>
+            <div class="workflow-step">
+              <span>Step 03</span>
+              <strong>Add material truth.</strong>
+              <p>Collect surface references for stone, wood, fabric, road texture, wear, color, and local construction.</p>
+            </div>
+            <div class="workflow-step">
+              <span>Step 04</span>
+              <strong>Assign the inputs.</strong>
+              <p>Tell the model exactly what each reference controls and what it should not copy.</p>
+            </div>
+            <div class="workflow-step">
+              <span>Step 05</span>
+              <strong>Review the delta.</strong>
+              <p>Compare geometry, material realism, lighting, and period accuracy separately instead of judging only the overall image.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <div class="section-label-mini">Prompt Anatomy</div>
+          <h2>The useful prompt was not longer for its own sake. It was more separated.</h2>
+          <p>The prompt worked because it separated five concerns that are often blended together: camera, world, materials, lighting, and exclusions.</p>
+          <div class="prompt-box">
+            <div class="prompt-box-header">Reusable prompt skeleton</div>
+            <pre>Use the provided 3D layout only as a guide for camera angle,
+street geometry, and placement of major forms. Reinterpret it
+as a real photograph, not as a 3D render.
+
+Define the place:
+- Period, location, environment, construction logic
+
+Define the materials:
+- Stone, plaster, paving, wood, fabric, wear, dust, repairs
+
+Define the capture:
+- Lens, depth of field, light direction, grain, exposure, color
+
+Define what to avoid:
+- No modern materials, no glossy surfaces, no stylized color grade,
+  no game-render look, no invented decorative elements</pre>
+          </div>
+          <p>This is a useful pattern for AV because it mirrors production thinking. A shot is not one instruction. It is camera, set, material, light, wardrobe, props, lens, and finish.</p>
+        </section>
+
+        <section class="article-grid">
+          <div class="article-section">
+            <div class="section-label-mini">Peer Feedback</div>
+            <h2>The colleague's best prompt confirms the same direction.</h2>
+          <p>The colleague's strongest result came from a prompt that named camera capture, lens behavior, film grain, contrast, light sources, color grade, and material setting. That prompt did not only describe the subject. It described the camera and the surface world.</p>
+            <p>The prompt's phrase "stone and plaster texture" is especially important. It points directly to the missing ingredient in the earlier Blender workflow: material evidence.</p>
+          </div>
+          <figure class="evidence-frame">
+            <img src="assets/02-colleague-best-prompt.png" alt="Screenshot of colleague sharing the prompt that produced the best output">
+            <figcaption class="evidence-caption">The colleague's best result came from stronger capture and material language, not only stronger realism language.</figcaption>
+          </figure>
+        </section>
+
+        <section class="article-section">
+          <div class="section-label-mini">Why It Matters</div>
+          <h2>This is the practical meaning of control.</h2>
+          <p>AI video control is often described in broad terms: better prompting, more references, stronger models, longer clips. This case study makes the concept concrete. Control improves when the model receives different kinds of evidence for different parts of the shot.</p>
+          <div class="callout">
+            <p><strong>The principle:</strong> use 3D for geometry, references for material truth, prompt language for interpretation, and negative constraints for preservation.</p>
+          </div>
+          <p>That principle scales beyond this specific street scene. It applies to product shots, historical recreations, architecture, training environments, set extensions, visual explainers, and any AI video workflow where precise camera movement matters.</p>
+        </section>
+
+        <section class="article-section">
+          <div class="section-label-mini">Review Checklist</div>
+          <h2>How to evaluate the next attempt</h2>
+          <ol>
+            <li><strong>Camera:</strong> Did the output preserve the intended angle, path, and parallax from the Blender guide?</li>
+            <li><strong>Geometry:</strong> Are the major forms in the right place, or did the model redesign the scene?</li>
+            <li><strong>Material:</strong> Do surfaces match the texture references, or do they still look like clean CG?</li>
+            <li><strong>Lighting:</strong> Is the light direction physically plausible and consistent across the shot?</li>
+            <li><strong>Period/detail:</strong> Did the model add modern or decorative elements that were not requested?</li>
+            <li><strong>Finish:</strong> Does it look photographed, rendered, illustrated, or over-polished?</li>
+          </ol>
+        </section>
+
+        <p class="article-footer-note">Research note: This article was developed from AVS colleague screenshots and AI image outputs shared on June 26, 2026.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-text">&copy; 2026 Audio/Video Services &mdash; The AVS AI Dispatch</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/#archive">Archive</a>
+        <a href="/brand-guidelines.html">Brand</a>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+</body>
+</html>
