@@ -1,0 +1,9 @@
+Minimalist editorial illustration for an AI newsletter video cover. Subject: a clean production desk where a simple grey-box 3D street layout is connected by thin blue guide lines to a finished photographic frame, a camera path curve, depth-map cards, and texture swatches for stone, plaster, and paving. The composition should suggest precise AI video camera control through reference ingredients, without using any readable text.
+
+Include subtle production cues: a top-down camera path with keyframe dots, a small wireframe street blockout, stacked reference cards, a timeline strip, and a final image frame showing abstract warm stone textures. Use only abstract marks and icons; no brand logos, no software UI copies, no readable words, no file extensions or labels.
+
+Style: premium editorial illustration, flat 2D with soft paper texture, clean schematic layout, generous negative space. Warm parchment background (#f5f0e8), muted dispatch blue (#4a6da7) as the main accent, dark ink details (#2d2d42), soft neutral shadows. No people, no faces, no brand logos, no readable text, no sci-fi genre imagery, no unrelated symbolic imagery, no glow effects, no neon, no 3D render.
+
+Mood: calm, practical, professional, production-focused. The image should communicate: "AI video control improves when each reference input has a clear job."
+
+Format: 16:9 landscape composition suitable for a newsletter video thumbnail. No watermark, no signature, no text.

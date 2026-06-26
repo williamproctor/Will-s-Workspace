@@ -17,6 +17,7 @@ Usage:
 """
 
 import argparse
+import html
 import os
 import re
 import sys
@@ -86,6 +87,15 @@ def convert_lists(md: str) -> str:
 
 
 def markdown_to_html(md: str) -> str:
+    code_blocks: list[str] = []
+
+    def stash_code_block(match: re.Match) -> str:
+        idx = len(code_blocks)
+        code = match.group(1).rstrip("\n")
+        code_blocks.append(f"<pre><code>{html.escape(code)}</code></pre>")
+        return f"\n@@CODEBLOCK_{idx}@@\n"
+
+    md = re.sub(r"```[^\n]*\n([\s\S]*?)```", stash_code_block, md)
     md = convert_tables(md)
     md = convert_lists(md)
 
@@ -121,6 +131,16 @@ def markdown_to_html(md: str) -> str:
     md = re.sub(r"(</ul>)</p>", r"\1", md)
     md = re.sub(r"<p>(<figure)", r"\1", md)
     md = re.sub(r"(</figure>)</p>", r"\1", md)
+    md = re.sub(
+        r"<p>@@CODEBLOCK_(\d+)@@</p>",
+        lambda m: code_blocks[int(m.group(1))],
+        md,
+    )
+    md = re.sub(
+        r"@@CODEBLOCK_(\d+)@@",
+        lambda m: code_blocks[int(m.group(1))],
+        md,
+    )
     return md
 
 
@@ -206,6 +226,24 @@ SCOPED_CSS = """
   font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
   background: var(--dispatch-blue-05);
   padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body pre {
+  margin: 18px 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 109, 167, 0.14);
+  border-radius: var(--radius);
+  background: var(--dispatch-blue-05);
+}
+.avs-dispatch .edition-body pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
 }
 .avs-dispatch .edition-body blockquote {
   border-left: 3px solid var(--dispatch-blue);

@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-06-26 — Week of June 26, 2026
+
+> AI video control moved from better prompts toward better reference systems as creators use Blender camera paths, depth passes, edge passes, pose passes, grey-box scenes, and 3D blocking to guide video models. ByteDance previewed Seedance 2.5 with longer clips and more reference inputs, OpenAI announced GPT-5.6 in limited preview, and Sonilo brought licensed video-to-music generation to fal.ai.
+
+---
+
 ## 2026-06-19 — Week of June 19, 2026
 
 > Adobe Firefly AI Assistant moves into Premiere, Photoshop, Illustrator, InDesign, and Frame.io. Google Vids adds longer Veo clips and parallel generation. Palmier Pro brings MCP-connected agents to a Mac video timeline. Claude Fable 5 reaction remains focused on hard coding and long-horizon agent work. LTX Trainer makes open audio-video models more customizable, while Mistral Voxtral TTS adds a compact multilingual voice model.

@@ -1,0 +1,203 @@
+<!-- AVS AI Dispatch &#8212; Week of June 26, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body pre {
+  margin: 18px 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 109, 167, 0.14);
+  border-radius: var(--radius);
+  background: var(--dispatch-blue-05);
+}
+.avs-dispatch .edition-body pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-06-26</span>
+      <span class="edition-date">Week of June 26, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote><strong>This week, AI video control moved beyond prompts.</strong> Creators are using Blender camera paths, depth passes, edge passes, pose passes, grey-box scenes, and 3D blocking to guide AI video models with precise camera movement. ByteDance previewed <strong>Seedance 2.5</strong> with claims of native 30-second clips, up to 50 reference inputs, regional editing, and 3D preview controls, though independent benchmarks are not available yet. OpenAI announced <strong>GPT-5.6 Sol, Terra, and Luna</strong> in limited preview, with the strongest benchmark story around long-horizon agent work. Sonilo also brought licensed video-to-music generation to fal.ai, showing audio tools becoming more timeline-aware.</blockquote><hr><h2>The Big Story</h2><h3>Blender Is Becoming a Camera-Control Layer for AI Video</h3><p>The most interesting AI video trend this week is a workflow pattern: create the camera move in Blender first, then use that 3D reference to guide the AI video model.</p><p>Instead of asking a model for a "slow dolly in" and hoping it understands the shot, creators can build the move in Blender and export a control reference:</p><ul>
+<li>A camera path</li>
+<li>A grey-box scene</li>
+<li>A depth pass</li>
+<li>An outline pass</li>
+<li>A pose pass</li>
+<li>A low-detail reference animation</li>
+</ul><p>RunComfy's <strong>Blender to ComfyUI AI Renderer 2.0</strong> is one example. It uses depth, outline, or pose passes to drive Wan VACE video generation so the final video follows the original layout and motion.</p><p>Other projects point in the same direction. ComfyUI Blender temporal nodes use Blender EXR depth and normal passes as ControlNet conditioning. LooseControlVideo uses spatial blocking with 3D boxes to control object placement and movement.</p><p>The takeaway: the rough 3D scene is becoming more than a planning tool. It can become the control track for generation.</p><p><strong>Source:</strong> <a href="https://www.runcomfy.com/comfyui-workflows/blender-to-comfyui-ai-renderer-2-0-workflow-cinematic-video-output" target="_blank" rel="noopener">RunComfy</a> &#183; <a href="https://github.com/12georgiadis/comfyui-blender-temporal" target="_blank" rel="noopener">ComfyUI Blender temporal nodes</a> &#183; <a href="https://arxiv.org/html/2606.19495v1" target="_blank" rel="noopener">LooseControlVideo</a> &#183; June 2026</p><hr><h2>Other Stories</h2><h3>Seedance 2.5 Preview Shows Where AI Video Is Heading</h3><p>ByteDance previewed <strong>Seedance 2.5</strong> on June 23 at its Volcano Engine FORCE conference.</p><p>The headline claim is a single native 30-second clip, generated directly instead of stitched together from shorter clips. Reports also describe support for up to <strong>50 multimodal reference inputs</strong>, including images, audio clips, 3D white-box models, and style references.</p><p>Other preview claims include:</p><ul>
+<li>Native 4K output and 10-bit color depth</li>
+<li>Around 20 percent better prompt adherence</li>
+<li>Audio generated in the same system as the video</li>
+<li>Region-level editing</li>
+<li>3D preview controls before full rendering</li>
+</ul><p>Important caveat: Seedance 2.5 is not broadly available yet. It is in enterprise beta, with public launch targeted for early July. There are no independent Seedance 2.5 benchmark results yet.</p><p>The practical story is control. Seedance 2.5 appears designed around more references, longer clips, local edits, and more structured direction.</p><p><strong>Source:</strong> <a href="https://thenextweb.com/news/bytedance-seedance-2-5-ai-video-4k-30-seconds" target="_blank" rel="noopener">The Next Web</a> &#183; <a href="https://the-decoder.com/bytedances-seedance-2-5-breaks-the-30-second-barrier-for-ai-video-generation/" target="_blank" rel="noopener">The Decoder</a> &#183; <a href="https://tosea.ai/blog/seedance-2-5-bytedance-ai-video-model-guide" target="_blank" rel="noopener">Tosea</a> &#183; June 2026</p><h3>GPT-5.6 Is About Long-Horizon Agent Work</h3><p>OpenAI announced the <strong>GPT-5.6</strong> series on June 26:</p><ul>
+<li><strong>Sol</strong> &#8212; flagship model</li>
+<li><strong>Terra</strong> &#8212; balanced model</li>
+<li><strong>Luna</strong> &#8212; fast, lower-cost model</li>
+</ul><p>Access is limited at first to selected partners through the API and Codex, with broader availability planned in the coming weeks.</p><p>The benchmark story is agentic work, not ordinary chat. OpenAI says GPT-5.6 Sol sets a new state of the art on <strong>Terminal-Bench 2.1</strong>, which measures command-line tasks requiring planning, iteration, and tool coordination. VentureBeat reported OpenAI-provided figures of <strong>91.91%</strong> in <code>ultra</code> mode and <strong>88.76%</strong> in <code>max</code> mode.</p><p>OpenAI also introduced:</p><ul>
+<li><code>max</code> reasoning effort for deeper work</li>
+<li><code>ultra</code> mode, which uses subagents for complex tasks</li>
+<li>More predictable prompt caching with named cache breakpoints</li>
+</ul><p>For AV teams, GPT-5.6 matters mostly around internal tools, publishing scripts, metadata cleanup, QA passes, and workflow agents.</p><p><strong>Source:</strong> <a href="https://openai.com/index/previewing-gpt-5-6-sol/" target="_blank" rel="noopener">OpenAI</a> &#183; <a href="https://venturebeat.com/technology/openai-unveils-gpt-5-6-sol-terra-and-luna-models-but-only-accessible-to-limited-preview-partners-for-now-per-us-gov" target="_blank" rel="noopener">VentureBeat</a> &#183; June 26, 2026</p><h3>Sonilo Brings Video-to-Music to fal.ai</h3><p>Sonilo announced that its licensed video-to-music model is now available on <strong>fal.ai</strong>.</p><p>The model analyzes a video and generates an original soundtrack matched to the clip's length, pacing, and emotional arc. It delivers the music as a separate audio track, so editors can adjust it without changing dialogue, voiceover, or sound effects.</p><p>Through fal.ai, Sonilo says it can score videos up to <strong>600 seconds</strong> long.</p><p>The important pattern: the video itself becomes the timing reference. Audio generation is becoming more connected to the actual edit, not just a separate prompt.</p><p><strong>Source:</strong> <a href="https://www.morningstar.com/news/pr-newswire/20260622cn86889/sonilo-launches-licensed-ai-music-generator-for-video-on-falai" target="_blank" rel="noopener">Morningstar / PR Newswire</a> &#183; <a href="https://sonilo.com/" target="_blank" rel="noopener">Sonilo</a> &#183; June 22, 2026</p><hr><h2>Quick Hits</h2><ul>
+<li><strong>Runway Aleph 2.0 is now in Figma Weave.</strong> Users can extract a frame, edit it, connect it back to the Aleph node with a timestamp, and carry that edit through the video while preserving the rest of the shot.</li>
+<li><strong>Seed Audio 1.0 surfaced in ByteDance's model stack.</strong> It is described as a unified audio model for speech, music, and ambient sound.</li>
+<li><strong>GPT-5.6 adds named prompt-cache controls.</strong> OpenAI says GPT-5.6 supports cache breakpoints and a 30-minute minimum cache life, which matters for repeated long-context agent workflows.</li>
+</ul><hr><h2>Common Threads</h2><h3>Text Prompts Are Not Precise Enough by Themselves</h3><p>The strongest workflows this week use more than text: Blender camera paths, depth passes, 3D blockouts, reference images, audio timing, masks, and timelines.</p><h3>References Are Becoming the Main Control Surface</h3><p>Seedance 2.5's preview claim of up to 50 reference inputs points to a broader shift. AI tools are becoming more useful when they can accept the materials production teams already have.</p><h3>Agent Benchmarks Are Getting Closer to Real Work</h3><p>GPT-5.6's benchmark story focuses on tool use, planning, command-line workflows, and long-running tasks. That is closer to practical production support than a single-answer test.</p><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 5: Ask for a Delta</h3><p>When AI revises something, ask it to tell you what changed.</p><p>Use a prompt like this:</p><p>
+<pre><code>Revise this production note for clarity.
+
+Preserve exactly:
+- Speaker names
+- Timecodes
+- Technical terms
+- Approved wording
+
+After the revised version, include a delta:
+- What changed
+- What stayed the same
+- Anything that still needs human review</code></pre>
+<p>For AV work, this helps with scripts, captions, edit notes, show notes, equipment summaries, SharePoint copy, and documentation.</p><p>The simple version:</p>
+<pre><code>After the revision, list the exact changes you made.</code></pre>
+<p>That gives the reviewer a short change trail instead of forcing them to compare every line by hand.</p><p>Next week: <strong>Use Checklists as Guardrails</strong>.</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>

@@ -77,6 +77,24 @@
   background: var(--dispatch-blue-05);
   padding: 2px 6px; border-radius: 4px;
 }
+.avs-dispatch .edition-body pre {
+  margin: 18px 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 109, 167, 0.14);
+  border-radius: var(--radius);
+  background: var(--dispatch-blue-05);
+}
+.avs-dispatch .edition-body pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
+}
 .avs-dispatch .edition-body blockquote {
   border-left: 3px solid var(--dispatch-blue);
   padding: 14px 20px; margin: 20px 0;
@@ -144,25 +162,27 @@
 <li><strong>Claude Fable 5 reaction remains strong</strong> around hard coding, long-running agent work, and difficult automation. The tradeoff is that it is slower, more expensive, and more tightly guarded than everyday models.</li>
 <li><strong>IK Multimedia released ReSing Doubling</strong>, an add-on that creates doubled vocals and ensemble-style vocal layers from one performance.</li>
 <li><strong>Gemini 3.5 Pro is still worth watching</strong>, but broad public access still appears pending as of this research pass.</li>
-</ul><hr><h2>Common Threads</h2><h3>AI Is Moving Into the File</h3><p>Adobe's assistant in Premiere and Frame.io, and Palmier's agent-accessible timeline, point in the same direction. AI tools are moving closer to the actual project files, clips, comments, and timelines.</p><h3>First Cuts Are Becoming Automatable</h3><p>Quick Cut, Google Vids clip extension, and agentic timeline tools all focus on rough assembly and early structure. The final edit still needs human judgment, but the first-pass layer is becoming more automated.</p><h3>Open Models Need Training Tools</h3><p>Open video models are more useful when teams can adapt them. LTX Trainer matters because it gives technical users a clearer path to customize LTX-2 instead of only running it as-is.</p><hr><h2>Voices This Week</h2><h3>Zeev Farbman on Open Audio-Video Models</h3><p>Lightricks co-founder and CEO Zeev Farbman said:</p><blockquote>"LTX-2 is the first truly open audio-video model, released with open weights and training code, and designed to run locally on consumer GPUs."</blockquote><p>He also said:</p><blockquote>"It delivers the kind of quality and performance teams usually associate with closed systems, without giving up control, transparency, or the ability to customize."</blockquote><p>The important idea: open-weight audio-video models become more useful when teams also get training code and customization paths.</p><h3>Simon Willison on Claude Fable 5</h3><p>Developer Simon Willison described Fable 5 as "slow, expensive" while also saying it was capable enough that the challenge was finding tasks it could not handle.</p><p>That matches the broader reaction: Fable 5 is not being treated as a cheap everyday model. It is being treated as a high-ceiling model for hard, long-running work.</p><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 4: Tell It What Not to Change</h3><p>When asking AI to revise something, most people explain what they want changed. They forget to explain what must stay the same.</p><p>That can create problems. A model may clean up the writing but change a timecode, paraphrase a quote, remove a safety note, or alter an approved phrase.</p><p>Add a preservation block to your prompt:</p><p>``<code>text
-<p>Your task: revise this script for clarity and pacing.</p><p>Preserve exactly:</p>
-<ul>
-<li>All names and titles.</li>
-<li>All timecodes.</li>
-<li>Any safety instructions.</li>
-<li>Any quoted language.</li>
-<li>The three-section structure.</li>
-<li>The target runtime of 90 seconds.</li>
-</ul><p>You may change:
-<ul>
-<li>Sentence length.</li>
-<li>Transitions.</li>
-<li>Repeated wording.</li>
-<li>Jargon that can be simplified.</li>
-</ul><p>Return:
-<p>1. Revised script.</p>
-<p>2. Brief list of what changed.</p>
-</code>``</p><p>For AV work, this is useful with timecodes, speaker names, captions, technical terms, runtime limits, file names, and stakeholder-approved wording.</p><p>The exercise: take one revision prompt you already use and add two blocks: <strong>Preserve exactly</strong> and <strong>You may change</strong>.</p><p>Next week: <strong>Ask for a Delta</strong> &#8212; why a short list of changes can be as useful as the revised output itself.</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em>
+</ul><hr><h2>Common Threads</h2><h3>AI Is Moving Into the File</h3><p>Adobe's assistant in Premiere and Frame.io, and Palmier's agent-accessible timeline, point in the same direction. AI tools are moving closer to the actual project files, clips, comments, and timelines.</p><h3>First Cuts Are Becoming Automatable</h3><p>Quick Cut, Google Vids clip extension, and agentic timeline tools all focus on rough assembly and early structure. The final edit still needs human judgment, but the first-pass layer is becoming more automated.</p><h3>Open Models Need Training Tools</h3><p>Open video models are more useful when teams can adapt them. LTX Trainer matters because it gives technical users a clearer path to customize LTX-2 instead of only running it as-is.</p><hr><h2>Voices This Week</h2><h3>Zeev Farbman on Open Audio-Video Models</h3><p>Lightricks co-founder and CEO Zeev Farbman said:</p><blockquote>"LTX-2 is the first truly open audio-video model, released with open weights and training code, and designed to run locally on consumer GPUs."</blockquote><p>He also said:</p><blockquote>"It delivers the kind of quality and performance teams usually associate with closed systems, without giving up control, transparency, or the ability to customize."</blockquote><p>The important idea: open-weight audio-video models become more useful when teams also get training code and customization paths.</p><h3>Simon Willison on Claude Fable 5</h3><p>Developer Simon Willison described Fable 5 as "slow, expensive" while also saying it was capable enough that the challenge was finding tasks it could not handle.</p><p>That matches the broader reaction: Fable 5 is not being treated as a cheap everyday model. It is being treated as a high-ceiling model for hard, long-running work.</p><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 4: Tell It What Not to Change</h3><p>When asking AI to revise something, most people explain what they want changed. They forget to explain what must stay the same.</p><p>That can create problems. A model may clean up the writing but change a timecode, paraphrase a quote, remove a safety note, or alter an approved phrase.</p><p>Add a preservation block to your prompt:</p><p>
+<pre><code>Your task: revise this script for clarity and pacing.
+
+Preserve exactly:
+- All names and titles.
+- All timecodes.
+- Any safety instructions.
+- Any quoted language.
+- The three-section structure.
+- The target runtime of 90 seconds.
+
+You may change:
+- Sentence length.
+- Transitions.
+- Repeated wording.
+- Jargon that can be simplified.
+
+Return:
+1. Revised script.
+2. Brief list of what changed.</code></pre>
+<p>For AV work, this is useful with timecodes, speaker names, captions, technical terms, runtime limits, file names, and stakeholder-approved wording.</p><p>The exercise: take one revision prompt you already use and add two blocks: <strong>Preserve exactly</strong> and <strong>You may change</strong>.</p><p>Next week: <strong>Ask for a Delta</strong> &#8212; why a short list of changes can be as useful as the revised output itself.</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
 
   </div>
 </div>
