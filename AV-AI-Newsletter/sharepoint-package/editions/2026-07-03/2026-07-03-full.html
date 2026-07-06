@@ -1,0 +1,204 @@
+<!-- AVS AI Dispatch &#8212; Week of July 3, 2026 (Full Edition) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body pre {
+  margin: 18px 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 109, 167, 0.14);
+  border-radius: var(--radius);
+  background: var(--dispatch-blue-05);
+}
+.avs-dispatch .edition-body pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-07-03</span>
+      <span class="edition-date">Week of July 3, 2026</span>
+    </div>
+    <div class="edition-kicker">Full Edition</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote><strong>AI video moved deeper into editable production workflows this week.</strong> Google brought <strong>Veo 3.1</strong> into Flow with richer audio, stronger prompt adherence, and audio support across Ingredients to Video, Frames to Video, and Extend. <strong>Anthropic released Claude Sonnet 5</strong> as its most agentic Sonnet model yet, with pricing that makes long-running coding and workflow agents less expensive than larger frontier models. <strong>Runway expanded its Bertelsmann partnership</strong>, a sign that generative video tools are becoming operational infrastructure inside large media organizations. And the broader video model market kept splitting along a few practical lines: native audio, reference capacity, editable outputs, and enterprise deployment.</blockquote><hr><h2>This Week in AI</h2><h3>Google Brings Veo 3.1 Into Flow With Audio Across More Workflows</h3><p>Google updated Flow with <strong>Veo 3.1</strong>, adding richer audio, stronger prompt adherence, more realistic texture rendering, and broader audio support across existing video workflows.</p><p>The practical change is that audio is no longer limited to a narrow subset of generation modes. Google says Flow now brings audio to:</p><ul>
+<li><strong>Ingredients to Video</strong></li>
+<li><strong>Frames to Video</strong></li>
+<li><strong>Extend</strong></li>
+</ul><p>That matters because these are the modes that move beyond a simple text prompt. Ingredients to Video works from reference materials. Frames to Video gives the model a starting or ending frame. Extend continues an existing clip. Adding audio to those modes makes the generated output more like a production object: image references, timing, movement, and sound can travel together.</p><p>Google also introduced more precise editing controls inside Flow. The new <strong>Insert</strong> capability adds an element to an existing scene while preserving the surrounding clip, and Google says object removal is coming. The pattern is familiar now: generated video is becoming less of a one-shot output and more of an editable sequence.</p><p>Veo 3.1 is also available beyond the consumer Flow interface. Google says the model and new capabilities are available through the <strong>Gemini API</strong> and <strong>Vertex AI</strong>, with Flow, Google Vids, the Gemini app, and API surfaces all part of the rollout. For AV teams, the important point is not only higher fidelity. It is that the same model family is showing up in both a creative interface and developer/enterprise workflows.</p><p>The caveat is still worth keeping in view. Google describes some of the audio features as experimental and actively improving. That is the state of the category: promising enough to matter, but still requiring review, editing, and separate quality control.</p><p><strong>Source:</strong> <a href="https://blog.google/innovation-and-ai/products/veo-updates-flow/" target="_blank" rel="noopener">Google &#8212; Bringing new Veo 3.1 updates into Flow</a> &#183; <a href="https://blog.google/innovation-and-ai/technology/developers-tools/veo-3-1-gemini-api/" target="_blank" rel="noopener">Google &#8212; Enhanced Veo 3.1 capabilities in the Gemini API</a> &#183; July 2026</p><h3>Claude Sonnet 5 Makes Agentic Work Cheaper and More Available</h3><p>Anthropic released <strong>Claude Sonnet 5</strong> on June 30, positioning it as the most agentic Sonnet model so far.</p><p>The headline is not that Sonnet 5 replaces the largest models. It is that it brings more of that capability into the lower-cost Sonnet tier. Anthropic says Sonnet 5 can make plans, use browsers and terminals, and run autonomously at a level that recently required larger and more expensive models.</p><p>The availability story is also important:</p><ul>
+<li>Sonnet 5 is available across Claude plans.</li>
+<li>It is available in Claude Code.</li>
+<li>Developers can call it through the Claude API with the model ID <code>claude-sonnet-5</code>.</li>
+<li>Introductory API pricing is <strong>$2 per million input tokens</strong> and <strong>$10 per million output tokens</strong> through August 31, 2026.</li>
+<li>Standard pricing after that is <strong>$3 input / $15 output per million tokens</strong>.</li>
+</ul><p>On Anthropic's reported benchmarks, Sonnet 5 reaches <strong>63.2% on SWE-bench Pro</strong> and <strong>80.4% on Terminal-Bench 2.1</strong>. Those are software and command-line evaluations, not AV benchmarks, but they map to a kind of work that increasingly surrounds AV production: file organization, scripts, metadata cleanup, web publishing, SharePoint packaging, QA checklists, batch processing, and small internal tools.</p><p>The model story this week is therefore practical rather than dramatic. GPT-5.6 Sol remains the more aggressive frontier signal, but it is still in limited preview. Sonnet 5 is generally available. That makes it more relevant for actual workflow experimentation in the near term.</p><p><strong>Source:</strong> <a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener">Anthropic &#8212; Introducing Claude Sonnet 5</a> &#183; <a href="https://www.anthropic.com/claude/sonnet?prog_id=5" target="_blank" rel="noopener">Anthropic &#8212; Claude Sonnet 5</a> &#183; June 30, 2026</p><h3>Runway Expands Enterprise Media Deployment With Bertelsmann</h3><p>Runway announced a creative partnership with <strong>Bertelsmann</strong> on July 1. Under the agreement, Runway's AI models will be integrated across Bertelsmann businesses including RTL Group, BMG, and Bertelsmann Marketing Services.</p><p>This is not a model release, but it is still a useful signal. The AI video market is moving in two directions at once:</p><ul>
+<li>Consumer-facing tools keep competing on output quality, speed, audio, and control.</li>
+<li>Enterprise media companies are building operational agreements around the tools they intend to use at scale.</li>
+</ul><p>Runway says the Bertelsmann relationship began in 2024 through the Bertelsmann AI Hub and is now expanding into broader workflow development. The announcement points to use across creative workflows rather than a single narrow use case.</p><p>For AV production, the interesting part is the shape of deployment. Large media organizations are not only testing prompt-to-video clips. They are looking at where generative tools sit across ideation, visual development, music marketing materials, review cycles, and repeatable production workflows. That is a different kind of adoption than an individual user trying a model in a browser.</p><p>It also connects to a broader pattern from the last few weeks. Adobe is putting creative agents into established apps. Google is putting Veo into Flow and API workflows. Runway is deepening media partnerships. The category is becoming less about which single model makes the prettiest clip and more about which systems fit into the production chain.</p><p><strong>Source:</strong> <a href="https://runwayml.com/news/runway-announces-creative-partnership-with-bertelsmann" target="_blank" rel="noopener">Runway &#8212; Runway Announces Creative Partnership with Bertelsmann</a> &#183; July 1, 2026</p><h3>Adobe's Topaz Deal Puts Enhancement Back in the Center of AI Video</h3><p>Late last week, Adobe announced a definitive agreement to acquire <strong>Topaz Labs</strong>, the company behind widely used AI image and video enhancement tools.</p><p>This story is slightly outside the clean July 3 window, but it is relevant because it fills in a different side of AI production. Generative video gets most of the attention, but finishing often depends on enhancement: sharpening, denoising, restoring, upscaling, stabilizing, and improving material that already exists.</p><p>Adobe says Topaz technology will be integrated into Firefly, Firefly Services, and Creative Cloud apps, while Topaz products will continue as standalone offerings. Adobe also highlighted Topaz's <strong>Neurostream</strong> technology, which is designed to run large video and image models locally on consumer hardware.</p><p>That local-processing angle is worth watching. If more enhancement can happen on-device instead of only in the cloud, the user experience changes: faster previews, lower latency, and more practical use on large files. It also fits the hybrid reality of AV work, where teams may combine camera footage, screen captures, generated elements, archival material, and rendered graphics in the same final piece.</p><p><strong>Source:</strong> <a href="https://news.adobe.com/news/2026/06/adobe-to-acquire-topaz-labs" target="_blank" rel="noopener">Adobe &#8212; Adobe to Acquire Topaz Labs</a> &#183; <a href="https://techcrunch.com/2026/06/25/adobe-acquires-image-and-video-enhancement-tool-maker-topaz-labs/" target="_blank" rel="noopener">TechCrunch &#8212; Adobe acquires Topaz Labs</a> &#183; June 25, 2026</p><h3>Quick Hits</h3><ul>
+<li><strong>Seedance 2.5 moved into early access through Topview coverage</strong> &#8212; Reports this week framed ByteDance's upcoming model as a bigger workflow release rather than just a quality bump: up to 30-second single-pass clips, up to 50 multimodal references, region-level editing, and native audio-video generation. Since we covered the preview last week, the update is mostly about access and workflow positioning.</li>
+<li><strong>LTX 2.3 remains one of the clearer open audio-video model directions</strong> &#8212; LTX's current model page and release notes emphasize synchronized audio-video generation, cleaner audio from an upgraded vocoder, native portrait output, and audio-to-video workflows. The technical caveat is that older LTX 2.0 LoRAs need retraining because the latent space changed.</li>
+<li><strong>Artificial Analysis continues to show how fragmented AI video rankings are</strong> &#8212; Its text-to-video leaderboard places Dreamina Seedance 2.0 at the top among models with audio output, while other rankings weigh Veo, Kling, HappyHorse, and Runway differently. The useful takeaway is not a single winner; it is that benchmark rankings depend heavily on the task, audio setting, access path, and judging method.</li>
+</ul><hr><h2>Voices This Week</h2><h3>Google on Flow's Direction</h3><p>Google described the Flow update as a move toward more granular control and broader audio support:</p><blockquote>"For the first time, we're also bringing audio to existing capabilities like Ingredients to Video, Frames to Video and Extend."</blockquote><p>That sentence captures the practical shift. Audio is becoming part of the controlled generation workflow, not only a final layer added after the image is made.</p><h3>Anthropic on Sonnet 5</h3><p>Anthropic framed Sonnet 5 around agentic work rather than ordinary chat:</p><blockquote>"Claude Sonnet 5 is built to be the most agentic Sonnet model yet."</blockquote><p>That wording matters because the model market is increasingly separating general conversation from models that can plan, use tools, and complete multi-step work.</p><hr><h2>Common Threads</h2><h3>AI Video Is Becoming Editable by Default</h3><p>Veo 3.1 in Flow, Runway's enterprise partnerships, Seedance 2.5's region-level editing, and LTX's retake/extend-style workflows all point in the same direction. The next stage of AI video is not only better generation. It is better control after the first generation.</p><h3>Audio Is Moving Into the Video Model Itself</h3><p>Last week, the pattern showed up in video-to-music and Seedance's audio-video architecture. This week, Google expanded audio support across Flow's reference and extension modes, while LTX continues to emphasize synchronized audio-video generation. The separation between "make the clip" and "add sound later" is starting to narrow.</p><h3>Enterprise Adoption Is About Workflow Fit</h3><p>Runway with Bertelsmann, Adobe with Topaz, and Google through Vertex AI all show the same enterprise pattern. The tools need to fit into existing review, production, enhancement, and deployment paths. Output quality matters, but workflow reliability increasingly matters just as much.</p><hr><h2>Novel Ideas Worth Watching</h2><h3>Audio-Aware Reference Workflows</h3><p>Reference-driven generation used to mean images, frames, and style boards. Now audio is becoming another reference layer. A voice track, music cue, or timing bed can shape motion and structure, not only sit underneath the final video.</p><h3>Local Enhancement as Production Infrastructure</h3><p>Topaz's Neurostream technology points to a possible split between cloud generation and local finishing. If enhancement models can run well on local hardware, teams may use cloud systems for heavier generation while using local tools for sharpening, denoising, restoration, or upscaling.</p><h3>Model Choice by Production Task</h3><p>The video market is no longer cleanly ranked from best to worst. One model may lead on audio, another on reference inputs, another on editing control, another on cost, and another on enterprise deployment. The more practical question is becoming: which model is strongest for this specific production task?</p><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 6: Use Checklists as Guardrails</h3><p>Last week, the Back to Basics series covered <strong>Ask for a Delta</strong>: after an AI revision, ask the model to list exactly what changed.</p><p>This week builds on that with a simple habit: <strong>use checklists as guardrails</strong>.</p><p>A checklist is useful because it gives the model a concrete review standard. Instead of saying "make this better," the checklist defines what "better" means for the task.</p><p>Use this pattern:</p><p>
+<pre><code>Before you revise, use this checklist:
+
+- Preserve all names, dates, and timecodes.
+- Keep technical terms unchanged unless they are clearly wrong.
+- Remove repeated ideas.
+- Make the wording clearer and shorter.
+- Do not add new claims.
+- Flag anything uncertain instead of guessing.
+
+After the revision, show:
+- Revised version
+- Checklist results
+- Items that need human review</code></pre>
+<p>For AV work, checklists are useful with edit notes, equipment summaries, captions, SharePoint copy, scripts, documentation, asset lists, and post-production QA. They help the model separate the writing task from the review task.</p><p>The small habit: before asking AI to revise or summarize something, give it a short checklist of what must stay true.</p><p>Next week, Back to Basics Week 7: <strong>Give It Examples Before You Ask for Output</strong> &#8212; why two examples can do more than a long explanation.</p><hr><h2>Sources</h2><p>1. <a href="https://blog.google/innovation-and-ai/products/veo-updates-flow/" target="_blank" rel="noopener">Google &#8212; Bringing new Veo 3.1 updates into Flow</a> &#8212; July 2026 &#8212; Veo 3.1 in Flow, audio across existing features, editing controls</p>
+<p>2. <a href="https://blog.google/innovation-and-ai/technology/developers-tools/veo-3-1-gemini-api/" target="_blank" rel="noopener">Google &#8212; Enhanced Veo 3.1 capabilities in the Gemini API</a> &#8212; July 2026 &#8212; Ingredients to Video, vertical format, 1080p/4K, Gemini API and Vertex AI</p>
+<p>3. <a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener">Anthropic &#8212; Introducing Claude Sonnet 5</a> &#8212; June 30, 2026 &#8212; Sonnet 5 release, availability, pricing, model positioning</p>
+<p>4. <a href="https://www.anthropic.com/claude/sonnet?prog_id=5" target="_blank" rel="noopener">Anthropic &#8212; Claude Sonnet 5</a> &#8212; June 30, 2026 &#8212; Sonnet 5 benchmark and product details</p>
+<p>5. <a href="https://runwayml.com/news/runway-announces-creative-partnership-with-bertelsmann" target="_blank" rel="noopener">Runway &#8212; Runway Announces Creative Partnership with Bertelsmann</a> &#8212; July 1, 2026 &#8212; Runway models integrated across Bertelsmann businesses</p>
+<p>6. <a href="https://news.adobe.com/news/2026/06/adobe-to-acquire-topaz-labs" target="_blank" rel="noopener">Adobe &#8212; Adobe to Acquire Topaz Labs</a> &#8212; June 25, 2026 &#8212; definitive acquisition agreement and Topaz integration plans</p>
+<p>7. <a href="https://techcrunch.com/2026/06/25/adobe-acquires-image-and-video-enhancement-tool-maker-topaz-labs/" target="_blank" rel="noopener">TechCrunch &#8212; Adobe acquires Topaz Labs</a> &#8212; June 25, 2026 &#8212; context on Topaz products and Adobe integration</p>
+<p>8. <a href="https://programminginsider.com/seedance-2-5-arrives-on-topview-with-bigger-ai-video-workflows/" target="_blank" rel="noopener">Programming Insider &#8212; Seedance 2.5 Arrives on Topview</a> &#8212; July 2026 &#8212; early-access positioning and workflow details</p>
+<p>9. <a href="https://ltx.io/model/ltx-2-3" target="_blank" rel="noopener">LTX &#8212; LTX-2.3 video engine</a> &#8212; 2026 &#8212; model capabilities, audio-to-video, cleaner audio, native portrait output</p>
+<p>10. <a href="https://ltx.io/release-notes" target="_blank" rel="noopener">LTX &#8212; Model News & Release Notes</a> &#8212; 2026 &#8212; LTX 2.3 release notes and API variants</p>
+<p>11. <a href="https://artificialanalysis.ai/video/leaderboard/text-to-video" target="_blank" rel="noopener">Artificial Analysis &#8212; Text to Video Leaderboard</a> &#8212; July 2026 &#8212; text-to-video leaderboard with audio</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>

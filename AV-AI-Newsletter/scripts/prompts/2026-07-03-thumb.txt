@@ -1,0 +1,9 @@
+Minimalist editorial illustration for an AI newsletter video cover. Subject: a calm production workspace where a video clip, reference image cards, an audio waveform card, and an edit control panel are connected into one clean workflow. The composition should suggest AI video becoming more editable, more audio-aware, and more connected to production systems, without using any readable text.
+
+Include subtle production cues: a timeline strip with clip blocks, a small insert/edit marker, image reference cards, audio waveform shapes, a cloud/API connector icon represented abstractly, and a polished final frame card. Use only abstract marks and icons; no brand logos, no software UI copies, no readable words, no file extensions or labels.
+
+Style: premium editorial illustration, flat 2D with soft paper texture, clean schematic layout, generous negative space. Warm parchment background (#f5f0e8), muted dispatch blue (#4a6da7) as the main accent, dark ink details (#2d2d42), soft neutral shadows. No people, no faces, no brand logos, no readable text, no sci-fi genre imagery, no unrelated symbolic imagery, no glow effects, no neon, no 3D render.
+
+Mood: calm, practical, professional, production-focused. The image should communicate: "AI video is becoming an editable workflow with audio, references, and finishing tools connected."
+
+Format: 16:9 landscape composition suitable for a newsletter video thumbnail. No watermark, no signature, no text.

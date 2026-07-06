@@ -1,0 +1,191 @@
+<!-- AVS AI Dispatch &#8212; Week of July 3, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body pre {
+  margin: 18px 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 109, 167, 0.14);
+  border-radius: var(--radius);
+  background: var(--dispatch-blue-05);
+}
+.avs-dispatch .edition-body pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-07-03</span>
+      <span class="edition-date">Week of July 3, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote><strong>This week, AI video became more editable and more audio-aware.</strong> Google brought <strong>Veo 3.1</strong> into Flow with audio support across Ingredients to Video, Frames to Video, and Extend. Anthropic released <strong>Claude Sonnet 5</strong>, a lower-cost model focused on agentic coding, tool use, and multi-step work. Runway expanded its partnership with Bertelsmann, showing AI video moving deeper into large media workflows. Adobe's Topaz deal also reminded the industry that enhancement, restoration, and upscaling are becoming central to AI production.</blockquote><hr><h2>The Big Story</h2><h3>Google Brings Veo 3.1 Into Flow</h3><p>Google updated Flow with <strong>Veo 3.1</strong>, adding richer audio, better prompt adherence, more realistic textures, and more precise editing controls.</p><p>The most important change is audio support across more Flow modes:</p><ul>
+<li>Ingredients to Video</li>
+<li>Frames to Video</li>
+<li>Extend</li>
+</ul><p>These are the modes that use more than a text prompt. Ingredients to Video works from reference materials. Frames to Video uses a starting or ending image. Extend continues an existing clip.</p><p>Adding audio to those modes makes the output more production-like. The model is not only creating a silent clip; it can carry visual references, timing, motion, and sound together.</p><p>Google also added more editing control with <strong>Insert</strong>, a feature that adds an element to an existing scene while preserving the surrounding clip. Object removal is planned next.</p><p>Veo 3.1 is available through Flow, the Gemini API, Vertex AI, the Gemini app, and Google Vids. Some audio features are still experimental, so review and editing remain part of the process.</p><p><strong>Source:</strong> <a href="https://blog.google/innovation-and-ai/products/veo-updates-flow/" target="_blank" rel="noopener">Google</a> &#183; <a href="https://blog.google/innovation-and-ai/technology/developers-tools/veo-3-1-gemini-api/" target="_blank" rel="noopener">Google Gemini API</a> &#183; July 2026</p><hr><h2>Other Stories</h2><h3>Claude Sonnet 5 Is About Agentic Work</h3><p>Anthropic released <strong>Claude Sonnet 5</strong> on June 30.</p><p>Anthropic describes it as the most agentic Sonnet model yet. The model is built for planning, tool use, coding, terminal workflows, and longer multi-step tasks.</p><p>Key details:</p><ul>
+<li>Available across Claude plans</li>
+<li>Available in Claude Code</li>
+<li>Available through the Claude API as <code>claude-sonnet-5</code></li>
+<li>Introductory API price: <strong>$2 input / $10 output per 1M tokens</strong> through August 31</li>
+<li>Standard price after that: <strong>$3 input / $15 output per 1M tokens</strong></li>
+</ul><p>Anthropic reports <strong>63.2% on SWE-bench Pro</strong> and <strong>80.4% on Terminal-Bench 2.1</strong>.</p><p>For AV teams, the relevance is mostly around workflow support: scripts, file organization, metadata cleanup, QA passes, SharePoint packaging, publishing workflows, and small internal tools.</p><p><strong>Source:</strong> <a href="https://www.anthropic.com/news/claude-sonnet-5" target="_blank" rel="noopener">Anthropic</a> &#183; June 30, 2026</p><h3>Runway Expands Its Bertelsmann Partnership</h3><p>Runway announced a creative partnership with <strong>Bertelsmann</strong> on July 1.</p><p>The agreement brings Runway models into Bertelsmann businesses including RTL Group, BMG, and Bertelsmann Marketing Services. Runway says the relationship began through the Bertelsmann AI Hub in 2024 and is now expanding into broader creative workflow development.</p><p>The important pattern: AI video tools are moving from individual browser experiments into operational media workflows.</p><p><strong>Source:</strong> <a href="https://runwayml.com/news/runway-announces-creative-partnership-with-bertelsmann" target="_blank" rel="noopener">Runway</a> &#183; July 1, 2026</p><h3>Adobe's Topaz Deal Highlights AI Enhancement</h3><p>Late last week, Adobe announced a definitive agreement to acquire <strong>Topaz Labs</strong>.</p><p>Topaz is known for AI image and video enhancement: sharpening, denoising, restoring, upscaling, and improving existing footage or images.</p><p>Adobe says Topaz technology will come into Firefly, Firefly Services, and Creative Cloud apps, while Topaz products will continue as standalone offerings. Adobe also highlighted Topaz's <strong>Neurostream</strong> technology for running large image and video models locally on consumer hardware.</p><p>The useful reminder: AI production is not only generation. Finishing, restoration, and enhancement are becoming part of the same tool stack.</p><p><strong>Source:</strong> <a href="https://news.adobe.com/news/2026/06/adobe-to-acquire-topaz-labs" target="_blank" rel="noopener">Adobe</a> &#183; <a href="https://techcrunch.com/2026/06/25/adobe-acquires-image-and-video-enhancement-tool-maker-topaz-labs/" target="_blank" rel="noopener">TechCrunch</a> &#183; June 25, 2026</p><hr><h2>Quick Hits</h2><ul>
+<li><strong>Seedance 2.5 moved into early-access coverage.</strong> Since we covered the preview last week, the main update is workflow positioning: longer clips, more references, region-level editing, and native audio-video generation.</li>
+<li><strong>LTX 2.3 keeps pushing open audio-video generation.</strong> LTX emphasizes synchronized audio-video output, cleaner audio, native portrait output, and audio-to-video workflows. Older LTX 2.0 LoRAs need retraining because the latent space changed.</li>
+<li><strong>Video leaderboards remain task-dependent.</strong> Artificial Analysis shows Seedance 2.0 leading among text-to-video models with audio output, but different rankings weigh Veo, Kling, HappyHorse, and Runway differently.</li>
+</ul><hr><h2>Common Threads</h2><h3>Video Is Becoming Editable After Generation</h3><p>Veo 3.1 in Flow, Seedance 2.5's region-level editing, Runway's workflow partnerships, and LTX's retake/extend-style tooling all point toward the same direction: generation is becoming only the first step.</p><h3>Audio Is Becoming Part of the Video Model</h3><p>Google is adding audio across more Flow modes. LTX continues to emphasize synchronized audio-video generation. Seedance is also framed around native audio-video output. The old pattern of silent clips first and sound later is starting to change.</p><h3>Enterprise AI Is About Workflow Fit</h3><p>Runway with Bertelsmann, Adobe with Topaz, and Google through Vertex AI all show the same pattern. The tool has to fit into production, review, enhancement, and deployment workflows.</p><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 6: Use Checklists as Guardrails</h3><p>When asking AI to revise, summarize, or review something, give it a checklist first.</p><p>Example:</p><p>
+<pre><code>Before you revise, use this checklist:
+
+- Preserve all names, dates, and timecodes.
+- Keep technical terms unchanged unless they are clearly wrong.
+- Remove repeated ideas.
+- Make the wording clearer and shorter.
+- Do not add new claims.
+- Flag anything uncertain instead of guessing.
+
+After the revision, show:
+- Revised version
+- Checklist results
+- Items that need human review</code></pre>
+<p>For AV work, this helps with edit notes, equipment summaries, captions, SharePoint copy, scripts, documentation, asset lists, and QA passes.</p><p>The small habit: before asking AI to improve something, tell it how you will judge the result.</p><p>Next week: <strong>Give It Examples Before You Ask for Output</strong>.</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>

@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-07-03 — Week of July 3, 2026
+
+> Google brought Veo 3.1 into Flow with audio support across reference, frame, and extension workflows. Anthropic released Claude Sonnet 5 for lower-cost agentic coding and tool use. Runway expanded its Bertelsmann partnership, Adobe's Topaz deal put enhancement and restoration back in focus, and the video model market kept splitting around native audio, reference capacity, editable outputs, and workflow deployment.
+
+---
+
 ## 2026-06-26 — Week of June 26, 2026
 
 > AI video control moved from better prompts toward better reference systems as creators use Blender camera paths, depth passes, edge passes, pose passes, grey-box scenes, and 3D blocking to guide video models. ByteDance previewed Seedance 2.5 with longer clips and more reference inputs, OpenAI announced GPT-5.6 in limited preview, and Sonilo brought licensed video-to-music generation to fal.ai.
