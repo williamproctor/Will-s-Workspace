@@ -1,0 +1,9 @@
+Minimalist editorial illustration for an AI newsletter video cover. Subject: one complete production workflow shown as a calm horizontal sequence of connected cards — intake, scheduling, camera and microphone capture, editing timeline, review notes, metadata, publishing, and archive storage — with a small coordinating agent panel spanning the whole chain. The composition should communicate that the workflow, rather than one isolated task, is the unit of AI adoption. Do not use readable text.
+
+Include subtle production cues: a camera icon, microphone waveform, timeline clip blocks, review marker, metadata grid, cloud/file card, archive box, and thin connecting lines that preserve a clear beginning-to-end flow. Use abstract marks and icons only; no brand logos, no copied software interfaces, no readable words, no file extensions, and no labels.
+
+Style: premium editorial illustration, flat 2D with soft paper texture, clean schematic layout, generous negative space. Warm parchment background (#f5f0e8), muted dispatch blue (#4a6da7) as the only accent, dark ink details (#2d2d42), soft neutral shadows. No people, no faces, no brand logos, no readable text, no futuristic genre imagery, no unrelated symbolism, no glow effects, no neon, no gradients, no wireframes, no three-dimensional render.
+
+Mood: calm, practical, professional, systems-focused. The image should communicate: "AI adoption works across the complete production workflow."
+
+Format: 16:9 landscape composition suitable for a newsletter video thumbnail. No watermark, no signature, no text.

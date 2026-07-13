@@ -1,0 +1,211 @@
+<!-- AVS AI Dispatch &#8212; Week of July 10, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body pre {
+  margin: 18px 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 109, 167, 0.14);
+  border-radius: var(--radius);
+  background: var(--dispatch-blue-05);
+}
+.avs-dispatch .edition-body pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-07-10</span>
+      <span class="edition-date">Week of July 10, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote><strong>Uber provided this week&#8217;s clearest example of AI adoption moving from individual tasks into departmental workflows.</strong> Its &#8220;Agentic Pods&#8221; pair AI-proficient engineers with business experts for two weeks of observation, building, validation, and deployment. In media, <strong>Runway Dev</strong> brought first- and third-party image, video, and audio models into one enterprise platform. <strong>Meta launched Muse Image and previewed Muse Video</strong> with native audio. <strong>GPT-5.6 became generally available</strong>, accompanied by ChatGPT Work for long-running tasks. And <strong>LucidLink connected Frame.io footage with external production storage</strong> without moving or duplicating files.</blockquote><hr><h2>The Big Story</h2><h3>Uber&#8217;s Agentic Pods Focus on Complete Workflows</h3><p>Uber CTO <strong>Praveen Neppalli Naga</strong> shared company-reported figures showing how deeply AI has entered its engineering organization:</p><ul>
+<li>99 percent of engineers use AI tools</li>
+<li>More than 70 percent of pull requests are attributed to local or cloud agents</li>
+<li>Engineers have created more than 2,500 agent skills</li>
+</ul><p>The figures have not been independently audited. The more useful part of the story is how Uber is taking AI into finance, legal, operations, marketing, support, HR, procurement, and other departments.</p><p>Uber selected approximately 30 AI-proficient engineers and paired each one with a departmental expert. Each <strong>Agentic Pod</strong> received two weeks:</p><ul>
+<li>Days 1&#8211;2: Observe and document the work</li>
+<li>Day 3: Prioritize opportunities</li>
+<li>Days 4&#8211;5: Build an agent with the expert</li>
+<li>Days 6&#8211;9: Validate it with more users</li>
+<li>Day 10: Ship</li>
+</ul><p>Naga said Uber ran 16 pods across 16 business functions in two months. Reported results included:</p><ul>
+<li>Capital allocation analysis: 15 hours to 30 minutes</li>
+<li>Financial pacing reports: two days to 10 minutes</li>
+<li>Marketing website QA: two weeks to 50 minutes</li>
+<li>Support workflow creation: 9,000 manual workflows moved to self-service automation</li>
+</ul><p>The main lesson was not simply faster tasks. Uber found larger gains by redesigning whole workflows, including handoffs, approvals, tools, and cross-team steps.</p><p>For AV departments, that pattern is relevant to work spanning intake, scheduling, recording, editing, review, captions, metadata, publishing, archiving, and support. Uber&#8217;s approach begins by observing the people doing the work rather than trying to automate from documentation alone.</p><p><strong>Source:</strong> <a href="https://x.com/praveenTweets/status/2074605343439810922" target="_blank" rel="noopener">Praveen Neppalli Naga</a> &#183; <a href="https://www.businessinsider.com/uber-cto-bets-on-agentic-pods-make-ai-more-efficient-2026-7" target="_blank" rel="noopener">Business Insider</a> &#183; July 7, 2026</p><hr><h2>Other Stories</h2><h3>Runway Dev Puts Multiple Media Models Behind One API</h3><p>Runway launched <strong>Runway Dev</strong>, an enterprise media platform that combines its own models with third-party options.</p><p>The initial catalog includes:</p><ul>
+<li>Runway Gen-4.5</li>
+<li>Runway Aleph 2.0</li>
+<li>Runway Act-Two</li>
+<li>ByteDance Seedance</li>
+<li>OpenAI GPT Image 2</li>
+<li>ElevenLabs models</li>
+</ul><p>Runway says developers can change models with one line of code and monitor spending through one dashboard.</p><p>The platform also includes vendor-stated enterprise controls such as no-training commitments, zero-data-retention support, SOC 2 Type II compliance, IP indemnification, moderation, cost controls, and a 99.9 percent uptime commitment.</p><p>The larger pattern: professional media systems are starting to assume that different models will handle different parts of the workflow.</p><p><strong>Source:</strong> <a href="https://runwayml.com/news/introducing-runway-dev" target="_blank" rel="noopener">Runway</a> &#183; July 8, 2026</p><h3>Meta Launches Muse Image and Previews Muse Video</h3><p>Meta released <strong>Muse Image</strong>, an image generation and editing model that can compose from multiple references, use tools, and refine its own output.</p><p>Meta also introduced <strong>Content Seal</strong>, an invisible provenance signal designed to survive cropping, compression, resizing, and screenshots.</p><p><strong>Muse Video</strong> remains a preview. Meta says it generates native audio with video, while acknowledging that audio-video synchronization and physically accurate fast motion still need improvement.</p><p>The immediate story is not a finished new video platform. It is Meta combining media generation, editing, references, tool use, and provenance in one model family.</p><p><strong>Source:</strong> <a href="https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/" target="_blank" rel="noopener">Meta</a> &#183; July 7, 2026</p><h3>GPT-5.6 Is Now Generally Available</h3><p>OpenAI moved <strong>GPT-5.6 Sol, Terra, and Luna</strong> from limited preview into general availability across ChatGPT, Codex, and the API.</p><p>The release includes:</p><ul>
+<li>Ultra mode with parallel subagents</li>
+<li>Program Calling for coordinating tools</li>
+<li>A multi-agent API capability entering beta</li>
+<li>Stronger computer-use and design performance</li>
+</ul><p>OpenAI also launched <strong>ChatGPT Work</strong>, an agent that can remain with a project for hours, gather information across connected applications and files, and create finished documents, spreadsheets, slides, or web applications.</p><p>The operational questions remain permissions, connected systems, review controls, and data handling&#8212;not only benchmark results.</p><p><strong>Source:</strong> <a href="https://openai.com/index/gpt-5-6/" target="_blank" rel="noopener">OpenAI GPT-5.6</a> &#183; <a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/" target="_blank" rel="noopener">ChatGPT Work</a> &#183; July 9, 2026</p><h3>LucidLink Connect Unifies Frame.io and Production Storage</h3><p>LucidLink introduced a workflow that places Frame.io Camera-to-Cloud footage beside assets held in other cloud and storage systems.</p><p>It does not move or duplicate the files. Editors access them through one filespace and can work in Premiere, Resolve, or Avid.</p><p>The system streams only the portions of media needed for playback and editing. It is currently available to enterprise accounts.</p><p>This matters to AI workflows because agents and media models need reliable access to the right assets, paths, permissions, and versions.</p><p><strong>Source:</strong> <a href="https://www.lucidlink.com/blog/lucidlink-connect-frame-io" target="_blank" rel="noopener">LucidLink</a> &#183; July 7, 2026</p><hr><h2>Quick Hits</h2><ul>
+<li><strong>GPT-Live</strong> brings full-duplex voice to ChatGPT, allowing the system to listen and speak at the same time. API access is planned. Voice with video or screen sharing is not supported at launch.</li>
+<li><strong>Runway AVTensor</strong> is an open-source media decoder designed to keep audio and video aligned from the same time origin in model-training pipelines.</li>
+</ul><hr><h2>Common Threads</h2><h3>The Workflow Is Becoming the Unit of AI Adoption</h3><p>Uber&#8217;s pods redesign full departmental workflows. ChatGPT Work operates across applications. Runway Dev connects multiple models. LucidLink connects media stored across systems.</p><p>The model is becoming one part of a longer chain of work.</p><h3>Model Choice Is Moving Behind a Platform</h3><p>Runway Dev provides multiple media models. GPT-5.6 has capability and cost tiers. Meta connects reasoning and media generation.</p><p>This places more importance on routing, permissions, cost tracking, retention, and reliability.</p><h3>Data Access Matters as Much as Model Capability</h3><p>Agents cannot complete work without access to the correct files and systems. Media models cannot produce reliable results from misaligned audio and video. The data layer remains part of the production system.</p><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 7: Give It Examples Before You Ask for Output</h3><p>When a format matters, give AI two representative examples before requesting a new output.</p><p>Use this pattern:</p><p>
+<pre><code>Here are two examples of the output format I want.
+
+Example 1:
+[Paste a strong example]
+
+Example 2:
+[Paste another strong example]
+
+Create a new version using the same:
+- Structure
+- Level of detail
+- Tone
+- Labeling pattern
+- Approximate length
+
+Do not copy the subject matter or wording.
+Use the examples only as format references.</code></pre>
+<p>For AV work, examples can establish the format for edit notes, timecodes, equipment summaries, captions, production documentation, client updates, show notes, and QA reports.</p><p>Remove confidential names, links, credentials, and project details before sharing examples with an AI system.</p><p>The small habit: provide two examples and clearly identify what the model should imitate&#8212;and what it should not copy.</p><p>Next week: <strong>Separate Drafting From Review</strong>.</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>

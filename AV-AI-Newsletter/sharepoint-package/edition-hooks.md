@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-07-10 — Week of July 10, 2026
+
+> Uber's Agentic Pods pair AI-proficient engineers with departmental experts to redesign complete workflows. Runway Dev unifies first- and third-party media models behind one enterprise platform. Meta launched Muse Image and previewed Muse Video, GPT-5.6 became generally available with ChatGPT Work, and LucidLink connected Frame.io footage with external production storage.
+
+---
+
 ## 2026-07-03 — Week of July 3, 2026
 
 > Google brought Veo 3.1 into Flow with audio support across reference, frame, and extension workflows. Anthropic released Claude Sonnet 5 for lower-cost agentic coding and tool use. Runway expanded its Bertelsmann partnership, Adobe's Topaz deal put enhancement and restoration back in focus, and the video model market kept splitting around native audio, reference capacity, editable outputs, and workflow deployment.

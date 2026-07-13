@@ -39,6 +39,40 @@ After completing the **initial draft pass** of the full and simplified editions 
 
 This step is required even when the week's news seems benign. Last-mile review is cheaper than a published faux pas.
 
+## NotebookLM Producer Briefs (required for every edition)
+
+After the user approves the full and simplified drafts and the content-sensitivity review passes, generate two purpose-built NotebookLM source documents **before** producing audio or video:
+
+- `notebooklm/YYYY-MM-DD-podcast.md` — Audio Overview producer brief
+- `notebooklm/YYYY-MM-DD-video.md` — Video Overview producer brief
+
+Use the approved full edition as the sole source of truth:
+
+```bash
+python3 scripts/generate_notebooklm_briefs.py YYYY-MM-DD \
+  --video-title "Short editorial episode title"
+```
+
+The generator orders the lead story, supporting stories, common threads, emerging ideas, and weekly tip into separate podcast/video structures; embeds the audience and house-style constraints; preserves factual qualifiers; and validates both files. Generated briefs refresh when their edition source changes. Manually refined briefs are preserved, but validation fails if they are older than the edition source so they cannot silently drift from the newsletter.
+
+Before media generation:
+
+1. Run `python3 scripts/generate_notebooklm_briefs.py YYYY-MM-DD --check`.
+2. Compare both briefs with `editions/YYYY-MM-DD.md`.
+3. Confirm every statistic, date, product status, quotation, and company-reported qualifier matches.
+4. Confirm the podcast has a clear through-line and spends the most time on the lead story.
+5. Confirm the video brief has a concise suggested title, five-to-seven-minute segment order, and useful on-screen facts.
+6. Upload only the matching brief to NotebookLM — never add the raw edition markdown as a second source.
+
+The preferred weekly build command automatically generates/validates both briefs before the public and SharePoint builds:
+
+```bash
+python3 scripts/build_weekly_edition.py YYYY-MM-DD \
+  --video-title "Short editorial episode title"
+```
+
+See `notebooklm/README.md` for NotebookLM Audio Overview and Video Overview settings, customize prompts, and export instructions.
+
 ## What to Avoid
 
 - **Directives or calls to action.** Never tell the reader to adopt, migrate, benchmark, evaluate, or stop using a tool. The newsletter informs; the reader decides.
@@ -146,7 +180,8 @@ SharePoint modern pages cannot run JavaScript, so a separate sister build render
 
 1. Source markdown (full + simplified).
 2. **Content-review step** (see "Mandatory Content-Review Step"): flag potentially sensitive content and get user sign-off before building.
-3. Site build: `build_<month>.py` → archive entry → sitemap entry.
-4. Media: m4a + mp3 pair; video + thumbnail.
-5. SharePoint build: `build_sharepoint.py YYYY-MM-DD` + CSV row + feature flip.
-6. One commit, one push. Vercel deploys the site; SharePoint team pulls the package folder.
+3. **NotebookLM producer briefs:** generate and validate podcast + video source documents.
+4. Site + SharePoint builds: use `scripts/build_weekly_edition.py YYYY-MM-DD --video-title "..."` after metadata is updated.
+5. Media: NotebookLM audio m4a + mandatory mp3 copy; NotebookLM video mp4 + generated thumbnail.
+6. Update media flags and SharePoint media URLs after the files arrive.
+7. One commit, one push. Vercel deploys the site; SharePoint team pulls the package folder.
