@@ -1,0 +1,216 @@
+<!-- AVS AI Dispatch &#8212; Week of July 17, 2026 (Full Edition) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body pre {
+  margin: 18px 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 109, 167, 0.14);
+  border-radius: var(--radius);
+  background: var(--dispatch-blue-05);
+}
+.avs-dispatch .edition-body pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-07-17</span>
+      <span class="edition-date">Week of July 17, 2026</span>
+    </div>
+    <div class="edition-kicker">Full Edition</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote><strong>AI media is moving from impressive output toward correctable production objects.</strong> Foundry&#8217;s SmartRoto returns editable splines instead of a flat mask. Decart&#8217;s Lucy 2.5 keeps a generated video stream open to live direction. MultiRef-Compass measures whether references stay attached to the correct people, objects, actions, and sounds. Synthesia Dubbing 2.0 lets editors revise and regenerate individual segments, while BandLab&#8217;s acquisition of Aiode brings a licensed, musician-participatory system for producing editable stems. Beyond media tools, Kimi K3 and the late-breaking Qwen3.8-Max-Preview show how quickly the general-model frontier is widening&#8212;and why launch-day scale claims are not the same as proven production quality.</blockquote><hr><h2>This Week in AI</h2><h3>SmartRoto Returns the Part Compositors Need to Correct</h3><p>Foundry released <strong>SmartRoto</strong> on July 17 as a plugin for Nuke. An artist creates keyframes in the existing Roto node, and SmartRoto propagates the shape through the shot while preserving an editable spline.</p><p>That output format is the important part. A flat AI mask can look convincing and still be awkward to repair. A spline can be adjusted point by point, combined with artist-created keyframes, and carried into the next familiar stage of compositing.</p><p>SmartRoto costs <strong>$499 per year at its introductory price</strong> and <strong>$599 per year at the regular price</strong>. It requires a separate Nuke-family license. Foundry also offers an unrestricted 90-day trial.</p><p>Inference runs locally, and Foundry says the model was trained on licensed data, with no customer footage transmitted for processing. The plugin requires Nuke 16.1 or later; Foundry recommends more than 8GB of VRAM and lower-resolution work on less capable GPUs.</p><p>The speed claim needs context. Foundry advertises <strong>up to four times faster</strong> roto work. In independent reporting from fxguide, Foundry&#8217;s testing lead said <strong>roughly two times faster was the more consistent result</strong>, with four times representing the high end. Those figures describe vendor testing and reporting, not a broad independent benchmark across production shots.</p><p>SmartRoto is a useful example of this week&#8217;s larger shift. The AI output is not positioned as the end of the job. It is a correctable production object inside the tool artists already use.</p><p><strong>Source:</strong> <a href="https://www.foundry.com/products/nuke-family/smartroto" target="_blank" rel="noopener">Foundry &#8212; SmartRoto</a> &#183; <a href="https://www.fxguide.com/fxfeatured/foundrys-smartroto-ai-assisted-roto-that-aims-to-work-the-way-you-do/" target="_blank" rel="noopener">fxguide &#8212; independent SmartRoto reporting</a> &#183; July 17, 2026</p><h3>Lucy 2.5 Treats a Live Video Stream as an Editable Surface</h3><p>Decart launched <strong>Lucy 2.5</strong> on July 16 for real-time editing of streaming video. Text and reference images can direct subject replacement, object addition or removal, environment changes, and edits that persist as the stream continues.</p><p>The model uses WebRTC and supports landscape and portrait output. Decart&#8217;s release page says <strong>1080p at 30 frames per second</strong>, while the current API documentation lists <strong>1280&#215;720</strong>. That discrepancy matters for production planning, and no independent latency, consistency, or quality benchmark was available during the research window.</p><p>Lucy 2.5 represents a different interaction model from prompt, render, and export. The moving image remains responsive while it plays, bringing generative editing closer to live camera processing, virtual sets, and interactive production.</p><p><strong>Source:</strong> <a href="https://decart.ai/publications/lucy-2-5-raising-the-bar-for-live-ai" target="_blank" rel="noopener">Decart &#8212; Lucy 2.5 release</a> &#183; <a href="https://docs.platform.decart.ai/models/realtime/lucy-2.5" target="_blank" rel="noopener">Decart &#8212; Lucy 2.5 API documentation</a> &#183; July 16, 2026</p><h3>MultiRef-Compass Tests Whether References Stay Correctly Bound</h3><p>The <strong>MultiRef-Compass</strong> paper, posted July 15, evaluates eight audio-video systems across <strong>350 curated multi-reference samples</strong>. Its four dimensions are basic quality, reference consistency, audio-visual consistency, and instruction following.</p><p>The authors reported Gemini Omni leading their visual-quality and lip-sync measures, while Kling narrowly led entity fidelity. Those comparisons are not complete head-to-head results: safety filters reduced Seedance to <strong>282 samples</strong> and Gemini Omni to <strong>245</strong>, several automatic metrics use Gemini 3.1 Pro as a judge, and the work has not yet been independently replicated.</p><p>The benchmark is valuable because it identifies production failures that a general preference score can miss: one identity splitting into two, roles being exchanged, attributes moving to the wrong subject, or a sound being assigned to the wrong source.</p><p>For reference-driven production, a polished frame is only part of correctness. The right face, object, action, voice, and sound must remain bound together throughout the result.</p><p><strong>Source:</strong> <a href="https://arxiv.org/abs/2607.14189" target="_blank" rel="noopener">MultiRef-Compass paper</a> &#183; <a href="https://github.com/zxhhh0201/MultiRef-Compass" target="_blank" rel="noopener">MultiRef-Compass code</a> &#183; July 15, 2026</p><h3>Synthesia Dubbing 2.0 Makes Localization More Correctable</h3><p>Synthesia released <strong>Dubbing 2.0</strong> on July 15 with revised lip sync, voice, translation, glossary support, and timing preservation across more than 130 languages.</p><p>Editors can review the transcript and translation, then regenerate an individual segment instead of rerendering the complete video. The service is live for all customers, while Enterprise plans unlock the complete editing workflow and unlimited dubbing.</p><p>Synthesia describes the result as a publishable first pass. That is a vendor claim: the company did not provide a blind comparison, numerical error rate, or independent evaluation. The more verifiable workflow change is the ability to isolate a failed segment, correct it, and continue.</p><p><strong>Source:</strong> <a href="https://www.synthesia.io/post/introducing-dubbing-2-0" target="_blank" rel="noopener">Synthesia &#8212; Dubbing 2.0</a> &#183; July 15, 2026</p><h3>BandLab Acquires Aiode and Its Licensed Music Workflow</h3><p>BandLab Technologies announced its acquisition of <strong>Aiode</strong> on July 15. Aiode&#8217;s standalone web and desktop beta will continue.</p><p>Aiode creates audio-to-audio musician and style models. It supports section-level direction, alternate takes, and export of separate <strong>48kHz/24-bit stereo WAV stems</strong> rather than only a completed mix.</p><p>The company says all training recordings are licensed and traceable, participating musicians help build their individual models, and those musicians receive revenue share. Those are company statements; revenue-share percentages and acquisition terms were not disclosed, and several digital-audio-workstation capabilities remain planned rather than available.</p><p>The combination of licensed source material, performer participation, section-level revision, and separate stems places rights and editability inside the music workflow rather than treating them as follow-up questions.</p><p><strong>Source:</strong> <a href="https://bandlabtechnologies.com/news/bandlab-technologies-announces-acquisition-ai-powered-digital-music-studio-aiode/" target="_blank" rel="noopener">BandLab Technologies &#8212; Aiode acquisition</a> &#183; <a href="https://aiode.com/product/" target="_blank" rel="noopener">Aiode &#8212; product details</a> &#183; July 15, 2026</p><hr><h2>Frontier Watch</h2><h3>Kimi K3 Arrives as a Large Video-Aware Understanding and Agent Model</h3><p>Moonshot AI launched <strong>Kimi K3</strong> on July 16 with <strong>2.8 trillion total parameters</strong>, with <strong>16 of 896 experts active</strong> for each token. It accepts native image and video input and supports a <strong>one-million-token context window</strong>.</p><p>Kimi K3 is hosted now through Kimi products and the API. Full weights are <strong>scheduled for July 27</strong>; they were not downloadable during this edition&#8217;s research window. API pricing is <strong>$0.30 per million cached input tokens, $3 per million fresh input tokens, and $15 per million output tokens</strong>. Moonshot recommends deployment on supernode configurations with <strong>64 or more accelerators</strong>, so a future open-weight release would not make this an ordinary-workstation model.</p><p>For AV work, Kimi K3 is an understanding and agent model, <strong>not a native video generator</strong>. Moonshot demonstrated the model examining video, selecting source clips, generating motion-graphics code, making motion-matched cuts, synchronizing edits to beats, processing audio, and revising an edit through tools. That video-editing example is vendor-reported and does not establish ordinary-project reliability or finished-output quality.</p><p>The model&#8217;s size describes scale, not quality. Moonshot&#8217;s own evaluation notes show that hardware, harnesses, reasoning effort, and fallback behavior can materially affect comparisons. Early independent results place Kimi K3 near the frontier and strong on some coding tasks, but launch-day rankings remain unsettled.</p><p><strong>Source:</strong> <a href="https://www.kimi.com/blog/kimi-k3" target="_blank" rel="noopener">Moonshot AI &#8212; Kimi K3</a> &#183; <a href="https://platform.kimi.ai/docs/guide/kimi-k3-quickstart" target="_blank" rel="noopener">Kimi API documentation</a> &#183; <a href="https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems" target="_blank" rel="noopener">VentureBeat &#8212; launch reporting</a> &#183; July 16, 2026</p><h3>Qwen3.8-Max-Preview Adds a Late-Breaking Frontier Claim</h3><p>Alibaba officially announced <strong>Qwen3.8-Max-Preview</strong> on <strong>July 19</strong>, two days outside this edition&#8217;s July 11&#8211;17 research window. It is included here as a late-breaking development because it followed Kimi K3 within days.</p><p>Alibaba reports <strong>2.4 trillion parameters</strong> and multimodal capability. Preview access is available through <strong>Token Plan, Qoder, and QoderWork</strong>. The company has promised open weights but has not published a release date.</p><p>Alibaba says Qwen3.8 is &#8220;second only to Fable 5.&#8221; That is a vendor claim without an independent benchmark package available at announcement. As with Kimi K3, parameter count indicates scale, not demonstrated production quality. The timing shows a widening frontier; it does not settle which model is best.</p><p><strong>Source:</strong> <a href="https://www.scmp.com/tech/article/3361119/alibaba-says-newest-qwen-ai-model-second-only-anthropics-claude-fable-5" target="_blank" rel="noopener">South China Morning Post &#8212; Qwen3.8 announcement reporting</a> &#183; July 19, 2026 &#183; late-breaking</p><hr><h2>Quick Hits</h2><ul>
+<li><strong>Griptape Enterprise</strong> places text, image, video, audio, and 3D models behind node-based workflows with permissions, versioning, provenance metadata, and on-premises or private-cloud deployment. Foundry assigns customers responsibility for verifying the training-data and licensing terms of each connected model. <a href="https://www.foundry.com/products/griptape" target="_blank" rel="noopener">Foundry</a> &#183; <a href="https://www.awn.com/news/foundry-launches-griptape-enterprise-secure-ai-accelerated-vfx-workflows" target="_blank" rel="noopener">Independent coverage</a> &#183; July 17</li>
+<li><strong>Google Vids added Gemini Omni editing and account-linked personal avatars.</strong> This is a partial repeat of earlier Omni coverage; the new part is the integration in Vids. Availability is rolling out to eligible paid plans with account, region, language, age, and administrator requirements, and generated clips receive SynthID. <a href="https://workspace.google.com/blog/product-announcements/introducing-gemini-omni-flash-in-google-vids" target="_blank" rel="noopener">Google Workspace</a> &#183; <a href="https://www.theverge.com/ai-artificial-intelligence/966644/google-vids-will-now-let-you-generate-ai-videos-of-yourself" target="_blank" rel="noopener">Independent coverage</a> &#183; July 16&#8211;17</li>
+<li><strong>NotebookLM became Gemini Notebook.</strong> Google is positioning the product as a broader source-to-media workspace for audio, video, and interactive material. The announcement is primarily a rebrand and product-positioning change, not a new media-model benchmark. <a href="https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/" target="_blank" rel="noopener">Google</a> &#183; July 16</li>
+<li><strong>VideoChat3</strong> is a 4-billion-parameter model for long and streaming video understanding with 16-times spatiotemporal compression. Its reported benchmark scores are author-run, training code was not available during the scan, and long-video testing used H200-class hardware. <a href="https://arxiv.org/abs/2607.14935" target="_blank" rel="noopener">Paper</a> &#183; <a href="https://github.com/MCG-NJU/VideoChat3" target="_blank" rel="noopener">Code</a> &#183; July 16</li>
+<li><strong>LALAL.AI Lynx</strong> is now the default dialogue-isolation model in the company&#8217;s Voice Cleaner and Voice & Noise products across browser, mobile, desktop cloud mode, and API. Processing is cloud-based, and no independent quality comparison was available. <a href="https://www.lalal.ai/blog/lynx-voice-isolation-neural-network/" target="_blank" rel="noopener">LALAL.AI</a> &#183; <a href="https://www.prosoundweb.com/lalal-ai-launches-new-lynx-neural-network-for-speech-denoising/" target="_blank" rel="noopener">Independent coverage</a> &#183; July 14</li>
+<li><strong>GPT-Red</strong> is OpenAI&#8217;s automated system for finding prompt-injection weaknesses before agent deployment. OpenAI&#8217;s reported improvement is an internal measurement, but the release highlights a practical risk for agents connected to footage, transcripts, storage, publishing systems, and credentials. <a href="https://openai.com/index/unlocking-self-improvement-gpt-red/" target="_blank" rel="noopener">OpenAI</a> &#183; July 15</li>
+</ul><hr><h2>Voices This Week</h2><h3>Connie He and M&#225;rcia Mayer on Rough Animation as Direction</h3><p>Connie He and M&#225;rcia Mayer described a production in which storyboards, concept art, character designs, and rough animation remained the source of truth. Text alone did not carry timing, posing, finger movement, camera reveals, or framing precisely enough, so animators blocked motion in familiar tools and used localized refinement to revise small regions without rebuilding complete shots.</p><p>Their account keeps artist-defined material, dailies, and repeated shot review at the center of the process. The generative model changes how the material is rendered, while the production&#8217;s intent remains encoded in visual direction that artists can inspect.</p><p><strong>Source:</strong> <a href="https://themakingof.substack.com/p/filmmaker-connie-he-google-deepminds" target="_blank" rel="noopener">Connie He and M&#225;rcia Mayer &#8212; July production discussion</a> &#183; <a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/dear-upstairs-neighbors/" target="_blank" rel="noopener">Google DeepMind &#8212; production account</a> &#183; July 15, 2026 discussion; January 2026 production account</p><h3>Nathaniel Whittemore on the Agent Harness</h3><p>Nathaniel Whittemore argued that attention is shifting from the isolated model toward the harness around it: tools, permissions, memory, workflow rules, evaluation, and recovery. In this view, the model performs an inner loop of work while people set goals, review failures, and improve the system around it.</p><p>For media operations, that frame connects directly to intake, logging, transcription, captioning, quality assurance, publishing, and archives. The observation is commentary rather than a measured forecast, but it matches this week&#8217;s releases that place models behind repeatable graphs, access controls, and revision steps.</p><p><strong>Source:</strong> <a href="https://aidailybrief.ai/e/2026-07-15" target="_blank" rel="noopener">Nathaniel Whittemore &#8212; July 15 discussion</a> &#183; July 15, 2026</p><h3>Terrence O&#8217;Brien on Rights Controls at Export</h3><p>Terrence O&#8217;Brien reported that upload safeguards in an AI music service did not necessarily resolve the rights status of the final output. His testing found that small changes to an input could weaken matching controls, and a paid commercial plan did not automatically remove underlying rights or distribution risk.</p><p>Product behavior can change, and the legal questions remain unsettled. The durable production point is narrower: permission at input and permission at export are separate checks, especially when music may enter distribution and automated identification systems.</p><p><strong>Source:</strong> <a href="https://www.theverge.com/podcast/965581/suno-ai-music-vergecast" target="_blank" rel="noopener">Terrence O&#8217;Brien &#8212; July 14 discussion</a> &#183; <a href="https://www.theverge.com/ai-artificial-intelligence/906896/sunos-copyright-ai-music-covers" target="_blank" rel="noopener">Supporting investigation</a> &#183; July 14, 2026</p><hr><h2>Common Threads</h2><h3>Editable Deliverables Are Becoming the Product</h3><p>SmartRoto returns splines, Dubbing 2.0 isolates correctable segments, and Aiode exports separate stems and alternate takes. In each case, usefulness depends less on a convincing first preview and more on whether the result can enter the next production step without losing control.</p><h3>Control Is Becoming Continuous and Multimodal</h3><p>Lucy 2.5 accepts text and reference images while a stream continues. Connie He and M&#225;rcia Mayer described rough animation carrying timing and performance more precisely than prose. Prompts remain useful, but references, motion, masks, timelines, and live direction are becoming part of the control surface.</p><h3>Rights and Provenance Are Moving Inside the Workflow</h3><p>Aiode places licensing, performer participation, and revenue sharing at the model level. Griptape records provenance and restricts model access. Google Vids adds SynthID to generated clips. Terrence O&#8217;Brien&#8217;s reporting shows why input checks alone do not settle final-output rights.</p><h3>Evaluation Is Becoming Production-Specific</h3><p>MultiRef-Compass checks identity binding, sound-source assignment, and reference consistency. Those are different questions from whether viewers prefer one clip over another. &#8220;Best model&#8221; increasingly depends on the exact workflow and failure mode being measured.</p><h3>The Harness Remains Part of Media Quality</h3><p>Permissions, versioning, model routing, storage, networking, evaluation, and recovery surround the model. Griptape and VideoChat3 approach this from different directions, but both show that reliable media systems depend on infrastructure as well as model capability.</p><h3>The General-Model Frontier Is Widening</h3><p>Kimi K3 and Qwen3.8-Max-Preview arrived within days of one another with trillion-parameter scale and multimodal claims. Hosted access, promised weights, hardware requirements, evaluation settings, and independent testing all differ. The pace is clear; a stable ranking is not.</p><hr><h2>Novel Ideas Worth Watching</h2><h3>Rough Animation as a Control Language</h3><p>Blocked motion can communicate timing, gesture, framing, camera movement, and performance more precisely than an expanding written prompt. Existing animation and previsualization skills therefore remain relevant as inputs to generative systems.</p><h3>The Live Stream as an Editable Canvas</h3><p>Lucy 2.5 keeps a scene responsive during playback rather than fixing it after a render. Vidu S1 researchers separately report continuous video responding to spoken direction, though their performance results are author-reported and the system remains an early preprint. Together, the work points toward live feeds, virtual sets, and interactive events as ongoing generation surfaces.</p><p><strong>Source:</strong> <a href="https://decart.ai/publications/lucy-2-5-raising-the-bar-for-live-ai" target="_blank" rel="noopener">Decart &#8212; Lucy 2.5</a> &#183; <a href="https://huggingface.co/papers/2607.03118" target="_blank" rel="noopener">Vidu S1 paper</a> &#183; <a href="https://github.com/shengshu-ai/Vidu-S1" target="_blank" rel="noopener">Vidu S1 code</a></p><h3>Multi-Reference Binding as Quality Assurance</h3><p>Reference-heavy work needs checks beyond visual appeal and lip synchronization. MultiRef-Compass frames identity, attribute, action, and sound binding as separate review targets, turning a common generation failure into a clearer quality-assurance discipline.</p><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 8: Separate Drafting From Review</h3><p>Use one pass to create and a second pass to critique. Drafting rewards momentum and coverage; review rewards skepticism and precision. Asking for both at once can produce a polished-looking answer that has not been checked systematically.</p><p>For an AV task:</p><p>1. <strong>Draft first.</strong> Ask for the edit notes, transcript summary, metadata, equipment brief, caption file, or production document without requesting critique in the same instruction.
+<p>2. <strong>Start a review pass.</strong> Provide the draft again and ask the AI to identify factual errors, missing material, formatting problems, preservation-rule failures, and unsupported certainty.</p>
+<p>3. <strong>Use a fixed checklist.</strong> Include names, dates, timecodes, source links, technical specifications, required sections, audience fit, and items that must remain unchanged.</p>
+<p>4. <strong>Request findings before revision.</strong> Have the system list each issue and its evidence before producing a corrected version.</p>
+<p>5. <strong>Keep both passes.</strong> The draft, findings, and revision create a clearer audit trail than a single polished response.</p><p>A reusable review instruction:</p>
+<pre><code>Review this draft. Do not rewrite it yet.
+
+Check:
+- Facts against the supplied sources
+- Missing required information
+- Names, dates, numbers, and timecodes
+- Formatting and section requirements
+- Material that must remain unchanged
+- Claims stated with more certainty than the evidence supports
+
+List each issue, explain why it matters, and cite the relevant source.
+Wait for approval before revising.</code></pre>
+<p>This separation is especially useful when an AI-produced result will become a production record, client-facing document, caption file, edit decision, or published asset.</p><p>Next week, Back to Basics Week 9: <strong>Turn recurring review criteria into a reusable checklist.</strong></p><hr><h2>Sources</h2><p>1. <a href="https://www.foundry.com/products/nuke-family/smartroto" target="_blank" rel="noopener">Foundry &#8212; SmartRoto</a> &#8212; July 17, 2026 &#8212; features, pricing, licensing, hardware, local inference, training-data statement, and vendor speed claim</p>
+<p>2. <a href="https://www.fxguide.com/fxfeatured/foundrys-smartroto-ai-assisted-roto-that-aims-to-work-the-way-you-do/" target="_blank" rel="noopener">fxguide &#8212; SmartRoto reporting</a> &#8212; July 17, 2026 &#8212; independent workflow reporting and qualification of the speed claim</p>
+<p>3. <a href="https://decart.ai/publications/lucy-2-5-raising-the-bar-for-live-ai" target="_blank" rel="noopener">Decart &#8212; Lucy 2.5 release</a> &#8212; July 16, 2026 &#8212; live editing capabilities and vendor-reported 1080p/30 FPS claim</p>
+<p>4. <a href="https://docs.platform.decart.ai/models/realtime/lucy-2.5" target="_blank" rel="noopener">Decart &#8212; Lucy 2.5 API documentation</a> &#8212; accessed July 19, 2026 &#8212; current 1280&#215;720 API specification</p>
+<p>5. <a href="https://arxiv.org/abs/2607.14189" target="_blank" rel="noopener">MultiRef-Compass paper</a> &#8212; July 15, 2026 &#8212; benchmark design, reported results, sample reductions, and limitations</p>
+<p>6. <a href="https://github.com/zxhhh0201/MultiRef-Compass" target="_blank" rel="noopener">MultiRef-Compass code</a> &#8212; July 15, 2026 &#8212; accompanying implementation</p>
+<p>7. <a href="https://www.synthesia.io/post/introducing-dubbing-2-0" target="_blank" rel="noopener">Synthesia &#8212; Dubbing 2.0</a> &#8212; July 15, 2026 &#8212; workflow, availability, language count, and vendor quality claim</p>
+<p>8. <a href="https://bandlabtechnologies.com/news/bandlab-technologies-announces-acquisition-ai-powered-digital-music-studio-aiode/" target="_blank" rel="noopener">BandLab Technologies &#8212; Aiode acquisition</a> &#8212; July 15, 2026 &#8212; acquisition and continuing beta</p>
+<p>9. <a href="https://aiode.com/product/" target="_blank" rel="noopener">Aiode &#8212; product details</a> &#8212; accessed July 19, 2026 &#8212; licensed-data statement, musician participation, direction controls, and stem formats</p>
+<p>10. <a href="https://www.kimi.com/blog/kimi-k3" target="_blank" rel="noopener">Moonshot AI &#8212; Kimi K3</a> &#8212; July 16, 2026 &#8212; architecture, multimodal inputs, context, availability schedule, and vendor demonstrations</p>
+<p>11. <a href="https://platform.kimi.ai/docs/guide/kimi-k3-quickstart" target="_blank" rel="noopener">Kimi API documentation</a> &#8212; accessed July 19, 2026 &#8212; hosted access and API pricing</p>
+<p>12. <a href="https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems" target="_blank" rel="noopener">VentureBeat &#8212; Kimi K3 launch reporting</a> &#8212; July 16, 2026 &#8212; independent launch context and early evaluation nuance</p>
+<p>13. <a href="https://www.scmp.com/tech/article/3361119/alibaba-says-newest-qwen-ai-model-second-only-anthropics-claude-fable-5" target="_blank" rel="noopener">South China Morning Post &#8212; Qwen3.8 announcement reporting</a> &#8212; July 19, 2026 &#8212; late-breaking status, reported scale, preview channels, promised weights, and Alibaba&#8217;s ranking claim</p>
+<p>14. <a href="https://www.foundry.com/products/griptape" target="_blank" rel="noopener">Foundry &#8212; Griptape</a> &#8212; July 17, 2026 &#8212; orchestration, permissions, provenance, deployment, and licensing caveat</p>
+<p>15. <a href="https://www.awn.com/news/foundry-launches-griptape-enterprise-secure-ai-accelerated-vfx-workflows" target="_blank" rel="noopener">Animation World Network &#8212; Griptape reporting</a> &#8212; July 17, 2026 &#8212; independent launch coverage</p>
+<p>16. <a href="https://workspace.google.com/blog/product-announcements/introducing-gemini-omni-flash-in-google-vids" target="_blank" rel="noopener">Google Workspace &#8212; Gemini Omni in Vids</a> &#8212; July 16, 2026 &#8212; editing, avatars, availability, controls, and SynthID</p>
+<p>17. <a href="https://www.theverge.com/ai-artificial-intelligence/966644/google-vids-will-now-let-you-generate-ai-videos-of-yourself" target="_blank" rel="noopener">The Verge &#8212; Google Vids reporting</a> &#8212; July 17, 2026 &#8212; independent rollout context</p>
+<p>18. <a href="https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/" target="_blank" rel="noopener">Google &#8212; Gemini Notebook</a> &#8212; July 16, 2026 &#8212; rebrand and source-to-media positioning</p>
+<p>19. <a href="https://arxiv.org/abs/2607.14935" target="_blank" rel="noopener">VideoChat3 paper</a> &#8212; July 16, 2026 &#8212; architecture, compression, author-reported evaluations, and hardware</p>
+<p>20. <a href="https://github.com/MCG-NJU/VideoChat3" target="_blank" rel="noopener">VideoChat3 code</a> &#8212; July 16, 2026 &#8212; available implementation and release status</p>
+<p>21. <a href="https://www.lalal.ai/blog/lynx-voice-isolation-neural-network/" target="_blank" rel="noopener">LALAL.AI &#8212; Lynx</a> &#8212; July 14, 2026 &#8212; product capabilities, availability, and stated limitations</p>
+<p>22. <a href="https://www.prosoundweb.com/lalal-ai-launches-new-lynx-neural-network-for-speech-denoising/" target="_blank" rel="noopener">ProSoundWeb &#8212; Lynx reporting</a> &#8212; July 14, 2026 &#8212; independent launch coverage</p>
+<p>23. <a href="https://openai.com/index/unlocking-self-improvement-gpt-red/" target="_blank" rel="noopener">OpenAI &#8212; GPT-Red</a> &#8212; July 15, 2026 &#8212; agent-security system and internal evaluation</p>
+<p>24. <a href="https://themakingof.substack.com/p/filmmaker-connie-he-google-deepminds" target="_blank" rel="noopener">Connie He and M&#225;rcia Mayer &#8212; July production discussion</a> &#8212; July 15, 2026 &#8212; current discussion of artist-led production methods</p>
+<p>25. <a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/dear-upstairs-neighbors/" target="_blank" rel="noopener">Google DeepMind &#8212; production account</a> &#8212; January 2026 &#8212; storyboards, rough animation, localized refinement, and production review</p>
+<p>26. <a href="https://aidailybrief.ai/e/2026-07-15" target="_blank" rel="noopener">Nathaniel Whittemore &#8212; agent-harness discussion</a> &#8212; July 15, 2026 &#8212; commentary on tools, permissions, memory, evaluation, and recovery</p>
+<p>27. <a href="https://www.theverge.com/podcast/965581/suno-ai-music-vergecast" target="_blank" rel="noopener">Terrence O&#8217;Brien &#8212; rights-controls discussion</a> &#8212; July 14, 2026 &#8212; reported observations about input safeguards and output rights</p>
+<p>28. <a href="https://www.theverge.com/ai-artificial-intelligence/906896/sunos-copyright-ai-music-covers" target="_blank" rel="noopener">The Verge &#8212; supporting AI music investigation</a> &#8212; July 2026 &#8212; supporting tests and rights context</p>
+<p>29. <a href="https://huggingface.co/papers/2607.03118" target="_blank" rel="noopener">Vidu S1 paper</a> &#8212; July 11, 2026 &#8212; author-reported continuous video control</p>
+<p>30. <a href="https://github.com/shengshu-ai/Vidu-S1" target="_blank" rel="noopener">Vidu S1 code</a> &#8212; July 11, 2026 &#8212; accompanying implementation</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>

@@ -132,14 +132,26 @@ def first_paragraph(lines: list[str]) -> str:
 
 def story_sections(edition: Edition) -> list[Subsection]:
     primary = edition.section("This Week in AI")
-    if primary and primary.subsections:
-        return primary.subsections
-
     stories: list[Subsection] = []
-    for name in ("The Big Story", "Other Stories"):
-        section = edition.section(name)
-        if section:
-            stories.extend(section.subsections)
+    if primary and primary.subsections:
+        stories.extend(primary.subsections)
+
+    if not stories:
+        for name in ("The Big Story", "Other Stories"):
+            section = edition.section(name)
+            if section:
+                stories.extend(section.subsections)
+
+    frontier = edition.section("Frontier Watch")
+    if frontier:
+        stories.extend(frontier.subsections)
+
+    quick_hits = edition.section("Quick Hits")
+    if quick_hits:
+        quick_body = clean_lines(quick_hits.intro)
+        if quick_body:
+            stories.append(Subsection("Quick Hits", quick_hits.intro))
+
     return stories
 
 

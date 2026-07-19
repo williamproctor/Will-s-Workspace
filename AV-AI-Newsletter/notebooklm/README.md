@@ -9,7 +9,7 @@ This directory holds **purpose-built source documents for NotebookLM** — one f
 
 ## Where this fits in the weekly pipeline
 
-Generate these briefs **after** the edition markdown (`editions/YYYY-MM-DD.md`) passes the content-sensitivity review, and **before** the media step (audio m4a/mp3 + video mp4). If the edition markdown changes after the briefs are written, update the briefs to match — they must never contain facts that differ from the published edition.
+Generate these briefs **immediately after** the edition markdown (`editions/YYYY-MM-DD.md`) passes the content-sensitivity review, before reporting the draft stage complete and before the media step (audio m4a/mp3 + video mp4). Do not defer them to a later build request. If the edition markdown changes after the briefs are written, update the briefs in the same turn — they must never contain facts that differ from the published edition.
 
 ## Automatic generation (required)
 
@@ -47,6 +47,8 @@ python3 scripts/build_weekly_edition.py 2026-07-10 \
 ```
 
 Use `--force-briefs` only when intentionally replacing manually refined briefs. Generated briefs still require a final editorial check against the design principles below; automation guarantees structure and source alignment, not judgment.
+
+After refining a generated brief to match the prior week’s editorial quality, remove its `notebooklm-brief-generator` HTML comment. This marks the file as manually managed so later generator runs preserve it. A stale manually managed brief will fail validation when its edition source becomes newer, prompting a deliberate update instead of an automatic overwrite.
 
 ## How the briefs are designed (why they work)
 

@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-07-17 — Week of July 17, 2026
+
+> Foundry SmartRoto brings local AI roto into Nuke while preserving editable splines. Lucy 2.5 moves generative editing into live video, MultiRef-Compass exposes reference-binding failures, and Dubbing 2.0 and Aiode keep localization and music outputs correctable. Kimi K3 and late-breaking Qwen3.8 show a rapidly widening frontier whose launch-day rankings remain unsettled.
+
+---
+
 ## 2026-07-10 — Week of July 10, 2026
 
 > Uber's Agentic Pods pair AI-proficient engineers with departmental experts to redesign complete workflows. Runway Dev unifies first- and third-party media models behind one enterprise platform. Meta launched Muse Image and previewed Muse Video, GPT-5.6 became generally available with ChatGPT Work, and LucidLink connected Frame.io footage with external production storage.

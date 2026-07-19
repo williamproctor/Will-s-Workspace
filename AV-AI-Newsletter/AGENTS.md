@@ -41,7 +41,7 @@ This step is required even when the week's news seems benign. Last-mile review i
 
 ## NotebookLM Producer Briefs (required for every edition)
 
-After the user approves the full and simplified drafts and the content-sensitivity review passes, generate two purpose-built NotebookLM source documents **before** producing audio or video:
+Immediately after the full and simplified drafts pass the content-sensitivity review, generate two purpose-built NotebookLM source documents **before reporting the draft stage complete** and before producing audio or video. Do not wait for a later build, media, or deployment request. If the user subsequently changes the newsletter, refresh and revalidate both briefs in the same turn:
 
 - `notebooklm/YYYY-MM-DD-podcast.md` — Audio Overview producer brief
 - `notebooklm/YYYY-MM-DD-video.md` — Video Overview producer brief
@@ -54,6 +54,8 @@ python3 scripts/generate_notebooklm_briefs.py YYYY-MM-DD \
 ```
 
 The generator orders the lead story, supporting stories, common threads, emerging ideas, and weekly tip into separate podcast/video structures; embeds the audience and house-style constraints; preserves factual qualifiers; and validates both files. Generated briefs refresh when their edition source changes. Manually refined briefs are preserved, but validation fails if they are older than the edition source so they cannot silently drift from the newsletter.
+
+After automatic generation, compare the result with the previous edition’s manually refined briefs. The generator creates a complete factual scaffold, but the agent must still refine the podcast’s act structure, story transitions, emphasis, and closing arc, plus the video’s segment timing, on-screen facts, and visual direction. Remove the generator marker from a manually refined brief so a future automatic refresh cannot overwrite the editorial work.
 
 Before media generation:
 

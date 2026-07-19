@@ -1,0 +1,9 @@
+Minimalist editorial illustration for an AI newsletter video cover. Subject: a clean production workbench showing five correctable media objects connected in sequence — an editable roto spline with visible control points, a live video frame with an active adjustment handle, a reference-binding QA diagram linking a person/object/sound correctly, a dubbing timeline with one replaceable segment, and separate audio stems feeding a mixer. The composition should communicate that useful AI media remains editable, traceable, and open to correction. Do not use readable text.
+
+Include subtle production cues: vector spline handles, a live-frame border, connected reference cards, one highlighted timeline segment, stacked waveform tracks, and a small review checkmark. Use abstract marks and icons only; no brand logos, no copied software interfaces, no readable words, no file extensions, and no labels.
+
+Style: premium editorial illustration, flat 2D with soft paper texture, clean schematic layout, generous negative space. Warm parchment background (#f5f0e8), muted dispatch blue (#4a6da7) as the only accent, dark ink details (#2d2d42), soft neutral shadows. No people, no faces, no brand logos, no readable text, no futuristic genre imagery, no unrelated symbolism, no glow effects, no neon, no gradients, no wireframes, no three-dimensional render.
+
+Mood: calm, practical, professional, precise. The image should communicate: "AI media is most useful when professionals can inspect and correct the result."
+
+Format: 16:9 landscape composition suitable for a newsletter video thumbnail. No watermark, no signature, no text.
