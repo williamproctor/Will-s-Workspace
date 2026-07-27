@@ -17,7 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared.css?v={{BUILD_VERSION}}">
 </head>
-<body>
+<body class="app-mode">
 
   <header class="site-header">
     <div class="header-inner">
@@ -32,82 +32,25 @@
     </div>
   </header>
 
-  <section class="section edition-page" id="edition">
-    <div class="section-inner">
-      <div class="edition-shell">
-        <div class="edition-header">
-          <div class="edition-meta-row" style="margin-bottom:0;">
-            <span class="edition-badge">{{SLUG}}</span>
-            <span class="edition-tag">{{EDITION_TITLE}}</span>
-          </div>
-          <a href="/" class="btn-back">&larr; All editions</a>
-        </div>
-        <div class="edition-body">
-          <div id="videoMount"></div>
-          <div id="podcastMount"></div>
-          <div id="toggleMount"></div>
-          <div class="edition-content" id="editionContent">Loading edition&hellip;</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-text">{{FOOTER_COPYRIGHT}}</div>
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/#archive">Archive</a>
-      </div>
-    </div>
-  </footer>
+  <div class="edition-app-wrap">
+    <div class="edition-app" id="editionApp"></div>
+  </div>
 
   <script src="/shared.js?v={{BUILD_VERSION}}"></script>
   <script>
-    const EDITION_MD = {{EDITION_MD_JS}};
-    const EDITION_SIMPLIFIED = {{EDITION_SIMPLIFIED_JS}};
-
-    const HAS_AUDIO = {{HAS_AUDIO}};
-    const AUDIO_SRC = "/audio/{{SLUG}}.m4a";
-    const AUDIO_TITLE = {{AUDIO_TITLE_JS}};
-
-    const HAS_VIDEO = {{HAS_VIDEO}};
-    const VIDEO_SRC = "/video/{{SLUG}}.mp4";
-    const VIDEO_TITLE = {{VIDEO_TITLE_JS}};
-    const VIDEO_THUMB = "/video/thumbs/{{SLUG}}.png";
-
-    if (HAS_VIDEO) {
-      document.getElementById("videoMount").innerHTML = `
-        <div class="video-card">
-          <div class="video-card-header">
-            <div class="video-card-icon">
-              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-            </div>
-            <div class="video-card-info">
-              <div class="video-card-label">Video Briefing</div>
-              <div class="video-card-title">${VIDEO_TITLE}</div>
-            </div>
-          </div>
-          <div class="video-card-body">
-            <video controls playsinline preload="metadata" poster="${VIDEO_THUMB}">
-              <source src="${VIDEO_SRC}" type="video/mp4">
-            </video>
-          </div>
-        </div>`;
-    }
-
-    if (HAS_AUDIO) {
-      document.getElementById("podcastMount").innerHTML = buildPodcastPlayer(AUDIO_SRC, AUDIO_TITLE);
-      initPodcastPlayer();
-    }
-
-    if (EDITION_SIMPLIFIED) {
-      document.getElementById("toggleMount").innerHTML = buildReadingToggle();
-      renderEdition(document.getElementById("editionContent"), EDITION_MD);
-      initReadingToggle(EDITION_MD, EDITION_SIMPLIFIED);
-    } else {
-      renderEdition(document.getElementById("editionContent"), EDITION_MD);
-    }
+    initEditionApp(document.getElementById("editionApp"), {
+      slug: "{{SLUG}}",
+      editionTitle: {{EDITION_TITLE_JS}},
+      editionMd: {{EDITION_MD_JS}},
+      simplifiedMd: {{EDITION_SIMPLIFIED_JS}},
+      hasAudio: {{HAS_AUDIO}},
+      audioSrc: "/audio/{{SLUG}}.m4a",
+      audioTitle: {{AUDIO_TITLE_JS}},
+      hasVideo: {{HAS_VIDEO}},
+      videoSrc: "/video/{{SLUG}}.mp4",
+      videoTitle: {{VIDEO_TITLE_JS}},
+      videoThumb: "/video/thumbs/{{SLUG}}.png"
+    });
   </script>
 </body>
 </html>

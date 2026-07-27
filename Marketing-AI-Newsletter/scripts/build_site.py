@@ -146,6 +146,7 @@ def build_edition_page(config: dict, edition: dict, template: str, build_version
             "OG_URL_BLOCK": og_url_block(config, f"/editions/{slug}"),
             "SLUG": slug,
             "EDITION_TITLE": esc(edition["title"]),
+            "EDITION_TITLE_JS": json.dumps(edition["title"]),
             "EDITION_MD_JS": json.dumps(md),
             "EDITION_SIMPLIFIED_JS": json.dumps(simplified),
             "HAS_AUDIO": "true" if edition.get("hasAudio") else "false",

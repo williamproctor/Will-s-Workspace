@@ -17,7 +17,7 @@ Growth marketers, content strategists, and operators at GrowthX. They are AI-lit
 
 ## Voice & Tone
 
-- **Scannable first, deep second.** The site renders every story headline as an expandable card — collapsed by default. Headlines must carry the news on their own; bodies are for the reader who clicks. Write headlines like a sharp colleague summarizing the story in one line, not like SEO titles.
+- **Scannable first, deep second.** The site renders the edition as a side-nav reader: headlines are the nav, articles load one at a time in the reading pane. Headlines must carry the news on their own; bodies are for the reader who clicks. Write headlines like a sharp colleague summarizing the story in one line, not like SEO titles.
 - **Tight.** Story bodies run 120–250 words. Conversation items run 80–180 words. If a story needs more, it's two stories or it's overwritten. The lede blockquote is 3–4 sentences, never more.
 - **Observational reporting, clearly separated from angle-making.** News sections report what happened with evidence. **The Conversation** reports what people are saying and why it's spreading. **Angles for the Week** is the one place the newsletter suggests how the team might use it all.
 - **Operator perspective, anti-hype.** Written by someone who uses these tools and channels. Honest about limitations. This matches the GrowthX voice.
@@ -99,7 +99,7 @@ python3 scripts/build_site.py            # build everything
 python3 scripts/build_site.py --check    # validate without writing
 ```
 
-The site renders each H3 as an expandable story card (collapsed by default, with expand/collapse-all controls) and collapses the Sources section — this is implemented in `site/shared.js`/`site/shared.css` and applies to every edition automatically. Write headlines accordingly.
+The edition page renders as a side-nav reader app (`initEditionApp` in `site/shared.js`): a fixed left panel lists every headline grouped by section, and clicking one swaps the article into the reading pane with a fast enter animation — no long-page scrolling. Sections without H3 items (Platform & Tool Watch, Sources) become single nav entries; the lede and any audio/video land on the Overview entry; arrow keys and j/k navigate; on mobile the article slides over the headline list. Headlines double as nav labels, so write them to carry the news on their own.
 
 ### Weekly workflow
 
