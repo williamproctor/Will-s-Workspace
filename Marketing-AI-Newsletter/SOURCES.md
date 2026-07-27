@@ -2,6 +2,16 @@
 
 Curated go-to sources for the weekly research pass. This list is a starting map, not a boundary — follow stories wherever they lead, but always end on a primary source. (The AV newsletter never committed a source list; this one does so any agent can run the research pass consistently.)
 
+## The conversation layer (check first — this is the newsletter's priority track)
+
+What marketing/AI X and LinkedIn are arguing about right now:
+
+- **X**: posts from platform executives (Sam Altman, Mark Zuckerberg, Nikita Bier, Sundar Pichai, ad-platform leads), marketing/growth practitioners, and whatever campaign or dunk is circulating. Capture exact quotes, timestamps, and view counts where visible. If the XAgent X/Twitter MCP is configured with an API key (see `.cursor/mcp.json` in the workspace), use it for live trend/thread pulls; otherwise reconstruct via web search and coverage.
+- **LinkedIn**: CMO/brand-lead posts around launches (companies increasingly announce there), the reception gap between LinkedIn and X on the same creative (often a story in itself).
+- **Trade coverage of viral moments**: TechCrunch, The Verge, Business Insider, Adweek, Ad Age, B&T, Storyboard18, Engadget — fastest at writing up campaign backlashes and executive spats with quotes verified.
+- **YouTube comments / community reception** on major brand campaigns (top comments get quoted in coverage and become part of the story).
+- What to log per moment: who started it, the key posts (verbatim, attributed), when it started, how big (views/likes if reported), the split by platform, and whether the comment window is still open.
+
 ## Primary sources (check every week)
 
 ### Ad platforms & search

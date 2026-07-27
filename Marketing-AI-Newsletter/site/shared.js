@@ -110,7 +110,7 @@ function initReadingToggle(standardMd, simplifiedMd) {
 
   function setMode(mode) {
     const md = mode === 'standard' ? standardMd : simplifiedMd;
-    container.innerHTML = markdownToHtml(md);
+    renderEdition(container, md);
     btnStd.classList.toggle('active', mode === 'standard');
     btnSimp.classList.toggle('active', mode === 'simplified');
     container.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -118,6 +118,89 @@ function initReadingToggle(standardMd, simplifiedMd) {
 
   btnStd.addEventListener('click', () => setMode('standard'));
   btnSimp.addEventListener('click', () => setMode('simplified'));
+}
+
+/* Render markdown into a container, then upgrade it into the scannable
+   edition layout: every H3 block becomes an expandable story card
+   (collapsed by default), the Sources section folds away, and an
+   expand/collapse-all bar is added. */
+function renderEdition(container, md) {
+  container.innerHTML = markdownToHtml(md);
+  enhanceEdition(container);
+}
+
+function enhanceEdition(container) {
+  const STOPS = ['H2', 'H3', 'HR'];
+
+  // 1) Wrap each H3 and its following block into <details class="story-card">
+  const headings = Array.from(container.querySelectorAll(':scope > h3'));
+  headings.forEach((h3) => {
+    const details = document.createElement('details');
+    details.className = 'story-card';
+    const summary = document.createElement('summary');
+    summary.className = 'story-summary';
+    const body = document.createElement('div');
+    body.className = 'story-body';
+
+    container.insertBefore(details, h3);
+    summary.appendChild(h3);
+    details.appendChild(summary);
+
+    let node = details.nextSibling;
+    while (node) {
+      if (node.nodeType === 1 && STOPS.includes(node.tagName)) break;
+      const next = node.nextSibling;
+      body.appendChild(node);
+      node = next;
+    }
+    details.appendChild(body);
+  });
+
+  // 2) Fold the Sources section behind a single toggle
+  const h2s = Array.from(container.querySelectorAll(':scope > h2'));
+  const sourcesH2 = h2s.find((h) => h.textContent.trim().toLowerCase() === 'sources');
+  if (sourcesH2) {
+    const details = document.createElement('details');
+    details.className = 'sources-fold';
+    const summary = document.createElement('summary');
+    const body = document.createElement('div');
+    body.className = 'sources-body';
+
+    let node = sourcesH2.nextSibling;
+    const collected = [];
+    while (node) {
+      if (node.nodeType === 1 && (node.tagName === 'H2' || node.tagName === 'HR')) break;
+      collected.push(node);
+      node = node.nextSibling;
+    }
+    collected.forEach((n) => body.appendChild(n));
+    const count = body.querySelectorAll('p, li').length;
+    summary.textContent = count ? 'View all ' + count + ' sources' : 'View sources';
+    details.appendChild(summary);
+    details.appendChild(body);
+    sourcesH2.parentNode.insertBefore(details, sourcesH2.nextSibling);
+  }
+
+  // 3) Expand/collapse-all bar, placed after the lede, before the first section
+  const cards = container.querySelectorAll('details.story-card');
+  if (cards.length) {
+    const bar = document.createElement('div');
+    bar.className = 'expand-bar';
+    bar.innerHTML =
+      '<span class="expand-hint">Click any headline to read the full item</span>' +
+      '<span class="expand-actions">' +
+      '<button type="button" data-action="expand">Expand all</button>' +
+      '<button type="button" data-action="collapse">Collapse all</button>' +
+      '</span>';
+    bar.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      const open = btn.dataset.action === 'expand';
+      cards.forEach((c) => { c.open = open; });
+    });
+    const firstH2 = container.querySelector(':scope > h2');
+    container.insertBefore(bar, firstH2 || container.firstChild);
+  }
 }
 
 function markdownToHtml(md) {

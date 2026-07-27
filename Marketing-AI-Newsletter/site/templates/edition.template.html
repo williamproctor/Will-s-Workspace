@@ -103,10 +103,10 @@
 
     if (EDITION_SIMPLIFIED) {
       document.getElementById("toggleMount").innerHTML = buildReadingToggle();
-      document.getElementById("editionContent").innerHTML = markdownToHtml(EDITION_MD);
+      renderEdition(document.getElementById("editionContent"), EDITION_MD);
       initReadingToggle(EDITION_MD, EDITION_SIMPLIFIED);
     } else {
-      document.getElementById("editionContent").innerHTML = markdownToHtml(EDITION_MD);
+      renderEdition(document.getElementById("editionContent"), EDITION_MD);
     }
   </script>
 </body>

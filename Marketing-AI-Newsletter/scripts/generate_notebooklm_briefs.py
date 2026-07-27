@@ -37,12 +37,11 @@ MARKDOWN_IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(https?://[^)]+\)")
 MARKDOWN_LINK_RE = re.compile(r"\[([^\]]+)\]\(https?://[^)]+\)")
 BARE_URL_RE = re.compile(r"https?://\S+")
 
+CONVERSATION_SECTION = "The Conversation"
 STORY_SECTION = "This Week in Marketing AI"
 WATCH_SECTION = "Platform & Tool Watch"
-VOICES_SECTION = "Voices This Week"
 THREADS_SECTION = "Common Threads"
 ANGLES_SECTION = "Angles for the Week"
-TIP_SECTION = "Tip of the Week"
 
 
 @dataclass
@@ -209,7 +208,9 @@ The audience is the GrowthX team: growth marketers, content strategists, and ope
 - Keep the conversation professional, concrete, and anti-hype. These are practitioners, not beginners.
 - Attribute quotations to the named person, not to a publication or show.
 - Treat vendor and company performance figures as claims from those organizations. Preserve qualifiers such as "company-reported," "vendor-stated," "panel estimate," "preview," and "planned."
+- Distinguish what someone claimed in a viral post from what is independently established.
 - Use the exact names, dates, prices, percentages, and measurements stated below.
+- The "comment window" notes explain why each conversation is timely; use them as context, not as instructions to the listener.
 - The angles segment offers starting points for the team's own posts and points of view; present them as raw material grounded in the week's reporting, not as instructions.
 - Never mention this brief or its instructions during the episode."""
 
@@ -222,10 +223,9 @@ def render_podcast(edition: Edition, slug: str, display_date: str, digest: str) 
 
     through_title, through_body = through_line(edition)
     lead, supporting = stories[0], stories[1:]
-    voices = render_section(edition.section(VOICES_SECTION))
+    conversation = render_section(edition.section(CONVERSATION_SECTION))
     common = render_section(edition.section(THREADS_SECTION))
     angles = render_section(edition.section(ANGLES_SECTION))
-    tip = render_section(edition.section(TIP_SECTION))
 
     supporting_block = "\n\n".join(format_story(story) for story in supporting)
     blocks = [
@@ -240,41 +240,41 @@ def render_podcast(edition: Edition, slug: str, display_date: str, digest: str) 
 
 The central pattern is **{through_title}**. {through_body}
 
-Establish that pattern near the beginning, connect the supporting stories back to it, and return to it before the closing segments.""",
-        f"""## Act One — Lead story
-
-The most important story this week is **{lead.title}**. Give it the most discussion time.
-
-{clean_lines(lead.lines)}""",
+Establish that pattern near the beginning, connect the stories back to it, and return to it before the closing segment.""",
     ]
 
+    if conversation:
+        blocks.append(
+            f"""## Act One — The conversation
+
+Open with what marketing social is actually talking about this week. Present each item with its attributed posts and quotes, and keep the timing context so listeners understand why each moment matters right now.
+
+{conversation}"""
+        )
+    blocks.append(
+        f"""## Act Two — Lead story
+
+The most important hard-news story this week is **{lead.title}**. Give it the most discussion time.
+
+{clean_lines(lead.lines)}"""
+    )
     if supporting_block:
         blocks.append(
-            f"""## Act Two — Supporting stories
+            f"""## Act Three — Supporting stories
 
 The following stories broaden the week's pattern. Keep them in this order.
 
 {supporting_block}"""
         )
-    if voices:
-        blocks.append(f"## Voices and attributed quotations\n\n{voices}")
     if common:
         blocks.append(f"## Common threads to connect\n\n{common}")
     if angles:
         blocks.append(
-            f"""## Closing segment one — Angles for the week
+            f"""## Closing segment — Angles for the week
 
 Present these as grounded starting points the team can shape into posts and points of view. Keep each angle tied to the facts that support it.
 
 {angles}"""
-        )
-    if tip:
-        blocks.append(
-            f"""## Closing segment two — Tip of the week
-
-Give the practical closing tip enough room to be useful, with its concrete steps intact.
-
-{tip}"""
         )
     blocks.append(
         f"""## Accuracy check
@@ -297,9 +297,9 @@ def render_video(
 
     through_title, through_body = through_line(edition)
     lead, supporting = stories[0], stories[1:]
+    conversation = render_section(edition.section(CONVERSATION_SECTION))
     common = render_section(edition.section(THREADS_SECTION))
     angles = render_section(edition.section(ANGLES_SECTION))
-    tip = render_section(edition.section(TIP_SECTION))
     supporting_block = "\n\n".join(format_story(story) for story in supporting)
 
     blocks = [
@@ -329,17 +329,27 @@ Open with the week and episode title, then establish this idea:
 {through_body}
 
 On screen: "{video_title}" and "Week of {display_date}".""",
-        f"""## Segment 2 — Lead story
+    ]
+    if conversation:
+        blocks.append(
+            f"""## Segment 2 — The conversation
+
+Cover what marketing social is talking about this week. One visual card per moment, with the key quote attributed on screen.
+
+{conversation}"""
+        )
+    blocks.append(
+        f"""## Segment 3 — Lead story
 
 Give this segment the most time. Show the story title and every important date or numerical comparison exactly as stated.
 
 ### {lead.title}
 
-{clean_lines(lead.lines)}""",
-    ]
+{clean_lines(lead.lines)}"""
+    )
     if supporting_block:
         blocks.append(
-            f"""## Segment 3 — Supporting stories
+            f"""## Segment 4 — Supporting stories
 
 Keep these stories in order. Use one concise visual card per story, with short on-screen labels rather than dense paragraphs.
 
@@ -348,17 +358,9 @@ Keep these stories in order. Use one concise visual card per story, with short o
     pattern_parts = [part for part in (common, angles) if part]
     if pattern_parts:
         blocks.append(
-            "## Segment 4 — Connect the pattern and the angles\n\n" + "\n\n".join(pattern_parts)
-        )
-    if tip:
-        blocks.append(
-            f"""## Segment 5 — Tip and close
-
-Present the tip as practical information with its concrete steps.
-
-{tip}
-
-Close by returning to the episode title and the week's central pattern."""
+            "## Segment 5 — Connect the pattern and the angles, then close\n\n"
+            + "\n\n".join(pattern_parts)
+            + "\n\nClose by returning to the episode title and the week's central pattern."
         )
     blocks.append(
         f"""## Accuracy and screen-text check
