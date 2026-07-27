@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-07-24 — Week of July 24, 2026
+
+> FLUX 3 proposes one backbone across image, video, audio, and action, but only Video and Action entered gated early access. Qwen-Audio adds directed multilingual voice, Runway Media Router turns model choice into policy, Sonilo uses picture to time effects, and Qwen-Image and ElevenMusic expand reference-driven control. More modalities require more control while independent evidence continues to lag launch velocity.
+
+---
+
 ## 2026-07-17 — Week of July 17, 2026
 
 > Foundry SmartRoto brings local AI roto into Nuke while preserving editable splines. Lucy 2.5 moves generative editing into live video, MultiRef-Compass exposes reference-binding failures, and Dubbing 2.0 and Aiode keep localization and music outputs correctable. Kimi K3 and late-breaking Qwen3.8 show a rapidly widening frontier whose launch-day rankings remain unsettled.

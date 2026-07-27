@@ -1,0 +1,9 @@
+Minimalist editorial illustration for an AI newsletter video cover. Subject: one central media backbone represented by a clean horizontal core connected upward to four distinct production panels — a still image frame, a video timeline with play marker, layered audio waveforms, and a simple mechanical-action diagram — while a second lower row shows the controls required around the model: reference cards, a routing junction, a rights/provenance record, and a review checklist. The composition should communicate that more modalities require more production control. Do not use readable text.
+
+Include subtle cues: picture frame, filmstrip/timeline, synchronized waveforms, motion path, branching router, linked references, provenance seal, and checklist marks. Use abstract icons and marks only; no brand logos, no copied software interfaces, no readable words, no file extensions, and no labels.
+
+Style: premium editorial illustration, flat 2D with soft paper texture, clean schematic layout, generous negative space. Warm parchment background (#f5f0e8), muted dispatch blue (#4a6da7) as the only accent, dark ink details (#2d2d42), soft neutral shadows. No people, no faces, no brand logos, no readable text, no futuristic genre imagery, no unrelated symbolism, no glow effects, no neon, no gradients, no wireframes, no three-dimensional render.
+
+Mood: calm, precise, professional, systems-focused. The image should communicate: "One model can span more media types, but references, routing, rights, and review still govern production."
+
+Format: 16:9 landscape composition suitable for a newsletter video thumbnail. No watermark, no signature, no text.

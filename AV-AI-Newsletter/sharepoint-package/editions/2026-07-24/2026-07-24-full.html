@@ -1,0 +1,227 @@
+<!-- AVS AI Dispatch &#8212; Week of July 24, 2026 (Full Edition) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body pre {
+  margin: 18px 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 109, 167, 0.14);
+  border-radius: var(--radius);
+  background: var(--dispatch-blue-05);
+}
+.avs-dispatch .edition-body pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-07-24</span>
+      <span class="edition-date">Week of July 24, 2026</span>
+    </div>
+    <div class="edition-kicker">Full Edition</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote><strong>FLUX 3 is the week&#8217;s largest media-model announcement and its largest evidence gap.</strong> The newly announced system is presented as one backbone for image, video, audio, and action, but only Video and Action entered gated early access. Qwen expanded both voice and structured-image generation, Runway moved model selection behind a policy router, Sonilo tied sound-effects timing directly to picture, and ElevenMusic added reference-driven music controls. Across the releases, multimodal ambition, revision, routing, and rights controls are advancing faster than public specifications and independent evaluation.</blockquote><hr><h2>This Week in AI</h2><h3>FLUX 3 Proposes One Media Backbone, but Access and Evidence Remain Narrow</h3><p>FLUX 3 was announced on July 23 as a jointly trained backbone across image, video, and audio, with the same learned foundation extended toward action prediction. That is a broader claim than adding video to an image product: the stated goal is one system that can generate and revise still images, motion, sound, and sequences of actions.</p><p>The current release is much narrower than that goal:</p><ul>
+<li><strong>FLUX 3 Video</strong> entered gated early access.</li>
+<li><strong>FLUX 3 Action</strong> entered gated early access for selected research and commercial partners.</li>
+<li><strong>FLUX 3 Image</strong> is promised in the following weeks.</li>
+<li><strong>API access and private weights</strong> are planned for later, without public dates.</li>
+<li><strong>FLUX 3 Dev open weights</strong> are planned for later in 2026; a license has not been published.</li>
+</ul><p>Video is the most developed part of the announcement. It can generate clips of up to <strong>20 seconds</strong> with native audio and accepts text, images, video, and keyframes as conditioning. The announced modes include text-to-video, image-to-video, video-to-video, keyframe transitions, and continuation of both video and audio.</p><p>The developer also claims multilingual dialogue, typography and animated design, multiple aspect ratios and styles, and chaining across multiple shots. Together, those features describe a system intended to carry picture, sound, layout, and shot-to-shot continuity rather than produce one isolated silent clip.</p><p>The comparison evidence is preliminary. The developer&#8217;s tests used <strong>early-checkpoint 10-second, 720p clips with audio</strong>, not the full 20-second format. FLUX 3 was preferred over Luma Ray 3.2 in <strong>93%</strong> of comparisons, Runway Gen-4.5 in <strong>77%</strong>, Grok Imagine Video in <strong>69%</strong>, Kling v3 Pro in <strong>60%</strong>, Happy Horse v1 in <strong>59%</strong>, Happy Horse 1.1 in <strong>57%</strong>, and Seedance 2.0 and Gemini Omni Flash in <strong>52%</strong> each.</p><p>Those percentages were published without a sample size, prompt set, rater details, confidence intervals, randomization procedure, inference settings, or separate picture and audio scores. Without those details, a <strong>52% result may be a statistical tie</strong>, and there is no published evidence that the tested checkpoint is identical to the gated system.</p><p>Important production details also remain unavailable. There is <strong>no public pricing, license, parameter count, hardware profile, service-level agreement, maximum resolution, output-format specification, reference limit, or independent hands-on test</strong>. Public API access and downloadable weights were not available during the research window.</p><p>FLUX 3 therefore matters for the architecture it is trying to establish: one image, video, audio, and action backbone that can carry more of a production sequence. Its ambition currently exceeds its availability, published specifications, and independent evidence.</p><p><strong>Source:</strong> <a href="https://bfl.ai/blog/flux-3" target="_blank" rel="noopener">FLUX 3 developer announcement</a> &#183; <a href="https://venturebeat.com/technology/black-forest-labs-launches-flux-3-capable-of-generating-images-and-20-second-video-with-audio-but-in-limited-release-to-start" target="_blank" rel="noopener">Independent launch reporting</a> &#183; July 23, 2026</p><h3>Qwen-Audio-3.0 Adds Directed Delivery and Multilingual Voice</h3><p><strong>Qwen-Audio-3.0-TTS</strong> launched in Flash and Plus variants. Flash is positioned for lower latency, while Plus prioritizes output quality. The hosted service supports <strong>16 languages</strong>, natural-language direction for delivery, inline nonverbal tags, voice cloning from imperfect references, and outputs of up to <strong>three minutes per pass</strong>.</p><p>The independent evidence is stronger than for most launches this week, though still limited to one kind of evaluation. An Artificial Analysis leaderboard snapshot placed Plus at <strong>1,234 Elo &#177;16 from 1,517 samples</strong>, effectively tied with Simba 3.2 in that test. That result does not establish equal performance across every language, delivery style, or production setting.</p><p>Access is through the hosted Model Studio API; weights were not released. Full language coverage and 48kHz support were still rolling out, so the announced feature set was not uniformly available during the research window.</p><p>For AV work, the notable shift is from plain text-to-speech toward directed performance: language, pacing, delivery, and vocal identity are becoming controllable parts of one hosted voice stack.</p><p><strong>Source:</strong> <a href="https://www.alibabacloud.com/blog/qwen-audio-3-0-tts-more-multilingual-easier-to-direct_603379" target="_blank" rel="noopener">Qwen-Audio-3.0 announcement</a> &#183; July 21, 2026 &#183; <a href="https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice" target="_blank" rel="noopener">Independent voice leaderboard</a> &#183; accessed July 27, 2026</p><h3>Runway Media Router Turns Model Choice Into a Reusable Policy</h3><p>Runway released <strong>Media Router</strong> on July 23 through Runway Dev. A configuration can route an image, video, or audio request according to one preference&#8212;<strong>cost, latency, or quality</strong>&#8212;instead of requiring a person or application to choose a model for every request.</p><p>Configurations can include model allowlists or denylists, credit ceilings, immutable configuration IDs, version history, realized costs, and dry runs. Runway says there is no routing surcharge; the selected model&#8217;s rate applies, and one Runway credit equals <strong>$0.01</strong>.</p><p>The router&#8217;s quality scores and selection methods are internal. The returned configuration and cost records help, but reproducibility and provenance still depend on logging which model was selected, which router version made the choice, and what policy was active.</p><p>The launch moves model choice behind infrastructure. A preview, review copy, or final render can now be associated with a standing routing policy rather than one manually selected model.</p><p><strong>Source:</strong> <a href="https://runwayml.com/news/company-news/introducing-runway-media-router" target="_blank" rel="noopener">Runway &#8212; Media Router</a> &#183; <a href="https://docs.dev.runwayml.com/model-routers/configuration/" target="_blank" rel="noopener">Runway router documentation</a> &#183; <a href="https://techcrunch.com/2026/07/23/runway-bets-on-ai-model-routing-as-generative-media-gets-crowded/" target="_blank" rel="noopener">Independent launch reporting</a> &#183; July 23, 2026</p><h3>Sonilo Sound Effects 1.0 Uses Picture as Its Timing Guide</h3><p><strong>Sonilo Sound Effects 1.0</strong> generates a synchronized sound-effects track from up to <strong>three minutes of video</strong>. The video supplies visible events and timing, while an optional text prompt can add direction. A separate text-to-sound mode generates audio from <strong>one to 180 seconds</strong>.</p><p>The service outputs AAC, MP3, WAV, or FLAC. Launch pricing is <strong>$0.009 per second</strong> for video-conditioned generation and <strong>$0.0018 per second</strong> for text-only generation. Initial access is through the fal API.</p><p>The naming is not fully aligned: the launch calls the model 1.0, while current endpoints use v1.1. More importantly, no independent synchronization benchmark or published test methodology was available. The verified product change is that picture itself can provide the event and timing structure for generated effects.</p><p><strong>Source:</strong> <a href="https://www.prnewswire.com/news-releases/sonilo-and-fal-launch-sound-effects-1-0-for-realistic-sound-effects-from-video-and-text-302830490.html" target="_blank" rel="noopener">Sonilo launch announcement</a> &#183; <a href="https://fal.ai/models/sonilo/v1.1/video-to-sound-effects/llms.txt" target="_blank" rel="noopener">API documentation</a> &#183; July 21, 2026</p><h3>Qwen-Image-3.0 Targets Dense Layouts and Small Text</h3><p><strong>Qwen-Image-3.0</strong> is aimed at structured visual material as well as standalone images. The developer claims prompts of up to <strong>4,500 tokens</strong>, text rendering down to <strong>10 pixels</strong>, <strong>12 languages</strong>, dense multi-panel layouts, formulas, user-interface mockups, editing, and optional retrieval.</p><p>That combination is relevant to storyboards, production diagrams, title graphics, presentation pages, and reference layouts where relationships and readable labels matter as much as appearance.</p><p>The model is available in Qwen Chat, while API access remained limited or trial-based. No public weights, parameter count, license, model card, blind benchmark, latency profile, or stable API contract accompanied the launch. The examples are vendor demonstrations, and independent reporting did not supply a controlled quality test.</p><p><strong>Source:</strong> <a href="https://www.alibabacloud.com/blog/qwen-image-3-0-rich-content-authentic-details-deep-knowledge_603385" target="_blank" rel="noopener">Qwen-Image-3.0 announcement</a> &#183; <a href="https://decrypt.co/374084/alibaba-qwen-image-3-ai-useful-not-just-pretty" target="_blank" rel="noopener">Independent launch reporting</a> &#183; July 21&#8211;22, 2026</p><h3>ElevenMusic Adds References, Reusable Vocals, and Finetunes</h3><p>ElevenMusic added three related ways to carry sonic identity across generations. <strong>References</strong> accepts <strong>10 seconds to five minutes</strong> of audio and uses it to guide style, instrumentation, and feel. A text prompt can be combined with the reference or omitted.</p><p><strong>Vocals</strong> creates a reusable singing identity from recordings supplied by the uploader, or uses a voice from the service&#8217;s library. <strong>Finetunes</strong> creates a private style model from a collection of tracks; current documentation allows up to <strong>50 tracks</strong>, with limits of 10 seconds to 10 minutes per track and 250 minutes of total audio.</p><p>These controls move music generation beyond a text-only description. A reference can guide one generation, while reusable vocals and finetunes can carry a recurring identity across a series of tracks.</p><p>The developer says uploaded audio is checked for recorded matches. That screening is a vendor safeguard, not proof that an uploader owns every right or has every performer&#8217;s consent. Documentation also contains Music v1 and v2 transition details that require attention when comparing product behavior.</p><p><strong>Source:</strong> <a href="https://elevenlabs.io/blog/introducing-references-sound-control-for-music-v2" target="_blank" rel="noopener">ElevenMusic References announcement</a> &#183; <a href="https://elevenlabs.io/blog/introducing-vocals-a-consistent-voice-for-your-elevenmusic-songs" target="_blank" rel="noopener">ElevenMusic Vocals announcement</a> &#183; <a href="https://elevenlabs.io/docs/eleven-creative/products/music/finetunes.mdx" target="_blank" rel="noopener">Music Finetunes documentation</a> &#183; July 22&#8211;23, 2026</p><hr><h2>Quick Hits</h2><ul>
+<li><strong>Cosmos3-Super Image2Video 4Step</strong> is a 64-billion-parameter open-weight image-to-video model using four denoising steps. An independent leaderboard snapshot placed it at approximately <strong>1,271 Elo</strong> at the top of the filtered open-weight image-to-video list without audio. The developer&#8217;s up-to-25-times acceleration claim remains vendor-measured, and the published hardware profile centers on data-center or professional GPUs. <a href="https://huggingface.co/nvidia/Cosmos3-Super-Image2Video-4Step" target="_blank" rel="noopener">Model page</a> &#183; <a href="https://artificialanalysis.ai/video/leaderboard/image-to-video?audio-output=false&open-weights=true" target="_blank" rel="noopener">Independent leaderboard</a> &#183; July 20</li>
+<li><strong>SANA-Video 2.0</strong> describes 5-billion- and 14-billion-parameter video models using 75% linear attention. The authors report five seconds of 720p video in 13.06 seconds on one H100 and a 120-times speed comparison, but the measurements are author-run, use high-end hardware, and had no independent replication; the new weights were not available during the scan. <a href="https://arxiv.org/abs/2607.21553" target="_blank" rel="noopener">Paper</a> &#183; <a href="https://nvlabs.github.io/Sana/Video2/" target="_blank" rel="noopener">Project page</a> &#183; July 23&#8211;24</li>
+<li><strong>ShotPlan</strong> uses planning tokens for hard cuts, soft transitions, and local camera movement. The authors report hard-cut timing error below one frame. Code and weights are available under Apache-2.0, while the public data is research-only and the evaluation has not been independently replicated. <a href="https://arxiv.org/abs/2607.17675" target="_blank" rel="noopener">Paper</a> &#183; <a href="https://github.com/Pensioner-11/ShotPlan" target="_blank" rel="noopener">Repository</a> &#183; July 20</li>
+<li><strong>Luma moved production inference to AMD and TensorWave infrastructure.</strong> Luma says thousands of MI325X GPUs now serve Ray3.2, Uni-1, and Luma Agents. The migration is company-reported, with no independent throughput, cost, power, or quality audit. <a href="https://lumalabs.ai/news/luma-runs-production-inference-on-amd-and-tensorwave" target="_blank" rel="noopener">Luma announcement</a> &#183; July 22</li>
+<li><strong>Gemini Flash variants broadened the agent lineup.</strong> Gemini 3.6 Flash and 3.5 Flash-Lite target agent execution and high-throughput work, while a restricted security variant serves a different access tier. These are multimodal understanding and agent models relevant to logging, metadata, quality checks, and production-system operation&#8212;not native media generators. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/" target="_blank" rel="noopener">Google announcement</a> &#183; July 21</li>
+<li><strong>Runway&#8217;s AI Media Report collects large adoption claims from customers</strong>, including 800&#8211;1,000 ads from a five-person team, 46,000 saved hours, approximately 8,000 property videos, and 210 products per day. The accounts are anonymized, self-selected, and unaudited, with no shared definitions, controls, failure rates, or full methodology. They are adoption signals, not independent performance evidence. <a href="https://runway.com/news/company-news/ai-media-report" target="_blank" rel="noopener">Runway report</a> &#183; July 20</li>
+</ul><hr><h2>Voices This Week</h2><h3>Eiso Kant on Verification Around the Model</h3><p>Eiso Kant described an agent-assisted experiment system in which agents write code, launch training jobs, evaluate results, and alter data or training pipelines. The company reports <strong>10,000&#8211;20,000 model experiments per month</strong> with fewer than 70 researchers and about 35 engineers; those counts are company-reported rather than independently audited.</p><p>His broader point was that persistence, verification, backtracking, and avoiding premature completion may matter more to practical gains than raw model scale alone. He also kept people responsible for originating ideas and debugging.</p><p><strong>Source:</strong> <a href="https://www.latent.space/p/poolside" target="_blank" rel="noopener">Eiso Kant &#8212; July 23 discussion</a> &#183; practitioner interview and transcript</p><h3>Chris Benson on Machine-Facing Interfaces</h3><p>Chris Benson observed that long-running agents change both economics and interface design. When systems interact through machine-facing connections rather than a person navigating every graphical screen, identity, permissions, resource controls, and recovery become part of the product.</p><p>For media operations, the observation applies to scheduling, asset movement, transcription, rendering, quality checks, and publishing. It is practitioner commentary, not a measured reliability study.</p><p><strong>Source:</strong> <a href="https://practicalai.show/365" target="_blank" rel="noopener">Chris Benson &#8212; July 23 discussion</a> &#183; practitioner commentary and episode notes</p><h3>Brooks Jensen on Authorship Boundaries</h3><p>Brooks Jensen framed AI use in photography as a series of authorship choices rather than one universal threshold. The relationship among source material, automated enhancement, generation, editing, and human decisions affects what a creator can accurately claim about the final work.</p><p>The point is philosophical commentary, not legal advice, but it connects directly to provenance and disclosure in media production.</p><p><strong>Source:</strong> <a href="https://www.lenswork.com/indexhome.html" target="_blank" rel="noopener">Brooks Jensen &#8212; July 20 discussion</a> &#183; author commentary</p><h3>Tony Doe on Accessibility and Permission</h3><p>Tony Doe explained that open RSS feeds make audio and video easy to distribute, discover, and measure. The same accessibility also makes large-scale automated retrieval easier.</p><p>Public discoverability does not establish training permission, licensing, consent, or ownership. RSS infrastructure maps and distributes material; it does not settle the rights attached to that material.</p><p><strong>Source:</strong> <a href="https://rss.com/podcasts/into-the-podverse-innovation-challenges-opportunities/3012821/" target="_blank" rel="noopener">Tony Doe &#8212; July 22 discussion</a> &#183; practitioner commentary and episode notes</p><hr><h2>Common Threads</h2><h3>Unified Multimodal Models Are Becoming Production Layers</h3><p>FLUX 3 presents one backbone across image, video, and audio with an action extension, while Qwen&#8217;s coordinated image and audio releases cover adjacent production tasks. The emerging unit is larger than one asset generator: it is a learned layer that can carry context among picture, motion, sound, and system actions. Unified architecture, however, does not establish consistent quality across every mode.</p><p><strong>Source basis:</strong> <a href="https://bfl.ai/blog/flux-3" target="_blank" rel="noopener">FLUX 3 announcement</a> &#183; <a href="https://www.alibabacloud.com/blog/qwen-audio-3-0-tts-more-multilingual-easier-to-direct_603379" target="_blank" rel="noopener">Qwen-Audio-3.0</a> &#183; <a href="https://www.alibabacloud.com/blog/qwen-image-3-0-rich-content-authentic-details-deep-knowledge_603385" target="_blank" rel="noopener">Qwen-Image-3.0</a></p><h3>References and Revision Are Replacing One-Shot Prompting</h3><p>FLUX 3 accepts images, video, and keyframes and can continue existing video and audio. ElevenMusic can take a reference recording, reusable vocal identity, or private style model. Qwen-Image-3.0 focuses on dense structures and editing, while ShotPlan separates transitions and camera movement into defined controls. Production usefulness is increasingly tied to repeatability and targeted correction rather than one first result.</p><p><strong>Source basis:</strong> <a href="https://bfl.ai/blog/flux-3" target="_blank" rel="noopener">FLUX 3</a> &#183; <a href="https://elevenlabs.io/blog/introducing-references-sound-control-for-music-v2" target="_blank" rel="noopener">ElevenMusic References</a> &#183; <a href="https://www.alibabacloud.com/blog/qwen-image-3-0-rich-content-authentic-details-deep-knowledge_603385" target="_blank" rel="noopener">Qwen-Image-3.0</a> &#183; <a href="https://arxiv.org/abs/2607.17675" target="_blank" rel="noopener">ShotPlan</a></p><h3>Routing Is Moving Behind the Production Interface</h3><p>Runway Media Router selects models according to reusable cost, latency, or quality policies. Luma&#8217;s AMD migration shows that hardware choice can also move behind the service. The visible production tool may stay the same while model and accelerator decisions change underneath it.</p><p><strong>Source basis:</strong> <a href="https://runwayml.com/news/company-news/introducing-runway-media-router" target="_blank" rel="noopener">Runway Media Router</a> &#183; <a href="https://lumalabs.ai/news/luma-runs-production-inference-on-amd-and-tensorwave" target="_blank" rel="noopener">Luma infrastructure announcement</a></p><h3>Audio Is Becoming Picture-Aware and More Controllable</h3><p>FLUX 3 generates video with native audio, Sonilo uses visible events as the timing structure for effects, Qwen-Audio adds delivery direction and multilingual speech, and ElevenMusic uses references and reusable identities. Audio generation is moving closer to picture timing, localization, recurring identity, and edit-oriented control.</p><p><strong>Source basis:</strong> <a href="https://bfl.ai/blog/flux-3" target="_blank" rel="noopener">FLUX 3</a> &#183; <a href="https://www.prnewswire.com/news-releases/sonilo-and-fal-launch-sound-effects-1-0-for-realistic-sound-effects-from-video-and-text-302830490.html" target="_blank" rel="noopener">Sonilo</a> &#183; <a href="https://www.alibabacloud.com/blog/qwen-audio-3-0-tts-more-multilingual-easier-to-direct_603379" target="_blank" rel="noopener">Qwen-Audio-3.0</a> &#183; <a href="https://elevenlabs.io/blog/introducing-vocals-a-consistent-voice-for-your-elevenmusic-songs" target="_blank" rel="noopener">ElevenMusic Vocals</a></p><h3>Launch Velocity Is Outrunning Public Evidence</h3><p>FLUX 3 entered gated access without many production specifications or an independent test. Qwen-Image-3.0 arrived with extensive examples but no blind benchmark or model card. SANA-Video 2.0 and ShotPlan published author evaluations without external replication of their latest results. Faster release cycles make status and evidence quality part of the story, not a footnote.</p><p><strong>Source basis:</strong> <a href="https://venturebeat.com/technology/black-forest-labs-launches-flux-3-capable-of-generating-images-and-20-second-video-with-audio-but-in-limited-release-to-start" target="_blank" rel="noopener">Independent FLUX 3 reporting</a> &#183; <a href="https://decrypt.co/374084/alibaba-qwen-image-3-ai-useful-not-just-pretty" target="_blank" rel="noopener">Qwen-Image-3.0 reporting</a> &#183; <a href="https://arxiv.org/abs/2607.21553" target="_blank" rel="noopener">SANA-Video 2.0</a> &#183; <a href="https://arxiv.org/abs/2607.17675" target="_blank" rel="noopener">ShotPlan</a></p><h3>Rights and Provenance Remain Separate From Accessibility</h3><p>ElevenMusic&#8217;s upload screening can detect some recorded matches, but it cannot prove every right or consent. Tony Doe&#8217;s RSS discussion makes the parallel point that public discoverability does not grant training permission. Routers add another provenance need because a final asset may not reveal which model handled it. Access, permission, ownership, and traceability remain separate questions.</p><p><strong>Source basis:</strong> <a href="https://elevenlabs.io/blog/introducing-references-sound-control-for-music-v2" target="_blank" rel="noopener">ElevenMusic References</a> &#183; <a href="https://rss.com/podcasts/into-the-podverse-innovation-challenges-opportunities/3012821/" target="_blank" rel="noopener">Tony Doe discussion</a> &#183; <a href="https://docs.dev.runwayml.com/model-routers/configuration/" target="_blank" rel="noopener">Runway router documentation</a></p><hr><h2>Novel Ideas Worth Watching</h2><h3>The Multimodal Backbone as a Production Layer</h3><p>The most consequential FLUX 3 claim is not simply longer video. It is the possibility that stills, motion, sound, and actions share enough representation to remain connected across more of a production sequence. That could make the model layer resemble production infrastructure rather than a collection of separate generators, but the current release does not yet demonstrate the complete claim.</p><p><strong>Source:</strong> <a href="https://bfl.ai/blog/flux-3" target="_blank" rel="noopener">FLUX 3 announcement</a></p><h3>Video as the Timing Foundation for Sound</h3><p>Sonilo starts with the edit itself. Visible movement and scene timing become the structure for generated effects, with text serving as additional direction. This reverses the usual text-first frame and treats picture as the timing document.</p><p><strong>Source:</strong> <a href="https://www.prnewswire.com/news-releases/sonilo-and-fal-launch-sound-effects-1-0-for-realistic-sound-effects-from-video-and-text-302830490.html" target="_blank" rel="noopener">Sonilo launch announcement</a></p><h3>Model Routing as Editorial Policy</h3><p>A routing rule can encode different priorities for a low-cost preview, a fast review result, or a quality-focused final. In that sense, infrastructure begins to express editorial intent. The unresolved requirement is a durable record of which model was selected and why.</p><p><strong>Source:</strong> <a href="https://runwayml.com/news/company-news/introducing-runway-media-router" target="_blank" rel="noopener">Runway Media Router</a> &#183; <a href="https://docs.dev.runwayml.com/model-routers/configuration/" target="_blank" rel="noopener">Configuration documentation</a></p><h3>Verification Over Raw Scale</h3><p>Eiso Kant&#8217;s emphasis on persistence, checking, backtracking, and avoiding premature completion offers a useful frame for media agents. A smaller system that verifies timecodes, filenames, frame sizes, sources, and delivery state may be more dependable than a larger system that stops after a plausible first pass. This is a practitioner hypothesis, not a controlled media study.</p><p><strong>Source:</strong> <a href="https://www.latent.space/p/poolside" target="_blank" rel="noopener">Eiso Kant &#8212; July 23 discussion</a></p><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 9: Turn Recurring Review Criteria Into a Reusable Checklist</h3><p>Week 8 separated drafting from review. Week 9 makes the review pass repeatable by moving recurring criteria out of memory and into a checklist.</p><p>For an AV task:</p><p>1. <strong>Collect recurring checks.</strong> Pull the items that recur across edit notes, captions, metadata, equipment briefs, graphics, and delivery records.
+<p>2. <strong>Write each item as a yes-or-no question.</strong> &#8220;Are all timecodes in the required format?&#8221; is easier to verify than &#8220;Check formatting.&#8221;</p>
+<p>3. <strong>Require evidence.</strong> Add a field for the source link, file location, timecode, or specification that supports each answer.</p>
+<p>4. <strong>Separate fact types.</strong> Mark whether evidence comes from a vendor, author, customer, or independent test.</p>
+<p>5. <strong>Define stop conditions.</strong> Missing source files, mismatched durations, uncertain rights, or absent approval remain open findings rather than assumed passes.</p>
+<p>6. <strong>Save and version the checklist.</strong> Reuse the same baseline, then add project-specific checks without removing the core review criteria.</p><p>A reusable starting point:</p>
+<pre><code>Review checklist
+
+Facts and sources
+- Names, dates, numbers, timecodes, and links verified?
+- Vendor, author, customer, and independent claims labeled correctly?
+- Unknowns and unavailable features stated clearly?
+
+Preservation
+- Required wording, timing, dimensions, channels, and file names unchanged?
+- Source assets and approved versions identified?
+
+Structure and delivery
+- Every required section and file present?
+- Format, destination, and deadline requirements met?
+
+Audience and approval
+- Language and examples fit the audience?
+- Rights, consent, and provenance questions recorded?
+- Human approval captured before release?</code></pre>
+<p>The checklist does not replace judgment. It makes the repeated parts of judgment visible, reviewable, and easier to apply consistently.</p><p>Next week, Back to Basics Week 10: <strong>Test the checklist against a finished task.</strong></p><hr><h2>Sources</h2><p>1. <a href="https://bfl.ai/blog/flux-3" target="_blank" rel="noopener">FLUX 3 developer announcement</a> &#8212; July 23, 2026 &#8212; architecture, announced capabilities, gated access, roadmap, preliminary vendor comparisons, and undisclosed specifications</p>
+<p>2. <a href="https://venturebeat.com/technology/black-forest-labs-launches-flux-3-capable-of-generating-images-and-20-second-video-with-audio-but-in-limited-release-to-start" target="_blank" rel="noopener">Independent FLUX 3 launch reporting</a> &#8212; July 23, 2026 &#8212; independent confirmation of launch status and omissions; not a hands-on output test</p>
+<p>3. <a href="https://www.alibabacloud.com/blog/qwen-audio-3-0-tts-more-multilingual-easier-to-direct_603379" target="_blank" rel="noopener">Qwen-Audio-3.0 announcement</a> &#8212; July 21, 2026 &#8212; variants, languages, direction controls, cloning, duration, rollout, and hosted availability</p>
+<p>4. <a href="https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice" target="_blank" rel="noopener">Artificial Analysis voice leaderboard</a> &#8212; accessed July 27, 2026 &#8212; independent Elo snapshot, uncertainty range, and sample count</p>
+<p>5. <a href="https://runwayml.com/news/company-news/introducing-runway-media-router" target="_blank" rel="noopener">Runway &#8212; Media Router</a> &#8212; July 23, 2026 &#8212; routing preferences, availability, pricing policy, and vendor framing</p>
+<p>6. <a href="https://docs.dev.runwayml.com/model-routers/configuration/" target="_blank" rel="noopener">Runway router documentation</a> &#8212; accessed July 27, 2026 &#8212; configuration controls, allowlists, denylists, ceilings, IDs, versioning, realized costs, and dry runs</p>
+<p>7. <a href="https://techcrunch.com/2026/07/23/runway-bets-on-ai-model-routing-as-generative-media-gets-crowded/" target="_blank" rel="noopener">TechCrunch &#8212; Media Router reporting</a> &#8212; July 23, 2026 &#8212; independent launch context and qualification of internal quality scoring</p>
+<p>8. <a href="https://www.prnewswire.com/news-releases/sonilo-and-fal-launch-sound-effects-1-0-for-realistic-sound-effects-from-video-and-text-302830490.html" target="_blank" rel="noopener">Sonilo launch announcement</a> &#8212; July 21, 2026 &#8212; vendor capabilities, video duration, text mode, formats, pricing, and launch availability</p>
+<p>9. <a href="https://fal.ai/models/sonilo/v1.1/video-to-sound-effects/llms.txt" target="_blank" rel="noopener">Sonilo API documentation</a> &#8212; accessed July 27, 2026 &#8212; endpoint version, video-conditioned generation, prompt direction, and current API details</p>
+<p>10. <a href="https://www.alibabacloud.com/blog/qwen-image-3-0-rich-content-authentic-details-deep-knowledge_603385" target="_blank" rel="noopener">Qwen-Image-3.0 announcement</a> &#8212; July 22, 2026 &#8212; prompt length, small-text and language claims, layouts, editing, retrieval, and availability</p>
+<p>11. <a href="https://decrypt.co/374084/alibaba-qwen-image-3-ai-useful-not-just-pretty" target="_blank" rel="noopener">Decrypt &#8212; Qwen-Image-3.0 reporting</a> &#8212; July 22, 2026 &#8212; independent launch context and production-layout framing; not a blind benchmark</p>
+<p>12. <a href="https://elevenlabs.io/blog/introducing-references-sound-control-for-music-v2" target="_blank" rel="noopener">ElevenMusic References announcement</a> &#8212; July 23, 2026 &#8212; reference duration, style and instrumentation guidance, prompt pairing, availability, and vendor screening claim</p>
+<p>13. <a href="https://elevenlabs.io/blog/introducing-vocals-a-consistent-voice-for-your-elevenmusic-songs" target="_blank" rel="noopener">ElevenMusic Vocals announcement</a> &#8212; July 22, 2026 &#8212; reusable vocal identities, supplied recordings, service library, styles, and vendor screening claim</p>
+<p>14. <a href="https://elevenlabs.io/docs/eleven-creative/products/music/finetunes.mdx" target="_blank" rel="noopener">Music Finetunes documentation</a> &#8212; accessed July 27, 2026 &#8212; private style-model workflow, upload count, per-track duration, total-duration limit, and plan-credit access</p>
+<p>15. <a href="https://huggingface.co/nvidia/Cosmos3-Super-Image2Video-4Step" target="_blank" rel="noopener">Cosmos3-Super Image2Video 4Step model page</a> &#8212; July 20, 2026 &#8212; open-weight status, 64-billion-parameter scale, four-step design, output options, vendor acceleration claim, and hardware profile</p>
+<p>16. <a href="https://artificialanalysis.ai/video/leaderboard/image-to-video?audio-output=false&open-weights=true" target="_blank" rel="noopener">Artificial Analysis image-to-video leaderboard</a> &#8212; accessed July 27, 2026 &#8212; independent open-weight preference snapshot and filtered ranking</p>
+<p>17. <a href="https://arxiv.org/abs/2607.21553" target="_blank" rel="noopener">SANA-Video 2.0 paper</a> &#8212; July 23, 2026 &#8212; architecture, model sizes, attention mix, author-reported speed, hardware, and comparison</p>
+<p>18. <a href="https://nvlabs.github.io/Sana/Video2/" target="_blank" rel="noopener">SANA-Video 2.0 project page</a> &#8212; accessed July 27, 2026 &#8212; project status and release materials</p>
+<p>19. <a href="https://arxiv.org/abs/2607.17675" target="_blank" rel="noopener">ShotPlan paper</a> &#8212; July 20, 2026 &#8212; planning controls, training setup, and author-reported timing accuracy</p>
+<p>20. <a href="https://github.com/Pensioner-11/ShotPlan" target="_blank" rel="noopener">ShotPlan repository</a> &#8212; accessed July 27, 2026 &#8212; code, weights, license, public-data terms, and repository details</p>
+<p>21. <a href="https://lumalabs.ai/news/luma-runs-production-inference-on-amd-and-tensorwave" target="_blank" rel="noopener">Luma infrastructure announcement</a> &#8212; July 22, 2026 &#8212; company-reported AMD migration, GPU count, served products, and staffing claim</p>
+<p>22. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/" target="_blank" rel="noopener">Google &#8212; Gemini Flash variants</a> &#8212; July 21, 2026 &#8212; model lineup, positioning, multimodal agent use, and differing access</p>
+<p>23. <a href="https://runway.com/news/company-news/ai-media-report" target="_blank" rel="noopener">Runway &#8212; AI Media Report</a> &#8212; July 20, 2026 &#8212; anonymized customer-reported adoption claims; vendor-published, self-selected, and unaudited</p>
+<p>24. <a href="https://www.latent.space/p/poolside" target="_blank" rel="noopener">Eiso Kant &#8212; July 23 discussion</a> &#8212; July 23, 2026 &#8212; practitioner account of experiment infrastructure, company-reported scale, verification behavior, and continuing human responsibility</p>
+<p>25. <a href="https://practicalai.show/365" target="_blank" rel="noopener">Chris Benson &#8212; July 23 discussion</a> &#8212; July 23, 2026 &#8212; practitioner commentary on long-running agent economics, machine-facing interfaces, identity, permissions, and resource controls</p>
+<p>26. <a href="https://www.lenswork.com/indexhome.html" target="_blank" rel="noopener">Brooks Jensen &#8212; July 20 discussion</a> &#8212; July 20, 2026 &#8212; author commentary on AI use, source material, automation, editing, and authorship boundaries</p>
+<p>27. <a href="https://rss.com/podcasts/into-the-podverse-innovation-challenges-opportunities/3012821/" target="_blank" rel="noopener">Tony Doe &#8212; July 22 discussion</a> &#8212; July 22, 2026 &#8212; practitioner commentary on RSS distribution, discoverability, measurement, retrieval, and unresolved rights</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>
