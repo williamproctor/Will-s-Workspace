@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <meta property="og:title" content="{{OG_TITLE}}">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{SITE_NAME}}">
+{{OG_URL_BLOCK}}
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared.css?v={{BUILD_VERSION}}">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <div class="logo-icon">{{LOGO_ICON}}</div>
+        <span class="logo-text">{{SITE_NAME_HTML}}</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#latest">Latest</a>
+        <a href="#archive">Archive</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-kicker">{{HERO_KICKER}}</div>
+      <h1>{{HERO_HEADLINE}}</h1>
+      <p class="hero-sub">{{HERO_SUB}}</p>
+      <div class="hero-meta">{{HERO_META}}</div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{LATEST_URL}}">Read this week's briefing
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#archive">Browse the archive</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="latest">
+    <div class="section-inner">
+      <div class="section-heading">
+        <h2>Latest edition</h2>
+        <span class="section-label">{{CADENCE_LABEL}}</span>
+      </div>
+{{FEATURED_CARD}}
+    </div>
+  </section>
+
+  <section class="section" id="archive" style="padding-top: 12px;">
+    <div class="section-inner">
+      <div class="section-heading">
+        <h2>Archive</h2>
+        <span class="section-label">{{EDITION_COUNT}} edition{{EDITION_COUNT_PLURAL}}</span>
+      </div>
+      <div class="archive-grid">
+{{ARCHIVE_CARDS}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section about-strip" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-item">
+          <h3><span class="dot"></span>Why this exists</h3>
+          <p>{{ABOUT_WHY}}</p>
+        </div>
+        <div class="about-item">
+          <h3><span class="dot"></span>What's inside</h3>
+          <p>The week's stories with sources, a platform and tool watch, attributed voices, common threads, grounded angles for posts and POVs, and one practical tip.</p>
+        </div>
+        <div class="about-item">
+          <h3><span class="dot"></span>How it's made</h3>
+          <p>Researched from primary sources and trade coverage each week. Vendor claims are labeled as vendor claims. Every number traces to a source.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-text">{{FOOTER_COPYRIGHT}}</div>
+      <div class="footer-links">
+        <a href="#latest">Latest</a>
+        <a href="#archive">Archive</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
