@@ -61,10 +61,16 @@ Retired sections: *Voices This Week* (folded into The Conversation — attribute
 
 After drafting the full and simplified editions — and before building the site or committing:
 
-1. **Claims audit.** Re-verify every number, date, price, quote, and product-status claim against its source. Confirm each link resolves and supports the claim it's attached to.
-2. **Qualifier audit.** Hunt for vendor claims reading as findings, previews reading as shipped products, viral claims reading as verified facts.
-3. **Reputation audit.** The team echoes this content publicly. Flag anything that could embarrass GrowthX if quoted: unverifiable stats, one-sided competitor framing, angles that overreach the evidence, quotes with profanity not yet paraphrased.
-4. Report the result explicitly ("Review: N claims verified, no flags" or a flag list with fixes) before building.
+1. **Panzer's Brain editorial pass (required for the first draft of ANY reader-facing content).** Run the skill at `skills/panzers-brain/SKILL.md`: audit against its five quality dimensions and 24 AI-fingerprint patterns, rewrite to fix, then run its two-step anti-AI pass. House-style rules adopted from this skill:
+   - Story headlines in sentence case, written like a colleague summarizing the news.
+   - Em dashes rare in body prose (the `—` metadata separators in Sources lines are structural and exempt). Verbatim quotes are never altered.
+   - Minimal inline bold. Structural labels ("Comment window:", "Source:", Platform Watch lead-ins) are exempt; don't bold sentence fragments for mechanical emphasis.
+   - No bolded label templates in prose sections — Angles read as short prose with a trailing "Window:" line, not Hook/Evidence/Why-now scaffolding.
+   - Facts, numbers, links, and qualifiers must survive the rewrite untouched; spot-check after.
+2. **Claims audit.** Re-verify every number, date, price, quote, and product-status claim against its source. Confirm each link resolves and supports the claim it's attached to.
+3. **Qualifier audit.** Hunt for vendor claims reading as findings, previews reading as shipped products, viral claims reading as verified facts.
+4. **Reputation audit.** The team echoes this content publicly. Flag anything that could embarrass GrowthX if quoted: unverifiable stats, one-sided competitor framing, angles that overreach the evidence, quotes with profanity not yet paraphrased.
+5. Report the result explicitly ("Review: N claims verified, no flags" or a flag list with fixes) before building.
 
 ## NotebookLM Producer Briefs (each edition, after review)
 
