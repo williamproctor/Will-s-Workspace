@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <meta property="og:title" content="{{OG_TITLE}}">
+  <meta property="og:description" content="{{META_DESCRIPTION}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="{{SITE_NAME}}">
+{{OG_URL_BLOCK}}
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared.css?v={{BUILD_VERSION}}">
+</head>
+<body class="app-mode">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <div class="logo-icon">{{LOGO_ICON}}</div>
+        <span class="logo-text">{{SITE_NAME_HTML}}</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#archive">Archive</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="edition-app-wrap">
+    <div class="edition-app" id="editionApp"></div>
+  </div>
+
+  <script src="/shared.js?v={{BUILD_VERSION}}"></script>
+  <script>
+    initEditionApp(document.getElementById("editionApp"), {
+      slug: "{{SLUG}}",
+      editionTitle: {{EDITION_TITLE_JS}},
+      editionMd: {{EDITION_MD_JS}},
+      simplifiedMd: {{EDITION_SIMPLIFIED_JS}},
+      hasAudio: {{HAS_AUDIO}},
+      audioSrc: "/audio/{{SLUG}}.m4a",
+      audioTitle: {{AUDIO_TITLE_JS}},
+      hasVideo: {{HAS_VIDEO}},
+      videoSrc: "/video/{{SLUG}}.mp4",
+      videoTitle: {{VIDEO_TITLE_JS}},
+      videoThumb: "/video/thumbs/{{SLUG}}.png"
+    });
+  </script>
+</body>
+</html>
