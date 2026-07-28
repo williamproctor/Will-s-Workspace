@@ -1,10 +1,10 @@
-# Signal & Scale — Production Runbook
+# The Monday Signal — Production Runbook
 
-> Working title. The brand name, tagline, and domain live in `config.json` — change them there and rebuild; nothing else needs to be edited. This newsletter is completely separate from The AVS AI Dispatch (`AV-AI-Newsletter/`). Do not cross-reference content, branding, or domains between the two.
+> Brand name, tagline, and domain live in `config.json` (The Monday Signal · mondaysignal.com) — change them there and rebuild; nothing else needs to be edited. This newsletter is completely separate from The AVS AI Dispatch (`AV-AI-Newsletter/`). Do not cross-reference content, branding, or domains between the two.
 
 ## Purpose
 
-Signal & Scale is a weekly intelligence briefing for the GrowthX team. Its job is to keep the team current on AI and tech news **as it relates to marketing** — with a strong bias toward the conversations actually blowing up on X and LinkedIn — so the team can comment on highly topical things while they're live, and so social posts, client conversations, and thought leadership stay timely and authoritative.
+The Monday Signal is a weekly intelligence briefing for the GrowthX team. Its job is to keep the team current on AI and tech news **as it relates to marketing** — with a strong bias toward the conversations actually blowing up on X and LinkedIn — so the team can comment on highly topical things while they're live, and so social posts, client conversations, and thought leadership stay timely and authoritative.
 
 Two outcomes define success each week:
 

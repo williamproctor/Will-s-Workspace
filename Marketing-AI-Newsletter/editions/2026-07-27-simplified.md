@@ -1,4 +1,4 @@
-# Signal & Scale — Week of July 27, 2026
+# The Monday Signal — Week of July 27, 2026
 
 > **The AI ad wars went main-character.** Meta answered the "doomers" with an optimism spot set to a Bowie song about extinction. Anthropic's doom-toned ad was still getting dunked on. X deleted 42,000 AI reply bots. And Alphabet booked ads inside AI search as real revenue, while new data showed buying a placement doesn't buy a citation.
 
@@ -87,4 +87,4 @@ Similarweb vs Adthena: 43% vs 18% AI Overview frequency. Single-vendor panels ar
 
 ---
 
-*Signal & Scale is a weekly AI and tech briefing for marketers, produced for the GrowthX team. Curated with AI assistance. Questions or suggestions? Reply to this message.*
+*The Monday Signal is a weekly AI and tech briefing for marketers, produced for the GrowthX team. Curated with AI assistance. Questions or suggestions? Reply to this message.*

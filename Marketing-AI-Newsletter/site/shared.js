@@ -1,4 +1,4 @@
-/* Signal & Scale — shared JS (markdown renderer, edition reader app, podcast player) */
+/* The Monday Signal — shared JS (markdown renderer, edition reader app, podcast player) */
 
 /* ---------- Markdown renderer ---------- */
 

@@ -1,4 +1,4 @@
-# Signal & Scale (working title)
+# The Monday Signal
 
 A weekly intelligence briefing that keeps the GrowthX team current on AI and tech news **as it relates to marketing** — so social posts, client conversations, and thought leadership stay timely and authoritative.
 
@@ -6,14 +6,10 @@ This project is completely separate from The AVS AI Dispatch (`AV-AI-Newsletter/
 
 ## Status
 
-- **Name:** "Signal & Scale" is a working title. All branding lives in `config.json`; renaming is a one-file change followed by `python3 scripts/build_site.py`.
-- **Domain:** not yet purchased. The site builds domain-agnostic (relative URLs). Set `"domain"` in `config.json` when one is registered and rebuild to emit canonical/OG URLs.
+- **Name:** The Monday Signal (decided 2026-07-28; previously working-titled "Signal & Scale"). All branding lives in `config.json`; a rename is a one-file change followed by `python3 scripts/build_site.py`.
+- **Domain:** `mondaysignal.com` (purchased 2026-07-28, configured in `config.json` — the build emits canonical/OG URLs and the sitemap from it). Hosting: Vercel project with root directory `Marketing-AI-Newsletter/site`.
 - **Cadence:** Mondays. Each edition covers the previous 7 days, so the team starts the week with fresh material.
-- **Delivery:** static site (Vercel-ready) + the markdown itself. No email integration yet.
-
-### Name alternates considered
-
-If "Signal & Scale" doesn't stick: The Marketing Frontier, The Growth Signal, The Relevance Report, Demand Signal, The Distribution. Check domain availability before committing.
+- **Delivery:** static site + the markdown itself. No email integration yet.
 
 ## Quick start
 
