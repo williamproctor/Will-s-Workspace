@@ -1,0 +1,9 @@
+Minimalist editorial illustration for an AI newsletter video cover. Subject: two adjacent AI media workstations presented as a calm evidence comparison. The left workstation shows a compact model connected to a live API meter, price card, and small evaluation chart. The right workstation shows a long audio-video timeline connected to a large fan of reference cards, with several status markers still open. Beneath both, a shared production intake lane contains a transcription waveform, layered image stack, music controls, and an audio provenance record. The composition should communicate that launch-day capability and launch-day evidence are different things. Do not use readable text.
+
+Include subtle production cues: paired model cards, API connection indicator, small comparison bars, 30-second timeline, stacked visual references, audio waveform, editable image layers, music-note controls, provenance seal, and review checklist. Use abstract icons and marks only; no brand logos, no copied software interfaces, no readable words, no file extensions, and no labels.
+
+Style: premium editorial illustration, flat 2D with soft paper texture, clean schematic layout, generous negative space. Warm parchment background (#f5f0e8), muted dispatch blue (#4a6da7) as the only accent, dark ink details (#2d2d42), soft neutral shadows. No people, no faces, no brand logos, no futuristic genre imagery, no unrelated symbolism, no glow effects, no neon, no gradients, no wireframes, no three-dimensional render.
+
+Mood: calm, analytical, practical, professional. The image should communicate: "Compare what launched, what can be tested, and what remains unverified."
+
+Format: 16:9 landscape composition suitable for a newsletter video thumbnail. No watermark, no signature, no text.

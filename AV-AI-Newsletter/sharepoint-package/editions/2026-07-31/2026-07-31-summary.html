@@ -1,0 +1,203 @@
+<!-- AVS AI Dispatch &#8212; Week of July 31, 2026 (Quick Summary) -->
+<!-- Scoped to .avs-dispatch; no JavaScript; body-only HTML. -->
+<style>
+.avs-dispatch {
+  --dispatch-blue: #4a6da7;
+  --dispatch-blue-05: rgba(74, 109, 167, 0.05);
+  --dispatch-blue-10: rgba(74, 109, 167, 0.10);
+  --parchment: #f5f0e8;
+  --parchment-light: #faf8f3;
+  --parchment-dark: #ddd5c4;
+  --ink: #1a1a2e;
+  --ink-soft: #2d2d42;
+  --ink-muted: #4a4a5e;
+  --ink-faint: #9e9eb0;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 16px;
+  font-family: "Segoe UI", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--parchment-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--parchment-dark);
+}
+.avs-dispatch * { box-sizing: border-box; }
+.avs-dispatch .edition-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--parchment-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-badge {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); background: var(--dispatch-blue);
+  padding: 4px 12px; border-radius: 999px;
+  display: inline-block;
+}
+.avs-dispatch .edition-date {
+  font-size: 13px; color: var(--ink-muted);
+  margin-left: 12px;
+}
+.avs-dispatch .edition-kicker {
+  font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 1px; text-transform: uppercase;
+  font-weight: 600;
+}
+.avs-dispatch .edition-body { padding: 36px 32px; }
+.avs-dispatch .edition-body h2 {
+  font-size: 24px; font-weight: 800;
+  letter-spacing: -0.5px; margin: 36px 0 12px;
+  color: var(--ink);
+}
+.avs-dispatch .edition-body h2:first-child { margin-top: 0; }
+.avs-dispatch .edition-body h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
+  margin: 28px 0 8px;
+  color: var(--ink-soft);
+}
+.avs-dispatch .edition-body p {
+  color: var(--ink-muted); margin: 0 0 14px;
+  font-size: 15px; line-height: 1.7;
+}
+.avs-dispatch .edition-body a {
+  color: var(--dispatch-blue); text-decoration: none;
+  border-bottom: 1px solid var(--dispatch-blue-10);
+  transition: border-color 0.2s;
+}
+.avs-dispatch .edition-body a:hover { border-bottom-color: var(--dispatch-blue); }
+.avs-dispatch .edition-body code {
+  font-family: "Consolas", "JetBrains Mono", monospace; font-size: 13px;
+  background: var(--dispatch-blue-05);
+  padding: 2px 6px; border-radius: 4px;
+}
+.avs-dispatch .edition-body pre {
+  margin: 18px 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid rgba(74, 109, 167, 0.14);
+  border-radius: var(--radius);
+  background: var(--dispatch-blue-05);
+}
+.avs-dispatch .edition-body pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre;
+}
+.avs-dispatch .edition-body blockquote {
+  border-left: 3px solid var(--dispatch-blue);
+  padding: 14px 20px; margin: 20px 0;
+  background: var(--dispatch-blue-05);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic; color: var(--ink-muted);
+}
+.avs-dispatch .edition-body table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 13px;
+}
+.avs-dispatch .edition-body th {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--ink-faint); text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment-dark);
+  background: var(--parchment-light);
+}
+.avs-dispatch .edition-body td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--parchment);
+  color: var(--ink-muted);
+}
+.avs-dispatch .edition-body ul { margin: 14px 0; padding-left: 20px; }
+.avs-dispatch .edition-body li {
+  color: var(--ink-muted); font-size: 15px;
+  line-height: 1.7; margin-bottom: 6px;
+}
+.avs-dispatch .edition-body li strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body hr {
+  border: none; border-top: 1px solid var(--parchment-dark);
+  margin: 32px 0;
+}
+.avs-dispatch .edition-body strong { color: var(--ink-soft); }
+.avs-dispatch .edition-body em { color: var(--ink-soft); }
+.avs-dispatch .edition-figure {
+  margin: 24px 0; text-align: center;
+}
+.avs-dispatch .edition-figure img {
+  max-width: 100%; height: auto; border-radius: var(--radius);
+}
+.avs-dispatch .edition-figure figcaption {
+  font-size: 12px; color: var(--ink-faint);
+  margin-top: 8px; font-style: italic;
+}
+@media (max-width: 640px) {
+  .avs-dispatch .edition-header { padding: 16px 20px; }
+  .avs-dispatch .edition-body { padding: 24px 20px; }
+  .avs-dispatch .edition-body h2 { font-size: 20px; }
+}
+</style>
+<div class="avs-dispatch">
+  <div class="edition-header">
+    <div>
+      <span class="edition-badge">2026-07-31</span>
+      <span class="edition-date">Week of July 31, 2026</span>
+    </div>
+    <div class="edition-kicker">Quick Summary</div>
+  </div>
+  <div class="edition-body">
+</p><blockquote><strong>MiniMax H3 and Seedance 2.5 launched on July 31 with different strengths and different evidence.</strong> H3 had a live hosted API, pricing, documented limits, and independent preference snapshots. Seedance offered 30-second audio-video generation and up to 50 references, but its API, price, output specifications, watermark details, and independent evaluation were still unavailable.</blockquote><hr><h2>The Big Story</h2><h3>MiniMax H3 vs. Seedance 2.5</h3><p>Both new models combine video, audio, references, and editing. The important difference at launch was what could be measured.</p><p>#### MiniMax H3</p><p>H3 generates <strong>4&#8211;15 seconds</strong> of video at <strong>768p or 2K</strong> with native stereo audio. It accepts text, images, video, and audio as context and supports generation, editing, reference control, and motion transfer.</p><p>The category limits are below, subject to a <strong>12-file overall cap</strong>:</p><ul>
+<li>Up to <strong>nine images</strong></li>
+<li>Up to <strong>three video clips</strong></li>
+<li>Up to <strong>three audio files</strong></li>
+</ul><p>The hosted API was live. China pricing was <strong>CNY 0.80 per second at 2K</strong> and <strong>CNY 0.50 per second at 768p</strong>.</p><p>Artificial Analysis recorded two independent preference snapshots:</p><ul>
+<li><strong>Video editing:</strong> <strong>1,130 Elo &#177;6 from 8,208 samples</strong></li>
+<li><strong>Text-to-video:</strong> <strong>1,239 Elo &#177;10 from 6,026 samples</strong></li>
+</ul><p>These are blind-preference results, not tests of reliability, rights, consistency, or total workflow cost.</p><p>H3&#8217;s promised downloadable weights had <strong>not shipped by the July 31 cutoff</strong>. Its technical report was pending, frame rate and codec were unclear, and its optional provenance watermark was off by default.</p><p>#### Seedance 2.5</p><p>Seedance 2.5 officially rolled out with <strong>30-second audio-video generation</strong>, multi-round extensions, and up to:</p><ul>
+<li><strong>30 images</strong></li>
+<li><strong>10 video clips</strong></li>
+<li><strong>10 audio clips</strong></li>
+</ul><p>It also includes timestamp revision, camera changes, green-screen and reference editing, and textureless 3D blocking references for composition, poses, motion paths, and camera angles.</p><p>Initial access was through <strong>Jimeng AI and Doubao Pro</strong>. A BytePlus API was coming later.</p><p>At launch, there was no public API schema or model identifier, price, resolution, frame rate, codec, bit depth, watermark specification, or independent Seedance 2.5 benchmark. ByteDance also notes continuing limits with complex motion and multiple subjects.</p><p>H3 therefore had stronger launch evidence for access, price, limits, and independent preference. Seedance presented a longer format and broader reference system, but more of its case remained vendor-demonstrated.</p><p><strong>Sources:</strong> <a href="https://www.minimax.io/blog/minimax-h3" target="_blank" rel="noopener">H3 announcement</a> &#183; <a href="https://platform.minimaxi.com/docs/guides/video-generation?ready=6" target="_blank" rel="noopener">H3 API documentation</a> &#183; <a href="https://artificialanalysis.ai/video/leaderboard/video-editing" target="_blank" rel="noopener">Independent editing snapshot</a> &#183; <a href="https://artificialanalysis.ai/video/leaderboard/text-to-video" target="_blank" rel="noopener">Independent text-to-video snapshot</a> &#183; <a href="https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5" target="_blank" rel="noopener">Seedance 2.5 announcement</a> &#183; July 31</p><hr><h2>Other Stories</h2><h3>OpenAI GPT Transcribe and Live Transcribe</h3><p>OpenAI split transcription into two models:</p><ul>
+<li><strong>GPT Transcribe:</strong> completed or committed audio at <strong>$0.0045 per minute</strong></li>
+<li><strong>GPT Live Transcribe:</strong> continuous low-latency audio at <strong>$0.017 per minute</strong></li>
+</ul><p>Both support context prompts, literal keyword hints, and expected-language arrays. An independent evaluation measured GPT Transcribe at <strong>3.3% word error rate</strong>, compared with <strong>4.0%</strong> for GPT-4o Transcribe.</p><p>Output is JSON only. The models do not provide native SRT or VTT captions, word-level timestamps, English translation, or speaker diarization, so those jobs still require separate processing or models.</p><p><strong>Sources:</strong> <a href="https://developers.openai.com/cookbook/examples/migrating_from_whisper_to_gpt_transcribe" target="_blank" rel="noopener">OpenAI migration guide</a> &#183; <a href="https://artificialanalysis.ai/speech-to-text/models/openai-gpt-transcribe" target="_blank" rel="noopener">Independent evaluation</a> &#183; July 28&#8211;29</p><h3>xAI Imagine Video 1.5 References</h3><p>xAI added native <strong>1080p</strong> text generation, up to <strong>seven visual references</strong>, and an image-plus-voice reference mode. Clips run <strong>1&#8211;15 seconds</strong> at <strong>$0.08 per output second</strong>.</p><p>Text and 1080p access were broad, while image and voice references were staged for selected paid users and gated API access. Reference and editing modes remained limited to <strong>720p</strong>.</p><p>Outputs carry a mandatory vendor watermark. No independent test of the new 1080p, identity-retention, or voice-retention features was available.</p><p><strong>Source:</strong> <a href="https://x.ai/news/grok-imagine-video-1-5-references" target="_blank" rel="noopener">xAI update</a> &#183; July 31 &#183; vendor announcement</p><h3>Luma Layers</h3><p>Luma Layers can generate independently editable image components or decompose a flat image into text, objects, backgrounds, and transparent elements. Those parts can be rearranged, reused, localized, or regenerated.</p><p>The feature was live in Luma Agents at <strong>75 credits for 1K</strong> and <strong>150 credits for 2K</strong>, with plans starting at <strong>$30 per month</strong>.</p><p>No PSD or other interchange format was specified, and no independent decomposition test was published.</p><p><strong>Source:</strong> <a href="https://lumalabs.ai/news/introducing-layers" target="_blank" rel="noopener">Luma Layers announcement</a> &#183; July 29 &#183; vendor announcement</p><h3>Google Lyria 3.5</h3><p>Lyria 3.5 launched in Flow Music with vendor-reported improvements in musical structure, lyrics, pronunciation, vocal expression, tempo, and requested duration. It can target tracks of up to <strong>three minutes</strong>.</p><p>Generated audio includes a <strong>SynthID watermark</strong>. No downloadable weights or public Lyria 3.5 API model identifier were announced, and no blind independent listening benchmark was available.</p><p><strong>Sources:</strong> <a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/lyria-3-5/" target="_blank" rel="noopener">Google announcement</a> &#183; <a href="https://deepmind.google/models/model-cards/lyria-3-5/" target="_blank" rel="noopener">Model card</a> &#183; July 29 &#183; vendor and model-author evidence</p><h3>OpenAI Audio Provenance</h3><p>OpenAI added SynthID watermarks to supported generated audio and expanded its verifier and Content Provenance API to check audio.</p><p>The API accepts MP3, Opus, AAC, FLAC, WAV, and PCM, with a <strong>50 MiB</strong> limit and a <strong>60-second</strong> decoded-duration limit. It checks supported OpenAI signals only.</p><p>A non-detected result does not prove human origin, and the check does not establish rights or ownership. Compression and editing can also weaken a watermark.</p><p><strong>Sources:</strong> <a href="https://openai.com/index/advancing-content-provenance/" target="_blank" rel="noopener">OpenAI announcement</a> &#183; <a href="https://developers.openai.com/api/docs/guides/content-provenance" target="_blank" rel="noopener">API guide</a> &#183; July 31</p><hr><h2>Quick Hits</h2><ul>
+<li><strong>AutoCut Angles</strong> builds an editable switching sequence from supplied camera tracks and one audio track in Premiere or Resolve. It is for single-speaker footage, not speaker-directed multicamera switching. <a href="https://www.autocut.com/en/blogs/july-autocut-updates-2026/" target="_blank" rel="noopener">Source</a> &#183; July 29</li>
+<li><strong>ElevenLabs Character Casting</strong> detects manuscript characters, suggests voices, previews lines, and changes a selected voice across a project. The company lists more than 90 languages and more than 10,000 voices; no independent casting or cleanup test was published. <a href="https://elevenlabs.io/blog/introducing-character-casting-in-audiobooks" target="_blank" rel="noopener">Source</a> &#183; July 30</li>
+<li><strong>Kimi K3 weights shipped</strong> on July 27: approximately <strong>1.56 TB</strong> of MXFP4 weights, code, and a report for a <strong>2.8-trillion-parameter model with 104 billion active parameters</strong>. The custom license and specialized multi-GPU requirements still apply. <a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank" rel="noopener">Source</a></li>
+<li><strong>C2PA guidance</strong> maps generated, partially modified, and later human-edited media to source types, actions, disclosure fields, ingredients, and regions. It is guidance, not a new mandatory rule, and signed claims do not prove every assertion. <a href="https://c2pa.org/wp-content/uploads/sites/33/2026/07/Use-of-Content-Credentials-to-Identify-Synthetic-and-Non-Synthetic-Content.pdf" target="_blank" rel="noopener">Source</a> &#183; July 30</li>
+<li><strong>Pangram Image</strong> is a statistical detector preview. Pangram reports high internal accuracy, but the measurements are vendor-run and the detector cannot provide signed provenance. <a href="https://www.pangram.com/blog/introducing-pangram-image-detection" target="_blank" rel="noopener">Source</a> &#183; July 29</li>
+<li><strong>Grok Voice Think Fast 2.0</strong> costs <strong>$0.08 per audio minute</strong>. An independent snapshot recorded <strong>82.9% overall</strong>, <strong>56.5% agentic performance</strong>, and <strong>0.70 seconds to first audio</strong> under the tested conditions. <a href="https://x.ai/news/grok-voice-think-fast-2" target="_blank" rel="noopener">Announcement</a> &#183; <a href="https://artificialanalysis.ai/speech-to-speech" target="_blank" rel="noopener">Independent snapshot</a> &#183; July 29</li>
+<li><strong>Qwen-Audio-3.0-Gen-Preview</strong> describes one research path for dialogue, ambience, localized effects, and longer mixed audio at <strong>48 kHz stereo</strong>. It remains paper-only, with author-run benchmarks and no weights, API, demo, price, license, or parameter count. <a href="https://arxiv.org/abs/2607.27011" target="_blank" rel="noopener">Paper</a> &#183; July 30</li>
+</ul><hr><h2>Voices This Week</h2><ul>
+<li><strong>Victor Riparbelli</strong> described video that can answer, demonstrate, draw, and test comprehension. His company perspective treats video as a stateful application rather than only a rendered file. <a href="https://aneyeonai.libsyn.com/video-is-about-to-stop-being-one-way-and-that-changes-everything-victor-riparbelli-synthesia" target="_blank" rel="noopener">July 28 discussion</a></li>
+<li><strong>Colin Smith</strong> argued that easier tools do not create taste. Editing knowledge still helps correct a small defect instead of regenerating an entire result, while provenance may increase the need to demonstrate authentic capture. This is practitioner judgment. <a href="https://shows.acast.com/camera-shake-photography-podcast/episodes/25-years-of-photoshop-the-skills-ai-cant-replace-with-colin" target="_blank" rel="noopener">July 30 discussion</a></li>
+<li><strong>Thais Castello Branco</strong> separated objectively checkable quality from creative preference shaped by audience, brand, context, and taste. Her frame combines fixed checks with contextual human review. <a href="https://www.youtube.com/watch?v=4x_gN7XMIcE" target="_blank" rel="noopener">July 31 discussion</a></li>
+<li><strong>Daniel Whitenack and Chris Benson</strong> examined how tool access, credentials, package proxies, network policy, uploads, monitoring, and human approval combine into agent containment. One incident illustrates a failure mode but does not predict every agent. <a href="https://share.transistor.fm/s/9d74230b" target="_blank" rel="noopener">July 30 discussion</a></li>
+<li><strong>Akshay Nathan</strong> separated visible activity from meaningful progress and described how one agent foundation can support task-specific interfaces and sandboxes. <strong>Nathaniel Whittemore</strong> described models as routine drivers, specialists, sub-agents, or fallbacks rather than one winner for every task. <a href="https://www.latent.space/p/chatgpt-work" target="_blank" rel="noopener">Akshay Nathan</a> &#183; <a href="https://aidailybrief.ai/e/2026-07-27" target="_blank" rel="noopener">Nathaniel Whittemore</a></li>
+</ul><hr><h2>Common Threads</h2><h3>Video Models Are Becoming Audiovisual Editors</h3><p>H3, Seedance, and xAI now compete on references, audio, revision, duration, and preservation&#8212;not only first-generation appearance.</p><h3>Evidence Levels Differ at Launch</h3><p>A callable API, pricing, vendor demonstrations, and independent measurements answer different questions. &#8220;Available,&#8221; &#8220;documented,&#8221; &#8220;priced,&#8221; and &#8220;independently measured&#8221; are separate claims.</p><h3>Media Is Becoming an Interface</h3><p>Interactive video can respond during a session. Luma Layers makes image parts addressable. Character Casting treats narration as a project-wide system of roles and voices. A deliverable may include state, tools, and permissions as well as an exported file.</p><h3>Provenance Starts at Intake</h3><p>OpenAI verifies supported audio signals, C2PA can describe partial edits, and Pangram estimates image origin statistically. Detection, provenance, rights, and ownership remain different records.</p><h3>Judgment Becomes Scarcer</h3><p>Faster generation increases the value of selection, audience fit, factual review, continuity, and approval. More output is not the same as more progress.</p><h3>Agents Need Contained Tools</h3><p>Media agents can touch uploads, storage, codecs, rendering, publishing, and credentials. Human approval, network policy, tool boundaries, monitoring, and automated checks all remain part of the system.</p><p><strong>Source basis:</strong> <a href="https://www.minimax.io/blog/minimax-h3" target="_blank" rel="noopener">H3</a> &#183; <a href="https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5" target="_blank" rel="noopener">Seedance</a> &#183; <a href="https://lumalabs.ai/news/introducing-layers" target="_blank" rel="noopener">Luma Layers</a> &#183; <a href="https://openai.com/index/advancing-content-provenance/" target="_blank" rel="noopener">OpenAI provenance</a> &#183; <a href="https://c2pa.org/wp-content/uploads/sites/33/2026/07/Use-of-Content-Credentials-to-Identify-Synthetic-and-Non-Synthetic-Content.pdf" target="_blank" rel="noopener">C2PA</a> &#183; <a href="https://share.transistor.fm/s/9d74230b" target="_blank" rel="noopener">Agent-containment discussion</a></p><hr><h2>Novel Ideas Worth Watching</h2><ul>
+<li><strong>Interactive video as an application runtime:</strong> a video that answers, demonstrates, draws, and checks understanding also needs state, permissions, logging, and recovery. <a href="https://aneyeonai.libsyn.com/video-is-about-to-stop-being-one-way-and-that-changes-everything-victor-riparbelli-synthesia" target="_blank" rel="noopener">Source</a></li>
+<li><strong>Creative quality as conditional preference:</strong> fixed checks can verify objective requirements, while audience, context, brand, and taste require qualified preference examples and review. <a href="https://www.youtube.com/watch?v=4x_gN7XMIcE" target="_blank" rel="noopener">Source</a></li>
+<li><strong>Partial-edit provenance:</strong> C2PA regions can associate a claim with one part or interval rather than labeling a complete asset uniformly. <a href="https://c2pa.org/wp-content/uploads/sites/33/2026/07/Use-of-Content-Credentials-to-Identify-Synthetic-and-Non-Synthetic-Content.pdf" target="_blank" rel="noopener">Source</a></li>
+<li><strong>Trained weights as reusable assets:</strong> downloadable weights can become production inputs under their license and hardware constraints, while broader weight-space methods remain early research. <a href="https://huggingface.co/moonshotai/Kimi-K3" target="_blank" rel="noopener">Kimi K3 release example</a></li>
+</ul><hr><h2>Tip of the Week</h2><h3>Back to Basics, Week 10: Test the Checklist Against a Finished Task</h3><p>Use one completed AV task to learn whether the Week 9 checklist catches real issues.</p><p>1. Choose a finished caption file, edit, graphic package, equipment brief, metadata set, or delivery record.
+<p>2. Run the checklist without changing the finished work.</p>
+<p>3. Mark each check as pass, finding, unclear, or not applicable.</p>
+<p>4. Compare the results with the task&#8217;s actual review history.</p>
+<p>5. Record missed issues, false alarms, and criteria that require human judgment.</p>
+<p>6. Revise and version the checklist so the change remains traceable.</p><p>A simple test record can use:</p>
+<pre><code>Check | Result | Evidence | Checklist change</code></pre>
+<p>The test shows whether the checklist reflects real production work rather than only appearing complete on paper.</p><hr><p><em>The AVS AI Dispatch is a weekly AI digest for the Audio/Video Services team. Curated with AI assistance. Questions or suggestions? Reply to this message.</em></p>
+
+  </div>
+</div>

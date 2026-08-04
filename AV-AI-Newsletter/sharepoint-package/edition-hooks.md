@@ -10,6 +10,12 @@ These are the same hooks shown on the public site's homepage card and archive li
 
 ---
 
+## 2026-07-31 — Week of July 31, 2026
+
+> MiniMax H3 and Seedance 2.5 launched on the same day with different evidence: H3 had a live priced API and independent preference snapshots, while Seedance offered 30-second audio-video and up to 50 references with its API and independent evaluation still pending. OpenAI split file and live transcription, xAI expanded video references, Luma added editable image layers, Google updated music generation, and audio provenance moved into automated intake.
+
+---
+
 ## 2026-07-24 — Week of July 24, 2026
 
 > FLUX 3 proposes one backbone across image, video, audio, and action, but only Video and Action entered gated early access. Qwen-Audio adds directed multilingual voice, Runway Media Router turns model choice into policy, Sonilo uses picture to time effects, and Qwen-Image and ElevenMusic expand reference-driven control. More modalities require more control while independent evidence continues to lag launch velocity.
