@@ -1,6 +1,36 @@
 {
   "editions": [
     {
+      "slug": "2026-08-17",
+      "title": "Week of August 17, 2026",
+      "hook": "Google changed three controls in four weeks, making September performance unreadable by design. AI Max campaigns carry 72% more invalid traffic, Wall Street cut The Trade Desk 22%, Perplexity banned Time's agent ads, and the NYT priced content at $4,000 a unit.",
+      "description": "Google's September control squeeze (bidding targets, mandatory AI Max, language setting removal); Lunio's 72% invalid-traffic finding; ad tech repriced on Wall Street; Perplexity bans agent-targeted ads; the NYT's $2B content disclosure; the AEO measurement stack ships counts without connections.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
+      "slug": "2026-08-10",
+      "title": "Week of August 10, 2026",
+      "hook": "Google gave 26 days' notice that Search campaigns move to AI Max while new data showed exact match expanding 29% of the time. OpenAI's influencer retreat backfired, ChatGPT Ads dropped to $25 minimums, and Nielsen agreed to buy DoubleVerify for $2.15 billion.",
+      "description": "The AI Max forced migration and smec's exact-match erosion data; OpenAI's Summer Club backlash (the third AI-lab marketing misfire this quarter); ChatGPT Ads goes mass-market; Nielsen buys DoubleVerify; agency holdcos resell AI compute at a markup; Amazon's Sponsored Products leave Amazon.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
+      "slug": "2026-08-03",
+      "title": "Week of August 3, 2026",
+      "hook": "Four earnings reports in 48 hours, one pattern: every dollar of ad growth traveled through an automated buyer. Meta grew ads 27% while free cash flow fell 91%, AI slop graded as premium inventory, bots hit 57.5% of web traffic, and the EU's labeling law went live.",
+      "description": "The earnings sweep (Meta, Amazon, Microsoft, Reddit) and the automated-buying pattern; TAG/ANA's finding that AI slop grades premium; IAB Australia's bot-majority data and Time's ads for AI agents; Article 50 goes live; click-to-agent ads arrive; GPT-5.6 prices fall 80%.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-07-27",
       "title": "Week of July 27, 2026",
       "hook": "Meta answered the AI doomers with an ad set to a song about extinction, X deleted 42,000 AI reply bots, Alphabet booked ads inside AI search as real revenue — and new data showed buying a placement doesn't buy the citation.",
