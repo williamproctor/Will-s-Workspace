@@ -52,7 +52,7 @@ The generator reads the approved full edition, maps the lead story, supporting s
 1. Fresh notebook (or same) — the video brief must be the **only selected source**.
 2. Studio → Video Overview → format **Explainer**. Visual style, Custom:
 
-   > Clean flat 2D editorial illustration on a near-black background: a palette of greens (pale lime cream #e6fac3, mint #79d3a3, deep forest #2f7d4f), light-weight uppercase grotesque headlines, soft rounded clover shapes with concentric outline echoes, subtle film grain, monospace labels for data. No neon, no glow, no 3D, no sci-fi.
+   > Clean flat 2D editorial illustration on a near-black background: a palette of greens (pale cream #e3f4d9, mint #79d3a3, deep forest #2f7d4f) with soft blurred green glows, uppercase grotesque headlines, concentric signal rings with a small offset satellite dot as the recurring mark, subtle film grain, monospace labels for data. No neon, no 3D, no sci-fi.
 
 3. Customize prompt:
 

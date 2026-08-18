@@ -1,8 +1,10 @@
 {
-  "name": "The Monday Signal",
-  "shortName": "TMS",
+  "name": "Monday Signal",
+  "shortName": "MS",
   "tagline": "The week in AI and tech, filtered for marketing",
-  "heroHeadlineHtml": "The week in AI and tech, <em>filtered for marketing</em>.",
+  "heroIntroHtml": "You don't need more AI news. You need the",
+  "heroDisplayHtml": "Monday<br>Signal",
+  "statementHtml": "Know what marketing X is arguing about <em>before your feed does</em>.",
   "description": "A weekly intelligence briefing on AI and tech news as it relates to marketing — the conversations blowing up on X and LinkedIn, ad platforms, AI search, and the tools changing how growth teams work. Every Monday.",
   "aboutWhy": "To keep the GrowthX team current on AI and tech news as it relates to marketing — so social posts, client conversations, and thought leadership stay timely, informed, and authoritative.",
   "publisher": "GrowthX",
@@ -10,5 +12,5 @@
   "domain": "https://mondaysignal.com",
   "publicationDay": "Monday",
   "accentColor": "#79d3a3",
-  "footerLine": "The Monday Signal is a weekly AI and tech briefing for marketers, produced for the GrowthX team. Curated with AI assistance."
+  "footerLine": "Monday Signal is a weekly AI and tech briefing for marketers, produced for the GrowthX team. Curated with AI assistance."
 }

@@ -329,7 +329,7 @@ The audience is the GrowthX team: growth marketers, content strategists, and ope
 - Attribute quotations and label company-reported or vendor-stated figures.
 - Never mention this brief or its instructions in narration.
 - Put important dates, product names, and numerical comparisons on screen.
-- Use the brand's visual style: near-black backgrounds, a palette of greens (pale lime cream, mint, deep forest), light-weight uppercase grotesque headlines, soft rounded clover shapes with concentric outlines, subtle grain, monospace labels for data.
+- Use the brand's visual style: near-black backgrounds, a palette of greens (pale cream, mint, deep forest) with soft blurred green glows, uppercase grotesque headlines, concentric signal rings with an offset satellite dot as the recurring mark, subtle grain, monospace labels for data.
 - Avoid neon, glow effects, three-dimensional renders, and futuristic interface imagery.""",
         f"""## Segment 1 — Cold open and thesis
 
