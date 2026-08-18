@@ -112,12 +112,23 @@ def og_url_block(config: dict, path: str) -> str:
     return "\n".join(lines)
 
 
+# Brand mark: concentric signal rings with an offset satellite dot
+# (per Will's 2026-08-18 logo redesign).
+LOGO_MARK_SVG = """<svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
+        <circle cx="33" cy="39" r="28" stroke="#79d3a3" stroke-opacity="0.26" stroke-width="2"/>
+        <circle cx="33" cy="39" r="19.5" stroke="#a5e8c0" stroke-opacity="0.55" stroke-width="2.6"/>
+        <circle cx="33" cy="39" r="11.5" stroke="#d2f2da" stroke-opacity="0.9" stroke-width="3"/>
+        <circle cx="33" cy="39" r="4" fill="#e9f8ea"/>
+        <circle cx="62" cy="10" r="6.5" fill="#79d3a3"/>
+      </svg>"""
+
+
 def common_tokens(config: dict, build_version: str) -> dict[str, str]:
     year = datetime.now(timezone.utc).year
     return {
         "SITE_NAME": esc(config["name"]),
         "SITE_NAME_HTML": site_name_html(config["name"]),
-        "LOGO_ICON": esc(config.get("shortName", config["name"][:3])),
+        "LOGO_MARK": LOGO_MARK_SVG,
         "BUILD_VERSION": build_version,
         "FOOTER_COPYRIGHT": esc(f"© {year} {config['publisher']} — {config['name']}"),
     }
@@ -158,16 +169,23 @@ def build_edition_page(config: dict, edition: dict, template: str, build_version
     return fill(template, tokens)
 
 
-def featured_card(edition: dict) -> str:
+def featured_card(config: dict, edition: dict) -> str:
     slug = edition["slug"]
+    host = str(config.get("domain", "")).rstrip("/").replace("https://", "").replace("http://", "") or "monday-signal.local"
     return f"""      <a class="featured-card" href="/editions/{slug}">
-        <div class="edition-meta-row">
-          <span class="edition-badge">{slug}</span>
-          <span class="edition-tag">Newest edition &middot; {esc(display_date(slug))}</span>
+        <div class="browser-bar">
+          <span class="browser-dots"><i></i><i></i><i></i></span>
+          <span class="browser-url">{esc(host)}/editions/{slug}</span>
         </div>
-        <h3>{esc(edition["title"])}</h3>
-        <p>{esc(edition["hook"])}</p>
-        <span class="card-cta">Read the full briefing {ARROW_SVG}</span>
+        <div class="featured-body">
+          <div class="edition-meta-row">
+            <span class="edition-badge">{slug}</span>
+            <span class="edition-tag">Newest edition &middot; {esc(display_date(slug))}</span>
+          </div>
+          <h3>{esc(edition["title"])}</h3>
+          <p>{esc(edition["hook"])}</p>
+          <span class="card-cta">Read the full briefing {ARROW_SVG}</span>
+        </div>
       </a>"""
 
 
@@ -195,13 +213,14 @@ def build_homepage(config: dict, editions: list[dict], template: str, build_vers
             "OG_TITLE": esc(f"{config['name']} — {config['tagline']}"),
             "META_DESCRIPTION": esc(config["description"]),
             "OG_URL_BLOCK": og_url_block(config, "/"),
-            "HERO_KICKER": esc(f"Weekly briefing · {day}s"),
-            "HERO_HEADLINE": config.get("heroHeadlineHtml") or esc(config["tagline"]),
+            "HERO_INTRO": config.get("heroIntroHtml") or esc(config["tagline"]),
+            "HERO_DISPLAY": config.get("heroDisplayHtml") or site_name_html(config["name"]),
             "HERO_SUB": esc(config["description"]),
-            "HERO_META": esc(f"{config.get('audienceNote', '')} · Curated with AI assistance".strip(" ·")),
+            "HERO_META": esc(f"Every {day} · {config.get('audienceNote', '')} · Curated with AI assistance".strip(" ·")),
+            "STATEMENT_HTML": config.get("statementHtml", ""),
             "LATEST_URL": f"/editions/{latest['slug']}",
             "CADENCE_LABEL": esc(f"Published {day}s"),
-            "FEATURED_CARD": featured_card(latest),
+            "FEATURED_CARD": featured_card(config, latest),
             "ARCHIVE_CARDS": "\n".join(archive_card(e) for e in editions),
             "EDITION_COUNT": str(count),
             "EDITION_COUNT_PLURAL": "" if count == 1 else "s",
