@@ -8,11 +8,11 @@
 
 ### Perplexity banned Time's agent ads
 
-Two weeks after Time started inserting sponsored FAQ content into the markdown pages agents read, Perplexity blocked the units and called the practice deceptive (August 11), even though Time labeled them as sponsored. The label doesn't survive retrieval; "a promotional claim can end up cited as a neutral fact" (Robert Webster). Platforms are ruling on agent-track advertising before any standard exists. Comment window: the cloaking-precedent take is unclaimed. [PPC Land weekly](https://ppc.land/ad-tech-repriced-everything-this-week-except-the-thing-doing-the-counting/)
+Two weeks after Time started inserting sponsored FAQ content into the markdown pages agents read, Perplexity blocked the units and called the practice deceptive (August 11), even though Time labeled them as sponsored. The label doesn't survive retrieval; "a promotional claim can end up cited as a neutral fact" (Robert Webster). Platforms are ruling on agent-track advertising before any standard exists. Comment window: the cloaking-precedent take is unclaimed. [Digiday](https://digiday.com/media/perplexity-blocks-times-ads-served-to-ai-agents-calling-them-deceptive/)
 
 ### The NYT priced content: ~$4,000 a unit
 
-CEO Meredith Kopit Levien on Odd Lots (August 10): close to $2B spent last year producing ~500K works. Her licensing framework separates continuity, permission-with-control, and price. Supply argument: Stack Overflow questions are down 99% from peak. Counterweight: three firms hold 88% of AI model API revenue. Transferable idea: content as a priced, licensable asset class. [PPC Land weekly](https://ppc.land/ad-tech-repriced-everything-this-week-except-the-thing-doing-the-counting/)
+CEO Meredith Kopit Levien on Odd Lots (August 10): close to $2B spent last year producing ~500K works. Her licensing framework separates continuity, permission-with-control, and price. Supply argument: Stack Overflow questions are down 99% from peak. Counterweight: three firms hold 88% of AI model API revenue. Transferable idea: content as a priced, licensable asset class. [Odd Lots episode](https://podscripts.co/podcasts/odd-lots/nyt-ceo-meredith-kopit-levien-on-running-a-media-brand-in-the-age-of-ai)
 
 ### "40-hour audits in 60 minutes" vs "49% cut their agent rollouts"
 
@@ -33,35 +33,37 @@ Ahrefs launched Letaido (August 12) with a time-compression claim and no indepen
 
 ### Google's three-change September
 
-Today: bidding targets recalibrate for budget-limited campaigns beating their Target CPA/ROAS (one-way correction; ad-group targets in scope). September 1: ACA and campaign-level broad match campaigns convert to AI Max; exits closed August 13. September: the campaign language setting disappears from Search and now Performance Max too. Three variables removed in four weeks; the first credible performance reading lands at Q4 budget time. Pre-frame it with clients now. [PPC Land weekly](https://ppc.land/ad-tech-repriced-everything-this-week-except-the-thing-doing-the-counting/)
+Today: bidding targets recalibrate for budget-limited campaigns beating their Target CPA/ROAS (one-way correction; ad-group targets in scope). September 1: ACA and campaign-level broad match campaigns convert to AI Max; exits closed August 13. September: the campaign language setting disappears from Search and now Performance Max too. Three variables removed in four weeks; the first credible performance reading lands at Q4 budget time. Pre-frame it with clients now. [Marketing O'Clock](https://www.youtube.com/watch?v=iofOki6Zy8U) · [Search Engine Land](https://searchengineland.com/google-sets-ai-max-migration-timeline-for-search-campaigns-485006)
 
 ### AI Max carries 72% more invalid traffic (Lunio, 414M clicks)
 
-In the same accounts, AI Max campaigns rose from 2.46% to 5.28% invalid while standard search fell from 3.72% to 3.07%: diverging lines, not one rising line. AI Max took 68% of detected invalid clicks; Google Shopping hit 7.51% (one in thirteen). A $10M retailer wastes ~$500K at the 5% average. Google's own uplift claim has moved three times (14% → 7% → 27%); reporting still can't split expanded from literal traffic. [Lunio study](https://ppc.land/retailers-on-ai-max-face-72-more-invalid-traffic-lunio-finds/) · August 12
+In the same accounts, AI Max campaigns rose from 2.46% to 5.28% invalid while standard search fell from 3.72% to 3.07%: diverging lines, not one rising line. AI Max took 68% of detected invalid clicks; Google Shopping hit 7.51% (one in thirteen). A $10M retailer wastes ~$500K at the 5% average. Google's own uplift claim has moved three times (14% → 7% → 27%); reporting still can't split expanded from literal traffic. [Lunio study](https://www.lunio.ai/blog/invalid-traffic-retail-report) · August 12
 
 ### Wall Street repriced ad tech
 
-The Trade Desk fell ~22% after growing 3%; AppLovin fell 19.7% after growing 53%. Madison & Wall: Amazon+Google+Meta head for ~58% of US advertising; the open internet shrinks 1.4%. The measurement layer is going private (IAS, LiveRamp, Innovid, DoubleVerify→Nielsen), and Comscore (EBITDA down 85%) is betting partly on AEO data from observed panelist prompts. Consolidation before standardization. [PPC Land weekly](https://ppc.land/ad-tech-repriced-everything-this-week-except-the-thing-doing-the-counting/)
+The Trade Desk fell ~22% after growing 3%; AppLovin fell 19.7% after growing 53%. Madison & Wall: Amazon+Google+Meta head for ~58% of US advertising; the open internet shrinks 1.4%. The measurement layer is going private (IAS, LiveRamp, Innovid, DoubleVerify→Nielsen), and Comscore (EBITDA down 85%) is betting partly on AEO data from observed panelist prompts. Consolidation before standardization. [Digiday](https://digiday.com/marketing/by-the-numbers-wall-streets-tough-assessment-of-ad-tech/) · [AdExchanger](https://www.adexchanger.com/programmatic/the-trade-desks-revenue-growth-stalls-as-big-brands-tighten-their-belts/)
 
 ### AEO measurement: counts without connections
 
-GSC's generative AI report went live for everyone: impressions by page/country/device, no clicks, no queries. OpenAI demoted ChatGPT's Sources button into a submenu. Clarity shipped a crawl-to-referral ratio card (sample: 6,000:1). CMOs told Digiday they can't link AI visibility to sales. The race to supply the missing connection is the story. [PPC Land weekly](https://ppc.land/ad-tech-repriced-everything-this-week-except-the-thing-doing-the-counting/)
+GSC's generative AI report reached nearly every account (Google says not quite all): impressions by page/country/device, no clicks, no queries. OpenAI is testing tucking ChatGPT's Sources button into a submenu. Clarity shipped a crawl-to-referral ratio card (sample: 6,000:1). CMOs told Digiday they can't link AI visibility to sales. The race to supply the missing connection is the story. [Search Engine Roundtable](https://www.seroundtable.com/google-search-console-ai-report-live-41850.html) · [Microsoft Clarity](https://clarity.microsoft.com/blog/scrape-to-referral-insights/)
 
 ### Stealth crawlers meet a $53,000 fine
 
-The Stealth Bot Prohibition Act would force AI crawlers to disclose identity and purpose ($53K per violation; NY version passed). Politico now spends 25% of hosting costs on bot management. Disclosure is the precondition for charging machines anything. [PPC Land weekly](https://ppc.land/ad-tech-repriced-everything-this-week-except-the-thing-doing-the-counting/)
+The Stealth Bot Prohibition Act would force AI crawlers to disclose identity and purpose ($53K per violation; NY version passed). Politico now spends 25% of hosting costs on bot management. Disclosure is the precondition for charging machines anything. [AdExchanger](https://www.adexchanger.com/ai/a-new-bill-targets-bad-bots-that-scrape-websites-without-permission/)
 
 ---
 
 ## Platform & Tool Watch
 
+*Unless linked otherwise, small items in this section were surfaced via [PPC Land's weekly roundup](https://ppc.land/ad-tech-repriced-everything-this-week-except-the-thing-doing-the-counting/).*
+
 - **ChatGPT Ads:** oCPC for product feeds, Triple Whale/Hightouch measurement, AdRoll pilot. **Automatic Advanced Matching becomes the pixel default today** unless opted out. [ALM Corp](https://almcorp.com/news/chatgpt-ads-conversion-bidding-carousel-ads-august-2026/)
 - **Google Ads/Analytics homepages went agentic:** AI Overviews, insight cards, prompt-built dashboards, peer benchmarking. Spot-check the cards before trusting them. [PPC Land](https://ppc.land/google-ads-gains-ai-dashboards-built-from-text-prompts/) · August 10
-- **GA4 changed conversion windows** (1–90 days, retroactivity unstated) three days before the bidding change. Annotate everything. [PPC Land weekly](https://ppc.land/ad-tech-repriced-everything-this-week-except-the-thing-doing-the-counting/) · August 14
-- **Agent write-access split:** Fluency blocks AI from live spend ($3B budgets); Kochava ships chat-run ad ops with write scope undisclosed. Ask vendors: can it change bids? [PPC Land weekly](https://ppc.land/ad-tech-repriced-everything-this-week-except-the-thing-doing-the-counting/)
+- **GA4 changed conversion windows** (1–90 days, retroactivity unstated) three days before the bidding change. Annotate everything. (August 14)
+- **Agent write-access split:** Fluency blocks AI from live spend ($3B budgets); Kochava ships chat-run ad ops with write scope undisclosed. Ask vendors: can it change bids?
 - **AI-visibility shelf grew:** AI Visibility's free brand-recommendation tracker; Jellyfish adjusts spend by share-of-model. [Anicca](https://anicca.co.uk/blog/2026-08-17-ai-in-marketing-management/)
-- **Spotify drops AI persona artists** from editorial recommendations mid-September. [PPC Land weekly](https://ppc.land/ad-tech-repriced-everything-this-week-except-the-thing-doing-the-counting/) · August 13
-- **Search Profiles threshold cut to 35,000 subscribers:** more creators become rankable entities. [PPC Land weekly](https://ppc.land/ad-tech-repriced-everything-this-week-except-the-thing-doing-the-counting/) · August 13
+- **Spotify drops AI persona artists** from editorial recommendations mid-September. (August 13)
+- **Search Profiles threshold cut to 35,000 subscribers:** more creators become rankable entities. [Search Engine Roundtable](https://www.seroundtable.com/recap-08-13-2026-41868.html) · August 13
 
 ---
 

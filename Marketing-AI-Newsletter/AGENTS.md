@@ -64,6 +64,8 @@ Retired section: *Tip of the Week* (dropped 2026-07-27; the newsletter informs a
 - Quote posts verbatim (typos and lowercase intact, per platform culture); trim with ellipses rather than paraphrasing inside quotation marks.
 - Carry engagement context when reported (views, reposts) with a "when checked" qualifier, since counts move.
 - Podcast quotes name the speaker, the show, and the episode, with a link to the episode page; transcripts beat show notes.
+- **Cite the origin, not the aggregator.** Weekly-synthesis and roundup outlets (PPC Land's weekly recap, Anicca's digest, Paid Media Collective, and the like) are discovery indexes: use them to find the week's stories, then chase each story to where it actually started — the outlet that broke it (Digiday, AdExchanger, Adweek, Search Engine Land, Search Engine Roundtable…), the vendor's own report page, the company's press release or SEC filing, or the primary post/episode. Cite a synthesis outlet directly only for facts it originated (its own reporting or analysis), or — for small Platform Watch items with no locatable origin — via one credited roundup line per section, never a per-bullet URL repeated down the page.
+- **No single outlet may dominate an edition.** If one publication's domain approaches a quarter of an edition's links, the edition reads as repurposed content from that outlet, which undermines the entire finger-on-the-pulse premise. `python3 scripts/check_source_diversity.py` enforces this (fails above 40%, warns above 22%; primary platforms like x.com/linkedin.com/youtube are exempt because concentration there is the policy working).
 
 ## Mandatory Pre-Build Review (every edition)
 
@@ -78,7 +80,8 @@ After drafting the full and simplified editions — and before building the site
 2. **Claims audit.** Re-verify every number, date, price, quote, and product-status claim against its source. Confirm each link resolves and supports the claim it's attached to.
 3. **Qualifier audit.** Hunt for vendor claims reading as findings, previews reading as shipped products, viral claims reading as verified facts.
 4. **Reputation audit.** The team echoes this content publicly. Flag anything that could embarrass GrowthX if quoted: unverifiable stats, one-sided competitor framing, angles that overreach the evidence, quotes with profanity not yet paraphrased.
-5. Report the result explicitly ("Review: N claims verified, no flags" or a flag list with fixes) before building.
+5. **Source-diversity audit.** Run `python3 scripts/check_source_diversity.py` on the new edition (full and simplified). A failure blocks the build: re-source flagged stories to their origins per the primary-source rules. A warning means eyeball every citation to the flagged domain and confirm each one is that outlet's own reporting.
+6. Report the result explicitly ("Review: N claims verified, no flags" or a flag list with fixes) before building.
 
 ## NotebookLM Producer Briefs (each edition, after review)
 
@@ -114,7 +117,7 @@ The edition page renders as a side-nav reader app (`initEditionApp` in `site/sha
 1. **Research** (four artifacts under `research/YYYY-MM-DD/`):
    - `conversation-YYYY-MM-DD.md` — the X/LinkedIn discourse sweep: viral campaigns, executive posts, dunks, debates, platform drama. Capture exact quotes, dates, view/engagement counts where reported, and who's driving each thread. (If the XAgent X/Twitter MCP is configured with a key, use it for this track; otherwise web-search the discourse and its trade coverage.)
    - `platforms-YYYY-MM-DD.md` — primary-source announcements: ad platforms, search/answer engines, model vendors.
-   - `industry-YYYY-MM-DD.md` — martech/adtech industry news, studies, funding, data.
+   - `industry-YYYY-MM-DD.md` — martech/adtech industry news, studies, funding, data. Roundups locate the stories; a second search pass locates each story's origin (original reporter, vendor report, filing, or primary post) before drafting — see the cite-the-origin rule above.
    - `analysis-YYYY-MM-DD.md` — synthesis: what leads, what connects, candidate angles, comment windows.
 2. **Draft** `editions/YYYY-MM-DD.md` (full) and `editions/YYYY-MM-DD-simplified.md` (quick summary). Respect the length budgets.
 3. **Review** (claims, qualifiers, reputation).
