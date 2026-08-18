@@ -12,10 +12,11 @@
   <link rel="canonical" href="https://mondaysignal.com/">
   <meta property="og:url" content="https://mondaysignal.com/">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0e0b">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared.css?v=20260818">
 </head>
 <body>
@@ -35,6 +36,42 @@
   </header>
 
   <section class="hero">
+    <svg class="hero-clover" viewBox="0 0 400 400" aria-hidden="true">
+      <defs>
+        <linearGradient id="cloverGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e6fac3"/>
+          <stop offset="0.45" stop-color="#79d3a3"/>
+          <stop offset="1" stop-color="#3f7a58"/>
+        </linearGradient>
+        <mask id="cloverMask">
+          <g fill="#fff">
+            <circle cx="200" cy="118" r="82"/>
+            <circle cx="200" cy="282" r="82"/>
+            <circle cx="118" cy="200" r="82"/>
+            <circle cx="282" cy="200" r="82"/>
+            <rect x="136" y="136" width="128" height="128"/>
+          </g>
+        </mask>
+        <filter id="grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/>
+        </filter>
+      </defs>
+      <rect width="400" height="400" fill="url(#cloverGrad)" mask="url(#cloverMask)"/>
+      <g transform="translate(200 200) scale(0.74) translate(-200 -200)">
+        <rect width="400" height="400" fill="#0a0e0b" mask="url(#cloverMask)"/>
+      </g>
+      <g transform="translate(200 200) scale(0.62) translate(-200 -200)">
+        <rect width="400" height="400" fill="url(#cloverGrad)" mask="url(#cloverMask)"/>
+      </g>
+      <g transform="translate(200 200) scale(0.5) translate(-200 -200)">
+        <rect width="400" height="400" fill="#0a0e0b" mask="url(#cloverMask)"/>
+      </g>
+      <g transform="translate(200 200) scale(0.38) translate(-200 -200)">
+        <rect width="400" height="400" fill="url(#cloverGrad)" mask="url(#cloverMask)"/>
+      </g>
+      <rect width="400" height="400" filter="url(#grain)" mask="url(#cloverMask)"/>
+    </svg>
     <div class="hero-inner">
       <div class="hero-kicker">Weekly briefing · Mondays</div>
       <h1>The week in AI and tech, <em>filtered for marketing</em>.</h1>
