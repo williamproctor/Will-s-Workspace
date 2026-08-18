@@ -37,8 +37,12 @@ What marketing/AI X and LinkedIn are arguing about right now. **The deliverable 
 - Search Engine Land / Search Engine Roundtable (SEO + AI search shifts)
 - Adweek, Ad Age, Marketing Brew, The Drum (advertising industry)
 - MarTech.org, Marketing Dive (martech + industry data)
-- Digiday, The Information, TechCrunch, The Verge (platforms, adtech, AI business)
+- Digiday, AdExchanger, The Information, TechCrunch, The Verge (platforms, adtech, AI business)
 - eMarketer/Insider Intelligence (forecasts and benchmark data)
+
+### Discovery indexes vs. citable sources
+
+Weekly-synthesis outlets (PPC Land's weekly recap, Anicca's digest, Paid Media Collective, ALM Corp roundups) are excellent **discovery indexes**: read them to find what happened. They are not the default citation. Every story they surface has an origin — the reporter who broke it, the vendor's report page, the press release or SEC filing, the primary post — and the citation belongs to that origin. Cite a synthesis outlet only for its own original reporting, or once per Platform Watch section as a credited roundup line for small unattributable items. `scripts/check_source_diversity.py` enforces the ceiling; an edition where one outlet's domain dominates the links reads as scraped-and-repurposed, which is the opposite of finger-on-the-pulse.
 
 ## Studies, data, benchmarks
 
