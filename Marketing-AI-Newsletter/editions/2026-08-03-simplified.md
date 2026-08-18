@@ -20,6 +20,15 @@ Nvidia, Google, Meta, and OpenAI signed a July 28 letter accusing Anthropic of s
 
 ---
 
+## Voices
+
+- **The link thread (X, July 28–29):** Bier to Zuckerberg: "you do not need to put the links in replies anymore." Graham: "You no longer penalize tweets with links?" Musk: "We haven't for over a year." Wes Bos: "Anymore?! So you were nerfing links." [Coverage](https://searchengineoptimization.blog/article/x-says-it-stopped-penalizing-links-a-year-ago-proof-is-thin)
+- **Jyll Saskin Gales (LinkedIn, July 29):** "your auction insights are a goldmine of competitive intel" — after finding ChatGPT bidding on category terms in a client's account. [Post](https://www.linkedin.com/posts/jyllsaskingales_are-any-other-google-ads-advertisers-seeing-activity-7488205440485384192-xjZp)
+- **Steve Huffman (Reddit Q2 call, July 30):** "AI Overviews has yet to make a similar level of positive impact"; direct users are "worth multiples more."
+- **On the pods:** Marketing O'Clock's July 27 episode questioned whether Google's "billions of clicks" metric measures success at all. [Episode](https://marketingoclock.com/episodes/billions-of-ai-search-clicks-and-billions-of-distractions/)
+
+---
+
 ## This Week in Marketing AI
 
 ### Earnings: the auction is a conversation between models

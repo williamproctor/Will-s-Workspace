@@ -20,6 +20,15 @@ An AI Overview told customers Anna Mae's Bakery closes July 31. It doesn't. Goog
 
 ---
 
+## Voices
+
+- **Nikita Bier (X, July 24):** "using AI to programmatically engage with users without a human in the loop runs counter to our mission." [Post](https://x.com/nikitabier/status/2080747924380856519)
+- **Sam Altman (X, July 14):** "i thought this was satire, kept looking for the handle to be spelled c1audeai or something." [Post](https://x.com/sama/status/2076824686307271125)
+- **Jyll Saskin Gales (LinkedIn, July 23, on the bidding-update panic):** "I don't actually think this is that big a deal." [Post](https://www.linkedin.com/posts/jyllsaskingales_everyone-is-freaking-out-about-the-target-activity-7486031119075696640-C_QA)
+- **On the pods:** Marketing O'Clock's July 20 episode on the bidding update: "causing tension in the marketing world and leaving clarification to be desired." [Episode](https://marketingoclock.com/episodes/lets-get-ready-to-battle-google-ads-bidding-update-stirs-up-marketers/)
+
+---
+
 ## This Week in Marketing AI
 
 ### Alphabet Q2: AI-search ads are revenue now, and paid doesn't buy cited

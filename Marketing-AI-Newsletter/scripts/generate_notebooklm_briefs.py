@@ -38,6 +38,7 @@ MARKDOWN_LINK_RE = re.compile(r"\[([^\]]+)\]\(https?://[^)]+\)")
 BARE_URL_RE = re.compile(r"https?://\S+")
 
 CONVERSATION_SECTION = "The Conversation"
+VOICES_SECTION = "Voices"
 STORY_SECTION = "This Week in Marketing AI"
 WATCH_SECTION = "Platform & Tool Watch"
 THREADS_SECTION = "Common Threads"
@@ -224,6 +225,7 @@ def render_podcast(edition: Edition, slug: str, display_date: str, digest: str) 
     through_title, through_body = through_line(edition)
     lead, supporting = stories[0], stories[1:]
     conversation = render_section(edition.section(CONVERSATION_SECTION))
+    voices = render_section(edition.section(VOICES_SECTION))
     common = render_section(edition.section(THREADS_SECTION))
     angles = render_section(edition.section(ANGLES_SECTION))
 
@@ -266,6 +268,14 @@ The following stories broaden the week's pattern. Keep them in this order.
 
 {supporting_block}"""
         )
+    if voices:
+        blocks.append(
+            f"""## Voices — verbatim quotations
+
+Read these as quotations from the named people, on the platforms and shows named. Do not alter their wording.
+
+{voices}"""
+        )
     if common:
         blocks.append(f"## Common threads to connect\n\n{common}")
     if angles:
@@ -298,6 +308,7 @@ def render_video(
     through_title, through_body = through_line(edition)
     lead, supporting = stories[0], stories[1:]
     conversation = render_section(edition.section(CONVERSATION_SECTION))
+    voices = render_section(edition.section(VOICES_SECTION))
     common = render_section(edition.section(THREADS_SECTION))
     angles = render_section(edition.section(ANGLES_SECTION))
     supporting_block = "\n\n".join(format_story(story) for story in supporting)
@@ -355,10 +366,18 @@ Keep these stories in order. Use one concise visual card per story, with short o
 
 {supporting_block}"""
         )
+    if voices:
+        blocks.append(
+            f"""## Segment 5 — Voices
+
+Present these as on-screen quotation cards with the speaker's name and where they said it. Wording is verbatim; do not alter it.
+
+{voices}"""
+        )
     pattern_parts = [part for part in (common, angles) if part]
     if pattern_parts:
         blocks.append(
-            "## Segment 5 — Connect the pattern and the angles, then close\n\n"
+            "## Segment 6 — Connect the pattern and the angles, then close\n\n"
             + "\n\n".join(pattern_parts)
             + "\n\nClose by returning to the episode title and the week's central pattern."
         )

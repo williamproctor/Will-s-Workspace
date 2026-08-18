@@ -20,6 +20,15 @@ Brodie Clark's experiment: free Bing listings only appeared after ads were enabl
 
 ---
 
+## Voices
+
+- **Mike Ryan (LinkedIn, July 24):** "over 25% of exact match keyword impressions are no longer exact… Which is basically broad match." And: "Google is printing money because, all these years later, they're still finding ad inventory in classic search." [Post](https://www.linkedin.com/posts/mikeryanretail_this-chart-is-going-to-annoy-the-sht-out-activity-7486404879658258433-9S8H)
+- **Drew Pusateri, OpenAI (on Summer Club):** "We welcome healthy debate as AI becomes more prevalent." [TechCrunch](https://techcrunch.com/2026/08/03/influencers-draw-backlash-for-attending-openais-first-luxury-trip/)
+- **One attendee (LinkedIn):** "I didn't for one second consider it would be controversial."
+- **On the pods:** Marketing O'Clock's August 3 episode covered the AI-label tooling shipping ahead of the EU deadline. [Show page](https://www.listennotes.com/podcasts/marketing-oclock-digital-marketing-news-8ghzP3IKFoG/)
+
+---
+
 ## This Week in Marketing AI
 
 ### Exact match expands 29% of the time, and the migration is now mandatory

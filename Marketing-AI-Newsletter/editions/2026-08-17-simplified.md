@@ -20,6 +20,15 @@ Ahrefs launched Letaido (August 12) with a time-compression claim and no indepen
 
 ---
 
+## Voices
+
+- **Ginny Marvin (Marketing O'Clock, August 12, on today's bidding change):** "It just should be more stable than it's been in the past… we usually recommend at least a convergence cycle or two." [Interview](https://www.youtube.com/watch?v=iofOki6Zy8U)
+- **Meredith Kopit Levien (Odd Lots, August 10):** LLM makers spend billions on "talent and power and compute… one of the things that goes into making models is high quality information. And, you know, we'd like to see them pay a fair wage for that as well." [Transcript](https://podscripts.co/podcasts/odd-lots/nyt-ceo-meredith-kopit-levien-on-running-a-media-brand-in-the-age-of-ai)
+- **Robert Webster, TAU (on agent ads):** "a promotional claim can end up cited as a neutral fact."
+- **Jeff Green, The Trade Desk:** growth sat "below our expectations and below the standard we hold ourselves to."
+
+---
+
 ## This Week in Marketing AI
 
 ### Google's three-change September

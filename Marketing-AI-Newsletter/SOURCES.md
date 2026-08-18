@@ -4,13 +4,15 @@ Curated go-to sources for the weekly research pass. This list is a starting map,
 
 ## The conversation layer (check first — this is the newsletter's priority track)
 
-What marketing/AI X and LinkedIn are arguing about right now:
+What marketing/AI X and LinkedIn are arguing about right now. **The deliverable is primary receipts: the post URLs and verbatim text, not just coverage of them.**
 
-- **X**: posts from platform executives (Sam Altman, Mark Zuckerberg, Nikita Bier, Sundar Pichai, ad-platform leads), marketing/growth practitioners, and whatever campaign or dunk is circulating. Capture exact quotes, timestamps, and view counts where visible. If the XAgent X/Twitter MCP is configured with an API key (see `.cursor/mcp.json` in the workspace), use it for live trend/thread pulls; otherwise reconstruct via web search and coverage.
-- **LinkedIn**: CMO/brand-lead posts around launches (companies increasingly announce there), the reception gap between LinkedIn and X on the same creative (often a story in itself).
-- **Trade coverage of viral moments**: TechCrunch, The Verge, Business Insider, Adweek, Ad Age, B&T, Storyboard18, Engadget — fastest at writing up campaign backlashes and executive spats with quotes verified.
+- **X**: posts from platform executives (Sam Altman, Mark Zuckerberg, Nikita Bier, Sundar Pichai, ad-platform leads), marketing/growth practitioners, and whatever campaign or dunk is circulating. Capture exact quotes, timestamps, view counts where visible, and the `x.com/<user>/status/<id>` URL for every post quoted. Finding the URL: search `site:x.com <person> <distinctive phrase>`, check embeds in trade coverage (articles usually embed the tweet), and thread-archive services. If the XAgent X/Twitter MCP is configured with an API key, use it for live pulls.
+- **LinkedIn**: CMO/brand-lead posts around launches, practitioner analyses (Mike Ryan, Jyll Saskin Gales, Ginny Marvin's liaison posts), and the reception gap between LinkedIn and X on the same creative. Capture `linkedin.com/posts/…` URLs — search `site:linkedin.com/posts <person> <phrase>`; Paid Media Collective issues link the primary posts for most PPC items and are a reliable URL index.
+- **Podcasts (first-class, not optional)**: the shows where marketing/AI discourse actually happens. Weekly rotation: Marketing O'Clock (Search Engine Journal — weekly PPC news, frequent Google liaison interviews), The Digiday Podcast, AdExchanger's The Big Story, Marketing Against the Grain (Kipp Bodnar/Kieran Flanagan), Perpetual Traffic, Everyone Hates Marketers, plus business shows when they hit our lane (Odd Lots, Decoder, Prof G Markets). Pull verbatim quotes from transcripts or episode pages; link the episode. Attribute to the speaker AND name the show — the AV dispatch's "never name the show" rule explicitly does not apply here.
+- **Trade coverage of viral moments**: TechCrunch, The Verge, Business Insider, Adweek, Ad Age, B&T, Storyboard18, Engadget — fastest at verifying quotes and often the source of embedded post URLs.
 - **YouTube comments / community reception** on major brand campaigns (top comments get quoted in coverage and become part of the story).
-- What to log per moment: who started it, the key posts (verbatim, attributed), when it started, how big (views/likes if reported), the split by platform, and whether the comment window is still open.
+- What to log per moment: who started it, the key posts (verbatim, attributed, **with URLs**), when it started, how big (views/likes if reported), the split by platform, and whether the comment window is still open.
+- **Never guess a URL.** Only link posts and episodes actually surfaced during research; otherwise attribute and say the primary link wasn't located.
 
 ## Primary sources (check every week)
 

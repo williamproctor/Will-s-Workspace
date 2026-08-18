@@ -48,14 +48,22 @@ Developments from the past 7 days, in this priority order:
 Each edition follows this structure:
 
 1. **Lede** — A 3–4 sentence blockquote: the week's conversation, the biggest hard-news story, and the pattern connecting them.
-2. **The Conversation** — 3–5 things blowing up on X/LinkedIn among marketers. Each gets its own H3 (expandable on the site). Per item: what happened, the key posts and quotes attributed by name, why it's spreading, and a one-line **Comment window** note — what a smart contribution looks like and how long the moment has left.
-3. **This Week in Marketing AI** — 4–6 hard-news stories with source links. Each story gets its own H3. Lead with the most consequential story for marketers.
-4. **Platform & Tool Watch** — Bulleted quick hits: smaller platform changes, model releases, martech launches. One to three sentences each with source link and date.
-5. **Common Threads** — 3–4 patterns across the week, each an H3 with a 2–4 sentence observation.
-6. **Angles for the Week** — 3–5 thought-leadership angles grounded in this edition's reporting, biased toward conversations that are still live. Each angle: **the hook** (one line), **the evidence** (facts from this edition), **why now** (what makes it timely, and how long the window stays open). Raw material, not finished posts.
-7. **Sources** — Numbered list with publication, date, and what each source supports. (Rendered collapsed on the site.)
+2. **The Conversation** — 3–5 things blowing up on X/LinkedIn among marketers. Each gets its own H3 (expandable on the site). Per item: what happened, the key posts quoted verbatim and attributed by name, why it's spreading, and a one-line **Comment window** note — what a smart contribution looks like and how long the moment has left. **Primary receipts are mandatory:** when an item is about posts, the Source line links the actual X/LinkedIn posts (x.com/… , linkedin.com/posts/…), not only trade coverage of them. Trade coverage supplements; it doesn't substitute.
+3. **Voices** — 4–6 verbatim quotes from named people, drawn from podcasts, X, LinkedIn, earnings calls, and interviews that week. Each quote carries: the exact words, the person and role, where it was said (episode/post), and a **direct link to the primary source** (episode page or post URL). Podcasts are a first-class source here — at least one podcast quote per edition when the week's shows offer one. This is the section that separates this newsletter from a trade-press digest.
+4. **This Week in Marketing AI** — 4–6 hard-news stories with source links. Each story gets its own H3. Lead with the most consequential story for marketers.
+5. **Platform & Tool Watch** — Bulleted quick hits: smaller platform changes, model releases, martech launches. One to three sentences each with source link and date.
+6. **Common Threads** — 3–4 patterns across the week, each an H3 with a 2–4 sentence observation.
+7. **Angles for the Week** — 3–5 thought-leadership angles grounded in this edition's reporting, biased toward conversations that are still live. Each angle: **the hook** (one line), **the evidence** (facts from this edition), **why now** (what makes it timely, and how long the window stays open). Raw material, not finished posts.
+8. **Sources** — Numbered list with publication, date, and what each source supports — including the primary post and episode URLs quoted above. (Rendered collapsed on the site.)
 
-Retired sections: *Voices This Week* (folded into The Conversation — attributed posts are the voices) and *Tip of the Week* (dropped 2026-07-27; the newsletter informs and arms, the team decides what to do with it).
+Retired section: *Tip of the Week* (dropped 2026-07-27; the newsletter informs and arms, the team decides what to do with it). *Voices* was briefly folded into The Conversation and restored 2026-08-18 with a stricter primary-source definition, per Will's review: the parameters here are the opposite of the AV dispatch — that newsletter avoids naming shows and platforms; this one quotes them, links them, and treats the post itself as the source.
+
+### Primary-source rules (non-negotiable)
+
+- **Never fabricate or guess a post URL.** Only link X/LinkedIn/podcast URLs verified during research. If the exact post can't be located, attribute the person, name where they said it, cite the coverage that carried it — and say the primary link wasn't located.
+- Quote posts verbatim (typos and lowercase intact, per platform culture); trim with ellipses rather than paraphrasing inside quotation marks.
+- Carry engagement context when reported (views, reposts) with a "when checked" qualifier, since counts move.
+- Podcast quotes name the speaker, the show, and the episode, with a link to the episode page; transcripts beat show notes.
 
 ## Mandatory Pre-Build Review (every edition)
 
