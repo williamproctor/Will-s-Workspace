@@ -8,11 +8,11 @@
 
 ### Zuckerberg's "paying off" vs. the sell-off
 
-"On a dollar basis, our ads business is reporting faster year-over-year revenue growth than any other company's reported ad business," Zuckerberg said July 29. Also true: EPS missed by ~14%, margin fell to 31%, capex hit $31.1B, free cash flow collapsed to $784M, and the stock dropped ~8–10% after hours. Adweek reported the optimism ad campaign existed because of this exact week. Comment window: open; the strong take explains why both columns are one strategy (ad pricing power funds the capex). [Marketing Dive](https://www.marketingdive.com/news/meta-touts-industry-leading-ad-revenue-growth-but-ai-unease-rises/826583/) · [PPC Land weekly](https://ppc.land/bots-overtake-humans/)
+"On a dollar basis, our ads business is reporting faster year-over-year revenue growth than any other company's reported ad business," Zuckerberg said July 29. Also true: EPS missed by ~14%, margin fell to 31%, capex hit $31.1B, free cash flow collapsed to $784M, and the stock dropped ~8–10% after hours. Adweek reported the optimism ad campaign existed because of this exact week. Comment window: open; the strong take explains why both columns are one strategy (ad pricing power funds the capex). [Marketing Dive](https://www.marketingdive.com/news/meta-touts-industry-leading-ad-revenue-growth-but-ai-unease-rises/826583/) · [Meta's results](https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx)
 
 ### Musk: X stopped demoting links a year ago
 
-Said publicly to Paul Graham on July 30. The links-in-first-reply era may have been theater for the past year. It's an owner's claim, not a measurement. Test it and publish your numbers. [PPC Land weekly](https://ppc.land/bots-overtake-humans/)
+Said publicly to Paul Graham on July 30. The links-in-first-reply era may have been theater for the past year. It's an owner's claim, not a measurement. Test it and publish your numbers. [Thread coverage](https://searchengineoptimization.blog/article/x-says-it-stopped-penalizing-links-a-year-ago-proof-is-thin)
 
 ### 77 companies vs. Anthropic
 
@@ -33,15 +33,15 @@ Nvidia, Google, Meta, and OpenAI signed a July 28 letter accusing Anthropic of s
 
 ### Earnings: the auction is a conversation between models
 
-Meta ads $59.4B (+27%; prices +12%, US +20%); Advantage+ passed a $75B run-rate; the new Generative Recommender drove +8.3% clicks and +15.7% conversions on Facebook (all Meta-measured). Amazon ads $19.8B (+26%); Alexa+ prompt-clickers convert 48% more (seller-reported). Microsoft search ads +10% and decelerating while its agent registry added ~40M agents in two months. Reddit ads +64%, stock -12.5% on weak user growth; Huffman: AI Overviews "has yet to make a similar level of positive impact." [PPC Land weekly](https://ppc.land/bots-overtake-humans/) · July 29–30
+Meta ads $59.4B (+27%; prices +12%, US +20%); Advantage+ passed a $75B run-rate; the new Generative Recommender drove +8.3% clicks and +15.7% conversions on Facebook (all Meta-measured). Amazon ads $19.8B (+26%); Alexa+ prompt-clickers convert 48% more (seller-reported). Microsoft search ads +10% and decelerating while its agent registry added ~40M agents in two months. Reddit ads +64%, stock -12.5% on weak user growth; Huffman: AI Overviews "has yet to make a similar level of positive impact." [Meta's results](https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx) · [PPC Land weekly](https://ppc.land/bots-overtake-humans/) · July 29–30
 
 ### AI slop grades premium
 
-TAG/ANA/Fiducia: slop is 1.3–2.4% of open-web programmatic spend and beats clean supply on the metrics buyers use: 0.05% IVT, 77.2% viewability, premium grades 70% of the time, and a higher price ($7.08 vs $6.15 TrueCPM). MFA suppression catches 88% of it. Known publishers showed effectively zero. [PPC Land weekly](https://ppc.land/bots-overtake-humans/) · July 28
+TAG/ANA/Fiducia: slop is 1.3–2.4% of open-web programmatic spend and beats clean supply on the metrics buyers use: 0.05% IVT, 77.2% viewability, premium grades 70% of the time, and a higher price ($7.08 vs $6.15 TrueCPM). MFA suppression catches 88% of it. Known publishers showed effectively zero. [TAG/ANA announcement](https://www.prnewswire.com/news-releases/tagana-fiducia-analysis-quantifies-level-of-ai-slop-in-digital-advertising-supply-chain-for-first-time-302836519.html) · July 28
 
 ### Bots hold 57.5% of the web; 2.6% of AI crawls serve a person
 
-IAB Australia's crawler guidance (Cloudflare data): most crawling is AI now, half of it feeds training. Cloudflare default-blocks training/agent crawlers on ad pages for new domains from September 15 and moved to paying publishers per answer. Time now serves ads to AI agents via TollBit. llms.txt reality check: 97% of files got zero AI requests. [PPC Land weekly](https://ppc.land/bots-overtake-humans/) · July 28–30
+IAB Australia's crawler guidance (Cloudflare data): most crawling is AI now, half of it feeds training. Cloudflare default-blocks training/agent crawlers on ad pages for new domains from September 15 and moved to paying publishers per answer. Time now serves ads to AI agents via TollBit. llms.txt reality check: 97% of files got zero AI requests. [Digiday on Time](https://digiday.com/media/time-has-started-serving-ads-to-ai-agents/) · [PPC Land weekly](https://ppc.land/bots-overtake-humans/) · July 28–30
 
 ### Article 50 is live; Meta signed the code it refused in 2025
 
@@ -59,14 +59,16 @@ Luna -80%, Terra -20% (July 29); frontier-class-last-year intelligence now ~6 ce
 
 ## Platform & Tool Watch
 
+*Unless linked otherwise, small items in this section were surfaced via [PPC Land's weekly roundup](https://ppc.land/bots-overtake-humans/).*
+
 - **AI Max migration calendar:** new Broad Match/ACA creation ends Aug 3; auto-migration Sept 1–30; DSAs Feb 2027. [SEL](https://searchengineland.com/google-sets-ai-max-migration-timeline-for-search-campaigns-485006)
-- **AI Overviews on ~half of queries** (Similarweb 43% / Semrush 48%); AI Mode shows Shopping listings on 23% of shopping queries vs 88% in standard search. [PPC Land weekly](https://ppc.land/bots-overtake-humans/)
-- **Amazon: 984M AI title rewrites since June;** brand owners get a 14-day review window. [PPC Land weekly](https://ppc.land/bots-overtake-humans/)
-- **Agent plumbing:** MCP spec rewrite (stateless), AAMP v2.3 stops agents fabricating bid prices, TikTok shipped Agentic Hub. [PPC Land weekly](https://ppc.land/bots-overtake-humans/)
-- **PMax:** limited alpha for search-partner/GDN opt-out; household income exclusions. [PPC Land weekly](https://ppc.land/bots-overtake-humans/)
-- **Google:** banned undisclosed incentivized reviews; Search Console now tracks social profiles in search results. [PPC Land weekly](https://ppc.land/bots-overtake-humans/)
-- **Meta Graph API v26** blocked 47 commerce endpoints, no replacement. [PPC Land weekly](https://ppc.land/bots-overtake-humans/)
-- **Shopping agents flunked a consumer test:** Amazon's and Walmart's assistants dodge country-of-origin questions (Vanderbilt). [PPC Land weekly](https://ppc.land/bots-overtake-humans/)
+- **AI Overviews on ~half of queries** (Similarweb 43% / Semrush 48%); AI Mode shows Shopping listings on 23% of shopping queries vs 88% in standard search.
+- **Amazon: 984M AI title rewrites since June;** brand owners get a 14-day review window.
+- **Agent plumbing:** MCP spec rewrite (stateless), AAMP v2.3 stops agents fabricating bid prices, TikTok shipped Agentic Hub.
+- **PMax:** limited alpha for search-partner/GDN opt-out; household income exclusions.
+- **Google:** banned undisclosed incentivized reviews; Search Console now tracks social profiles in search results.
+- **Meta Graph API v26** blocked 47 commerce endpoints, no replacement.
+- **Shopping agents flunked a consumer test:** Amazon's and Walmart's assistants dodge country-of-origin questions (Vanderbilt).
 
 ---
 

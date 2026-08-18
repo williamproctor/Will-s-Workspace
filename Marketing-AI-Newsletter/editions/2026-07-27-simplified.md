@@ -45,7 +45,7 @@ New this week: an oCPC conversions objective, geo exclusions, AppsFlyer/Adjust, 
 
 ### Similarweb: the assistant market split three ways
 
-Gen-AI platforms drew 9.5B monthly visits, up 70% in a year. ChatGPT fell from above 80% share to about half; June snapshots put Gemini around 27% and Claude around 9%. Citations rose to 6.8% of ChatGPT answers. Cited pages are deep pages while referral traffic lands on homepages. AI referrals convert at 7.1%, second only to paid search. Ads appear in 26% of US desktop chats, which leaves roughly 74% of exposure earned. Caveat: Similarweb and Adthena publish incompatible numbers; no standard exists. [PPC Land](https://ppc.land/chatgpt-loses-web-share-to-gemini-and-claude-as-ad-penetration-hits-26/)
+Gen-AI platforms drew 9.5B monthly visits, up 70% in a year. ChatGPT fell from above 80% share to about half; June snapshots put Gemini around 27% and Claude around 9%. Citations rose to 6.8% of ChatGPT answers. Cited pages are deep pages while referral traffic lands on homepages. AI referrals convert at 7.1%, second only to paid search. Ads appear in 26% of US desktop chats, which leaves roughly 74% of exposure earned. Caveat: Similarweb and Adthena publish incompatible numbers; no standard exists. [Similarweb report](https://www.similarweb.com/corp/reports/2026-generative-ai-landscape/)
 
 ### WARC: the brief is the bottleneck
 
@@ -59,14 +59,16 @@ Gen-AI platforms drew 9.5B monthly visits, up 70% in a year. ChatGPT fell from a
 
 ## Platform & Tool Watch
 
+*Unless linked otherwise, small items in this section were surfaced via [PPC Land's weekly roundup](https://ppc.land/marketers-brief-ai-with-the-demographic-data-they-say-no-longer-works/).*
+
 - **Google: domain-level opt-out of AI Overviews/AI Mode** in Search Console. Takes effect in 1–2 days, not a ranking signal, doesn't stop training. Page-level controls: March 2027. [Docs](https://support.google.com/webmasters/answer/16908024) · ~July 20
-- **EC fined Google €890M under the DMA.** Self-preferencing rules for AI Overviews/AI Mode still being negotiated. [PPC Land weekly](https://ppc.land/marketers-brief-ai-with-the-demographic-data-they-say-no-longer-works/) · July 23
-- **PMax search-partner/GDN exclusions in testing**, the biggest control concession since launch. [PPC Land weekly](https://ppc.land/marketers-brief-ai-with-the-demographic-data-they-say-no-longer-works/) · week of July 20
+- **EC fined Google €890M under the DMA.** Self-preferencing rules for AI Overviews/AI Mode still being negotiated. (July 23)
+- **PMax search-partner/GDN exclusions in testing**, the biggest control concession since launch. (week of July 20)
 - **Gemini 3.6 Flash price cuts.** Agent economics improve without product changes. [Google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/) · July 21
 - **Meta: AI Seller app, video-first Facebook test, selfie badges July 27. Q2 earnings Wednesday, July 29.** [PPC Land](https://ppc.land/meta-demotes-facebook-feed-as-free-selfie-badge-rolls-out-today/) · [Meta IR](https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-to-Announce-Second-Quarter-2026-Results/default.aspx)
 - **Amazon: ~10 AI features in Brand+/Performance+; single-deal STV buying removed.** [PPC Land](https://ppc.land/amazon-kills-single-deal-stv-buying-in-brand-as-10-ai-features-land/) · July 22
-- **Time serves a second audience: AI crawlers.** Bots are over half of web traffic; Time runs a stripped-down site copy for machines and text ads humans never see. [PPC Land weekly](https://ppc.land/marketers-brief-ai-with-the-demographic-data-they-say-no-longer-works/)
-- **HubSpot Agent Hub public beta.** Low-code agents on CRM data; HubSpot itself flagged the uncoordinated-agents risk. [PPC Land weekly](https://ppc.land/marketers-brief-ai-with-the-demographic-data-they-say-no-longer-works/)
+- **Time serves a second audience: AI crawlers.** Bots are over half of web traffic; Time runs a stripped-down site copy for machines and text ads humans never see.
+- **HubSpot Agent Hub public beta.** Low-code agents on CRM data; HubSpot itself flagged the uncoordinated-agents risk.
 
 ---
 
