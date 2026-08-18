@@ -61,7 +61,7 @@ Retired sections: *Voices This Week* (folded into The Conversation — attribute
 
 After drafting the full and simplified editions — and before building the site or committing:
 
-1. **Panzer's Brain editorial pass (required for the first draft of ANY reader-facing content).** Run the skill at `skills/panzers-brain/SKILL.md`: audit against its five quality dimensions and 24 AI-fingerprint patterns, rewrite to fix, then run its two-step anti-AI pass. House-style rules adopted from this skill:
+1. **Panzer's Brain editorial pass (required for the first draft of ANY reader-facing content).** Run the skill at `skills/panzers-brain/SKILL.md` (v1.1.4, 35 patterns): audit against its five quality dimensions and AI-fingerprint patterns, rewrite to fix, then run its two-step anti-AI pass. Hard rules to internalize while drafting, not just at review: no twist/reversal endings (3m-iv is a ban — no "N things, only one of them X", no "Everything changed. Y didn't."), no declarative kickers or "the [X] is real" reinforcers, no trap/catch/rub labelers, no dramatic-colon windups ("Bottom line:"), no didactic disclaimers ("it's important to note"). Keep human features: contractions, sentences starting with And/But, semicolons and parentheses as part of the punctuation diet, natural hedges where honest. House-style rules adopted from this skill:
    - Story headlines in sentence case, written like a colleague summarizing the news.
    - Em dashes rare in body prose (the `—` metadata separators in Sources lines are structural and exempt). Verbatim quotes are never altered.
    - Minimal inline bold. Structural labels ("Comment window:", "Source:", Platform Watch lead-ins) are exempt; don't bold sentence fragments for mechanical emphasis.

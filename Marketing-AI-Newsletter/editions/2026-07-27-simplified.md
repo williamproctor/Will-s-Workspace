@@ -81,7 +81,7 @@ Similarweb vs Adthena: 43% vs 18% AI Overview frequency. Single-vendor panels ar
 
 1. "Meta and Anthropic ran the same ad with opposite emotions. Both missed." The Bowie discourse, Altman's satire dunk, and the LinkedIn-praise/X-shredding split add up to a client-ready insight about channel-native messaging. Window: through Wednesday's Meta earnings.
 2. "Automated engagement is a violation now, not a tactic." 42,000 accounts gone and "human in the loop" is the new line. Post the survival guide: draft-with-review lives, autopilot dies. Window: this week.
-3. "AI search became a paid channel. Citations are still earned." Google sells the placement, not the citation (11% overlap; 74% of chats ad-free). The paid-versus-earned frame is unclaimed. Window: durable, freshest now.
+3. "AI search became a paid channel. Citations are still earned." Google sells placements; citations stay earned (11% overlap; 74% of chats ad-free). The paid-versus-earned frame is unclaimed. Window: durable, freshest now.
 4. "Would your ads survive August 2?" A synthetic spokesperson in the EU means a label or 3%-of-turnover exposure. The decision-tree post writes itself. Window: hard deadline this week.
 5. "Your buyers still call it SEO." 81% say SEO, AEO gets 3% of searches, buzzword pitches are the top red flag. A self-aware take for a team that uses "AEO" daily. Window: a week or two.
 
