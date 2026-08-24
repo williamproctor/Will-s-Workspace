@@ -1,6 +1,16 @@
 {
   "editions": [
     {
+      "slug": "2026-08-24",
+      "title": "Week of August 24, 2026",
+      "hook": "Three ad platforms narrowed manual price controls in one week, and Dutch regulators priced unaccountable automation at €825 million the same Friday. ChatGPT ads reach 31 European markets today without personalization, Apple Maps ads went live with 15% back, Walmart's AI shopper users spend 40% more per order, and a million LinkedIn members clicked 'seems like AI slop.'",
+      "description": "The manual-bid squeeze across Google, Microsoft, and ChatGPT Ads; Europe's contextual-only ChatGPT ads launch; Apple Maps ads go live; Walmart's agentic-commerce receipts; Uber's €825M Article 22 fine; the IAB's 31.5% label tax and StackAdapt's 6% delegation rate; LinkedIn's slop button hits a million clicks.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-08-17",
       "title": "Week of August 17, 2026",
       "hook": "Google changed three controls in four weeks, making September performance unreadable by design. AI Max campaigns carry 72% more invalid traffic, Wall Street cut The Trade Desk 22%, Perplexity banned Time's agent ads, and the NYT priced content at $4,000 a unit.",
