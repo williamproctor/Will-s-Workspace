@@ -437,3 +437,75 @@ function initPodcastPlayer(scope) {
       : '<polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
   });
 }
+
+/* ---------- Email subscribe form (homepage) ---------- */
+
+function initSubscribeForms() {
+  var forms = document.querySelectorAll('.subscribe-form');
+  if (!forms.length) return;
+
+  // No-JS submissions round-trip through /api/subscribe and come back with
+  // ?subscribed=ok|error&msg=... — surface that message and clean the URL.
+  var params = new URLSearchParams(window.location.search);
+  var returned = params.get('subscribed');
+
+  forms.forEach(function (form) {
+    var status = form.querySelector('.subscribe-status');
+    var row = form.querySelector('.subscribe-row');
+    var input = form.querySelector('input[name="email"]');
+    var button = form.querySelector('button[type="submit"]');
+
+    function show(kind, text) {
+      if (!status) return;
+      status.textContent = text;
+      status.className = 'subscribe-status is-' + kind;
+    }
+
+    function succeed(text) {
+      show('ok', text);
+      if (row) row.classList.add('is-done');
+      if (input) input.value = '';
+      if (button) button.disabled = false;
+    }
+
+    if (returned) {
+      var msg = params.get('msg') || (returned === 'ok' ? "You're on the list." : 'Something went wrong.');
+      if (returned === 'ok') succeed(msg); else show('error', msg);
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState({}, '', window.location.pathname + '#subscribe');
+      }
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var email = input ? input.value.trim() : '';
+      var website = form.querySelector('input[name="website"]');
+      if (!email || email.indexOf('@') < 1) {
+        show('error', 'Enter a valid email address.');
+        if (input) input.focus();
+        return;
+      }
+      if (button) button.disabled = true;
+      show('pending', 'Adding you…');
+
+      fetch(form.getAttribute('action') || '/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ email: email, website: website ? website.value : '' })
+      })
+        .then(function (res) { return res.json().catch(function () { return {}; }).then(function (data) { return { ok: res.ok, data: data }; }); })
+        .then(function (result) {
+          if (result.ok && result.data && result.data.ok) {
+            succeed(result.data.message || "You're on the list. See you Monday.");
+          } else {
+            show('error', (result.data && result.data.error) || "Couldn't subscribe right now. Try again in a minute.");
+            if (button) button.disabled = false;
+          }
+        })
+        .catch(function () {
+          show('error', "Couldn't reach the server. Try again in a minute.");
+          if (button) button.disabled = false;
+        });
+    });
+  });
+}

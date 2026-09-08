@@ -95,6 +95,9 @@ def validate(config: dict, editions: list[dict]) -> list[str]:
         if not (TEMPLATES_DIR / template).exists():
             errors.append(f"missing template site/templates/{template}")
 
+    if subscribe_enabled(config) and not (SITE_DIR / "api" / "subscribe.js").exists():
+        errors.append("config.subscribe.enabled is true but site/api/subscribe.js is missing")
+
     return errors
 
 
@@ -121,6 +124,49 @@ LOGO_MARK_SVG = """<svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
         <circle cx="33" cy="39" r="4" fill="#e9f8ea"/>
         <circle cx="62" cy="10" r="6.5" fill="#79d3a3"/>
       </svg>"""
+
+
+def subscribe_enabled(config: dict) -> bool:
+    return bool((config.get("subscribe") or {}).get("enabled"))
+
+
+def subscribe_nav(config: dict, href: str) -> str:
+    if not subscribe_enabled(config):
+        return ""
+    return f'<a href="{href}">Subscribe</a>'
+
+
+def subscribe_section(config: dict) -> str:
+    """Email capture block for the homepage. Renders nothing until
+    config.subscribe.enabled is true, so the form never ships before the
+    /api/subscribe function has its Resend credentials."""
+    if not subscribe_enabled(config):
+        return ""
+    sub = config["subscribe"]
+    return f"""  <section class="section subscribe" id="subscribe">
+    <div class="section-inner">
+      <div class="subscribe-card">
+        <div class="subscribe-copy">
+          <span class="section-label">Every {esc(config.get("publicationDay", "Monday"))} · Free</span>
+          <h2>{esc(sub.get("headline", "Get the Signal in your inbox"))}</h2>
+          <p>{esc(sub.get("blurb", ""))}</p>
+        </div>
+        <form class="subscribe-form" action="/api/subscribe" method="post" novalidate>
+          <label class="sr-only" for="subscribe-email">Email address</label>
+          <div class="subscribe-row">
+            <input id="subscribe-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@company.com" required>
+            <button class="btn btn-primary" type="submit">Subscribe {ARROW_SVG}</button>
+          </div>
+          <div class="subscribe-hp" aria-hidden="true">
+            <label>Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <p class="subscribe-status" role="status" aria-live="polite"></p>
+          <p class="subscribe-fine">{esc(sub.get("finePrint", ""))}</p>
+        </form>
+      </div>
+    </div>
+  </section>
+"""
 
 
 def common_tokens(config: dict, build_version: str) -> dict[str, str]:
@@ -164,6 +210,7 @@ def build_edition_page(config: dict, edition: dict, template: str, build_version
             "HAS_VIDEO": "true" if edition.get("hasVideo") else "false",
             "AUDIO_TITLE_JS": json.dumps(f"{config['name']} — Audio Briefing"),
             "VIDEO_TITLE_JS": json.dumps(edition.get("videoTitle") or edition["title"]),
+            "SUBSCRIBE_NAV": subscribe_nav(config, "/#subscribe"),
         }
     )
     return fill(template, tokens)
@@ -218,6 +265,8 @@ def build_homepage(config: dict, editions: list[dict], template: str, build_vers
             "HERO_SUB": esc(config["description"]),
             "HERO_META": esc(f"Every {day} · {config.get('audienceNote', '')} · Curated with AI assistance".strip(" ·")),
             "STATEMENT_HTML": config.get("statementHtml", ""),
+            "SUBSCRIBE_NAV": subscribe_nav(config, "#subscribe"),
+            "SUBSCRIBE_SECTION": subscribe_section(config),
             "LATEST_URL": f"/editions/{latest['slug']}",
             "CADENCE_LABEL": esc(f"Published {day}s"),
             "FEATURED_CARD": featured_card(config, latest),

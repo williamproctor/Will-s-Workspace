@@ -126,9 +126,24 @@ The edition page renders as a side-nav reader app (`initEditionApp` in `site/sha
 6. **Build** — `python3 scripts/build_site.py`, preview with `python3 serve.py` (port 8092).
 7. **Commit and push.** Vercel deploys `site/` when connected.
 
+## Email Distribution (Resend)
+
+Decided 2026-09-08 after a cost/tooling review: **Resend's marketing tier** (free to 1,000 contacts, unlimited sends, unsubscribe handling on broadcasts) plus a Vercel serverless function, so the email is a build artifact and no third-party branding touches the site.
+
+**Phase 1 — capture (built, shipped dark):**
+
+- `site/api/subscribe.js` — Vercel function at `/api/subscribe`. Validates the address, drops honeypot submissions with a fake success, adds the contact to the Resend audience, treats duplicates as success, and returns JSON (or a 303 back to `/#subscribe` for no-JS form posts). Needs two env vars in Vercel: `RESEND_API_KEY` and `RESEND_AUDIENCE_ID`. Without them it answers 503 "Signups aren't switched on yet."
+- The homepage signup section and the "Subscribe" nav link render only when `config.subscribe.enabled` is `true`; the builder refuses to enable it if the function file is missing. Copy lives in `config.subscribe` (headline, blurb, fine print, from name/address, reply-to).
+- `scripts/resend_setup.py` — one-time setup with `RESEND_API_KEY` in the environment: `domain add` registers the domain and prints the exact DNS records (DKIM, bounce MX/TXT; add a DMARC TXT too), `domain status`/`verify` re-check, `audience create` prints the id for `RESEND_AUDIENCE_ID`, `contacts count` reports list size.
+- Go-live order: Resend account → API key in Cloud Agent secrets and Vercel env → `domain add` → DNS records added → `domain verify` shows verified → `audience create` → `RESEND_AUDIENCE_ID` in Vercel → set `enabled: true`, rebuild, merge.
+
+**Phase 2 — the send (next):** `scripts/build_email.py` renders the simplified edition into email-safe HTML (light "paper" variant with the greens as accents, linking out to the dark reader), `scripts/send_edition.py` creates a Resend broadcast as a draft, then sends after a test to the editor. Add the send as the final step of the publish workflow below. **Phase 3:** welcome email, double opt-in if the list opens to the public.
+
+Testing without credentials: `node /tmp/…` harness style — require the handler, stub `global.fetch`, and assert status codes (method guard, honeypot, invalid, 503 unconfigured, success, 409 duplicate, form redirect). Front-end flow: enable the flag, build, and drive the form in headless Chromium with `page.route('**/api/subscribe', …)`.
+
 ## Technical Notes
 
 - Editions are Markdown in `editions/`, named `YYYY-MM-DD.md` with the **Monday publication date** (covering the previous 7 days). A `-simplified.md` sibling powers the Quick Summary toggle.
 - The site renders markdown client-side (`site/shared.js`), then wraps each H3 block into an expandable card and collapses the Sources section. Numbered lists render as plain paragraphs (renderer parity with the AV site) — keep Sources as `1. [..]` lines.
 - Images: place under `site/editions/YYYY-MM-DD/` and reference root-relative. Never hardcode a domain in markdown.
-- No subscribe CTAs and no email-send integration yet. Distribution starts as a shareable site plus the markdown itself.
+- Email capture ships behind `config.subscribe.enabled` (see Email Distribution above); the weekly send is Phase 2. Until then, distribution is the shareable site plus the markdown itself.
