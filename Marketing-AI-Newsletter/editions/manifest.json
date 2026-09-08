@@ -1,6 +1,26 @@
 {
   "editions": [
     {
+      "slug": "2026-09-07",
+      "title": "Week of September 7, 2026",
+      "hook": "Two ad auctions had their integrity adjudicated in one week: the FTC accused Amazon of rigging seven years of ad auctions with an invented bidder, and a judge let Google keep its ad-tech stack. The AI Max migration went live as a month-long window, Gemini 3.8 Flash stopped citing sources for two days, and Xero's influencer told small businesses to fire their accountants.",
+      "description": "The FTC's Amazon ad-auction suit and Google's ad-tech remedies ruling in the same week; the AI Max migration as a window, not a switch; the Gemini 3.8 Flash citation bug; Search Console's AI reports go global without clicks; Xero's channel revolt, Suno's unauthorized Blige ad, and OpenAI's Astra film.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
+      "slug": "2026-08-31",
+      "title": "Week of August 31, 2026",
+      "hook": "AI agents got write access to live ad accounts while humans lost levers: Meta's placement exclusions vanished and Google removed the Show more button and encrypted search exits. Meta agreed to pay up to $18 billion and cap teen use at two hours a day, and Samsung sold a filmmakers' drive with an ad no filmmaker made.",
+      "description": "X Ads MCP and The Trade Desk's Claude integration put agents in the ad account; Meta's $18B teen settlement and two-hour clock; Google's auto-expanding AI Overviews, in-search hotel booking, and /goto redirects; Meta's vanished placement exclusions; AI search audited from three sides; Samsung's all-AI ad and the cost signal.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-08-24",
       "title": "Week of August 24, 2026",
       "hook": "Three ad platforms narrowed manual price controls in one week, and Dutch regulators priced unaccountable automation at €825 million the same Friday. ChatGPT ads reach 31 European markets today without personalization, Apple Maps ads went live with 15% back, Walmart's AI shopper users spend 40% more per order, and a million LinkedIn members clicked 'seems like AI slop.'",
