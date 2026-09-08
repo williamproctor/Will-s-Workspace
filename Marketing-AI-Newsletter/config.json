@@ -12,5 +12,14 @@
   "domain": "https://mondaysignal.com",
   "publicationDay": "Monday",
   "accentColor": "#79d3a3",
-  "footerLine": "Monday Signal is a weekly AI and tech briefing for marketers, produced for the GrowthX team. Curated with AI assistance."
+  "footerLine": "Monday Signal is a weekly AI and tech briefing for marketers, produced for the GrowthX team. Curated with AI assistance.",
+  "subscribe": {
+    "enabled": false,
+    "headline": "Get the Signal in your inbox",
+    "blurb": "One email every Monday: what marketing X and LinkedIn are arguing about, the week's hard news with sources, and angles you can post before the window closes.",
+    "finePrint": "One email a week. Unsubscribe in one click.",
+    "fromName": "Monday Signal",
+    "fromEmail": "signal@mondaysignal.com",
+    "replyTo": ""
+  }
 }
