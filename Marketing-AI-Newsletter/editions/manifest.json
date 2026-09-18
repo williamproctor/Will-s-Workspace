@@ -1,6 +1,16 @@
 {
   "editions": [
     {
+      "slug": "2026-09-14",
+      "title": "Week of September 14, 2026",
+      "hook": "Google shipped what it calls the largest quality reduction in its 29-year history to Europe and said so to Reuters. People Also Ask is now 97% AI Overviews, Amazon's DSP sells ChatGPT ads while OpenAI bars rival image and voice tools from buying them, Shopping ads' rising CTR is a shrinking denominator, and a sportsbook deepfaked a fan two days after she went viral.",
+      "description": "Google's self-declared quality drop in Europe under the DMA; People Also Ask at 97% AI answers; Amazon DSP × ChatGPT and OpenAI's private ad-category ban; Mike Ryan's reverse crocodile effect in Shopping ads; chatbots talking shoppers out of purchases; blogging confidence at a twelve-year low; BetUS's deepfake ad; Google's revoked promotional credits; Amodei's call to pace the frontier.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-09-07",
       "title": "Week of September 7, 2026",
       "hook": "Two ad auctions had their integrity adjudicated in one week: the FTC accused Amazon of rigging seven years of ad auctions with an invented bidder, and a judge let Google keep its ad-tech stack. The AI Max migration went live as a month-long window, Gemini 3.8 Flash stopped citing sources for two days, and Xero's influencer told small businesses to fire their accountants.",
