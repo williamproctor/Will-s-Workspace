@@ -1,6 +1,16 @@
 {
   "editions": [
     {
+      "slug": "2026-09-21",
+      "title": "Week of September 21, 2026",
+      "hook": "The ad-tech remedies opinion came out: AdX into Prebid, AdWords barred from bidding straight into DFP, a six-year monitor, DV360 untouched. Google started paying some publishers for shaping AI answers, OpenAI tested Sponsored Agents, Profound raised at $1.8 billion, and budget-limited CPCs rose 15.8% after August 17.",
+      "description": "Brinkema's unsealed ad-tech remedies; Google's AI contribution pilot pays for generation-phase content; Sponsored Agents and sponsored links move ads inside the answer; Google's holiday agentic-commerce toolkit; Europe's remedy removes free product listings; Microsoft's AI-ad disclosure rules; Novig's Sydney Sweeney ad and the 4% problem; Profound's unicorn round; first data on the August 17 bidding change.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-09-14",
       "title": "Week of September 14, 2026",
       "hook": "Google shipped what it calls the largest quality reduction in its 29-year history to Europe and said so to Reuters. People Also Ask is now 97% AI Overviews, Amazon's DSP sells ChatGPT ads while OpenAI bars rival image and voice tools from buying them, Shopping ads' rising CTR is a shrinking denominator, and a sportsbook deepfaked a fan two days after she went viral.",
