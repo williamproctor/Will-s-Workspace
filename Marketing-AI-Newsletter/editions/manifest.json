@@ -1,6 +1,16 @@
 {
   "editions": [
     {
+      "slug": "2026-09-28",
+      "title": "Week of September 28, 2026",
+      "hook": "Amazon locked Meta's Muse agent out of its store, and within two days Shopify, PayPal, and Expedia signed on to let it shop. Google switched on AI Mode checkout by default for Shopify stores, with orders GA4 can't see, ChatGPT's share of AI prompts fell from 70% to 50%, and Kalshi ran a creator's video as an ad with his face swapped.",
+      "description": "The agentic-commerce standoff over Meta's Muse (Amazon's block, Shopify, PayPal, Expedia, six banks' principles, Amazon's Claude seller plugin); Comscore's AI prompt-share shift; Made on YouTube's brand-deal and likeness tools; AI Max and Microsoft reporting on what the automation chose; the CMA's choice screens for AI assistants; Temu's likely fake creators; Kalshi's race-swapped AI ad; default-on AI Mode checkout for Shopify stores; AI Overview links that open AI Mode.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-09-21",
       "title": "Week of September 21, 2026",
       "hook": "The ad-tech remedies opinion came out: AdX into Prebid, AdWords barred from bidding straight into DFP, a six-year monitor, DV360 untouched. Google started paying some publishers for shaping AI answers, OpenAI tested Sponsored Agents, Profound raised at $1.8 billion, and budget-limited CPCs rose 15.8% after August 17.",
