@@ -78,7 +78,7 @@ Fortune (Sept 25): after its Aug 31 story (up to $962M on Meta partnership ads; 
 Amazon blocked a shopper's agent and invited sellers' agents; Shopify, PayPal, and the banks set terms for Muse.
 
 ### Default-on is the launch plan
-Native checkout "automatically included," agentic storefronts on by default, AI Max absorbing DSA and broad match. The decision sits at the opt-out.
+Native checkout "automatically included," agentic storefronts on by default, AI Max absorbing auto-created-asset and broad-match campaigns (DSA follows in February 2027). The decision sits at the opt-out.
 
 ### The creator is the new attack surface
 Kalshi's face swap, Temu's likely fake creators, YouTube's likeness detection on phones.
