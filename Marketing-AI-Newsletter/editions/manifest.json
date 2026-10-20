@@ -1,6 +1,16 @@
 {
   "editions": [
     {
+      "slug": "2026-10-05",
+      "title": "Week of October 5, 2026",
+      "hook": "A judge threw out Penske's and Chegg's AI Overviews suits (\"an expectation is not an agreement\") while Reddit moved to close its free API and Cloudflare let sites charge AI agents. Trackers found AI Overviews on most brand searches, Google told sites to fact-check all AI content, and Amazon launched AI-run Full-Funnel Campaigns.",
+      "description": "Mehta dismisses the Penske and Chegg AI Overviews suits; Google's AI pilot payouts; Reddit's API closure and Cloudflare's Monetization Gateway; publishers' ad tech claims head to trial and the DOJ-Google proposed Final Judgment; Safari in iOS 27 blocks The Trade Desk; Shopify and Mastercard identify shopping agents; review becomes marketing's bottleneck; OpenAI's Australia apology and dots; AI Overviews on branded searches; Google's fact-check rule for AI content; Amazon's Full-Funnel Campaigns.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-09-28",
       "title": "Week of September 28, 2026",
       "hook": "Amazon locked Meta's Muse agent out of its store, and within two days Shopify, PayPal, and Expedia signed on to let it shop. Google switched on AI Mode checkout by default for Shopify stores, with orders GA4 can't see, ChatGPT's share of AI prompts fell from 70% to 50%, and Kalshi ran a creator's video as an ad with his face swapped.",
