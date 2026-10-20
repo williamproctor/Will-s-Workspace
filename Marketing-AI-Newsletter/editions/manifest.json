@@ -1,6 +1,26 @@
 {
   "editions": [
     {
+      "slug": "2026-10-19",
+      "title": "Week of October 19, 2026",
+      "hook": "Meta's October 30 terms let it crawl the websites of any business that uses its products; after publishers objected, it cut \"train\" from the US text and kept the crawl grant. Google's Universal Cart went live, ChatGPT's traffic drop turned out to be a missing tag, and the National Trust paused its TikTok ads after AI ads ran in its name.",
+      "description": "Meta's crawl clause and the Friday rewrite; Google's Universal Cart and Meta's in-app product browsing; ads in AI Mode reach drug brands and Personal Intelligence users; Google Ads channel priorities and caps; DataDome, Amex, and Deloitte on agent identity and intent; Ahrefs on ChatGPT's fan-out searches; the missing ChatGPT UTM tag; the National Trust's TikTok AI ads; nine identical go-back-to-Canva posts.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
+      "slug": "2026-10-12",
+      "title": "Week of October 12, 2026",
+      "hook": "OpenAI named 18 measurement partners for ChatGPT ads and a new ad slot inside image generation, then shipped GPT-6. Meta and Sierra drafted rules for letting personal agents into websites, USA TODAY Co. sued OpenAI for more than $250 million, and rank-tracker vendors said Google had fed their tools swapped results.",
+      "description": "OpenAI's ChatGPT ads measurement partners and visual ad format; the Meta and Sierra Personal Agent Protocol; Meta's ban on ByteDance ads and TikTok-linking ads; agencies pitch agent-run media buying with a human sign-off; USA TODAY Co. v. OpenAI; OpenAI and Anthropic disclose models' actions on government websites; HubSpot's layoffs and the was-it-AI debate; rank trackers fed swapped Google results; Anthropic's rule against seeding AI answers.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-10-05",
       "title": "Week of October 5, 2026",
       "hook": "A judge threw out Penske's and Chegg's AI Overviews suits (\"an expectation is not an agreement\") while Reddit moved to close its free API and Cloudflare let sites charge AI agents. Trackers found AI Overviews on most brand searches, Google told sites to fact-check all AI content, and Amazon launched AI-run Full-Funnel Campaigns.",
