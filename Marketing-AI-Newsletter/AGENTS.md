@@ -126,6 +126,17 @@ The edition page renders as a side-nav reader app (`initEditionApp` in `site/sha
 6. **Build** — `python3 scripts/build_site.py`, preview with `python3 serve.py` (port 8092).
 7. **Commit and push.** Vercel deploys `site/` when connected.
 
+### Automated weekly run
+
+Since 2026-10-21 the edition publishes itself: a timer on the Monday Signal cloud agent fires Mondays at 08:00 UTC (midnight Pacific standard time, 1 AM daylight time) and runs `WEEKLY_RUN.md` end to end (research agent, drafting agent, parent review, build, PR, merge, production check). It also fires Thursdays for a health check that publishes any edition a failed Monday run missed. Timers expire after 7 days, so every firing renews it first. The supporting pieces:
+
+- `scripts/edition_dates.py` — which edition is due, its coverage window, and any missed weeks.
+- `briefs/research-brief.md` and `briefs/drafting-brief.md` — the standing instructions handed to the research and drafting subagents (sourcing policy, output format, style rules, length budget).
+- `scripts/qa_edition.py <slug> --fix --urls` — one-command pre-publication QA: structure, footer, em dashes and banned phrases outside verbatim quotes, curly quotes, weekday/date mismatches, editor's-note count, word budget, source diversity, and the URL audit. Errors block publishing.
+- `scripts/dom_test.js` — renders an edition in jsdom (both reading modes) locally or on production and checks the homepage features it.
+
+The same tools serve manual runs: follow `WEEKLY_RUN.md` with a `--slug` override when producing an edition by hand.
+
 ## Email Distribution (Resend)
 
 Decided 2026-09-08 after a cost/tooling review: **Resend's marketing tier** (free to 1,000 contacts, unlimited sends, unsubscribe handling on broadcasts) plus a Vercel serverless function, so the email is a build artifact and no third-party branding touches the site.
