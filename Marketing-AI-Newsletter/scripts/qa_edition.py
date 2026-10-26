@@ -101,7 +101,7 @@ def check_text(path: Path, kind: str, slug_date: dt.date, rep: Report) -> None:
             m = re.search(pattern, body, re.IGNORECASE)
             if m:
                 rep.error(f"{name}:{n}: banned phrase '{m.group(0)}': {line.strip()[:110]}")
-        for weekday, month, day in DATE_RE.findall(line):
+        for weekday, month, day in DATE_RE.findall(body):
             month_no = MONTHS.index(month) + 1
             year = slug_date.year
             if month_no == 12 and slug_date.month == 1:

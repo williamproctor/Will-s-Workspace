@@ -1,6 +1,16 @@
 {
   "editions": [
     {
+      "slug": "2026-10-26",
+      "title": "Week of October 26, 2026",
+      "hook": "Meta's ad revenue rose 26% on a 14% higher price per ad, and Zuckerberg said businesses will pay a fee on Muse purchases. Marketing LinkedIn argued over whether GEO is a distraction, and OpenAI said it will rewrite ChatGPT ads by default unless advertisers opt out.",
+      "description": "Meta's Q3 and the Muse transaction fee; Meta's terms pushed to November 20; Safari 27 blocks identity-resolution domains; ChatGPT Ads in 89 countries; Salesforce buys Braze; Netflix cuts its ad forecast; the GEO-is-a-distraction debate; ChatGPT and Meta rewrite ads by default; Just Eat's AI menu photos.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-10-19",
       "title": "Week of October 19, 2026",
       "hook": "Meta's October 30 terms let it crawl the websites of any business that uses its products; after publishers objected, it cut \"train\" from the US text and kept the crawl grant. Google's Universal Cart went live, ChatGPT's traffic drop turned out to be a missing tag, and the National Trust paused its TikTok ads after AI ads ran in its name.",
