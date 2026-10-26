@@ -23,7 +23,7 @@ Repo: `/workspace/Marketing-AI-Newsletter/`. Read these first:
 
 ## Discovery indexes (find stories here, then chase origins)
 - Search Engine Roundtable daily recaps (`seroundtable.com/recap-MM-DD-YYYY-NNNNN.html`) and the Friday "Search News Buzz Video Recap" (`seroundtable.com/video-MM-DD-YYYY-NNNNN.html`); search "Search Engine Roundtable daily recap <date>".
-- Anicca's Monday roundup: `anicca.co.uk/blog/YYYY-MM-DD-ai-in-marketing-management/`, which usually names sources per story.
+- Anicca's Monday roundup: `anicca.co.uk/blog/YYYY-MM-DD-ai-in-marketing-management/`, which usually names sources per story. On the automated run (Monday 08:00 UTC), Anicca, Agency AEO, and woozeer usually haven't published that week's issue yet; lean on Search Engine Roundtable's five daily recaps plus its Friday video recap, and Lift Conversions' "The Lift Brief" (Friday to Friday).
 - Agency AEO "The Shift" (`agencyaeo.com/insights/the-shift-...`), woozeer.com/ai-news, PPC Land, Silverback weekly roundups.
 - Origin reporting and conversation: Digiday, Adweek, AdExchanger, Ad Age, Marketing Brew, Search Engine Land, Search Engine Journal, Social Media Today, The Verge, TechCrunch, CNBC, Axios, Business Insider, Press Gazette, MediaPost, Retail Brew, Modern Retail, Nieman Lab.
 - Conversation-layer searches that work: "marketing LinkedIn debate <topic> <month year>", "viral ad backlash <month year>", "<brand> AI ad backlash X", "<person> LinkedIn post <phrase>". Coverage often embeds the original post (text and date); LinkedIn post URLs show up in search results. A LinkedIn activity ID shifted right by 22 bits is the post's timestamp in ms since the epoch.
