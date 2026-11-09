@@ -87,6 +87,7 @@ node scripts/dom_test.js https://www.mondaysignal.com <slug>
 ```
 
 ### 7. Wrap up
-- Confirm with `list_subscriptions` that `monday-signal-weekly` exists with cron `0 8 * * 1,4` and an expiry later than next Thursday 08:00 UTC; renew it again if not.
+- Renew the timer again (unsubscribe, then `subscribe_timer` with the same name, cron, and prompt). Renewing at the end of a Monday run, a couple of hours after the firing, puts next Monday's expiry hours after its firing instead of about a minute after. That margin is what saves the chain if Thursday's renewal fails: on 2026-11-05 a hung `list_subscriptions` call stopped the Thursday renewal, and Monday's firing landed about a minute before expiry. Confirm with `list_subscriptions` that the timer exists with cron `0 8 * * 1,4`.
+- If `list_subscriptions` hangs, unsubscribe using the subscription ID recorded in the previous run's report or TEAM-MEMORY, and move on.
 - Add a TEAM-MEMORY entry only for something new (a failure, a fix, a sourcing pattern). Routine runs don't need one.
 - Report to Will in a few sentences: the live link, the lede, the headlines, any correction made, and anything held back or unverified.
