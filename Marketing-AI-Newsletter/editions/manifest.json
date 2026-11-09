@@ -1,6 +1,16 @@
 {
   "editions": [
     {
+      "slug": "2026-11-09",
+      "title": "Week of November 9, 2026",
+      "hook": "Midterm political ads set a record $11.87 billion, with CTV ahead of cable for the first time in a midterm and most AI-made ads running without a disclaimer. Meta paused its new business terms, a working paper argued ChatGPT's ads don't pay, and Google indexed millions of Facebook's AI-written pages.",
+      "description": "Record midterm ad spend and unlabeled AI political ads; Meta pauses its new terms and a São Paulo court order; AI Mode home-services booking and Performance Max's brand-query handback; AI discovery on Shopify, HubSpot, and Snap calls; AppLovin vs. the rest of ad tech; the NYT and Tribune sue Brave; John Lewis, Dior, and the AI-ad backlash; the ChatGPT ads-don't-pay paper; Facebook's AI-written Answers pages.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-11-02",
       "title": "Week of November 2, 2026",
       "hook": "Google expanded ads in AI Mode the same day Alphabet said AI Mode monetizes less, and Reddit's CEO said AI Mode \"does not drive traffic\" before Reddit's stock fell about 30%. Meta's new business terms hit an Oslo court order and a CMA case, and four AI companies backed one robots.txt token for AI training.",
