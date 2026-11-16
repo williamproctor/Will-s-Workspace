@@ -1,6 +1,16 @@
 {
   "editions": [
     {
+      "slug": "2026-11-16",
+      "title": "Week of November 16, 2026",
+      "hook": "Google started its November core update, made Gemini 4 Hydrogen AI Mode's default, and under-logged AI impressions for November 9–11, so this month's comparisons all cross a moving date. Ads moved into AI answers' follow-ups, and OpenAI's Business Hub showed brands their ChatGPT clicks.",
+      "description": "The November core update, Gemini 4 Hydrogen, and Search Console's logging error; ads in AI Mode follow-ups, Bing's AI Mode, and ChatGPT image generation; Salesforce's Cyber Week AI forecast; The Trade Desk, PubMatic, Zeta, and Liftoff Q3; Yahoo Scout licenses from a publishers' collective as Google loses again to SerpApi; Google Ads bans disclosed AI impersonation; OpenAI's Business Hub; ChatGPT Ads target bidding and rejected pixel events.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-11-09",
       "title": "Week of November 9, 2026",
       "hook": "Midterm political ads set a record $11.87 billion, with CTV ahead of cable for the first time in a midterm and most AI-made ads running without a disclaimer. Meta paused its new business terms, a working paper argued ChatGPT's ads don't pay, and Google indexed millions of Facebook's AI-written pages.",
