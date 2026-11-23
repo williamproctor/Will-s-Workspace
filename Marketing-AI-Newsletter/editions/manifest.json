@@ -1,6 +1,16 @@
 {
   "editions": [
     {
+      "slug": "2026-11-23",
+      "title": "Week of November 23, 2026",
+      "hook": "In the last week before Black Friday, Muse's shopping skill started saying \"Do not search Amazon,\" Andy Jassy asked outside agents for \"a fair exchange of value,\" and Salesforce forecast $75.8 billion of Cyber Week sales influenced by AI. Anthropic priced its IPO at $83, and Microsoft put ads in Bing's AI Overviews.",
+      "description": "Agent shopping before Black Friday (Muse, Amazon, Salesforce, Klarna); Microsoft's ads in Bing's AI Overviews; Anthropic's IPO; Google's AI-search homepage sidebar and an AI opt-out test; Dentsu's guidance cut and Bloomreach buying AthenaHQ; Coca-Cola's live-action holiday ad; Think with Google vs. SEOs on AI visibility; the core update and scaled AI content; ChatGPT's Black Friday coupon codes.",
+      "hasSimplified": true,
+      "hasAudio": false,
+      "hasVideo": false,
+      "videoTitle": ""
+    },
+    {
       "slug": "2026-11-16",
       "title": "Week of November 16, 2026",
       "hook": "Google started its November core update, made Gemini 4 Hydrogen AI Mode's default, and under-logged AI impressions for November 9–11, so this month's comparisons all cross a moving date. Ads moved into AI answers' follow-ups, and OpenAI's Business Hub showed brands their ChatGPT clicks.",
